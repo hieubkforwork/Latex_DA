@@ -7,39 +7,46 @@
 \contentsline {section}{\numberline {1.5}Bố cục luận văn}{8}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Tổng quan dự án}{9}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Giao tiếp phần cứng công nghiệp}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Linux Device Driver}{11}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Kiến trúc Layer trong Yocto}{11}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Các thành phần chính trong Layer của Yocto Project}{12}{subsection.3.2.2}%
-\contentsline {subsubsection}{Recipe (.bb)}{12}{subsubsection*.4}%
-\contentsline {subsubsection}{Configuration}{13}{subsubsection*.5}%
-\contentsline {subsubsection}{Patch}{13}{subsubsection*.6}%
-\contentsline {subsubsection}{Source Code}{14}{subsubsection*.7}%
-\contentsline {subsection}{\numberline {3.2.3}Recipe trong Yocto}{15}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}BitBake Build Engine}{16}{subsection.3.2.4}%
-\contentsline {subsubsection}{Task do\_fetch}{17}{subsubsection*.10}%
-\contentsline {subsubsection}{Task do\_unpack}{17}{subsubsection*.11}%
-\contentsline {subsubsection}{Task do\_patch}{18}{subsubsection*.12}%
-\contentsline {subsubsection}{Task do\_compile}{18}{subsubsection*.13}%
-\contentsline {subsubsection}{Task do\_install}{19}{subsubsection*.14}%
-\contentsline {subsubsection}{Task do\_package}{19}{subsubsection*.15}%
-\contentsline {subsection}{\numberline {3.2.5}Cross-compilation trong Yocto}{19}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Kiến trúc Linux Kernel và Kernel Module}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Tổng quan Linux Kernel}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}User Space và Kernel Space}{22}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Linux Device Driver}{22}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Device Tree trong Linux Embedded}{22}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Kernel Module}{22}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}Kernel Logging}{23}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Cơ chế build Kernel Module}{23}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Cơ chế tự động nạp module}{23}{subsection.3.3.8}%
-\contentsline {section}{\numberline {3.4}Quy trình xây dựng hệ thống nhúng với Yocto}{24}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Quy trình build tổng quát}{24}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Tích hợp Layer tùy chỉnh}{24}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Build Pipeline trong Yocto}{24}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Tích hợp Driver vào Image}{25}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Runtime Verification}{25}{subsection.3.4.5}%
-\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{26}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{27}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{28}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{29}{chapter.7}%
+\contentsline {section}{\numberline {3.1}Tổng quan về Linux nhúng và Yocto Project}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Giới thiệu về Linux}{11}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Khái niệm Embedded Linux}{12}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Giới thiệu Yocto Project và hệ thống Poky}{13}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{14}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Kiến trúc Build System trong Yocto Project}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Kiến trúc Layer trong Yocto}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Các thành phần chính trong Layer của Yocto Project}{16}{subsection.3.2.2}%
+\contentsline {subsubsection}{Recipe (.bb)}{16}{subsubsection*.7}%
+\contentsline {subsubsection}{Configuration}{17}{subsubsection*.8}%
+\contentsline {subsubsection}{Patch}{17}{subsubsection*.9}%
+\contentsline {subsubsection}{Source Code}{18}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {3.2.3}Recipe trong Yocto}{19}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}BitBake Build Engine}{20}{subsection.3.2.4}%
+\contentsline {subsubsection}{Task do\_fetch}{21}{subsubsection*.13}%
+\contentsline {subsubsection}{Task do\_unpack}{21}{subsubsection*.14}%
+\contentsline {subsubsection}{Task do\_patch}{22}{subsubsection*.15}%
+\contentsline {subsubsection}{Task do\_compile}{22}{subsubsection*.16}%
+\contentsline {subsubsection}{Task do\_install}{23}{subsubsection*.17}%
+\contentsline {subsubsection}{Task do\_package}{23}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {3.2.5}Cross-compilation trong Yocto}{23}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Linux Device Driver}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Tổng quan Linux Kernel}{25}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}User Space và Kernel Space}{27}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Linux Device Driver}{29}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Device Tree}{31}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Kernel Module}{33}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Kernel Logging}{35}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Kernel Build System}{37}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Cơ chế tự động nạp module}{39}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Xây dựng và tích hợp Driver trong Yocto}{41}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Bảo mật hệ điều hành Linux nhúng}{44}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Edge AI trong hệ thống nhúng}{44}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Giao diện người dùng trên thiết bị nhúng}{44}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Giao tiếp phần cứng công nghiệp}{44}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Chuẩn vật lý RS485}{44}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Giao thức Modbus RTU và cấu trúc khung tin}{45}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Giao thức truyền tin MQTT/HTTP}{47}{subsection.3.7.3}%
+\contentsline {section}{\numberline {3.8}Kết nối Cloud và IoT}{49}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{50}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{51}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{52}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{53}{chapter.7}%

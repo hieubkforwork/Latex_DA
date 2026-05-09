@@ -602,6 +602,43 @@ INPUT .\sections\c2.tex
 INPUT .\sections\c2.tex
 INPUT .\sections\c2.tex
 INPUT sections\c2.tex
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\Linux.jpg
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\yocto_prj.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\poky.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
@@ -651,10 +688,6 @@ INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmtt.fd
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmtt12.tfm
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
@@ -663,6 +696,117 @@ INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\t5-lmr8.tfm
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\t5-lmr6.tfm
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\rs485.jpg
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\modbus.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\mqtt.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\http.png
+INPUT .\image\http.png
+INPUT .\image\http.png
+INPUT .\image\http.png
+INPUT .\image\http.png
+INPUT .\image\http.png
+INPUT .\image\http.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
@@ -704,5 +848,7 @@ INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri10.pfb
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb

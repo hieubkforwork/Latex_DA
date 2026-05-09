@@ -2,12 +2,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Các biến cơ bản trong Recipe}}{15}{table.caption.8}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Các task chính của BitBake}}{17}{table.caption.9}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Mô hình Cross-compilation}}{20}{table.caption.16}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces So sánh User Space và Kernel Space}}{22}{table.caption.17}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Các loại Linux Device Driver}}{22}{table.caption.18}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{25}{table.caption.19}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Các biến cơ bản trong Recipe}}{19}{table.caption.11}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Các task chính của BitBake}}{21}{table.caption.12}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Mô hình Cross-compilation}}{24}{table.caption.19}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces So sánh User Space và Kernel Space}}{28}{table.caption.20}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Các loại Linux Device Driver}}{30}{table.caption.21}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{43}{table.caption.22}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
