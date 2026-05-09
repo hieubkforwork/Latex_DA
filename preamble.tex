@@ -1,0 +1,142 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{vietnam}
+\usepackage[vietnamese]{babel}
+
+\usepackage{tgtermes}
+% ===== Math =====
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{gensymb, textcomp}
+
+% ===== Table & Layout =====
+\usepackage{array, tabularx, longtable, booktabs, multirow, multicol}
+\usepackage{siunitx}
+\usepackage{diagbox}
+
+% ===== Graphic =====
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{adjustbox}
+
+% ===== Text & Format =====
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+
+
+% ===== Code =====
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+
+% ===== Color =====
+\usepackage[dvipsnames]{xcolor}
+
+% ===== Drawing =====
+\usepackage{tikz, tkz-tab}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ===== Box =====
+\usepackage{mdframed}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+
+% ===== System =====
+\usepackage{etoolbox}
+\usepackage{scrextend}
+\usepackage{xurl}
+
+% ===== Algorithm =====
+\usepackage{algorithm2e}
+
+% ===== Hyperlink =====
+\usepackage[
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=blue
+]{hyperref}
+
+% ===== Geometry =====
+\usepackage[
+    left=2.3cm,
+    right=2cm,
+    top=2.5cm,
+    bottom=2.5cm,
+    bindingoffset=1cm
+]{geometry}
+
+% ===== Header/Footer =====
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% ===== Minted =====
+\usepackage{minted}
+
+% ===== Custom =====
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+% ===== Fancy Header =====
+\usepackage{xcolor}
+\definecolor{bkblue}{RGB}{0,102,204}
+\definecolor{bkgray}{RGB}{80,80,80}
+\definecolor{chaptercolor}{RGB}{0,102,204}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(15,15)(0,0)
+    \put(0,-8){\includegraphics[width=9mm]{image/LogoBK.png}}
+   \end{picture}&
+	\begin{tabular}{l}
+		 {\color{bkblue}\bfseries\small Trường Đại học Bách Khoa TP.HCM}\\[-0.3ex]
+         {\color{bkgray}\small Khoa Khoa học và Kỹ thuật Máy tính}
+	\end{tabular} 
+ \end{tabular}
+}
+
+\fancyfoot[L]{\footnotesize \itshape Đồ án Kỹ thuật Máy tính}
+\fancyfoot[R]{\footnotesize Trang \thepage/\pageref{LastPage}}
+
+\renewcommand{\footrulewidth}{0.5pt}
+
+
+
+
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\Huge\color{chaptercolor}}
+  {\filleft\Huge\chaptername\ \thechapter}
+  {2ex}
+  {\titlerule\vspace{2ex}\filright}
+  [\vspace{2ex}\titlerule]
+
+% ===== Caption =====
+\usepackage{caption}
+\captionsetup{labelfont={bf}}
+
+% ===== Section format =====
+\titleformat{\paragraph}
+{\normalfont\normalsize\itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex}{1.5ex}
+
+% ===== Custom label =====
+\makeatletter
+\newcommand{\mylabel}[2]{#2\def\@currentlabel{#2}\label{#1}}
+\makeatother
+
+\titlespacing*{\section}
+{0pt}{0.5em}{1em}
