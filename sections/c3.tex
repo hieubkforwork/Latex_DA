@@ -66,7 +66,7 @@ dm-verity (device-mapper verity) là một cơ chế xác minh tính toàn vẹn
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{image/image4.png}
+    \includegraphics[width=0.8\textwidth]{image/image4.png}
     \caption{Bảo mật chống tấn công offline với dm-verity trong Yocto}
     \label{fig:dmverity} 
 \end{figure}
@@ -80,3 +80,88 @@ Nhờ khả năng xác minh tính toàn vẹn ở mức block device, dm-verity 
 \section{Edge AI trong hệ thống nhúng}
 \section{Giao diện người dùng trên thiết bị nhúng}
 \section{Kết nối Cloud và IoT}
+\subsection{Tổng quan về CoreIOT}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/coreiotp.png}
+    \caption{Tổng quan về CoreIOT}
+    \label{fig:coreiot}
+\end{figure}
+
+CoreIoT là một nền tảng Internet of Things (IoT) được phát triển và xây
+dựng dựa trên định hướng tương tự các nền tảng IoT mã nguồn mở phổ biến như
+ThingsBoard, nhằm phục vụ nhu cầu giảng dạy, nghiên cứu và triển khai các bài
+toán IoT trong môi trường học thuật và đào tạo kỹ thuật. Nền tảng được tùy
+biến và phát triển lại để phù hợp với điều kiện sử dụng, ngôn ngữ và đối tượng
+người dùng là sinh viên, giảng viên và các nhóm nghiên cứu tại nhà trường.
+
+Về mặt kiến trúc tổng thể, CoreIoT được thiết kế theo mô hình nền tảng trung
+tâm, cho phép thu thập, xử lý, lưu trữ và hiển thị dữ liệu từ các thiết bị IoT
+phân tán. Hệ thống đóng vai trò trung gian giữa các thiết bị đầu cuối và người
+dùng, hỗ trợ quản lý thiết bị, giám sát dữ liệu theo thời gian thực và xây dựng
+các ứng dụng IoT hoàn chỉnh. Cách tiếp cận này giúp người học dễ dàng tiếp cận
+các khái niệm cốt lõi của IoT mà không cần triển khai toàn bộ hạ tầng từ đầu.
+
+CoreIoT hỗ trợ kết nối với các thiết bị IoT thông qua các giao thức truyền
+thông phổ biến, đặc biệt phù hợp với các thiết bị nhúng và hệ thống công nghiệp.
+Dữ liệu từ cảm biến sau khi được thu thập tại thiết bị biên sẽ được truyền về
+nền tảng để xử lý và lưu trữ tập trung. Thông qua đó, CoreIoT cho phép theo
+dõi trạng thái thiết bị, phân tích dữ liệu và hiển thị thông tin trực quan trên
+dashboard, hỗ trợ người dùng giám sát hệ thống một cách hiệu quả.
+
+Một điểm nổi bật của CoreIoT là giao diện người dùng được thiết kế theo
+hướng trực quan, thân thiện Các chức năng quản lý
+thiết bị, cấu hình dashboard và theo dõi dữ liệu được đơn giản hóa, giúp sinh
+viên và người mới tiếp cận IoT có thể nhanh chóng làm quen và khai thác nền
+tảng. Điều này góp phần giảm rào cản kỹ thuật trong quá trình học tập và thực
+hành, đồng thời nâng cao hiệu quả đào tạo.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/rulechain.png}
+    \caption{Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}
+    \label{fig:rulechain}
+\end{figure}
+
+Bên cạnh chức năng giám sát, CoreIoT còn hỗ trợ xây dựng các quy tắc xử lý
+dữ liệu và sự kiện thông qua cơ chế xử lý logic ở tầng nền tảng. Các quy tắc này
+cho phép hệ thống phản ứng tự động trước các điều kiện cụ thể, chẳng hạn như
+phát cảnh báo khi giá trị cảm biến vượt ngưỡng hoặc ghi nhận sự kiện phục vụ
+phân tích sau này. Cách tiếp cận này giúp người học hiểu rõ hơn về mô hình xử
+lý dữ liệu và tự động hóa trong các hệ thống IoT hiện đại.
+
+Với định hướng phục vụ đào tạo và nghiên cứu, CoreIoT không chỉ đóng vai
+trò là một công cụ giám sát mà còn là môi trường thực hành giúp sinh viên tiếp
+cận các khái niệm quan trọng như quản lý thiết bị, truyền thông IoT, xử lý dữliệu thời gian thực và tích hợp hệ thống. Nền tảng tạo điều kiện thuận lợi cho
+việc triển khai các đề tài học tập, đồ án và nghiên cứu ứng dụng, đồng thời có
+khả năng mở rộng để đáp ứng các bài toán IoT phức tạp hơn trong tương lai.
+
+\newpage
+\subsection{Giao thức MQTT trong hệ thống nhúng}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/mqtt1.png}
+    \caption{Giao thức MQTT trong hệ thống nhúng}
+    \label{fig:mqtt}
+
+    \vspace{0.3em}
+    \small
+    Nguồn: https://www.manubes.com/what-is-mqtt/
+\end{figure}
+
+MQTT (Message Queuing Telemetry Transport) là một giao thức truyền tin
+nhẹ, được thiết kế theo mô hình publish–subscribe, đặc biệt phù hợp cho các
+hệ thống IoT có tài nguyên hạn chế và yêu cầu truyền dữ liệu với độ trễ thấp.
+Trong mô hình này, các thiết bị không giao tiếp trực tiếp với nhau mà thông
+qua một thành phần trung gian gọi là broker. Thiết bị gửi dữ liệu sẽ đóng vai
+trò publisher, trong khi thiết bị nhận dữ liệu là subscriber, và broker chịu trách
+nhiệm phân phối thông điệp dựa trên các chủ đề (topic).
+
+Một đặc điểm nổi bật của MQTT là kích thước gói tin nhỏ, giúp giảm băng thông và tiết kiệm năng lượng, rất phù hợp với các thiết bị nhúng và mạng truyền
+thông không ổn định. MQTT hỗ trợ nhiều mức chất lượng dịch vụ (Quality of
+Service – QoS), cho phép cân bằng giữa độ tin cậy và hiệu năng truyền thông.
+Bên cạnh đó, giao thức còn hỗ trợ cơ chế giữ kết nối (keep-alive), thông báo trạng
+thái thiết bị và khả năng mở rộng linh hoạt trong các hệ thống IoT quy mô lớn.
+Nhờ các đặc tính trên, MQTT thường được sử dụng trong các ứng dụng giám
+sát thời gian thực, thu thập dữ liệu cảm biến, hệ thống điều khiển từ xa và các
+nền tảng IoT trung tâm như CoreIoT hoặc các nền tảng tương đương.

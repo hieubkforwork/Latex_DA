@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.21)  9 MAY 2026 16:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.21)  9 MAY 2026 18:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1582,7 +1582,7 @@ Package hyperref Info: Link coloring ON on input line 5.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (sections/cover.tex
-<image/LogoBK.png, id=94, 1739.49875pt x 1739.49875pt>
+<image/LogoBK.png, id=102, 1739.49875pt x 1739.49875pt>
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 19.
@@ -1619,48 +1619,52 @@ Package pdftex.def Info: image/LogoBK.png  used on input line 19.
 LaTeX Font Info:    Trying to load font information for T1+qtm on input line 1.
  (C:\Users\ACER\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qtm.fd
 File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
-))
+) [3
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [3
-
-] (main.lot)
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 27.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [4] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [4
+ [5
 
 ] (main.lof)
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
- [5
+ [6
 
 ]
 Ch\uhorn \ohorn ng 1.
-[6
+[7
 
 ] (sections/modau.tex)
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 56.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [7]
+ [8]
 Ch\uhorn \ohorn ng 2.
-[8
+[9
 
 ] (sections/c2.tex)
 Ch\uhorn \ohorn ng 3.
-[9
+[10
 
 ] (sections/c3.tex
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 17.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [10]
-<image/image5.png, id=197, 2006.49625pt x 920.43875pt>
+ [11]
+<image/image5.png, id=218, 2006.49625pt x 920.43875pt>
 File: image/image5.png Graphic file (type png)
 <use image/image5.png>
 Package pdftex.def Info: image/image5.png  used on input line 21.
@@ -1669,7 +1673,7 @@ File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 36.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [11 <./image/image5.png>]
+ [12 <./image/image5.png>]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 46.
  (C:\Users\ACER\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -1678,8 +1682,8 @@ File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 47.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [12]
-<image/image3.png, id=222, 803.0pt x 401.5pt>
+ [13]
+<image/image3.png, id=243, 803.0pt x 401.5pt>
 File: image/image3.png Graphic file (type png)
 <use image/image3.png>
 Package pdftex.def Info: image/image3.png  used on input line 50.
@@ -1688,41 +1692,67 @@ File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 66.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [13 <./image/image3.png>]
-<image/image4.png, id=231, 476.53032pt x 380.92313pt>
+ [14 <./image/image3.png>]
+<image/image4.png, id=252, 476.53032pt x 380.92313pt>
 File: image/image4.png Graphic file (type png)
 <use image/image4.png>
 Package pdftex.def Info: image/image4.png  used on input line 69.
-(pdftex.def)             Requested size: 446.7082pt x 357.1029pt.
+(pdftex.def)             Requested size: 357.36792pt x 285.68582pt.
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
-Package pdftex.def Info: image/LogoBK.png  used on input line 78.
+Package pdftex.def Info: image/LogoBK.png  used on input line 79.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [14 <./image/image4.png>])
+ [15 <./image/image4.png>]
+<image/coreiotp.png, id=259, 1155.1155pt x 548.64975pt>
+File: image/coreiotp.png Graphic file (type png)
+<use image/coreiotp.png>
+Package pdftex.def Info: image/coreiotp.png  used on input line 86.
+(pdftex.def)             Requested size: 446.7082pt x 212.17262pt.
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 111.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [16 <./image/coreiotp.png>]
+<image/rulechain.png, id=266, 1154.51324pt x 543.83176pt>
+File: image/rulechain.png Graphic file (type png)
+<use image/rulechain.png>
+Package pdftex.def Info: image/rulechain.png  used on input line 121.
+(pdftex.def)             Requested size: 446.7082pt x 210.4173pt.
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 139.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [17 <./image/rulechain.png>]
+<image/mqtt1.png, id=273, 1606.0pt x 776.9025pt>
+File: image/mqtt1.png Graphic file (type png)
+<use image/mqtt1.png>
+Package pdftex.def Info: image/mqtt1.png  used on input line 143.
+(pdftex.def)             Requested size: 446.7082pt x 216.0968pt.
+)
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 90.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [15]
+ [18 <./image/mqtt1.png>]
 Ch\uhorn \ohorn ng 4.
-[16
+[19
 
 ] (sections/c4.tex)
 Ch\uhorn \ohorn ng 5.
-[17
+[20
 
 ] (sections/c5.tex)
 Ch\uhorn \ohorn ng 6.
-[18
+[21
 
 ] (sections/c6.tex)
 Ch\uhorn \ohorn ng 7.
-[19
+[22
 
-] (sections/c7.tex) (main.bbl) [20
+] (sections/c7.tex) (main.bbl) [23
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260509164121 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20260509180912 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
 
  
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -1732,20 +1762,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E33E682E04458AF42017E72F9422326E;4619.
+(rerunfilecheck)             Checksum: 10B69890F30F77CE66C541227F67E54A;5063.
  ) 
 Here is how much of TeX's memory you used:
- 45041 strings out of 467871
- 952748 string characters out of 5418859
+ 45075 strings out of 467871
+ 953432 string characters out of 5418859
  1530914 words of memory out of 5000000
- 73063 multiletter control sequences out of 15000+600000
+ 73089 multiletter control sequences out of 15000+600000
  666520 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,25n,110p,1190b,1121s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,25n,110p,1190b,1261s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ACER/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/ACER/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/ACER/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><C:/Users/ACER/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on main.pdf (21 pages, 774437 bytes).
+Output written on main.pdf (24 pages, 1688760 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 366 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 240 words of extra memory for PDF output out of 10000 (max. 10000000)
 

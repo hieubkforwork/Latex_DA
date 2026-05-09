@@ -2,9 +2,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{11}{figure.caption.4}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{13}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{14}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{12}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{14}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{15}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Tổng quan về CoreIOT}}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{18}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
