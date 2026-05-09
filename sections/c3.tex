@@ -1,0 +1,25 @@
+\section{Giao tiếp phần cứng công nghiệp}
+\section{Linux Device Driver}
+\section{Bảo mật hệ điều hành Linux nhúng}
+\subsection{ Khái niệm bảo mật trong Linux nhúng}
+Tăng cường bảo mật (security hardening) là quá trình áp dụng các biện pháp cụ thể nhằm mục tiêu nâng cao sự an toàn cho toàn hệ thống một cách toàn diện. Quá trình không chỉ dừng lại ở việc thiết lập các biện pháp nhằm giảm thiểu tấn công bề mặt (attack surface), mà còn bao gồm việc bảo vệ hệ thống ở nhiều lớp khác nhau, từ kernel, hệ điều hành, dịch vụ cho đến ứng dụng và dữ liệu.
+
+Có nhiều lý do khiến việc tăng cường bảo mật ở các hệ thống nhúng Linux trở thành ưu tiên quan trọng đối với các nhà sản xuất thiết bị, trong đó có ba yếu tố chính cần được đặc biệt quan tâm.
+
+Thứ nhất, khi số lượng các thiết bị nhúng được kết nối Internet ngày càng tăng, các thiết bị này trở thành sự lựa chọn tiềm năng, là mục tiêu cho các cuộc tấn công mạng. Việc kết nối Internet khiến thiết bị dễ dàng bị phát hiện và quét từ bên ngoài. Nếu thiết bị tồn tại lỗ hổng bảo mật, kẻ tấn công có thể khai thác để xâm nhập vào cả hệ thống.
+
+Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{murray2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
+
+Thứ ba, các thiết bị nhúng Linux có thể bị chiếm quyền điều khiển và sử dụng như một công cụ để tấn công các hệ thống khác, chẳng hạn như tham gia vào mạng botnet hoặc thực hiện tấn công DDoS. Trong trường hợp này, kẻ tấn công không nhắm vào dữ liệu của thiết bị mà khai thác khả năng kết nối và tài nguyên xử lý của nó. Do đó, ngay cả các thiết bị đơn giản cũng cần được bảo mật để tránh bị lợi dụng cho các mục đích tấn công. 
+
+Chính vì những rủi ro nêu trên, việc tăng cường bảo mật trở thành một trong những ưu tiên hàng đầu đối với các nhà sản xuất thiết bị, đồng thời là yếu tố xuyên suốt trong quá trình phát triển phần mềm nhúng và các hệ thống kết nối. Đối với các hệ thống sử dụng Linux, Yocto được xem là một công cụ quan trọng, cho phép các developer xây dựng và kiểm soát hệ thống một cách linh hoạt, từ đó tích hợp các cơ chế bảo mật phù hợp ngay từ giai đoạn thiết kế.
+
+Ngày nay, nhiều hệ thống nhúng Linux được xây dựng bằng Yocto Project đang được áp dụng rộng rãi trong các lĩnh vực trọng yếu nhưng có độ bảo mật chưa cao. Khác với các bản phân phối Linux phổ biến như Debian hay Ubuntu, Yocto không cung cấp một hệ điều hành hoàn chỉnh mà cung cấp các công nghệ tùy biến để các developer xây dựng một hệ điều hành theo nhu cầu. Điều này góp phần xây dựng một hệ điều hành có sự linh hoạt cao nhưng đồng thời đi cùng các rủi ro về bảo mật. Đối với các ứng dụng như hệ thống tự động trong công nghiệp, lĩnh vực sức khỏe hay xe tự hành thì tầm quan trọng của bảo mật lại càng trở nên cấp thiết hơn.
+
+\subsection{ Mô hình kiểm soát truy cập DAC và MAC}
+\subsection{ SELinux}
+\subsection{ dm-verity}
+\subsection{ Mô hình bảo mật nhiều lớp (Defense in Depth)}
+\section{Edge AI trong hệ thống nhúng}
+\section{Giao diện người dùng trên thiết bị nhúng}
+\section{Kết nối Cloud và IoT}

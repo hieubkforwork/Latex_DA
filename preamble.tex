@@ -1,0 +1,216 @@
+% ==================================================
+% FONT & LANGUAGE
+% ==================================================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{vietnam}
+\usepackage[vietnamese]{babel}
+
+\usepackage{tgtermes}
+\usepackage{newtxmath}
+
+% ==================================================
+% MATH
+% ==================================================
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{textcomp}
+\usepackage{gensymb}
+
+% ==================================================
+% PAGE LAYOUT
+% ==================================================
+\usepackage[
+left=3cm,
+right=2cm,
+top=2.5cm,
+bottom=2.5cm
+]{geometry}
+
+% ==================================================
+% LINE SPACING & PARAGRAPH
+% ==================================================
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% ==================================================
+% TABLE
+% ==================================================
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{diagbox}
+\usepackage{siunitx}
+
+% ==================================================
+% GRAPHICS
+% ==================================================
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{adjustbox}
+
+% ==================================================
+% COLOR
+% ==================================================
+\usepackage[dvipsnames]{xcolor}
+
+% ==================================================
+% CODE LISTING
+% ==================================================
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single
+}
+
+\lstset{style=mystyle}
+
+% ==================================================
+% DRAWING
+% ==================================================
+\usepackage{tikz}
+\usepackage{tkz-tab}
+
+\usetikzlibrary{shapes.geometric,arrows}
+
+% ==================================================
+% BOX
+% ==================================================
+\usepackage{mdframed}
+\usepackage{framed}
+\usepackage{tcolorbox}
+
+% ==================================================
+% SYSTEM
+% ==================================================
+\usepackage{etoolbox}
+\usepackage{scrextend}
+\usepackage{xurl}
+
+% ==================================================
+% ALGORITHM
+% ==================================================
+\usepackage{algorithm2e}
+
+% ==================================================
+% SECTION FORMAT
+% ==================================================
+\usepackage{titlesec}
+
+\definecolor{chaptercolor}{RGB}{0,102,204}
+
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\Huge\color{chaptercolor}}
+{\filleft\Huge\chaptername\ \thechapter}
+{2ex}
+{\titlerule\vspace{2ex}\filright}
+[\vspace{2ex}\titlerule]
+
+\titlespacing*{\section}
+{0pt}{0.5em}{1em}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\itshape}
+{\theparagraph}
+{1em}
+{}
+
+\titlespacing*{\paragraph}
+{0pt}{3.25ex}{1.5ex}
+
+% ==================================================
+% CAPTION
+% ==================================================
+\usepackage{caption}
+
+\captionsetup{
+font=small,
+labelfont=bf
+}
+
+% ==================================================
+% HEADER & FOOTER
+% ==================================================
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\definecolor{bkblue}{RGB}{0,102,204}
+\definecolor{bkgray}{RGB}{80,80,80}
+
+\setlength{\headheight}{30pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+\begin{tabular}{rl}
+\begin{picture}(15,15)(0,0)
+\put(0,-8){\includegraphics[width=9mm]{image/LogoBK.png}}
+\end{picture}
+&
+\begin{tabular}{l}
+{\color{bkblue}\bfseries\small Trường Đại học Bách Khoa TP.HCM}\\[-0.3ex]
+{\color{bkgray}\small Khoa Khoa học và Kỹ thuật Máy tính}
+\end{tabular}
+\end{tabular}
+}
+
+\fancyfoot[L]{\footnotesize\itshape Đồ án Kỹ thuật Máy tính}
+\fancyfoot[R]{\footnotesize Trang \thepage/\pageref{LastPage}}
+
+\renewcommand{\footrulewidth}{0.5pt}
+
+% ==================================================
+% HYPERLINK
+% ==================================================
+\usepackage[hidelinks]{hyperref}
+
+% ==================================================
+% CUSTOM COMMAND
+% ==================================================
+\definecolor{light-gray}{gray}{0.95}
+
+\newcommand{\code}[1]{
+\colorbox{light-gray}{\texttt{#1}}
+}
+
+\makeatletter
+\newcommand{\mylabel}[2]{
+#2
+\def\@currentlabel{#2}
+\label{#1}
+}
+\makeatother
+
+% ==================================================
+% TOC DEPTH
+% ==================================================
+\setcounter{tocdepth}{2}
