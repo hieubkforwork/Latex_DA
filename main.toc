@@ -7,19 +7,51 @@
 \contentsline {section}{\numberline {1.5}Bố cục luận văn}{8}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Tổng quan dự án}{9}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Giao tiếp phần cứng công nghiệp}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Linux Device Driver}{11}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Bảo mật hệ điều hành Linux nhúng}{11}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Khái niệm bảo mật trong Linux nhúng}{11}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{12}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Bảo mật quyền truy cập hệ thống với SELinux}{13}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Bảo mật chống tấn công offline với dm-verity}{14}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Edge AI trong hệ thống nhúng}{16}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Giao diện người dùng trên thiết bị nhúng}{16}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Kết nối Cloud và IoT}{16}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Tổng quan về CoreIOT}{16}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Giao thức MQTT trong hệ thống nhúng}{18}{subsection.3.6.2}%
-\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{19}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{20}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{21}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{22}{chapter.7}%
+\contentsline {section}{\numberline {3.1}Tổng quan về Linux nhúng và Yocto Project}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Giới thiệu về Linux}{11}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Khái niệm Embedded Linux}{12}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Giới thiệu Yocto Project và hệ thống Poky}{13}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{13}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Kiến trúc Build System trong Yocto Project}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Kiến trúc Layer trong Yocto}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Các thành phần chính trong Layer của Yocto Project}{15}{subsection.3.2.2}%
+\contentsline {subsubsection}{Recipe (.bb)}{16}{subsubsection*.7}%
+\contentsline {subsubsection}{Configuration}{16}{subsubsection*.8}%
+\contentsline {subsubsection}{Patch}{17}{subsubsection*.9}%
+\contentsline {subsubsection}{Source Code}{17}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {3.2.3}Recipe trong Yocto}{18}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}BitBake Build Engine}{19}{subsection.3.2.4}%
+\contentsline {subsubsection}{Task do\_fetch}{20}{subsubsection*.13}%
+\contentsline {subsubsection}{Task do\_unpack}{20}{subsubsection*.14}%
+\contentsline {subsubsection}{Task do\_patch}{21}{subsubsection*.15}%
+\contentsline {subsubsection}{Task do\_compile}{21}{subsubsection*.16}%
+\contentsline {subsubsection}{Task do\_install}{22}{subsubsection*.17}%
+\contentsline {subsubsection}{Task do\_package}{22}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {3.2.5}Cross-compilation trong Yocto}{23}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Linux Device Driver}{24}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Tổng quan Linux Kernel}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}User Space và Kernel Space}{26}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Linux Device Driver}{28}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Device Tree}{30}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Kernel Module}{32}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Kernel Logging}{34}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Kernel Build System}{36}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Cơ chế tự động nạp module}{37}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Xây dựng và tích hợp Driver trong Yocto}{39}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Bảo mật hệ điều hành Linux nhúng}{41}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Khái niệm bảo mật trong Linux nhúng}{41}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{42}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Bảo mật quyền truy cập hệ thống với SELinux}{43}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Bảo mật chống tấn công offline với dm-verity}{44}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Edge AI trong hệ thống nhúng}{47}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Giao diện người dùng trên thiết bị nhúng}{47}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Giao tiếp phần cứng công nghiệp}{47}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Chuẩn vật lý RS485}{47}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Giao thức Modbus RTU và cấu trúc khung tin}{48}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}Kết nối Cloud và IoT}{50}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Tổng quan về CoreIOT}{50}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Giao thức MQTT trong hệ thống nhúng}{52}{subsection.3.8.2}%
+\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{53}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{54}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{55}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{56}{chapter.7}%
