@@ -10,15 +10,14 @@
 \contentsline {section}{\numberline {3.1}Giao tiếp phần cứng công nghiệp}{10}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Linux Device Driver}{10}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Bảo mật hệ điều hành Linux nhúng}{10}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1} Khái niệm bảo mật trong Linux nhúng}{10}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2} Mô hình kiểm soát truy cập DAC và MAC}{11}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3} SELinux}{11}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4} dm-verity}{11}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5} Mô hình bảo mật nhiều lớp (Defense in Depth)}{11}{subsection.3.3.5}%
-\contentsline {section}{\numberline {3.4}Edge AI trong hệ thống nhúng}{11}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Giao diện người dùng trên thiết bị nhúng}{11}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Kết nối Cloud và IoT}{11}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{12}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{13}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{14}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{15}{chapter.7}%
+\contentsline {subsection}{\numberline {3.3.1}Khái niệm bảo mật trong Linux nhúng}{10}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{11}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Bảo mật quyền truy cập hệ thống với SELinux}{12}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Bảo mật chống tấn công offline với dm-verity}{13}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Edge AI trong hệ thống nhúng}{15}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Giao diện người dùng trên thiết bị nhúng}{15}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Kết nối Cloud và IoT}{15}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{16}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{17}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{18}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{19}{chapter.7}%

@@ -1,14 +1,14 @@
 \section{Giao tiếp phần cứng công nghiệp}
 \section{Linux Device Driver}
 \section{Bảo mật hệ điều hành Linux nhúng}
-\subsection{ Khái niệm bảo mật trong Linux nhúng}
+\subsection{Khái niệm bảo mật trong Linux nhúng}
 Tăng cường bảo mật (security hardening) là quá trình áp dụng các biện pháp cụ thể nhằm mục tiêu nâng cao sự an toàn cho toàn hệ thống một cách toàn diện. Quá trình không chỉ dừng lại ở việc thiết lập các biện pháp nhằm giảm thiểu tấn công bề mặt (attack surface), mà còn bao gồm việc bảo vệ hệ thống ở nhiều lớp khác nhau, từ kernel, hệ điều hành, dịch vụ cho đến ứng dụng và dữ liệu.
 
 Có nhiều lý do khiến việc tăng cường bảo mật ở các hệ thống nhúng Linux trở thành ưu tiên quan trọng đối với các nhà sản xuất thiết bị, trong đó có ba yếu tố chính cần được đặc biệt quan tâm.
 
 Thứ nhất, khi số lượng các thiết bị nhúng được kết nối Internet ngày càng tăng, các thiết bị này trở thành sự lựa chọn tiềm năng, là mục tiêu cho các cuộc tấn công mạng. Việc kết nối Internet khiến thiết bị dễ dàng bị phát hiện và quét từ bên ngoài. Nếu thiết bị tồn tại lỗ hổng bảo mật, kẻ tấn công có thể khai thác để xâm nhập vào cả hệ thống.
 
-Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{murray2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
+Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{yocto_hardening_2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
 
 Thứ ba, các thiết bị nhúng Linux có thể bị chiếm quyền điều khiển và sử dụng như một công cụ để tấn công các hệ thống khác, chẳng hạn như tham gia vào mạng botnet hoặc thực hiện tấn công DDoS. Trong trường hợp này, kẻ tấn công không nhắm vào dữ liệu của thiết bị mà khai thác khả năng kết nối và tài nguyên xử lý của nó. Do đó, ngay cả các thiết bị đơn giản cũng cần được bảo mật để tránh bị lợi dụng cho các mục đích tấn công. 
 
@@ -16,10 +16,67 @@ Chính vì những rủi ro nêu trên, việc tăng cường bảo mật trở 
 
 Ngày nay, nhiều hệ thống nhúng Linux được xây dựng bằng Yocto Project đang được áp dụng rộng rãi trong các lĩnh vực trọng yếu nhưng có độ bảo mật chưa cao. Khác với các bản phân phối Linux phổ biến như Debian hay Ubuntu, Yocto không cung cấp một hệ điều hành hoàn chỉnh mà cung cấp các công nghệ tùy biến để các developer xây dựng một hệ điều hành theo nhu cầu. Điều này góp phần xây dựng một hệ điều hành có sự linh hoạt cao nhưng đồng thời đi cùng các rủi ro về bảo mật. Đối với các ứng dụng như hệ thống tự động trong công nghiệp, lĩnh vực sức khỏe hay xe tự hành thì tầm quan trọng của bảo mật lại càng trở nên cấp thiết hơn.
 
-\subsection{ Mô hình kiểm soát truy cập DAC và MAC}
-\subsection{ SELinux}
-\subsection{ dm-verity}
-\subsection{ Mô hình bảo mật nhiều lớp (Defense in Depth)}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/image5.png}
+    \caption{Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}
+    \label{fig:secure_yocto}
+
+    \vspace{0.3em}
+    \small
+    Nguồn: Star Lab Software
+\end{figure}
+
+\subsection{Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}
+Giảm thiểu tấn công bề mặt (attack surface reduction) là một trong những nguyên tắc quan trọng trong bảo mật hệ thống nhúng Linux. Mục tiêu của phương pháp này là hạn chế tối đa số lượng thành phần, dịch vụ, giao diện và cấu hình có thể bị khai thác bởi kẻ tấn công. Trong hệ thống nhúng, bề mặt tấn công thường bao gồm các dịch vụ mạng không cần thiết, các tính năng hệ điều hành dư thừa, các thành phần phần mềm không sử dụng và các thiết lập mặc định có thể làm giảm mức độ an toàn của hệ thống \cite{yocto_hardening_2020}.
+
+Đối với các hệ thống xây dựng bằng Yocto, việc giảm thiểu tấn công bề mặt có ý nghĩa đặc biệt quan trọng vì Yocto cho phép tùy biến sâu đối với image hệ điều hành. Chính sự linh hoạt này giúp hệ thống chỉ bao gồm những thành phần thực sự cần thiết, nhưng đồng thời cũng đòi hỏi nhà phát triển phải kiểm soát chặt chẽ các thành phần được đưa vào image. Nếu không được cấu hình cẩn thận, hệ thống có thể vô tình chứa nhiều gói phần mềm, dịch vụ hoặc tính năng mặc định không cần thiết, từ đó làm gia tăng nguy cơ xuất hiện lỗ hổng bảo mật.
+
+Một số nguyên tắc phổ biến trong giảm thiểu tấn công bề mặt bao gồm: loại bỏ các dịch vụ không sử dụng, giới hạn quyền truy cập mặc định, tối giản hóa image hệ điều hành, chỉ giữ lại các thành phần cần thiết cho mục đích vận hành và hạn chế các khả năng truy cập ở mức thấp của người dùng đối với hệ thống. Ngoài ra, việc tinh chỉnh cấu hình kernel cũng đóng vai trò quan trọng vì kernel là lớp điều khiển trực tiếp phần cứng và có ảnh hưởng lớn đến mức độ an toàn tổng thể của hệ thống \cite{witekio_kernel_hardening,kasr_attack_surface}.
+
+Từ góc nhìn lý thuyết, giảm thiểu tấn công bề mặt không chỉ giúp hạn chế khả năng khai thác trực tiếp mà còn góp phần nâng cao độ ổn định, độ tin cậy và khả năng bảo trì của hệ thống nhúng trong quá trình vận hành lâu dài .
+\subsection{Bảo mật quyền truy cập hệ thống với SELinux}
+
+Security-Enhanced Linux (SELinux) là một kiến trúc bảo mật dành cho các hệ thống Linux, cho phép kiểm soát chặt chẽ việc truy cập tài nguyên trong hệ điều hành. SELinux được công bố cho cộng đồng mã nguồn mở vào năm 2000 và chính thức được tích hợp vào nhân Linux từ năm 2003 \cite{redhat_selinux}. Khác với cơ chế phân quyền truyền thống dựa trên mô hình kiểm soát truy cập tùy ý (Discretionary Access Control - DAC), SELinux áp dụng mô hình kiểm soát truy cập bắt buộc (Mandatory Access Control - MAC) nhằm thực thi các chính sách bảo mật một cách tập trung và nghiêm ngặt. Trong mô hình này, mọi hành động truy cập đều phải tuân theo các quy tắc được định nghĩa trước; nếu không được cho phép rõ ràng, truy cập sẽ bị từ chối theo mặc định. Điều này giúp hạn chế hiệu quả các hành vi truy cập trái phép và nâng cao mức độ an toàn tổng thể của hệ thống \cite{muhammad_selinux}.
+
+SELinux hoạt động bằng cách gán ngữ cảnh bảo mật (security context) cho cả chủ thể và đối tượng trong hệ thống. Chủ thể thường là các tiến trình hoặc dịch vụ hệ thống, trong khi đối tượng có thể là tệp, thư mục, socket hoặc các tài nguyên hệ thống khác. Mỗi ngữ cảnh bảo mật bao gồm các thông tin như user, role, type và mức độ nhạy cảm, từ đó xác định quyền truy cập của từng thực thể. Khi một tiến trình yêu cầu truy cập tài nguyên, cơ chế thực thi chính sách của SELinux sẽ so sánh ngữ cảnh bảo mật của chủ thể và đối tượng với các quy tắc đã được định nghĩa trong policy. Nếu hành động phù hợp với chính sách, quyền truy cập sẽ được cấp; ngược lại, hành động sẽ bị từ chối và có thể được ghi lại trong nhật ký hệ thống \cite{muhammad_selinux}.
+
+Một trong những đặc điểm quan trọng của SELinux là nguyên tắc đặc quyền tối thiểu (principle of least privilege), theo đó mỗi tiến trình chỉ được cấp các quyền cần thiết để thực hiện chức năng của mình. Cơ chế này giúp hạn chế khả năng lan rộng của các cuộc tấn công trong trường hợp một tiến trình hoặc dịch vụ bị khai thác. Ngoài ra, SELinux còn hỗ trợ cơ chế ghi nhật ký và giám sát, giúp quản trị viên dễ dàng phát hiện và phân tích các hành vi bất thường trong hệ thống.
+
+Trong các hệ thống xây dựng bằng Yocto, SELinux không được kích hoạt mặc định mà thường được tích hợp thông qua các layer bổ sung như \texttt{meta-selinux}, \texttt{meta-security} hoặc \texttt{meta-smack}. Các layer này cung cấp các thành phần cần thiết để hệ thống hỗ trợ mô hình MAC, từ đó giúp tăng cường khả năng bảo vệ cho các hệ thống Linux nhúng.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/image3.png}
+    \caption{Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}
+    \label{fig:selinux} 
+
+    \vspace{0.3em}
+    \small
+    Nguồn: https://www.geeksforgeeks.org/linux-unix/what-is-selinux/
+\end{figure}
+
+\subsection{Bảo mật chống tấn công offline với dm-verity}
+
+Hầu hết các cơ chế bảo mật trong Linux tập trung vào việc bảo vệ hệ thống trong quá trình vận hành. Tuy nhiên, vẫn tồn tại các hình thức tấn công xảy ra khi hệ thống không hoạt động, chẳng hạn như việc tháo thiết bị lưu trữ để thay đổi dữ liệu trực tiếp rồi lắp lại vào hệ thống. Để phát hiện và hạn chế các cuộc tấn công dạng này, Linux cung cấp nhiều cơ chế kiểm tra tính toàn vẹn của hệ thống tập tin, trong đó dm-verity là một giải pháp được sử dụng phổ biến trong các hệ thống nhúng nhờ khả năng bảo vệ dữ liệu mạnh, chống lại các tấn công offline và không yêu cầu sử dụng khóa bí mật \cite{patchwork_dmverity}.
+
+dm-verity (device-mapper verity) là một cơ chế xác minh tính toàn vẹn dữ liệu ở mức block device trong Linux kernel. Cơ chế này hoạt động dựa trên hệ thống device-mapper và thường được sử dụng để bảo vệ root filesystem ở chế độ chỉ đọc (read-only root filesystem). Khi được kích hoạt, mọi khối dữ liệu được đọc từ thiết bị lưu trữ đều sẽ được xác minh trước khi chuyển cho hệ điều hành sử dụng. Nếu phát hiện dữ liệu bị thay đổi hoặc không khớp với giá trị băm đã lưu trước đó, dm-verity sẽ báo lỗi hoặc từ chối mount filesystem nhằm ngăn chặn việc sử dụng dữ liệu không tin cậy.
+
+Để thực hiện việc xác minh dữ liệu một cách hiệu quả, dm-verity sử dụng cấu trúc cây băm Merkle (Merkle tree). Trong cấu trúc này, mỗi khối dữ liệu sẽ được tính toán giá trị hash riêng biệt. Sau đó, các hash này tiếp tục được ghép cặp và băm lại để tạo thành các lớp hash cấp cao hơn. Quá trình này được lặp lại cho đến khi thu được một giá trị hash duy nhất ở đỉnh cây, gọi là root hash. Root hash đại diện cho toàn bộ dữ liệu của filesystem và đóng vai trò là giá trị tin cậy để xác minh tính toàn vẹn của toàn hệ thống.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/image4.png}
+    \caption{Bảo mật chống tấn công offline với dm-verity trong Yocto}
+    \label{fig:dmverity} 
+\end{figure}
+
+Một ưu điểm quan trọng của Merkle tree là hệ thống không cần xác minh toàn bộ filesystem cùng một lúc. Thay vào đó, dm-verity chỉ cần kiểm tra các hash liên quan đến block dữ liệu đang được truy cập. Điều này giúp giảm đáng kể chi phí tính toán và thời gian khởi động hệ thống so với phương pháp sử dụng một hash duy nhất cho toàn bộ filesystem. Ngoài ra, nếu một block dữ liệu bị thay đổi, chỉ nhánh hash liên quan mới bị ảnh hưởng, trong khi các phần còn lại của hệ thống vẫn có thể được xác minh độc lập.
+
+Khi dữ liệu được truy cập lần đầu tiên, kernel sẽ đọc block dữ liệu từ thiết bị lưu trữ và tiến hành xác minh thông qua cây băm. Hệ thống sẽ lần lượt truy xuất các hash từ các cấp thấp hơn cho đến root hash đã được tin cậy trước đó. Nếu toàn bộ quá trình xác minh thành công, dữ liệu sẽ được chấp nhận; ngược lại, hệ thống sẽ phát hiện dữ liệu đã bị thay đổi hoặc hỏng. Trong các lần truy cập tiếp theo, dữ liệu và các hash liên quan có thể đã được lưu trong bộ nhớ đệm (cache), cho phép hệ điều hành tái sử dụng các kết quả xác minh trước đó mà không cần đọc lại toàn bộ cây băm. Điều này giúp cải thiện đáng kể hiệu năng truy cập dữ liệu trong quá trình vận hành.
+
+Nhờ khả năng xác minh tính toàn vẹn ở mức block device, dm-verity đặc biệt phù hợp với các hệ thống nhúng yêu cầu tính ổn định và độ tin cậy cao như thiết bị IoT, hệ thống công nghiệp hoặc các nền tảng Linux tối giản. Cơ chế này giúp phát hiện các thay đổi trái phép đối với root filesystem, đồng thời tăng cường khả năng chống lại các cuộc tấn công ngoại tuyến nhằm sửa đổi dữ liệu hệ thống.
+
 \section{Edge AI trong hệ thống nhúng}
 \section{Giao diện người dùng trên thiết bị nhúng}
 \section{Kết nối Cloud và IoT}
