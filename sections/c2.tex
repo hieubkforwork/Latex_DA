@@ -1,0 +1,87 @@
+\section{Tổng quan về Linux Nhúng và Yocto Project}
+\section{Tổng quan về hệ điều hành nhúng}
+\subsection{Giới thiệu về Linux}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.1\linewidth]{image/Linux.jpg}
+    \caption{Linux}
+    \label{fig:placeholder}
+\end{figure}
+
+
+Linus Torvalds (sinh ngày 28/12/1969), lớn lên ở Helsinki, Phần Lan. Linus vào Đại học Helsinki năm 1988 và bắt đầu học ngành Khoa học máy tính. Năm 1991, ông bắt đầu khởi xướng dự án LIMS (Linux Is Minix System) - dự án hệ điều hành do ông tự phát triển đánh dấu bước khởi đầu của Linux. Linux được phát triển dựa trên các nguyên lý thiết kế của hệ điều hành Unix, vốn ra đời vào năm 1969. Linux có khả năng chạy trên kiến trúc phần cứng x86 và được phân phối dưới dạng mã nguồn mở. Phiên bản đầu tiên của nhân Linux được công bố công khai vào ngày 17 tháng 9 năm 1991, nhanh chóng thu hút sự quan tâm và đóng góp của cộng đồng lập trình viên trên toàn thế giới.
+
+
+Mặc dù Linus Torvalds ban đầu phát triển Linux như một dự án cá nhân, trong bối cảnh hệ sinh thái GNU đã cung cấp nhiều công cụ và thư viện hệ thống quan trọng nhưng vẫn thiếu một nhân hệ điều hành hoàn chỉnh, sự ra đời của nhân Linux đã vô tình lấp đầy khoảng trống này, tạo tiền đề cho việc hình thành các hệ thống hoàn chỉnh thường được gọi là GNU/Linux.
+
+
+Đặc điểm nổi bật của Linux là mô hình phát triển mã nguồn mở phân tán cho phép bất kỳ ai cũng có thể xem, sửa đổi và phân phối. Hiện nay Linux có hàng trăm phiên bản phân phối trên cộng đồng. Một số phiên bản nổi tiếng và phổ biến như: Ubuntu, Red Hat, Debian, Kali, Fedora,... Qua thời gian, Linux đã phát triển từ một dự án cá nhân thành một dự án phần mềm quy mô toàn cầu, với sự tham gia của các cá nhân, cộng đồng và các tập đoàn công nghệ lớn.
+
+
+Hệ điều hành Linux bao gồm các thành phần chính là Kernel, giao diện dòng lệnh và đồ hoạ, hệ thống tập tin và quản lí tiến trình.
+
+
+Linux Kernel là phần lõi của hệ điều hành Linux, chịu trách nhiệm quản lý và điều phối tài nguyên phần cứng của hệ thống, đóng vai trò trung gian giữa phần cứng và các chương trình người dùng. Linux Kernel sử dụng kiến trúc nguyên khối (monolithic). Nghĩa là toàn bộ các chức năng của hệ điều hành hoạt động trong cùng một không gian kernel, tạo nên hiệu suất cao và khả năng kiểm soát chặt chẽ hơn. Một số cơ chế được nhân Linux cung cấp là bộ lập lịch (scheduler), quản lí bộ nhớ, device drivers, hỗ trợ giao tiếp liên tiến trình (IPC) và mạng.
+
+
+Giao diện dòng lệnh (CLI) và đồ hoạ cho phép người dùng tương tác trực tiếp với hệ điều hành thông qua các lệnh văn bản. Giao diện dòng lệnh trong Linux thường được cung cấp bởi các shell như Bash, Zsh hoặc Fish. CLI cho phép người dùng thực thi lệnh hệ thống, viết scripts và quản trị hệ thống một cách có hiệu quả. Bên cạnh đó, giao diện đồ hoạ cung cấp môi trường desktop, giúp người dùng dễ dàng thao tác và sử dụng hệ thống trong các ứng dụng thông thường.
+
+
+Hệ thống tập tin trong Linux được tổ chức theo một hệ thống phân bậc như cấu trúc của một cây phân cấp với bậc cao nhất được kí hiệu là "/". Linux hỗ trợ nhiều loại hệ thống tập tin khác nhau như ext4, XFS, Btrfs,... cho phép lưu trữ và truy xuất dữ liệu một cách hiệu quả. Mọi tài nguyên trong hệ thống đều được biểu diễn thống nhất dưới dạng tập tin, góp phần đơn giản hoá việc quản lý.
+
+
+Quản lý tiến trình nhằm điều phối việc thực thi các chương trình trong hệ thống. Mỗi chương trình đang chạy được coi là một tiến trình với không gian địa chỉ và tài nguyên riêng biệt. Linux Kernel lập lịch để phân chia thời gian xử lý của CPU cho các tiến trình, đảm bảo khả năng đa nhiệm và hiệu suất cho hệ thống.
+
+
+Ngày nay, Linux được sử dụng phổ biến và rộng rãi không chỉ trên các máy chủ, máy tính cá nhân mà còn góp mặt trong các hệ thống nhúng, thiết bị di động, các hạ tầng điện toán đám mây,... Sự phát triển liên tục của Linux khẳng định vai trò như một trong những nền tảng hệ điều hành quan trọng nhất trong lịch sử công nghệ thông tin hiện đại.
+
+
+
+
+\subsection{Khái niệm Embedded Linux}
+Embedded Linux hay còn gọi là Linux Nhúng là một thuật ngữ dùng để chỉ các hệ thống nhúng, trong đó nhân Linux (Linux kernel) được sử dụng làm lõi hệ điều hành cho các thiết bị có chức năng chuyên biệt. Khác với các hệ điều hành Linux trên máy tính đa năng, Embedded Linux chỉ giữ lại những thành phần thật sự cần dùng, giúp hệ thống hoạt động hiệu quả, tiết kiệm tài nguyên và phù hợp với các yêu cầu đặc thù của thiết bị nhúng.
+
+
+Đặc trưng của Embedded Linux là khả năng tùy biến cao cho phép nhà phát triển có thể điều chỉnh cấu hình kernel hay có thể loại bỏ các dịch vụ không cần thiết và chỉ giữ lại các mô-đun phù hợp với chức năng của hệ thống. Cách tiếp cận này giúp giảm kích thước hệ thống, rút ngắn thời gian khởi động và nâng cao độ ổn định trong quá trình vận hành. Đồng thời, Embedded Linux vẫn kế thừa các ưu điểm cốt lõi của Linux như khả năng quản lý tiến trình, hỗ trợ đa nhiệm, đa luồng và khả năng mở rộng trên nhiều kiến trúc phần cứng khác nhau.
+
+
+Ngày nay, Embedded Linux thường được triển khai trên các thiết bị nhúng hiện đại sử dụng kiến trúc vi xử lý tiết kiệm năng lượng, nơi hệ thống phải đáp ứng các yêu cầu vận hành liên tục, độ tin cậy cao và trong nhiều trường hợp là các ràng buộc về thời gian thực. Nhờ khả năng cấu hình linh hoạt và hệ sinh thái phần mềm phong phú, Embedded Linux trở thành một nền tảng phổ biến trong việc phát triển các thiết bị thông minh, thiết bị mạng, hệ thống điều khiển công nghiệp và các ứng dụng nhúng phức tạp.
+
+\section{Tổng quan về Yocto Project}
+\subsection{Giới thiệu Yocto Project và hệ thống Poky}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{image/yocto_prj.png}
+    \caption{Yocto Project}
+    \label{fig:placeholder}
+\end{figure}
+Yocto Project là một dự án mã nguồn mở mang tính cộng tác toàn cầu, được thiết kế để hỗ trợ các nhà phát triển xây dựng hệ thống Linux tùy biến cho các thiết bị nhúng, không phụ thuộc vào kiến trúc phần cứng. Thay vì cung cấp một bản phân phối Linux cố định, Yocto Project cung cấp bộ công cụ, môi trường phát triển và các quy tắc xây dựng, cho phép tạo ra các image Linux được tối ưu riêng cho từng sản phẩm nhúng.
+
+
+Yocto Project đã trở thành một chuẩn công nghiệp trong việc xây dựng các bộ phần mềm nhúng nhờ khả năng tái sử dụng, mở rộng và bảo trì lâu dài trên nhiều nền tảng phần cứng. Dự án không phụ thuộc vào kiến trúc phần cứng, hỗ trợ đa dạng nền tảng thông qua các gói BSP, đồng thời cho phép xây dựng các bản phân phối Linux tùy biến phù hợp với nhiều dòng sản phẩm. Nhờ cơ chế chỉ tích hợp những thành phần cần thiết, Yocto Project đặc biệt phù hợp với các thiết bị nhúng có tài nguyên hạn chế, giúp tối ưu dung lượng và hiệu năng. Ngoài ra, dự án còn cung cấp hệ thống công cụ phát triển đầy đủ, mô hình Layer rõ ràng, khả năng tái tạo nhị phân cao và hỗ trợ quản lý giấy phép phần mềm, đáp ứng tốt các yêu cầu phát triển và thương mại hóa sản phẩm.
+
+
+Poky là bản phân phối tham chiếu của Yocto Project, cung cấp một bộ khung chuẩn để xây dựng các hệ thống Linux nhúng tùy biến. Poky tích hợp OpenEmbedded Build System, bao gồm BitBake và OpenEmbedded-Core, cùng với các lớp metadata cần thiết để cấu hình, biên dịch và tạo image Linux từ mã nguồn. Đây không phải là một hệ điều hành hoàn chỉnh dùng trực tiếp cho sản phẩm, mà là điểm khởi đầu đã được kiểm thử và đảm bảo tính tương thích, cho phép nhà phát triển mở rộng và tùy biến hệ thống thông qua cơ chế layer để phù hợp với các yêu cầu phần cứng và chức năng cụ thể của thiết bị nhúng.
+
+
+
+
+\subsection{Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}
+BitBake là thành phần trung tâm của hệ thống xây dựng trong Yocto Project, đóng vai trò như một bộ lập lịch và thực thi tác vụ. BitBake phân tích các chỉ dẫn được mô tả trong metadata, xây dựng cây phụ thuộc giữa các thành phần và điều phối quá trình biên dịch, đóng gói để tạo ra image Linux nhúng theo cấu hình đã định.
+
+
+Metadata là tập hợp các thông tin điều khiển toàn bộ quá trình xây dựng hệ thống, bao gồm các tệp cấu hình, lớp và công thức xây dựng. Metadata quyết định những thành phần phần mềm nào được sử dụng, cách thức chúng được cấu hình, cũng như các chính sách ảnh hưởng đến quá trình build, từ đó cho phép kiểm soát chặt chẽ và nhất quán hệ thống tạo ra.
+
+
+Layers là các lớp metadata được tổ chức theo mô-đun, mỗi layer đại diện cho một nhóm chức năng hoặc phạm vi cụ thể như phần cứng, middleware hay ứng dụng. Cơ chế layer cho phép mở rộng, ghi đè và tùy biến hệ thống một cách linh hoạt, đồng thời giúp giảm độ phức tạp và tăng khả năng tái sử dụng trong quá trình phát triển.
+
+
+Recipes là đơn vị cơ bản của metadata, mô tả cách thức tải mã nguồn, áp dụng bản vá, cấu hình, biên dịch và đóng gói từng gói phần mềm. Thông qua các recipe, BitBake có thể tự động xây dựng các thành phần riêng lẻ và tích hợp chúng thành một hệ thống Linux nhúng hoàn chỉnh.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{image/poky.png}
+    \caption{Tổng thể hệ sinh thái Yocto Project }
+    \label{fig:placeholder}
+\end{figure}
+
+

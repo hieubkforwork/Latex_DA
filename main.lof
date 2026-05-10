@@ -1,18 +1,18 @@
 \babel@toc {vietnamese}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Linux}}{10}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Yocto Project}}{12}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Tổng thể hệ sinh thái Yocto Project }}{13}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Linux}}{11}{figure.caption.4}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Yocto Project}}{13}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Tổng thể hệ sinh thái Yocto Project }}{14}{figure.caption.6}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{43}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{45}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{46}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces RS485 TTL }}{47}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Modbus RTU }}{48}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Tổng quan về CoreIOT}}{50}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{51}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{52}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{44}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{46}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{47}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces RS485 TTL }}{48}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Modbus RTU }}{49}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Tổng quan về CoreIOT}}{51}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{52}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{53}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
