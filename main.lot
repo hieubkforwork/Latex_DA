@@ -2,12 +2,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Các biến cơ bản trong Recipe}}{21}{table.caption.11}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Các task chính của BitBake}}{22}{table.caption.12}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Mô hình Cross-compilation}}{26}{table.caption.19}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces So sánh User Space và Kernel Space}}{29}{table.caption.20}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Các loại Linux Device Driver}}{31}{table.caption.21}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{44}{table.caption.22}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Các biến cơ bản trong Recipe}}{23}{table.caption.14}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Các task chính của BitBake}}{24}{table.caption.15}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Mô hình Cross-compilation}}{28}{table.caption.22}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces So sánh User Space và Kernel Space}}{31}{table.caption.23}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Các loại Linux Device Driver}}{33}{table.caption.24}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{42}{table.caption.25}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Cơ chế xác định trạng thái hệ thống}}{56}{table.caption.36}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Cấu trúc payload dữ liệu gửi lên CoreIoT}}{57}{table.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,7 +1,7 @@
 \section{Kiến trúc Build System trong Yocto Project}
 \subsection{Kiến trúc Layer trong Yocto}
 
-Yocto Project sử dụng kiến trúc phân lớp (Layer Architecture) nhằm tổ chức metadata và mã nguồn theo hướng module hóa, linh hoạt và dễ mở rộng. Đây là một trong những đặc điểm quan trọng giúp Yocto trở thành nền tảng xây dựng Linux Embedded có khả năng tùy biến cao và phù hợp với nhiều kiến trúc phần cứng khác nhau.
+Yocto Project sử dụng kiến trúc phân lớp (Layer Architecture) nhằm tổ chức metadata và mã nguồn theo hướng module hóa, linh hoạt và dễ mở rộng. Đây là một trong những đặc điểm quan trọng giúp Yocto trở thành nền tảng xây dựng Linux Embedded có khả năng tùy biến cao và phù hợp với nhiều kiến trúc phần cứng khác nhau.\cite{yocto_overview_features}
 
 Trong các hệ thống Linux Embedded hiện đại, số lượng package, driver, thư viện và thành phần hệ thống thường rất lớn. Nếu toàn bộ metadata và source code được lưu tập trung trong một cấu trúc duy nhất, việc quản lý dependency, cập nhật phiên bản và bảo trì hệ thống sẽ trở nên phức tạp. Do đó, Yocto áp dụng mô hình phân lớp nhằm chia nhỏ hệ thống thành các thành phần độc lập, mỗi layer đảm nhiệm một nhóm chức năng riêng biệt.
 
@@ -80,7 +80,7 @@ Trong các dự án Linux Embedded quy mô lớn, source code thường được
 
 \subsection{Recipe trong Yocto}
 
-Trong Yocto Project, Recipe là thành phần trung tâm của hệ thống build và đóng vai trò mô tả toàn bộ quy trình xây dựng một package phần mềm. Recipe thường có phần mở rộng \texttt{.bb} (BitBake Recipe) và được BitBake sử dụng để thực hiện các tác vụ như tải mã nguồn, cấu hình môi trường build, biên dịch, cài đặt và đóng gói package.
+Trong Yocto Project, Recipe là thành phần trung tâm của hệ thống build và đóng vai trò mô tả toàn bộ quy trình xây dựng một package phần mềm. Recipe thường có phần mở rộng \texttt{.bb} (BitBake Recipe) và được BitBake sử dụng để thực hiện các tác vụ như tải mã nguồn, cấu hình môi trường build, biên dịch, cài đặt và đóng gói package.\cite{yocto_new_recipe}
 
 Có thể xem recipe như một tập hợp metadata dùng để hướng dẫn BitBake cách xây dựng một thành phần phần mềm cụ thể trong hệ thống Linux Embedded. Thông qua recipe, Yocto Project có khả năng tự động hóa toàn bộ quy trình build và quản lý dependency giữa các package trong hệ thống.
 
@@ -129,7 +129,7 @@ Trong Yocto Project, mỗi recipe sẽ được BitBake phân tích để xác �
 
 Một trong những ưu điểm quan trọng của BitBake là khả năng tự động hóa toàn bộ quá trình build. Thay vì thực hiện thủ công từng bước như tải source code, cấu hình compiler hoặc cài đặt package, BitBake cho phép toàn bộ pipeline build được mô tả thông qua metadata trong recipe. Điều này giúp giảm đáng kể độ phức tạp trong quá trình phát triển hệ thống Linux Embedded.
 
-Trong quá trình build, BitBake sử dụng tập hợp các task để xử lý từng giai đoạn khác nhau. Mỗi task đại diện cho một bước cụ thể trong pipeline build và được thực thi theo trình tự xác định.
+Trong quá trình build, BitBake sử dụng tập hợp các task để xử lý từng giai đoạn khác nhau. Mỗi task đại diện cho một bước cụ thể trong pipeline build và được thực thi theo trình tự xác định.\cite{yocto_tasks_reference}
 
 Các task chính của BitBake được trình bày trong Bảng \ref{tab:bitbake_tasks}.
 
@@ -279,7 +279,7 @@ Nhờ khả năng hỗ trợ đa kiến trúc phần cứng, tự động quản
 \section{Linux Device Driver}
 \subsection{Tổng quan Linux Kernel}
 
-Linux Kernel là thành phần lõi của hệ điều hành Linux, đóng vai trò trung gian giữa phần cứng và các ứng dụng người dùng. Kernel chịu trách nhiệm quản lý tài nguyên hệ thống, điều phối hoạt động của phần cứng và cung cấp các dịch vụ cơ bản cho chương trình ứng dụng thông qua cơ chế system call.
+Linux Kernel là thành phần lõi của hệ điều hành Linux, đóng vai trò trung gian giữa phần cứng và các ứng dụng người dùng. Kernel chịu trách nhiệm quản lý tài nguyên hệ thống, điều phối hoạt động của phần cứng và cung cấp các dịch vụ cơ bản cho chương trình ứng dụng thông qua cơ chế system call.\cite{kernel_org_overview}
 
 Trong kiến trúc hệ điều hành Linux, kernel hoạt động ở mức đặc quyền cao nhất của hệ thống và có quyền truy cập trực tiếp đến tài nguyên phần cứng như CPU, bộ nhớ, thiết bị ngoại vi và hệ thống lưu trữ. Nhờ đó, kernel có thể kiểm soát toàn bộ hoạt động của hệ thống và đảm bảo các tiến trình hoạt động ổn định, an toàn và hiệu quả.
 
@@ -381,7 +381,7 @@ Trong Linux Embedded hiện đại, kiến trúc User Space và Kernel Space là
 
 \subsection{Linux Device Driver}
 
-Trong hệ điều hành Linux, Device Driver là thành phần phần mềm đóng vai trò trung gian giữa Linux Kernel và phần cứng hệ thống. Driver cho phép kernel giao tiếp và điều khiển các thiết bị ngoại vi thông qua giao diện chuẩn của hệ điều hành. Có thể xem Device Driver như một lớp trừu tượng giúp ứng dụng người dùng truy cập phần cứng mà không cần thao tác trực tiếp lên thanh ghi hoặc tín hiệu vật lý của thiết bị.
+Trong hệ điều hành Linux, Device Driver là thành phần phần mềm đóng vai trò trung gian giữa Linux Kernel và phần cứng hệ thống. Driver cho phép kernel giao tiếp và điều khiển các thiết bị ngoại vi thông qua giao diện chuẩn của hệ điều hành. Có thể xem Device Driver như một lớp trừu tượng giúp ứng dụng người dùng truy cập phần cứng mà không cần thao tác trực tiếp lên thanh ghi hoặc tín hiệu vật lý của thiết bị.\cite{linux_device_drivers}
 
 Trong Linux, mỗi thiết bị phần cứng thường được biểu diễn dưới dạng file thiết bị trong thư mục \texttt{/dev}. Khi ứng dụng người dùng thực hiện thao tác đọc hoặc ghi dữ liệu lên file thiết bị, yêu cầu sẽ được chuyển đến driver tương ứng trong kernel space để xử lý. Cơ chế này giúp chuẩn hóa phương thức giao tiếp với phần cứng và tăng tính độc lập giữa application và hardware platform.
 
@@ -433,11 +433,11 @@ Ngoài ra, Linux còn hỗ trợ cơ chế Device Tree nhằm mô tả phần c�
 
 \subsection{Device Tree}
 
-Trong các hệ thống Linux Embedded hiện đại, Device Tree là cơ chế được sử dụng để mô tả cấu trúc phần cứng của hệ thống một cách độc lập với Linux Kernel. Device Tree cho phép kernel nhận biết và cấu hình các thiết bị phần cứng mà không cần chỉnh sửa trực tiếp mã nguồn kernel. Đây là thành phần quan trọng trong các nền tảng nhúng sử dụng kiến trúc ARM, RISC-V và nhiều hệ thống SoC hiện đại khác.
+Trong các hệ thống Linux Embedded hiện đại, Device Tree là cơ chế được sử dụng để mô tả cấu trúc phần cứng của hệ thống một cách độc lập với Linux Kernel. Device Tree cho phép kernel nhận biết và cấu hình các thiết bị phần cứng mà không cần chỉnh sửa trực tiếp mã nguồn kernel. Đây là thành phần quan trọng trong các nền tảng nhúng sử dụng kiến trúc ARM, RISC-V và nhiều hệ thống SoC hiện đại khác. \cite{kernel_device_tree}
 
 Trước khi Device Tree được sử dụng rộng rãi, thông tin phần cứng thường được hard-code trực tiếp trong Linux Kernel. Cách tiếp cận này làm tăng độ phức tạp của kernel và gây khó khăn trong việc hỗ trợ nhiều nền tảng phần cứng khác nhau. Khi mỗi board phần cứng yêu cầu chỉnh sửa mã nguồn kernel riêng biệt, quá trình bảo trì và nâng cấp hệ thống trở nên phức tạp và khó mở rộng.
 
-Để giải quyết vấn đề này, Linux giới thiệu cơ chế Device Tree nhằm tách biệt thông tin phần cứng ra khỏi kernel source code. Nhờ đó, cùng một Linux Kernel có thể hoạt động trên nhiều nền tảng phần cứng khác nhau chỉ bằng cách thay đổi Device Tree tương ứng.
+Để giải quyết vấn đề này, Linux giới thiệu cơ chế Device Tree nhằm tách biệt thông tin phần cứng ra khỏi kernel source code. Nhờ đó, cùng một Linux Kernel có thể hoạt động trên nhiều nền tảng phần cứng khác nhau chỉ bằng cách thay đổi Device Tree tương ứng. 
 
 Device Tree mô tả phần cứng dưới dạng cấu trúc cây (Tree Structure). Mỗi node trong cây đại diện cho một thành phần phần cứng như CPU, bộ nhớ, UART, SPI, I2C, GPIO hoặc các thiết bị ngoại vi khác. Các node này chứa thông tin cấu hình cần thiết để kernel và driver có thể giao tiếp với phần cứng.
 
@@ -504,7 +504,7 @@ Trong Yocto Project, Device Tree thường được build cùng với Linux Kern
 
 \subsection{Kernel Module}
 
-Trong Linux Kernel, Kernel Module là thành phần phần mềm có thể được nạp hoặc gỡ khỏi kernel trong thời gian chạy mà không cần biên dịch lại hoặc khởi động lại toàn bộ hệ điều hành. Cơ chế này giúp Linux tăng tính linh hoạt trong việc mở rộng chức năng hệ thống, đặc biệt trong các môi trường Linux Embedded và hệ thống nhúng công nghiệp.
+Trong Linux Kernel, Kernel Module là thành phần phần mềm có thể được nạp hoặc gỡ khỏi kernel trong thời gian chạy mà không cần biên dịch lại hoặc khởi động lại toàn bộ hệ điều hành. Cơ chế này giúp Linux tăng tính linh hoạt trong việc mở rộng chức năng hệ thống, đặc biệt trong các môi trường Linux Embedded và hệ thống nhúng công nghiệp.\cite{kernel_modules_doc}
 
 Kernel Module thường được sử dụng để triển khai các thành phần như Device Driver, File System, Network Protocol hoặc các chức năng mở rộng của kernel. Thay vì tích hợp toàn bộ chức năng trực tiếp vào Linux Kernel, các module có thể được quản lý độc lập và chỉ nạp vào hệ thống khi cần thiết. Điều này giúp giảm kích thước kernel và tối ưu tài nguyên hệ thống.
 
@@ -574,115 +574,6 @@ Ngoài ra, Linux Kernel còn hỗ trợ cơ chế tự động nạp module thô
 
 Trong các hệ thống nhúng và tự động hóa công nghiệp, Kernel Module đóng vai trò quan trọng trong việc xây dựng kiến trúc phần mềm linh hoạt, dễ bảo trì và có khả năng mở rộng cao. Đây là nền tảng quan trọng cho việc phát triển driver và các chức năng hệ thống trong Linux Embedded hiện đại.
 
-\subsection{Kernel Logging}
-
-Trong Linux Kernel, cơ chế logging được sử dụng để ghi nhận thông tin hoạt động của hệ thống trong quá trình runtime. Kernel Logging đóng vai trò quan trọng trong việc theo dõi trạng thái hệ thống, kiểm tra hoạt động của driver và hỗ trợ debug trong quá trình phát triển Linux Embedded.
-
-Khác với các ứng dụng trong User Space có thể sử dụng các hàm như \texttt{printf()} để xuất dữ liệu ra terminal, Linux Kernel hoạt động trong kernel space nên không thể sử dụng trực tiếp các hàm thư viện chuẩn của user space. Thay vào đó, kernel sử dụng hàm \texttt{printk()} để ghi log vào kernel log buffer.
-
-Hàm \texttt{printk()} là cơ chế logging chuẩn của Linux Kernel và được sử dụng rộng rãi trong quá trình phát triển kernel module, device driver và các thành phần hệ thống mức thấp.
-
-Khi hàm \texttt{printk()} được thực thi, thông điệp sẽ được ghi vào vùng nhớ kernel log buffer. Các thông tin này sau đó có thể được truy xuất để kiểm tra trạng thái hoạt động của hệ thống hoặc hỗ trợ quá trình debug.
-
-Trong Linux, thông điệp kernel thường được kiểm tra bằng lệnh:
-
-\begin{verbatim}
-dmesg
-\end{verbatim}
-
-Lệnh \texttt{dmesg} cho phép hiển thị toàn bộ nội dung trong kernel ring buffer, bao gồm các thông tin liên quan đến quá trình boot hệ thống, hoạt động của driver, lỗi phần cứng và các thông báo runtime từ Linux Kernel.
-
-Kernel logging đóng vai trò đặc biệt quan trọng trong Linux Embedded vì nhiều thành phần hệ thống như Device Driver hoặc Kernel Module hoạt động trực tiếp với phần cứng và không có giao diện debug trực quan như các ứng dụng user space. Do đó, \texttt{printk()} thường được sử dụng để theo dõi trạng thái hoạt động của driver và kiểm tra luồng thực thi trong kernel.
-
-Ngoài chức năng debug, kernel logging còn hỗ trợ giám sát lỗi hệ thống và phát hiện các sự cố liên quan đến phần cứng hoặc tài nguyên hệ thống. Các thông điệp log có thể cung cấp thông tin về lỗi memory access, kernel panic, interrupt hoặc trạng thái của peripheral trong quá trình hoạt động.
-
-Linux Kernel hỗ trợ nhiều mức độ log khác nhau nhằm phân loại mức độ quan trọng của thông điệp. Các mức log phổ biến bao gồm:
-
-\begin{itemize}
-    \item \texttt{KERN\_EMERG}: lỗi nghiêm trọng, hệ thống không thể hoạt động.
-    \item \texttt{KERN\_ALERT}: yêu cầu xử lý ngay lập tức.
-    \item \texttt{KERN\_ERR}: thông báo lỗi hệ thống.
-    \item \texttt{KERN\_WARNING}: cảnh báo hệ thống.
-    \item \texttt{KERN\_INFO}: thông tin hoạt động thông thường.
-    \item \texttt{KERN\_DEBUG}: thông tin phục vụ debug.
-\end{itemize}
-
-Ví dụ:
-
-\begin{verbatim}
-printk(KERN_INFO "Driver Initialized");
-\end{verbatim}
-
-Trong ví dụ trên, thông điệp được gắn mức log \texttt{KERN\_INFO}, cho biết đây là thông tin hoạt động thông thường của hệ thống.
-
-Linux Kernel sử dụng cơ chế ring buffer để lưu trữ log. Khi vùng nhớ log đầy, các thông điệp cũ sẽ bị ghi đè bởi thông điệp mới. Cơ chế này giúp kernel quản lý bộ nhớ logging hiệu quả và tránh tiêu tốn quá nhiều tài nguyên hệ thống.
-
-Trong các hệ thống Linux Embedded và tự động hóa công nghiệp, kernel logging là công cụ quan trọng phục vụ quá trình phát triển và bảo trì hệ thống. Thông qua các thông điệp log, người phát triển có thể kiểm tra hoạt động của driver, theo dõi trạng thái thiết bị ngoại vi và nhanh chóng xác định nguyên nhân gây lỗi trong quá trình vận hành.
-
-Ngoài ra, kernel logging còn hỗ trợ việc phân tích hiệu năng và đánh giá độ ổn định của hệ thống nhúng trong các môi trường công nghiệp yêu cầu độ tin cậy cao. Đây là một trong những cơ chế debug cơ bản nhưng rất quan trọng trong phát triển Linux Kernel và Device Driver.
-
-\subsection{Kernel Build System}
-
-Trong Linux Kernel, việc biên dịch kernel module được thực hiện thông qua Kernel Build System, thường được gọi là Kbuild. Đây là hệ thống build chính thức của Linux Kernel, chịu trách nhiệm quản lý quá trình biên dịch kernel, device driver và các kernel module.
-
-Kbuild được thiết kế nhằm hỗ trợ quá trình build một cách thống nhất và tự động hóa trên nhiều kiến trúc phần cứng khác nhau. Hệ thống này cho phép các module bên ngoài (External Module) có thể được biên dịch tương thích với Linux Kernel mà không cần chỉnh sửa trực tiếp mã nguồn kernel.
-
-Trong quá trình phát triển Linux Embedded, Kernel Build System đóng vai trò rất quan trọng vì phần lớn device driver thường được xây dựng dưới dạng kernel module độc lập. Việc sử dụng Kbuild giúp đảm bảo module được biên dịch với đúng compiler, header file và cấu hình kernel tương ứng với hệ thống đích.
-
-Linux Kernel sử dụng Makefile để mô tả quá trình build module. Một Makefile cơ bản cho kernel module thường bao gồm khai báo object module như sau:
-
-\begin{verbatim}
-obj-m := my_driver.o
-\end{verbatim}
-
-Trong đó:
-
-\begin{itemize}
-    \item \texttt{obj-m} là biến được Kbuild sử dụng để khai báo external kernel module.
-    \item \texttt{my\_driver.o} là object file được tạo ra từ source code của module.
-\end{itemize}
-
-Khi quá trình build hoàn tất, Linux Kernel sẽ tạo file kernel object có phần mở rộng \texttt{.ko} để có thể nạp động vào kernel trong runtime.
-
-Một trong những cơ chế quan trọng của Kbuild là khả năng sử dụng Linux Kernel Source Tree để build external module. Điều này được thực hiện thông qua lệnh:
-
-\begin{verbatim}
-$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules
-\end{verbatim}
-
-Lệnh trên cho phép Makefile gọi hệ thống build của Linux Kernel để thực hiện biên dịch module bên ngoài.
-
-Trong đó:
-
-\begin{itemize}
-    \item \texttt{\$(MAKE)} gọi chương trình make.
-    \item \texttt{-C \$(KERNEL\_SRC)} chuyển thư mục làm việc sang kernel source tree.
-    \item \texttt{M=\$(SRC)} chỉ định thư mục chứa source code của external module.
-    \item \texttt{modules} yêu cầu kernel build system thực hiện build module.
-\end{itemize}
-
-Thông qua cơ chế này, external module có thể sử dụng toàn bộ môi trường build của Linux Kernel như:
-
-\begin{itemize}
-    \item Compiler configuration.
-    \item Kernel header.
-    \item Symbol table.
-    \item Cross-compilation toolchain.
-    \item Kernel configuration.
-\end{itemize}
-
-Điều này giúp đảm bảo module được build tương thích hoàn toàn với phiên bản Linux Kernel đang sử dụng.
-
-Trong Linux Embedded, Kbuild còn hỗ trợ cơ chế cross-compilation nhằm biên dịch kernel module cho các nền tảng phần cứng khác nhau như ARM, ARM64 hoặc RISC-V. BitBake và Yocto Project thường tích hợp trực tiếp với Kernel Build System để tự động hóa quá trình build external module trong Embedded Linux Image.
-
-Ngoài việc build module, Kbuild còn hỗ trợ quản lý dependency giữa các source file và tự động tạo các file trung gian cần thiết trong quá trình biên dịch. Điều này giúp giảm đáng kể độ phức tạp khi phát triển các driver hoặc module có cấu trúc lớn.
-
-Một ưu điểm quan trọng của Kernel Build System là khả năng đồng bộ với cấu hình kernel hiện tại. Khi Linux Kernel được cấu hình lại, các module build bằng Kbuild sẽ tự động sử dụng đúng configuration và symbol tương ứng, giúp tránh lỗi không tương thích trong quá trình runtime.
-
-Bên cạnh đó, Kbuild còn hỗ trợ cơ chế incremental build nhằm chỉ biên dịch lại các thành phần bị thay đổi thay vì build lại toàn bộ module. Điều này giúp tối ưu thời gian phát triển và tăng hiệu quả trong quá trình debug driver.
-
-Trong các hệ thống Linux Embedded và tự động hóa công nghiệp, Kernel Build System là nền tảng quan trọng cho việc phát triển và tích hợp Device Driver. Nhờ khả năng hỗ trợ build module linh hoạt, tương thích đa nền tảng và tích hợp chặt chẽ với Linux Kernel, Kbuild đã trở thành thành phần không thể thiếu trong hệ sinh thái phát triển Linux Embedded hiện đại.
-
 \subsection{Cơ chế tự động nạp module}
 
 Trong Linux, kernel module có thể được nạp thủ công bằng các lệnh như \texttt{insmod} hoặc \texttt{modprobe}. Tuy nhiên, trong các hệ thống Linux Embedded và tự động hóa công nghiệp, nhiều driver cần được khởi tạo tự động ngay khi hệ thống khởi động nhằm đảm bảo các thiết bị phần cứng sẵn sàng hoạt động mà không yêu cầu thao tác từ người dùng.
@@ -695,7 +586,7 @@ Cơ chế tự động nạp module trong Yocto thường được khai báo b�
 KERNEL_MODULE_AUTOLOAD += "my_driver"
 \end{verbatim}
 
-Biến \texttt{KERNEL\_MODULE\_AUTOLOAD} được sử dụng để chỉ định danh sách kernel module cần tự động load khi hệ thống khởi động. Khi module được khai báo trong biến này, Yocto sẽ tạo các cấu hình cần thiết trong root filesystem nhằm đảm bảo module được kernel nạp tự động trong runtime.
+Biến \texttt{KERNEL\_MODULE\_AUTOLOAD} được sử dụng để chỉ định danh sách kernel module cần tự động load khi hệ thống khởi động. Khi module được khai báo trong biến này, Yocto sẽ tạo các cấu hình cần thiết trong root filesystem nhằm đảm bảo module được kernel nạp tự động trong runtime.\cite{yocto_kernel_module_autoload}
 
 Cơ chế hoạt động của quá trình tự động nạp module có thể được mô tả như sau:
 
@@ -949,7 +840,7 @@ Nhờ các đặc tính nổi bật như khả năng truyền xa, chống nhiễ
     \caption{Modbus RTU }
     \label{fig:placeholder}
 \end{figure}
-\textbf{a. Giao thức Modbus RTU}
+\subsubsection{Giao thức Modbus RTU}
 
 
 Modbus RTU (Remote Terminal Unit) là một giao thức truyền thông công nghiệp phổ biến, được phát triển bởi Modicon vào năm 1979. Đây là giao thức dạng master–slave (hiện nay còn gọi là client–server), được thiết kế nhằm cho phép các thiết bị điều khiển và giám sát trong công nghiệp trao đổi dữ liệu với nhau một cách đơn giản, tin cậy và hiệu quả. Nhờ tính mở, dễ triển khai và khả năng tương thích cao, Modbus RTU hiện vẫn được sử dụng rộng rãi trong các hệ thống SCADA, PLC, cảm biến và thiết bị đo lường công nghiệp.
@@ -961,7 +852,7 @@ Modbus RTU thường được triển khai trên các chuẩn truyền thông v�
 Trong mô hình hoạt động của Modbus RTU, thiết bị master đóng vai trò khởi tạo và điều khiển toàn bộ quá trình truyền thông, trong khi các thiết bị slave chỉ phản hồi khi nhận được yêu cầu hợp lệ từ master. Mỗi thiết bị slave được gán một địa chỉ duy nhất trên bus, giúp master xác định đúng thiết bị cần giao tiếp. Cơ chế này giúp tránh xung đột dữ liệu và đảm bảo tính tuần tự trong quá trình truyền thông.
 
 
-\textbf{b. Cấu trúc khung tin}
+\subsubsection{Cấu trúc khung tin}
 
 
 Modbus RTU truyền dữ liệu dưới dạng các khung tin (frame) được mã hóa theo dạng nhị phân, cho phép tiết kiệm băng thông và nâng cao hiệu quả truyền thông. Mỗi khung tin Modbus RTU bao gồm các trường dữ liệu được sắp xếp theo thứ tự xác định, đảm bảo thiết bị nhận có thể giải mã chính xác nội dung thông tin.

@@ -1,65 +1,67 @@
 \babel@toc {vietnamese}{}\relax 
 \contentsline {chapter}{\numberline {1}Phần mở đầu}{7}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Đặt vấn đề}{8}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Lý do chọn đề tài}{8}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Mục tiêu nghiên cứu}{8}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Phạm vi và giới hạn nghiên cứu}{9}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Bố cục luận văn}{10}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Tổng quan dự án}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Tổng quan về tự động hóa công nghiệp}{12}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Tổng quan về hệ điều hành nhúng}{12}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Giới thiệu về Linux}{12}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Khái niệm Embedded Linux}{13}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Tổng quan về Yocto Project}{14}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Giới thiệu Yocto Project và hệ thống Poky}{14}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{15}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Các công trình liên quan}{15}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Kiến trúc Build System trong Yocto Project}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Kiến trúc Layer trong Yocto}{17}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Các thành phần chính trong Layer của Yocto Project}{18}{subsection.3.1.2}%
-\contentsline {subsubsection}{Recipe (.bb)}{18}{subsubsection*.7}%
-\contentsline {subsubsection}{Configuration}{19}{subsubsection*.8}%
-\contentsline {subsubsection}{Patch}{19}{subsubsection*.9}%
-\contentsline {subsubsection}{Source Code}{20}{subsubsection*.10}%
-\contentsline {subsection}{\numberline {3.1.3}Recipe trong Yocto}{20}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}BitBake Build Engine}{22}{subsection.3.1.4}%
-\contentsline {subsubsection}{Task do\_fetch}{22}{subsubsection*.13}%
-\contentsline {subsubsection}{Task do\_unpack}{23}{subsubsection*.14}%
-\contentsline {subsubsection}{Task do\_patch}{23}{subsubsection*.15}%
-\contentsline {subsubsection}{Task do\_compile}{24}{subsubsection*.16}%
-\contentsline {subsubsection}{Task do\_install}{24}{subsubsection*.17}%
-\contentsline {subsubsection}{Task do\_package}{24}{subsubsection*.18}%
-\contentsline {subsection}{\numberline {3.1.5}Cross-compilation trong Yocto}{25}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Linux Device Driver}{27}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Tổng quan Linux Kernel}{27}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}User Space và Kernel Space}{28}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Linux Device Driver}{31}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Device Tree}{32}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Kernel Module}{34}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Kernel Logging}{37}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Kernel Build System}{38}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Cơ chế tự động nạp module}{40}{subsection.3.2.8}%
-\contentsline {subsection}{\numberline {3.2.9}Xây dựng và tích hợp Driver trong Yocto}{42}{subsection.3.2.9}%
-\contentsline {section}{\numberline {3.3}Bảo mật hệ điều hành Linux nhúng}{44}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Khái niệm bảo mật trong Linux nhúng}{44}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{45}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Bảo mật quyền truy cập hệ thống với SELinux}{46}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Bảo mật chống tấn công offline với dm-verity}{47}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Edge AI trong hệ thống nhúng}{50}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Giao diện người dùng trên thiết bị nhúng}{50}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Giao tiếp phần cứng công nghiệp}{50}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Chuẩn vật lý RS485}{50}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Giao thức Modbus RTU và cấu trúc khung tin}{51}{subsection.3.6.2}%
-\contentsline {section}{\numberline {3.7}Kết nối Cloud và IoT}{53}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Tổng quan về CoreIOT}{53}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Giao thức MQTT trong hệ thống nhúng}{55}{subsection.3.7.2}%
-\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{56}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{57}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{57}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Thiết kế luồng xử lý dữ liệu}{57}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{57}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{57}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Thiết kế giao diện Dashboard CoreIot}{57}{subsection.4.4.1}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{59}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{60}{chapter.6}%
+\contentsline {section}{\numberline {1.2}Lý do chọn đề tài}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Mục tiêu nghiên cứu}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Phạm vi và giới hạn nghiên cứu}{10}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Bố cục luận văn}{11}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Tổng quan dự án}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tổng quan về tự động hóa công nghiệp}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Tổng quan về hệ điều hành nhúng}{14}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Giới thiệu về Linux}{14}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Khái niệm Embedded Linux}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Tổng quan về Yocto Project}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Giới thiệu Yocto Project và hệ thống Poky}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{17}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Các công trình liên quan}{17}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Kiến trúc Build System trong Yocto Project}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Kiến trúc Layer trong Yocto}{19}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Các thành phần chính trong Layer của Yocto Project}{20}{subsection.3.1.2}%
+\contentsline {subsubsection}{Recipe (.bb)}{20}{subsubsection*.10}%
+\contentsline {subsubsection}{Configuration}{21}{subsubsection*.11}%
+\contentsline {subsubsection}{Patch}{21}{subsubsection*.12}%
+\contentsline {subsubsection}{Source Code}{22}{subsubsection*.13}%
+\contentsline {subsection}{\numberline {3.1.3}Recipe trong Yocto}{22}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}BitBake Build Engine}{24}{subsection.3.1.4}%
+\contentsline {subsubsection}{Task do\_fetch}{24}{subsubsection*.16}%
+\contentsline {subsubsection}{Task do\_unpack}{25}{subsubsection*.17}%
+\contentsline {subsubsection}{Task do\_patch}{25}{subsubsection*.18}%
+\contentsline {subsubsection}{Task do\_compile}{26}{subsubsection*.19}%
+\contentsline {subsubsection}{Task do\_install}{26}{subsubsection*.20}%
+\contentsline {subsubsection}{Task do\_package}{26}{subsubsection*.21}%
+\contentsline {subsection}{\numberline {3.1.5}Cross-compilation trong Yocto}{27}{subsection.3.1.5}%
+\contentsline {section}{\numberline {3.2}Linux Device Driver}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Tổng quan Linux Kernel}{29}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}User Space và Kernel Space}{30}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Linux Device Driver}{33}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Device Tree}{34}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Kernel Module}{36}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Cơ chế tự động nạp module}{39}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Xây dựng và tích hợp Driver trong Yocto}{41}{subsection.3.2.7}%
+\contentsline {section}{\numberline {3.3}Bảo mật hệ điều hành Linux nhúng}{43}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Khái niệm bảo mật trong Linux nhúng}{43}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{44}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Bảo mật quyền truy cập hệ thống với SELinux}{45}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Bảo mật chống tấn công offline với dm-verity}{46}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Edge AI trong hệ thống nhúng}{48}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Giao diện người dùng trên thiết bị nhúng}{48}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Giao tiếp phần cứng công nghiệp}{48}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Chuẩn vật lý RS485}{48}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Giao thức Modbus RTU và cấu trúc khung tin}{49}{subsection.3.6.2}%
+\contentsline {subsubsection}{Giao thức Modbus RTU}{49}{subsubsection*.31}%
+\contentsline {subsubsection}{Cấu trúc khung tin}{50}{subsubsection*.32}%
+\contentsline {section}{\numberline {3.7}Kết nối Cloud và IoT}{51}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Tổng quan về CoreIOT}{51}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Giao thức MQTT trong hệ thống nhúng}{53}{subsection.3.7.2}%
+\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{54}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Thiết kế cơ chế truyền dữ liệu giữa Gateway và CoreIoT}{55}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Thiết kế luồng xử lý dữ liệu}{58}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{59}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Khối xử lý cảnh báo}{59}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{60}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Thiết kế giao diện Dashboard CoreIot}{60}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{62}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{63}{chapter.6}%

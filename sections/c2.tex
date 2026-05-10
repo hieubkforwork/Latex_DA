@@ -9,7 +9,7 @@
 \end{figure}
 
 
-Linus Torvalds (sinh ngày 28/12/1969), lớn lên ở Helsinki, Phần Lan. Linus vào Đại học Helsinki năm 1988 và bắt đầu học ngành Khoa học máy tính. Năm 1991, ông bắt đầu khởi xướng dự án LIMS (Linux Is Minix System) - dự án hệ điều hành do ông tự phát triển đánh dấu bước khởi đầu của Linux. Linux được phát triển dựa trên các nguyên lý thiết kế của hệ điều hành Unix, vốn ra đời vào năm 1969. Linux có khả năng chạy trên kiến trúc phần cứng x86 và được phân phối dưới dạng mã nguồn mở. Phiên bản đầu tiên của nhân Linux được công bố công khai vào ngày 17 tháng 9 năm 1991, nhanh chóng thu hút sự quan tâm và đóng góp của cộng đồng lập trình viên trên toàn thế giới.
+Linus Torvalds (sinh ngày 28/12/1969), lớn lên ở Helsinki, Phần Lan. Linus vào Đại học Helsinki năm 1988 và bắt đầu học ngành Khoa học máy tính. Năm 1991, ông bắt đầu khởi xướng dự án LIMS (Linux Is Minix System) - dự án hệ điều hành do ông tự phát triển đánh dấu bước khởi đầu của Linux. Linux được phát triển dựa trên các nguyên lý thiết kế của hệ điều hành Unix, vốn ra đời vào năm 1969. Linux có khả năng chạy trên kiến trúc phần cứng x86 và được phân phối dưới dạng mã nguồn mở. Phiên bản đầu tiên của nhân Linux được công bố công khai vào ngày 17 tháng 9 năm 1991, nhanh chóng thu hút sự quan tâm và đóng góp của cộng đồng lập trình viên trên toàn thế giới. \cite{britannica_linux}
 
 
 Mặc dù Linus Torvalds ban đầu phát triển Linux như một dự án cá nhân, trong bối cảnh hệ sinh thái GNU đã cung cấp nhiều công cụ và thư viện hệ thống quan trọng nhưng vẫn thiếu một nhân hệ điều hành hoàn chỉnh, sự ra đời của nhân Linux đã vô tình lấp đầy khoảng trống này, tạo tiền đề cho việc hình thành các hệ thống hoàn chỉnh thường được gọi là GNU/Linux.
@@ -61,22 +61,21 @@ Yocto Project là một dự án mã nguồn mở mang tính cộng tác toàn c
 Yocto Project đã trở thành một chuẩn công nghiệp trong việc xây dựng các bộ phần mềm nhúng nhờ khả năng tái sử dụng, mở rộng và bảo trì lâu dài trên nhiều nền tảng phần cứng. Dự án không phụ thuộc vào kiến trúc phần cứng, hỗ trợ đa dạng nền tảng thông qua các gói BSP, đồng thời cho phép xây dựng các bản phân phối Linux tùy biến phù hợp với nhiều dòng sản phẩm. Nhờ cơ chế chỉ tích hợp những thành phần cần thiết, Yocto Project đặc biệt phù hợp với các thiết bị nhúng có tài nguyên hạn chế, giúp tối ưu dung lượng và hiệu năng. Ngoài ra, dự án còn cung cấp hệ thống công cụ phát triển đầy đủ, mô hình Layer rõ ràng, khả năng tái tạo nhị phân cao và hỗ trợ quản lý giấy phép phần mềm, đáp ứng tốt các yêu cầu phát triển và thương mại hóa sản phẩm.
 
 
-Poky là bản phân phối tham chiếu của Yocto Project, cung cấp một bộ khung chuẩn để xây dựng các hệ thống Linux nhúng tùy biến. Poky tích hợp OpenEmbedded Build System, bao gồm BitBake và OpenEmbedded-Core, cùng với các lớp metadata cần thiết để cấu hình, biên dịch và tạo image Linux từ mã nguồn. Đây không phải là một hệ điều hành hoàn chỉnh dùng trực tiếp cho sản phẩm, mà là điểm khởi đầu đã được kiểm thử và đảm bảo tính tương thích, cho phép nhà phát triển mở rộng và tùy biến hệ thống thông qua cơ chế layer để phù hợp với các yêu cầu phần cứng và chức năng cụ thể của thiết bị nhúng.
+Poky là bản phân phối tham chiếu của Yocto Project, cung cấp một bộ khung chuẩn để xây dựng các hệ thống Linux nhúng tùy biến. Poky tích hợp OpenEmbedded Build System, bao gồm BitBake và OpenEmbedded-Core, cùng với các lớp metadata cần thiết để cấu hình, biên dịch và tạo image Linux từ mã nguồn. Đây không phải là một hệ điều hành hoàn chỉnh dùng trực tiếp cho sản phẩm, mà là điểm khởi đầu đã được kiểm thử và đảm bảo tính tương thích, cho phép nhà phát triển mở rộng và tùy biến hệ thống thông qua cơ chế layer để phù hợp với các yêu cầu phần cứng và chức năng cụ thể của thiết bị nhúng. 
 
 
 
 
 \subsection{Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}
 BitBake là thành phần trung tâm của hệ thống xây dựng trong Yocto Project, đóng vai trò như một bộ lập lịch và thực thi tác vụ. BitBake phân tích các chỉ dẫn được mô tả trong metadata, xây dựng cây phụ thuộc giữa các thành phần và điều phối quá trình biên dịch, đóng gói để tạo ra image Linux nhúng theo cấu hình đã định.
-
-
 Metadata là tập hợp các thông tin điều khiển toàn bộ quá trình xây dựng hệ thống, bao gồm các tệp cấu hình, lớp và công thức xây dựng. Metadata quyết định những thành phần phần mềm nào được sử dụng, cách thức chúng được cấu hình, cũng như các chính sách ảnh hưởng đến quá trình build, từ đó cho phép kiểm soát chặt chẽ và nhất quán hệ thống tạo ra.
 
 
 Layers là các lớp metadata được tổ chức theo mô-đun, mỗi layer đại diện cho một nhóm chức năng hoặc phạm vi cụ thể như phần cứng, middleware hay ứng dụng. Cơ chế layer cho phép mở rộng, ghi đè và tùy biến hệ thống một cách linh hoạt, đồng thời giúp giảm độ phức tạp và tăng khả năng tái sử dụng trong quá trình phát triển.
 
 
-Recipes là đơn vị cơ bản của metadata, mô tả cách thức tải mã nguồn, áp dụng bản vá, cấu hình, biên dịch và đóng gói từng gói phần mềm. Thông qua các recipe, BitBake có thể tự động xây dựng các thành phần riêng lẻ và tích hợp chúng thành một hệ thống Linux nhúng hoàn chỉnh.
+Recipes là đơn vị cơ bản của metadata, mô tả cách thức tải mã nguồn, áp dụng bản vá, cấu hình, biên dịch và đóng gói từng gói phần mềm. Thông qua các recipe, BitBake có thể tự động xây dựng các thành phần riêng lẻ và tích hợp chúng thành một hệ thống Linux nhúng hoàn chỉnh.\cite{yocto_overview_features}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{image/poky.png}
