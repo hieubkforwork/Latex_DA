@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1778348379.10469 "main.aux" "main.bbl" "main" 1778348386.4542 0
+["bibtex main"] 1778352719.9868 "main.aux" "main.bbl" "main" 1778352728.33319 0
   "./references.bib" 1778314513.66319 3633 32832189020b9ae3450b1393c7a82f64 ""
   "C:/Users/ACER/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1778348384.4947 13921 9ffdce7d05a7fadd50d1a64189df51e7 "pdflatex"
+  "main.aux" 1778352726.1994 13681 7ada8a81020fa4761ebb006ae7640b65 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778348379.64552 "e:/Study/BTL/DATN/LATEX DOC/Latex_DA/main.tex" "main.pdf" "main" 1778348386.45629 0
+["pdflatex"] 1778352720.67021 "e:/Study/BTL/DATN/LATEX DOC/Latex_DA/main.tex" "main.pdf" "main" 1778352728.33559 0
   "C:/Users/ACER/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1778309883.46415 171648 67429c141d4fb058419afb897c41fb73 ""
   "C:/Users/ACER/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1766334312.22753 13333028 bd19f9764e20ea7c93ca963a79901328 ""
   "C:/Users/ACER/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-t5.enc" 1525740614 2975 5d07e0fae8df45f23cc4ae4431a77829 ""
@@ -276,7 +276,7 @@
   "C:/Users/ACER/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "C:/Users/ACER/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1750428951 2269 2de6c7a5fd634dfef00a960544463a38 ""
   "C:/Users/ACER/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1750428951 20785 198a9cb2e04238d92c320d0d9edbd76a ""
-  "e:/Study/BTL/DATN/LATEX DOC/Latex_DA/main.tex" 1778348135.1355 5025 c12fa28a2d43c9eb8a53bc19486adb39 ""
+  "e:/Study/BTL/DATN/LATEX DOC/Latex_DA/main.tex" 1778348723.65664 4256 4d8427addb584cb11fee9a9fa67d634c ""
   "image/Linux.jpg" 1766293496 6463 91ba36160ba0fa510504261238d7f473 ""
   "image/LogoBK.png" 1766293496 22148 12d9f5011d4ace46bface3084bc1e409 ""
   "image/coreiotp.png" 1778321582.94995 863245 42f2dab2b077de6c6e9fa6202e0f4071 ""
@@ -289,22 +289,21 @@
   "image/rs485.jpg" 1766293498 176405 e73a9cd795728ae7bff899ee205c84d5 ""
   "image/rulechain.png" 1778322760.47205 190863 98ca354f530ad880bb4b4294706d1a50 ""
   "image/yocto_prj.png" 1766293496 3123 31b9f1b38336fb1a6896da9cbe6af65c ""
-  "main.aux" 1778348384.4947 13921 9ffdce7d05a7fadd50d1a64189df51e7 "pdflatex"
-  "main.bbl" 1778348379.52131 2357 77a2359e95ceb309f210b399d38c4867 "bibtex main"
-  "main.lof" 1778348384.58884 1524 06f11cd39a32881563e886f636c94d31 "pdflatex"
-  "main.lot" 1778348384.58884 847 aaadb41060496e699fae0ed074015ed4 "pdflatex"
-  "main.out" 1778348384.55983 9909 6abb1c2ca4294142b1b8f05513b73a40 "pdflatex"
-  "main.toc" 1778348384.58884 5253 576171d7505c4bc29d1d000d2ced4888 "pdflatex"
+  "main.aux" 1778352726.1994 13681 7ada8a81020fa4761ebb006ae7640b65 "pdflatex"
+  "main.bbl" 1778352720.52679 2357 77a2359e95ceb309f210b399d38c4867 "bibtex main"
+  "main.lof" 1778352726.26792 1504 e228249fba831eb8145fb609780beccf "pdflatex"
+  "main.lot" 1778352726.26792 827 5faa07aa124fa22cb45ddc794e681be5 "pdflatex"
+  "main.out" 1778352726.23944 9723 bb86753543979f96a1f5752fc330ff05 "pdflatex"
+  "main.toc" 1778352726.26792 5168 d5b41b3f41d34ed9a544e343eb912434 "pdflatex"
   "preamble.tex" 1778346696.12128 5104 3f24cd62a38340a45e63143fdca13e00 ""
   "sections/c2.tex" 1778347916.95513 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/c3.tex" 1778348371.19669 118538 e1124e68095f98bae29c9de67e9ea0f5 ""
   "sections/c4.tex" 1778003330.33324 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/c5.tex" 1778003339.75013 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "sections/c6.tex" 1778003344.59315 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/c7.tex" 1778303775.03771 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/cover.tex" 1777975725.7515 3077 d680d492702c7b89bbd84da5cd943c6b ""
   "sections/lco.tex" 1777991649.458 2119 504242a4f90e760d29c152966f043374 ""
-  "sections/modau.tex" 1777998242.13442 195 2fe47bd8a2b9244e14a524b120c8f87f ""
+  "sections/modau.tex" 1778352711.22258 7911 c3aa9ee46221f69df3ede823ebf841a0 ""
   "sections/tthd.tex" 1778002567.54329 491 24e9e8dc49e94b72295b52656f2031d6 ""
   (generated)
   "main.aux"

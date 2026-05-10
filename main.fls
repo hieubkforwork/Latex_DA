@@ -578,6 +578,15 @@ INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT C:\Users\ACER\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
 INPUT .\sections\c2.tex
 INPUT .\sections\c2.tex
 INPUT .\sections\c2.tex
@@ -629,7 +638,6 @@ INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
 INPUT .\image\LogoBK.png
-INPUT C:\Users\ACER\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
 INPUT C:\Users\ACER\AppData\Local\Programs\MiKTeX\tex\latex\vntex\t5cmtt.fd
 INPUT C:\Users\ACER\AppData\Local\Programs\MiKTeX\tex\latex\vntex\t5cmtt.fd
 INPUT C:\Users\ACER\AppData\Local\Programs\MiKTeX\tex\latex\vntex\t5cmtt.fd
@@ -850,11 +858,6 @@ INPUT .\sections\c5.tex
 INPUT .\sections\c5.tex
 INPUT .\sections\c5.tex
 INPUT sections\c5.tex
-INPUT .\sections\c6.tex
-INPUT .\sections\c6.tex
-INPUT .\sections\c6.tex
-INPUT .\sections\c6.tex
-INPUT sections\c6.tex
 INPUT .\sections\c7.tex
 INPUT .\sections\c7.tex
 INPUT .\sections\c7.tex
