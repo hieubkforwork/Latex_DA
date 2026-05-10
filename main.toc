@@ -1,0 +1,95 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {chapter}{Danh mục từ viết tắt}{7}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Phần mở đầu}{8}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Đặt vấn đề}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Lý do chọn đề tài}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Mục tiêu nghiên cứu}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Phạm vi và giới hạn nghiên cứu}{9}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Bố cục luận văn}{9}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Tổng quan dự án}{10}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tổng quan về Linux nhúng và Yocto Project}{12}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Giới thiệu về Linux}{12}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Khái niệm Embedded Linux}{13}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Giới thiệu Yocto Project và hệ thống Poky}{14}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{14}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Kiến trúc Build System trong Yocto Project}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Kiến trúc Layer trong Yocto}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Các thành phần chính trong Layer của Yocto Project}{16}{subsection.3.2.2}%
+\contentsline {subsubsection}{Recipe (.bb)}{17}{subsubsection*.8}%
+\contentsline {subsubsection}{Configuration}{17}{subsubsection*.9}%
+\contentsline {subsubsection}{Patch}{18}{subsubsection*.10}%
+\contentsline {subsubsection}{Source Code}{18}{subsubsection*.11}%
+\contentsline {subsection}{\numberline {3.2.3}Recipe trong Yocto}{19}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}BitBake Build Engine}{20}{subsection.3.2.4}%
+\contentsline {subsubsection}{Task do\_fetch}{21}{subsubsection*.14}%
+\contentsline {subsubsection}{Task do\_unpack}{21}{subsubsection*.15}%
+\contentsline {subsubsection}{Task do\_patch}{22}{subsubsection*.16}%
+\contentsline {subsubsection}{Task do\_compile}{22}{subsubsection*.17}%
+\contentsline {subsubsection}{Task do\_install}{23}{subsubsection*.18}%
+\contentsline {subsubsection}{Task do\_package}{23}{subsubsection*.19}%
+\contentsline {subsection}{\numberline {3.2.5}Cross-compilation trong Yocto}{24}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Linux Device Driver}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Tổng quan Linux Kernel}{25}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}User Space và Kernel Space}{27}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Linux Device Driver}{29}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Device Tree}{31}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Kernel Module}{33}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Kernel Logging}{35}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Kernel Build System}{37}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Cơ chế tự động nạp module}{38}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Xây dựng và tích hợp Driver trong Yocto}{40}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Bảo mật hệ điều hành Linux nhúng}{42}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Khái niệm bảo mật trong Linux nhúng}{42}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}{43}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Bảo mật quyền truy cập hệ thống với SELinux}{44}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Bảo mật chống tấn công offline với dm-verity}{45}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Edge AI trong hệ thống nhúng}{47}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Khái niệm Edge AI và lợi ích so với Cloud AI}{47}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Tổng quan mô hình TCN (Temporal Convolutional Network) và lý do lựa chọn TCN}{48}{subsection.3.5.2}%
+\contentsline {subsubsection}{Tổng quan về kiến trúc TCN}{48}{subsubsection*.28}%
+\contentsline {subsubsection}{Lý do lựa chọn TCN thay vì LSTM/RNN}{49}{subsubsection*.30}%
+\contentsline {subsection}{\numberline {3.5.3}Định dạng mô hình trung gian và tối ưu hóa trên thiết bị Edge}{50}{subsection.3.5.3}%
+\contentsline {subsubsection}{Định dạng mô hình ONNX (Open Neural Network Exchange)}{50}{subsubsection*.31}%
+\contentsline {subsubsection}{Định dạng TensorFlow Lite (TFLite) và tối ưu hóa Float16}{51}{subsubsection*.33}%
+\contentsline {section}{\numberline {3.6}Giao diện người dùng trên thiết bị nhúng}{52}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Giao tiếp phần cứng công nghiệp}{52}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Chuẩn vật lý RS485}{52}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Giao thức Modbus RTU và cấu trúc khung tin}{53}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}Kết nối Cloud và IoT}{55}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Tổng quan về CoreIOT}{55}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Giao thức MQTT trong hệ thống nhúng}{57}{subsection.3.8.2}%
+\contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{58}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{59}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Phân tích yêu cầu phi chức năng}{59}{subsection.4.1.1}%
+\contentsline {subsubsection}{Bảo mật (Security)}{59}{subsubsection*.40}%
+\contentsline {subsubsection}{Hiệu năng và tối ưu hóa (Performance and Efficiency)}{59}{subsubsection*.41}%
+\contentsline {subsubsection}{Độ tin cậy và tính ổn định (Reliability and Stability)}{60}{subsubsection*.42}%
+\contentsline {subsubsection}{Tính module và khả năng mở rộng (Modularity and Scalability)}{60}{subsubsection*.43}%
+\contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{60}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Kiến trúc tổng quan hệ thống}{60}{subsection.4.2.1}%
+\contentsline {subsubsection}{Tầng cảm biến và đầu vào (Field Sensor Layer)}{61}{subsubsection*.45}%
+\contentsline {subsubsection}{Tầng Secure Edge Gateway (Raspberry Pi 4)}{61}{subsubsection*.46}%
+\contentsline {subsubsection}{Tầng truyền thông (Communication Layer)}{62}{subsubsection*.47}%
+\contentsline {subsubsection}{Tầng đám mây (Cloud Layer -- CoreIoT Platform)}{62}{subsubsection*.48}%
+\contentsline {subsubsection}{Tầng thực thi (Actuation Layer)}{62}{subsubsection*.49}%
+\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{62}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Thiết kế khối xử lý AI}{62}{subsection.4.3.1}%
+\contentsline {subsubsection}{Thiết kế dữ liệu đầu vào và đầu ra}{63}{subsubsection*.51}%
+\contentsline {subsubsection}{Quy trình tiền xử lý và chuẩn hóa dữ liệu}{64}{subsubsection*.52}%
+\contentsline {subsubsection}{Kiến trúc mạng nơ-ron TCN (Temporal Convolutional Network)}{64}{subsubsection*.53}%
+\contentsline {paragraph}{a. Tích chập nhân quả (Causal Convolution)}{65}{paragraph*.55}%
+\contentsline {paragraph}{b. Tích chập giãn cách (Dilated Convolution)}{65}{paragraph*.56}%
+\contentsline {paragraph}{c. Kết nối tắt (Residual Connections)}{66}{paragraph*.57}%
+\contentsline {subsubsection}{Thiết kế chiến lược huấn luyện}{66}{subsubsection*.58}%
+\contentsline {subsubsection}{Thiết kế quy trình tối ưu hóa Edge AI (TFLite Quantization)}{66}{subsubsection*.59}%
+\contentsline {subsection}{\numberline {4.3.2}Thiết kế khối xử lý OTA}{67}{subsection.4.3.2}%
+\contentsline {subsubsection}{Mô tả chi tiết các thành phần hệ thống}{67}{subsubsection*.61}%
+\contentsline {subsubsection}{Luồng dữ liệu và logic xử lý (Data Flow Description)}{68}{subsubsection*.62}%
+\contentsline {subsection}{\numberline {4.3.3}Thiết kế khối xử lý Tool}{69}{subsection.4.3.3}%
+\contentsline {subsubsection}{Lớp Giao diện Người dùng (Client User Interface)}{69}{subsubsection*.64}%
+\contentsline {subsubsection}{Lớp Cửa ngõ API (API Gateway Layer)}{70}{subsubsection*.65}%
+\contentsline {subsubsection}{Lớp Hệ thống Đích và Dịch vụ Ngoại vi (Target System \& External Services)}{70}{subsubsection*.66}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{71}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Sản phẩm demo tích hợp }{72}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Kết luận và hướng phát triển }{73}{chapter.7}%

@@ -1,0 +1,28 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Linux}}{12}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Yocto Project}}{14}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Tổng thể hệ sinh thái Yocto Project }}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{44}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{46}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{47}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Cloud AI và Edge AI}}{48}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Kiến trúc mô hình TCN}}{49}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Định dạng ONNX}}{50}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Định dạng TensorFlow Lite}}{51}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces RS485 TTL }}{52}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Modbus RTU }}{53}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Tổng quan về CoreIOT}}{55}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{56}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{57}{figure.caption.39}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sơ đồ kiến trúc hệ thống}}{61}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Sơ đồ khối Module AI}}{63}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces mô hình TCN}}{65}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Sơ đồ khối OTA}}{67}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sơ đồ khối Tool}}{69}{figure.caption.63}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

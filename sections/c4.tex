@@ -1,0 +1,335 @@
+\section{Phân tích yêu cầu}
+
+\subsection{Phân tích yêu cầu phi chức năng}
+
+Hệ thống được xây dựng cần đáp ứng các yêu cầu phi chức năng nhằm đảm bảo hệ thống vận hành ổn định, an toàn và hiệu quả trong môi trường công nghiệp.
+
+\subsubsection{Bảo mật (Security)}
+
+Bảo mật là yêu cầu trọng tâm của hệ thống, đặc biệt khi thiết bị biên hoạt động liên tục và có khả năng kết nối trực tiếp với Internet. Các cơ chế bảo mật được triển khai bao gồm:
+
+\begin{itemize}
+    \item \textbf{Kiểm soát truy cập:}  
+    SELinux được triển khai theo mô hình kiểm soát truy cập bắt buộc (\textit{Mandatory Access Control -- MAC}) nhằm thực thi các chính sách bảo mật nghiêm ngặt và giới hạn quyền truy cập của từng tiến trình.
+
+    \item \textbf{Toàn vẹn hệ thống:}  
+    Cơ chế dm-verity được sử dụng để xác minh tính toàn vẹn của phân vùng root filesystem ở mức block, giúp phát hiện và ngăn chặn các thay đổi trái phép hoặc các cuộc tấn công ngoại tuyến.
+
+    \item \textbf{Giảm thiểu rủi ro:}  
+    Kỹ thuật giảm thiểu bề mặt tấn công (\textit{Attack Surface Reduction}) được áp dụng bằng cách loại bỏ các dịch vụ, gói phần mềm và cấu hình mặc định không cần thiết trong image Yocto.
+
+    \item \textbf{An toàn truyền thông:}  
+    Toàn bộ dữ liệu MQTT gửi lên nền tảng đám mây được mã hóa bằng giao thức SSL nhằm đảm bảo tính bảo mật và chống nghe lén trên đường truyền.
+\end{itemize}
+
+\subsubsection{Hiệu năng và tối ưu hóa (Performance and Efficiency)}
+
+Hệ thống cần đáp ứng yêu cầu xử lý dữ liệu theo thời gian thực với tài nguyên phần cứng giới hạn.
+
+\begin{itemize}
+    \item \textbf{Xử lý thời gian thực:}  
+    Mô hình AI được triển khai trực tiếp trên thiết bị biên (\textit{Edge AI}), cho phép thực hiện suy luận tại chỗ mà không phụ thuộc vào kết nối mạng tới máy chủ.
+
+    \item \textbf{Tối ưu mô hình:}  
+    Mô hình TCN được lượng tử hóa sang định dạng TensorFlow Lite Float16, giúp giảm khoảng 50\% dung lượng lưu trữ và tăng tốc độ suy luận trên Raspberry Pi 4.
+
+    \item \textbf{Xử lý song song:}  
+    Kiến trúc tích chập của TCN cho phép tính toán song song trên toàn bộ chuỗi dữ liệu, tận dụng hiệu quả tài nguyên xử lý của hệ thống.
+\end{itemize}
+
+\subsubsection{Độ tin cậy và tính ổn định (Reliability and Stability)}
+
+Để đảm bảo hệ thống hoạt động liên tục trong môi trường công nghiệp, các yếu tố về độ ổn định được đặc biệt chú trọng.
+
+\begin{itemize}
+    \item \textbf{Kháng nhiễu:}  
+    Chuẩn truyền thông RS485 sử dụng tín hiệu vi sai, cho phép truyền dữ liệu ổn định trong môi trường có nhiều nhiễu điện từ và khoảng cách lớn.
+
+    \item \textbf{Sẵn sàng hệ thống:}  
+    Cơ chế \texttt{KERNEL\_MODULE\_AUTOLOAD} trong Yocto giúp tự động nạp các kernel module cần thiết ngay khi hệ thống khởi động, đảm bảo phần cứng sẵn sàng hoạt động mà không cần can thiệp thủ công.
+\end{itemize}
+
+\subsubsection{Tính module và khả năng mở rộng (Modularity and Scalability)}
+
+Hệ thống cần được thiết kế theo hướng dễ bảo trì, tái sử dụng mở rộng trong tương lai.
+
+\begin{itemize}
+    \item \textbf{Kiến trúc phân lớp:}  
+    Yocto Project sử dụng cơ chế layer để tách biệt metadata của từng thành phần, giúp hệ thống dễ dàng tùy biến và quản lý.
+
+    \item \textbf{Khả năng tái sử dụng:}  
+    Các recipe, lớp cấu hình và driver được tổ chức độc lập, cho phép tái sử dụng cho các dự án khác hoặc các nền tảng phần cứng khác nhau.
+
+    \item \textbf{Khả năng mở rộng:}  
+    Hệ thống có thể bổ sung thêm cảm biến, mô hình AI hoặc cơ chế bảo mật mới mà không ảnh hưởng lớn đến kiến trúc hiện tại.
+\end{itemize}
+\section{Thiết kế nền tảng}
+
+\subsection{Kiến trúc tổng quan hệ thống}
+
+Hệ thống được thiết kế theo kiến trúc phân tầng (\textit{Layered Architecture}) kết hợp giữa công nghệ tính toán biên (\textit{Edge Computing}) và điện toán đám mây (\textit{Cloud Computing}). Kiến trúc này tối ưu hóa việc thu thập dữ liệu tại hiện trường, xử lý thông minh bằng mô hình AI trực tiếp tại biên để đảm bảo tính thời gian thực, đồng thời duy trì khả năng quản lý tập trung và thực thi bảo mật nghiêm ngặt thông qua hệ điều hành nhúng tùy chỉnh.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/Sodo_kientruc.jpg}
+    \caption{Sơ đồ kiến trúc hệ thống}
+    \label{fig:placeholder}
+\end{figure}
+\subsubsection{Tầng cảm biến và đầu vào (Field Sensor Layer)}
+
+Đây là tầng tiếp nhận dữ liệu vật lý từ môi trường. Trạm quan trắc bao gồm 5 loại cảm biến đo lường các thông số: nhiệt độ (\textit{Temperature}), độ ẩm (\textit{Humidity}), áp suất (\textit{Pressure}), bụi mịn PM2.5, cường độ ánh sáng (\textit{Light}) . Các dữ liệu này được thu thập và truyền về bộ xử lý trung tâm thông qua chuẩn giao tiếp công nghiệp RS485/Modbus RTU, giúp đảm bảo sự ổn định của tín hiệu trong môi trường có khoảng cách xa và nhiễu điện từ.
+
+\subsubsection{Tầng Secure Edge Gateway (Raspberry Pi 4)}
+
+Đóng vai trò là trung tâm điều khiển và xử lý thông minh, tầng này sử dụng phần cứng Raspberry Pi 4 (8 GB RAM) chạy hệ điều hành Linux tùy biến được xây dựng từ Yocto Project. Bên trong tầng Secure Edge Gateway bao gồm bốn khối chức năng cốt lõi:
+
+\begin{itemize}
+    \item \textbf{Khối bảo mật (Security Block):} Triển khai các chính sách SELinux, cơ chế dm-verity để kiểm tra tính toàn vẹn hệ thống và kỹ thuật giảm thiểu bề mặt tấn công (\textit{Attack Surface Reduction}).
+
+    \item \textbf{Khối driver hệ thống (Kernel Space):} Bao gồm các driver tùy chỉnh cho RS485 và I2C để giao tiếp trực tiếp với cảm biến và màn hình OLED ở tầng vật lý.
+
+    \item \textbf{Khối xử lý AI (AI Engine):} Sử dụng mô hình TCN (\textit{Temporal Convolutional Network}) để phân tích chuỗi thời gian từ 5 thông số đầu vào và đưa ra kết quả dự báo nồng độ PM2.5 trong 15 phút tiếp theo.
+
+    \item \textbf{Khối hiển thị tại chỗ (Local Monitoring):} Giao diện Dashboard được xây dựng trên nền tảng Qt5, hiển thị trực tiếp qua cổng HDMI để giám sát tức thời tại hiện trường.
+\end{itemize}
+
+\subsubsection{Tầng truyền thông (Communication Layer)}
+
+Tầng này đảm nhiệm việc kết nối an toàn giữa thiết bị biên và máy chủ. Luồng dữ liệu được đóng gói và truyền tải thông qua giao thức MQTT, đảm bảo tính gọn nhẹ và hiệu quả cho các thiết bị IoT. Toàn bộ quá trình truyền thông được mã hóa bằng giao thức SSL nhằm ngăn chặn các hành vi nghe lén hoặc giả mạo dữ liệu trên đường truyền.
+
+\subsubsection{Tầng đám mây (Cloud Layer -- CoreIoT Platform)}
+
+Hệ thống sử dụng nền tảng CoreIoT Platform để quản lý tập trung. Các chức năng chính tại tầng này bao gồm:
+
+\begin{itemize}
+    \item Tiếp nhận và lưu trữ cơ sở dữ liệu cho các thông số cảm biến và kết quả dự báo từ mô hình AI.
+    \item Quản lý trạng thái các thiết bị trong mạng lưới (\textit{Device Management}).
+    \item Thực thi các quy tắc điều khiển (\textit{Rules Engine}) để đưa ra quyết định dựa trên dữ liệu nhận được.
+    \item Cung cấp giao diện Web Dashboard phục vụ giám sát từ xa.
+\end{itemize}
+
+\subsubsection{Tầng thực thi (Actuation Layer)}
+
+Đây là tầng cuối cùng trong luồng xử lý, đảm nhiệm việc chuyển đổi các quyết định số thành hành động vật lý. Các Node xử lý kết nối Wi-Fi sẽ nhận lệnh điều khiển từ CoreIoT Platform để điều khiển các thiết bị công nghiệp bao gồm: hệ thống quạt thông gió (\textit{Ventilation Fans}), hệ thống lọc không khí (\textit{Air Filtration System}) và còi báo động (\textit{Alarm Buzzer}).
+
+Luồng điều khiển này tạo thành một vòng lặp khép kín, cho phép hệ thống phản ứng kịp thời trước các dự báo ô nhiễm không khí do mô hình AI cung cấp.
+\section{Thiết kế khối xử lý}
+\subsection{Thiết kế khối xử lý AI}
+
+Mục tiêu của khối xử lý AI là xây dựng một mô hình học sâu có khả năng khai thác các đặc trưng tiềm ẩn trong dữ liệu chuỗi thời gian từ hệ thống cảm biến môi trường, từ đó đưa ra dự báo nồng độ bụi mịn PM2.5 trong tương lai với độ chính xác cao. Khối này đóng vai trò là thành phần cốt lõi của hệ thống Edge AI, cho phép thiết bị Raspberry Pi 4 thực hiện suy luận trực tiếp tại hiện trường mà không phụ thuộc vào máy chủ đám mây.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/SO_DOAI.png}
+    \caption{Sơ đồ khối Module AI}
+    \label{fig:placeholder}
+\end{figure}
+\subsubsection{Thiết kế dữ liệu đầu vào và đầu ra}
+
+Dữ liệu môi trường thu thập được có dạng chuỗi thời gian đa biến (\textit{Multivariate Time Series}), trong đó mỗi mẫu dữ liệu bao gồm đồng thời nhiều thông số vật lý đo được tại cùng một thời điểm. Để chuyển đổi dữ liệu này thành dạng phù hợp cho mô hình học sâu, hệ thống sử dụng kỹ thuật cửa sổ trượt (\textit{Sliding Window}) nhằm xây dựng các cặp dữ liệu đầu vào -- đầu ra theo phương pháp học có giám sát.
+
+\begin{itemize}
+    \item \textbf{Vector đầu vào ($X$):}  
+    Được biểu diễn dưới dạng ma trận có kích thước $(T \times F)$, trong đó:
+    \begin{itemize}
+        \item $T = 30$: số bước thời gian quan sát trong quá khứ.
+        \item $F = 5$: số đặc trưng đầu vào, bao gồm Temperature, Humidity, Pressure, PM2.5 và Light .
+    \end{itemize}
+
+    Điều này có nghĩa là tại mỗi lần dự báo, mô hình sẽ sử dụng 30 mẫu dữ liệu gần nhất để phân tích xu hướng biến động của môi trường.
+
+    \item \textbf{Giá trị đầu ra ($y$):}  
+    Là giá trị nồng độ PM2.5 tại thời điểm $t + 15$ phút. Việc lựa chọn khoảng thời gian dự báo 15 phút giúp hệ thống có đủ thời gian để phát hiện xu hướng ô nhiễm và kích hoạt các cơ chế điều khiển phù hợp.
+\end{itemize}
+
+\subsubsection{Quy trình tiền xử lý và chuẩn hóa dữ liệu}
+
+Dữ liệu thu thập từ các cảm biến thường có đơn vị đo và miền giá trị khác nhau. Ví dụ, nhiệt độ được đo theo độ C, áp suất theo hPa, trong khi cường độ ánh sáng có thể dao động trên dải giá trị rất lớn. Nếu đưa trực tiếp các dữ liệu này vào mô hình, các đặc trưng có biên độ lớn sẽ chi phối quá trình tối ưu hóa và làm giảm hiệu quả học của mạng nơ-ron.
+
+Để khắc phục vấn đề này, toàn bộ dữ liệu được chuẩn hóa về khoảng $[0, 1]$ bằng phương pháp Min-Max Scaling.
+
+\[
+x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
+\]
+
+Trong đó:
+
+\begin{itemize}
+    \item $x$: Giá trị thực tế của cảm biến.
+    \item $x_{\min}$: Giá trị nhỏ nhất của đặc trưng trong tập huấn luyện.
+    \item $x_{\max}$: Giá trị lớn nhất của đặc trưng trong tập huấn luyện.
+\end{itemize}
+
+Phương pháp chuẩn hóa này giúp các đặc trưng có cùng thang đo, từ đó cải thiện tốc độ hội tụ, tăng tính ổn định và nâng cao độ chính xác của mô hình.
+
+\subsubsection{Kiến trúc mạng nơ-ron TCN (Temporal Convolutional Network)}
+
+Mô hình được xây dựng dựa trên kiến trúc TCN, một cấu trúc mạng tích chập được thiết kế chuyên biệt cho bài toán chuỗi thời gian. So với các kiến trúc hồi tiếp như RNN hay LSTM, TCN có ưu điểm về khả năng xử lý song song, tốc độ huấn luyện nhanh và khả năng học phụ thuộc dài hạn hiệu quả.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/TCN_sodo.png}
+    \caption{mô hình TCN}
+    \label{fig:placeholder}
+\end{figure}
+\textbf{Mô hình bao gồm ba thành phần cốt lõi sau.}
+
+\paragraph{a. Tích chập nhân quả (Causal Convolution)}
+
+Tích chập nhân quả đảm bảo rằng tại thời điểm dự báo $t$, mô hình chỉ được phép sử dụng thông tin từ quá khứ và hiện tại, tức là các phần tử $x_1, x_2, \ldots, x_t$. Cơ chế này giúp ngăn chặn hiện tượng rò rỉ thông tin từ tương lai vào quá trình học.
+
+\paragraph{b. Tích chập giãn cách (Dilated Convolution)}
+
+Để mở rộng trường thụ cảm mà không làm tăng đáng kể số lượng tham số, mô hình sử dụng các lớp tích chập với hệ số giãn cách $d$.
+
+\[
+(F *_d x)(s) = \sum_{i=0}^{k-1} F(i) \cdot x(s - d \cdot i)
+\]
+
+Trong đó:
+
+\begin{itemize}
+    \item $k$: Kích thước kernel tích chập, được lựa chọn bằng 3.
+    \item $d$: Hệ số giãn cách.
+\end{itemize}
+
+Trong đề tài này, các hệ số giãn cách được thiết kế theo cấp số nhân:
+
+\[
+d = \{1, 2, 4, 8\}
+\]
+
+Cấu hình này giúp mô hình mở rộng trường thụ cảm theo cấp số nhân, cho phép học hiệu quả các xu hướng dài hạn của chuỗi dữ liệu.
+
+\paragraph{c. Kết nối tắt (Residual Connections)}
+
+Kết nối tắt giúp cải thiện quá trình lan truyền đạo hàm và hạn chế hiện tượng mất mát đạo hàm khi mạng trở nên sâu hơn.
+
+\[
+o = \text{Activation}(x + \mathcal{F}(x))
+\]
+
+Trong đó $\mathcal{F}(x)$ là hàm biến đổi phi tuyến của khối tích chập, còn $x$ là tín hiệu đầu vào được cộng trực tiếp vào đầu ra của khối.
+
+\subsubsection{Thiết kế chiến lược huấn luyện}
+
+Quá trình huấn luyện mô hình được thực hiện với mục tiêu tối thiểu hóa sai số giữa giá trị dự báo và giá trị thực tế.
+
+\begin{itemize}
+    \item \textbf{Hàm mất mát (Loss Function):}  
+    Sai số bình phương trung bình (Mean Squared Error -- MSE) được lựa chọn do phù hợp với bài toán hồi quy.
+
+    \[
+    MSE = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2
+    \]
+
+    Trong đó $y_i$ là giá trị thực tế và $\hat{y}_i$ là giá trị dự báo của mô hình.
+
+    \item \textbf{Thuật toán tối ưu:}  
+    Adam Optimizer được sử dụng với tốc độ học (\textit{learning rate}) $\eta = 0.001$. Thuật toán này kết hợp ưu điểm của Momentum và RMSProp, giúp mô hình hội tụ nhanh và ổn định hơn so với phương pháp gradient descent truyền thống.
+\end{itemize}
+
+Ngoài ra, trong quá trình huấn luyện, tập dữ liệu được chia thành tập huấn luyện và tập kiểm thử để đánh giá khả năng tổng quát hóa của mô hình.
+
+\subsubsection{Thiết kế quy trình tối ưu hóa Edge AI (TFLite Quantization)}
+
+Sau khi huấn luyện hoàn tất, mô hình được chuyển đổi sang định dạng TensorFlow Lite để triển khai trên Raspberry Pi 4.
+
+Kỹ thuật \textit{Float16 Quantization} được áp dụng để nén các trọng số từ định dạng Float32 xuống Float16. Quá trình này giúp giảm đáng kể dung lượng mô hình trong khi vẫn duy trì độ chính xác gần như tương đương với mô hình gốc.
+
+Các lợi ích chính của quá trình tối ưu hóa bao gồm:
+
+\begin{itemize}
+    \item Giảm khoảng 50\% kích thước tệp mô hình.
+    \item Tăng tốc độ suy luận trên thiết bị biên.
+    \item Giảm nhu cầu sử dụng bộ nhớ RAM.
+    \item Duy trì độ chính xác ở mức cao.
+\end{itemize}
+
+Nhờ quá trình tối ưu hóa này, mô hình TCN có thể hoạt động hiệu quả trên Raspberry Pi 4, đáp ứng yêu cầu xử lý thời gian thực trong hệ thống giám sát và dự báo chất lượng không khí.
+\subsection{Thiết kế khối xử lý OTA}
+
+Khối OTA được thiết kế như một thực thể quản lý vòng đời cập nhật của hệ thống, từ giai đoạn tiếp nhận gói dữ liệu đến giai đoạn tráo đổi phân vùng khởi động. Toàn bộ logic được đóng gói trong một quy trình khép kín nhằm đảm bảo tính nguyên tử (\textit{Atomicity}) và khả năng tự phục hồi (\textit{Recovery}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{image/Block_OTA.png}
+    \caption{Sơ đồ khối OTA}
+    \label{fig:placeholder}
+\end{figure}
+\subsubsection{Mô tả chi tiết các thành phần hệ thống}
+
+\begin{itemize}
+    \item \textbf{Wrapper (Gói cập nhật .swu):} Là một trình bao gói chứa đựng tệp mô tả \texttt{sw-description} và các tệp ảnh hệ thống (\textit{Images}). Thiết kế này đảm bảo tính nhất quán giữa chỉ thị cài đặt và dữ liệu thực thi.
+
+    \item \textbf{Network Interface (Mongoose Webserver):} Được cấu hình hoạt động như một HTTP Server tại cổng 9090. Thành phần này chịu trách nhiệm tiếp nhận luồng dữ liệu (\textit{Streaming}) từ người dùng và đẩy trực tiếp vào bộ phận phân tích mà không cần lưu trữ tạm thời, giúp tối ưu hóa tài nguyên RAM cho Raspberry Pi 4.
+
+    \item \textbf{Parser (Bộ phân tích cú pháp Libconfig):} Đóng vai trò là trung tâm điều khiển của hệ thống. Khối này giải mã các chỉ thị từ \texttt{sw-description}, xác định logic cài đặt, vị trí phân vùng đích và các ràng buộc về phần cứng.
+
+    \item \textbf{Compatibility Checker:} Thực hiện cơ chế kiểm tra chéo giữa \textit{Hardware ID} trong gói cập nhật và thông tin phần cứng thực tế của thiết bị. Đây là chốt chặn an toàn nhằm ngăn ngừa các bản cập nhật không tương thích gây lỗi hệ thống (\textit{brick}).
+
+    \item \textbf{Handlers (Trình thực thi):} Gồm các module chuyên biệt (Raw/Archive Handler) có nhiệm vụ giải nén và ghi trực tiếp dữ liệu vào các phân vùng vật lý. Sau khi ghi hoàn tất, Handlers sẽ thực hiện kiểm tra mã băm (\textit{Checksum}) để xác minh tính toàn vẹn của dữ liệu trên đĩa.
+\end{itemize}
+
+\subsubsection{Luồng dữ liệu và logic xử lý (Data Flow Description)}
+
+Quy trình xử lý một bản cập nhật được thiết kế theo luồng liên kết chặt chẽ giữa các khối chức năng, mô tả như sau:
+
+\begin{enumerate}
+    \item \textbf{Giai đoạn tiếp nhận và phân tích:} Luồng dữ liệu từ tệp \texttt{.swu} đi qua Network Interface và được chuyển tiếp ngay lập tức đến Parser. Parser thực hiện bóc tách các siêu dữ liệu (\textit{Metadata}) để chuẩn bị cho các bước thẩm định tiếp theo.
+
+    \item \textbf{Giai đoạn thẩm định và ánh xạ:} Parser gửi tín hiệu đến Compatibility Checker để xác nhận ID phần cứng. Nếu khớp, hệ thống truy vấn U-Boot Environment để xác định trạng thái của Slot A và Slot B. Dựa trên cơ chế \textit{Dual-bank}, hệ thống sẽ chọn phân vùng \textit{Passive} (đang không hoạt động) làm mục tiêu cập nhật.
+
+    \item \textbf{Giai đoạn thực thi song song (Dual-action):} Sau khi Parser ra chỉ thị, khối Handlers thực hiện hai luồng hành động chính:
+    \begin{itemize}
+        \item \textbf{Update Images:} Trích xuất và ghi trực tiếp tệp \texttt{rootfs.ext4.gz} vào phân vùng đã chọn (Slot A hoặc Slot B).
+
+        \item \textbf{Integrity Check:} Thực hiện xác minh Checksum sau khi ghi xong 100\% dữ liệu để đảm bảo không có lỗi bit xảy ra trong quá trình I/O.
+    \end{itemize}
+
+    \item \textbf{Giai đoạn xác lập (Finalization):} Chỉ khi giai đoạn thực thi thành công hoàn toàn, Handlers mới thực hiện luồng tác động cuối cùng vào U-Boot Environment thông qua lệnh Set Boot Flags (ví dụ thiết lập biến \texttt{ustate=1}). Thao tác này đánh dấu bản cập nhật đã sẵn sàng, hoàn tất tính nguyên tử của quy trình.
+
+    \item \textbf{Tái khởi động:} Hệ thống phát lệnh khởi động lại để Bootloader thực hiện tráo đổi Slot khởi động dựa trên các cờ hiệu đã thiết lập.
+\end{enumerate}
+\subsection{Thiết kế khối xử lý Tool}
+
+Hệ thống Secure-Yocto Builder được thiết kế dựa trên mô hình kiến trúc phân lớp (\textit{Layered Architecture}), chia thành ba tầng chức năng riêng biệt nhằm đảm bảo tính module hóa, dễ dàng mở rộng và tối ưu hóa luồng xử lý dữ liệu.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{image/Block_TOOl.png}
+    \caption{Sơ đồ khối Tool}
+    \label{fig:placeholder}
+\end{figure}
+\subsubsection{Lớp Giao diện Người dùng (Client User Interface)}
+
+Lớp này đóng vai trò là bề mặt tương tác (\textit{Frontend}) của hệ thống, được xây dựng trên nền tảng Web với phong cách Terminal UI (TUI).
+
+\begin{itemize}
+    \item \textbf{Giao diện tương tác:} Cho phép người dùng tùy chỉnh các thông số cấu hình như thiết bị đích (Target), các tính năng bảo mật (SELinux, dm-verity) và nạp thư viện bổ sung.
+
+    \item \textbf{Giao thức truyền thông:} Sử dụng phương thức gửi yêu cầu HTTP Request (định dạng JSON) tới máy chủ và nhận về các phản hồi HTTP Response để cập nhật trạng thái hệ thống theo thời gian thực.
+\end{itemize}
+
+\subsubsection{Lớp Cửa ngõ API (API Gateway Layer)}
+
+Đây là lớp xử lý trung tâm (\textit{Backend}) sử dụng Flask Framework, đóng vai trò điều phối và thực thi các logic nghiệp vụ của ứng dụng. Lớp này bao gồm 4 module cốt lõi:
+
+\begin{itemize}
+    \item \textbf{Build Control Engine:} Điều khiển tiến trình biên dịch thông qua kỹ thuật gọi tiến trình con (\textit{subprocess}), cho phép khởi chạy lệnh \texttt{bitbake} mà không làm gián đoạn luồng xử lý chính của ứng dụng.
+
+    \item \textbf{Metadata Management:} Chuyên trách việc thao tác dữ liệu cấu hình thông qua biểu thức chính quy (Regex), thực hiện cơ chế bật/tắt (\textit{Toggle}) các dòng mã trong file cấu hình Yocto.
+
+    \item \textbf{AI \& Security Analytics:} Tích hợp trí tuệ nhân tạo thông qua Gemini API để phân tích ngữ cảnh lỗi (Log Context) và thực hiện phân tích cú pháp dữ liệu lỗ hổng CVE từ các tệp JSON bảo mật.
+
+    \item \textbf{System Utilities:} Cung cấp các công cụ phụ trợ hệ thống như kiểm tra sự tồn tại của Recipe và dọn dẹp cơ sở dữ liệu cache (Pseudo DB).
+\end{itemize}
+
+\subsubsection{Lớp Hệ thống Đích và Dịch vụ Ngoại vi (Target System \& External Services)}
+
+Đây là tầng thực thi cuối cùng, nơi chứa các tài nguyên hệ thống và các dịch vụ bên thứ ba:
+
+\begin{itemize}
+    \item \textbf{Khối Yocto Build:} Môi trường thực thi lệnh biên dịch BitBake và lưu trữ các tệp nhật ký tiến trình (Terminal Log).
+
+    \item \textbf{Khối File System:} Lưu trữ các tệp cấu hình cốt lõi của Yocto Project như \texttt{local.conf} và \texttt{bblayers.conf}.
+
+    \item \textbf{Khối Metadata:} Hệ thống quản lý các layer và các recipe phục vụ cho quá trình đóng gói hệ điều hành.
+
+    \item \textbf{Khối Cloud/API:} Điểm kết nối với nền tảng điện toán đám mây để sử dụng dịch vụ AI phân tích thông minh và truy xuất dữ liệu bảo mật từ các cơ sở dữ liệu quốc gia.
+\end{itemize}

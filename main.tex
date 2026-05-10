@@ -1,0 +1,172 @@
+\documentclass[a4paper,12pt]{report}
+
+\input{preamble}
+
+\begin{document}
+
+\setstretch{1.3}
+
+% ===== COVER =====
+\input{sections/cover}
+\newpage
+
+% ===== THÔNG TIN HỘI ĐỒNG =====
+\input{sections/tthd}
+\newpage
+
+% ===== LỜI CẢM ƠN =====
+\input{sections/lco}
+\newpage
+
+% ===== TÓM TẮT =====
+% \input{sections/abstract}
+
+% ===== MỤC LỤC =====
+\renewcommand{\contentsname}{Mục Lục}
+\tableofcontents
+\newpage
+
+% ===== DANH SÁCH =====
+\renewcommand{\listtablename}{Danh sách bảng}
+\listoftables
+\newpage
+
+\renewcommand{\listfigurename}{Danh sách hình}
+\listoffigures
+\newpage
+% Nếu có danh sách bảng thì thêm ở đây:
+\chapter*{Danh mục từ viết tắt} % Dùng dấu * để không hiện số chương (như Chương 1, 2)
+\addcontentsline{toc}{chapter}{Danh mục từ viết tắt} % Để nó hiện vào Mục lục
+% ===== MỞ ĐẦU =====
+\chapter{Phần mở đầu}
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+
+  \item \textbf{Đặt vấn đề}
+  \item \textbf{Lý do chọn đề tài}
+  \item \textbf{Mục tiêu nghiên cứu}
+  \item \textbf{Phạm vi và giới hạn nghiên cứu}
+  \item \textbf{Bố cục luận văn}
+\end{enumerate}
+\newpage
+\input{sections/modau}
+% ===== CHƯƠNG =====
+\chapter{Tổng quan dự án}
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+
+  \item \textbf{Tổng quan về tự động hóa công nghiệp}
+  \item \textbf{Tổng quan về hệ điều hành nhúng}
+  \item \textbf{Tổng quan về Yocto Project}
+  \item \textbf{Các công trình liên quan}
+\end{enumerate}
+\newpage
+\input{sections/c2}
+  
+\chapter{Cơ sở lý thuyết}
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Tổng quan về Linux Nhúng và Yocto Project}
+  \item \textbf{Kiến trúc Build System trong Yocto Project}
+  \item \textbf{Linux Device Driver}
+  \item \textbf{Bảo mật hệ điều hành Linux nhúng}
+  \item \textbf{Edge AI trong hệ thống nhúng}
+  \item \textbf{Giao diện người dùng trên thiết bị nhúng}
+  \item \textbf{Giao tiếp phần cứng công nghiệp}  
+  \item \textbf{Kết nối Cloud và IoT}
+\end{enumerate}
+
+\newpage
+\input{sections/c3}
+
+\chapter{Thiết kế hệ thống}
+\textcolor{chaptercolor}{\textit{Chương này tập trung vào thiết kế 3 thành phần kỹ thuật cốt lõi của nền tảng: Driver phần cứng, Bảo mật hệ thống và Công cụ hỗ trợ phát triển.}}
+
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Phân tích yêu cầu}
+  \item \textbf{Thiết kế nền tảng}
+  \item \textbf{Thiết kế khối xử lý}
+  \item \textbf{Thiết kế giao diện người dùng}
+\end{enumerate}
+
+\newpage
+\input{sections/c4}
+
+\chapter{Triển khai và đánh giá}
+\textcolor{chaptercolor}{\textit{Chương này trình bày quá trình cài đặt, tích hợp và kết quả kiểm thử từng thành phần kỹ thuật của nền tảng.}}
+
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Môi trường phát triển}
+  \item \textbf{Hiện thực Device Driver}
+  \item \textbf{Hiện thực Bảo mật Hệ thống}
+  \item \textbf{Hiện thực Configuration Tool}
+\end{enumerate}
+
+\newpage
+\input{sections/c5}
+
+\chapter{Sản phẩm demo tích hợp }
+\textcolor{chaptercolor}{\textit{Chương này là minh chứng thực nghiệm cho toàn bộ nền tảng: một hệ thống tự động hóa công nghiệp hoàn chỉnh được xây dựng trên nền tảng đã phát triển ở các chương trước.
+}}
+
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Tổng quan sản phẩm demo}
+  \item \textbf{Kiến trúc hệ thống demo}
+  \item \textbf{Thiết kế và triển khai từng module}
+  \item \textbf{Tích hợp và kiểm thử sản phẩm demo}
+\end{enumerate}
+
+\newpage
+\input{sections/c6}
+
+
+\chapter{Kết luận và hướng phát triển }
+
+
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Kết luận}
+  \item \textbf{Hướng phát triển}
+\end{enumerate}
+
+\newpage
+\input{sections/c7}
+% ===== CONFIG =====
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
