@@ -1,67 +1,133 @@
 \section{Đặt vấn đề}
 
-Trong bối cảnh chuyển đổi số và xu hướng phát triển của công nghiệp 4.0, các hệ thống nhúng và IoT ngày càng được ứng dụng rộng rãi trong nhiều lĩnh vực như sản xuất, giám sát môi trường, quản lý kho và tự động hóa công nghiệp. Các hệ thống này không chỉ yêu cầu khả năng thu thập và xử lý dữ liệu theo thời gian thực mà còn đòi hỏi tính ổn định, khả năng mở rộng và mức độ bảo mật cao trong quá trình vận hành. Tuy nhiên, nhiều giải pháp hiện nay vẫn phụ thuộc vào các nền tảng đóng hoặc chưa tối ưu cho các thiết bị biên có tài nguyên hạn chế. Bên cạnh đó, các nguy cơ về giả mạo dữ liệu, thay đổi firmware hoặc tấn công vào thiết bị IoT ngày càng trở thành vấn đề đáng quan tâm trong môi trường công nghiệp.
+Trong bối cảnh chuyển đổi số và sự phát triển mạnh mẽ của cuộc cách mạng công nghiệp 4.0, các hệ thống nhúng và Internet of Things (IoT) đang ngày càng được ứng dụng rộng rãi trong nhiều lĩnh vực như sản xuất thông minh, giám sát môi trường, quản lý năng lượng và tự động hóa công nghiệp. Các hệ thống này không chỉ yêu cầu khả năng thu thập và xử lý dữ liệu theo thời gian thực mà còn đòi hỏi tính ổn định, khả năng mở rộng và mức độ bảo mật cao trong suốt quá trình vận hành.
 
-Trong lĩnh vực quản lý kho hàng, đặc biệt đối với các kho lưu trữ hàng hóa, lương thực và thực phẩm, việc giám sát môi trường như nhiệt độ, độ ẩm và trạng thái vận hành đóng vai trò quan trọng nhằm đảm bảo chất lượng lưu trữ và giảm thiểu rủi ro. Vì vậy, việc xây dựng một nền tảng hệ thống nhúng Linux có khả năng tùy biến, bảo mật và tích hợp IoT là cần thiết để đáp ứng các yêu cầu thực tế trong các hệ thống công nghiệp hiện đại.
+Tuy nhiên, nhiều nền tảng nhúng hiện nay vẫn phụ thuộc vào các giải pháp đóng hoặc thiếu khả năng tùy biến sâu theo yêu cầu thực tế của từng hệ thống. Đối với các thiết bị biên (Edge Device), việc tối ưu tài nguyên phần cứng, kiểm soát thành phần phần mềm và đảm bảo khả năng vận hành ổn định là những yêu cầu đặc biệt quan trọng. Bên cạnh đó, sự gia tăng của các nguy cơ tấn công mạng, giả mạo firmware hoặc thay đổi dữ liệu trái phép cũng đặt ra yêu cầu cần có các cơ chế bảo vệ tính toàn vẹn và bảo mật cho hệ thống nhúng.
+
+Trong lĩnh vực quản lý kho và giám sát môi trường công nghiệp, việc theo dõi các thông số như nhiệt độ, độ ẩm và trạng thái vận hành đóng vai trò quan trọng nhằm đảm bảo chất lượng lưu trữ hàng hóa, lương thực và thực phẩm. Các hệ thống giám sát truyền thống thường tồn tại nhiều hạn chế như khả năng mở rộng thấp, khó tùy biến hoặc phụ thuộc vào nền tảng phần mềm riêng biệt. Do đó, việc nghiên cứu và xây dựng một nền tảng Linux Embedded có khả năng tùy biến, hỗ trợ giao tiếp IoT và tích hợp các cơ chế bảo mật là cần thiết nhằm đáp ứng nhu cầu thực tế của các hệ thống công nghiệp hiện đại.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/baitoan.jpg}
+    \caption{Mô hình bài toán đặt ra}
+    \label{fig:placeholder}
+\end{figure}
 
 \section{Lý do chọn đề tài}
 
-Yocto Project là một nền tảng mã nguồn mở mạnh mẽ cho phép xây dựng và tùy biến hệ điều hành Linux nhúng phù hợp với từng loại phần cứng và yêu cầu ứng dụng cụ thể. Việc nghiên cứu và ứng dụng Yocto giúp chủ động trong quá trình xây dựng hệ thống, tối ưu tài nguyên và tăng khả năng kiểm soát đối với các thành phần phần mềm. Đồng thời, các cơ chế bảo mật như Secure Boot, dm-verity và fscrypt đóng vai trò quan trọng trong việc bảo vệ tính toàn vẹn của hệ thống và dữ liệu trên thiết bị nhúng.
+Yocto Project là nền tảng mã nguồn mở mạnh mẽ cho phép xây dựng và tùy biến hệ điều hành Linux nhúng theo từng kiến trúc phần cứng và yêu cầu ứng dụng cụ thể. Khác với các bản phân phối Linux truyền thống, Yocto cung cấp khả năng kiểm soát chi tiết các thành phần hệ thống, tối ưu tài nguyên và chủ động trong quá trình phát triển Embedded Linux Image.\cite{yocto_project_overview}
 
-Xuất phát từ nhu cầu thực tế trong các hệ thống công nghiệp và IoT, đề tài được thực hiện nhằm nghiên cứu và xây dựng một nền tảng hệ thống nhúng Linux có tích hợp các cơ chế bảo mật và khả năng giao tiếp IoT. Trên cơ sở đó, đề tài triển khai bài toán quản lý kho thông minh như một mô hình ứng dụng tổng quát để đánh giá khả năng hoạt động, tính ổn định và khả năng mở rộng của hệ thống.
+Bên cạnh khả năng tùy biến hệ thống, Yocto Project còn hỗ trợ tích hợp nhiều cơ chế bảo mật hiện đại như Secure Boot, dm-verity và fscrypt nhằm tăng cường tính toàn vẹn và độ an toàn cho hệ thống nhúng. Đây là những yếu tố đặc biệt quan trọng trong các hệ thống công nghiệp và IoT, nơi thiết bị thường hoạt động liên tục trong thời gian dài và yêu cầu độ ổn định cao.
+
+Ngoài ra, việc phát triển các Linux Device Driver và tích hợp giao tiếp phần cứng trong môi trường Yocto cũng giúp tăng khả năng làm chủ hệ thống ở mức thấp, đồng thời tạo điều kiện thuận lợi cho việc nghiên cứu kiến trúc Linux Embedded một cách toàn diện hơn.
+
+Xuất phát từ những yêu cầu thực tế trong lĩnh vực IoT và tự động hóa công nghiệp, đề tài được thực hiện nhằm nghiên cứu và xây dựng một nền tảng nhúng đa chức năng dựa trên Yocto Project, có khả năng tích hợp các cơ chế bảo mật, hỗ trợ giao tiếp thiết bị và phục vụ triển khai các ứng dụng giám sát công nghiệp. Trên cơ sở đó, đề tài triển khai bài toán giám sát kho thông minh như một mô hình ứng dụng thực tế để đánh giá tính ổn định, khả năng mở rộng và hiệu quả vận hành của hệ thống.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image/yoctoc1.png}
+    \caption{Nền tảng Yocto Project}
+    \label{fig:placeholder}
+\end{figure}
 
 \section{Mục tiêu nghiên cứu}
 
-Đề tài hướng đến mục tiêu nghiên cứu và xây dựng nền tảng hệ thống nhúng Linux phục vụ cho các ứng dụng công nghiệp và IoT dựa trên Yocto Project. Hệ thống cần đáp ứng khả năng tùy biến, vận hành ổn định và hỗ trợ các cơ chế bảo mật nhằm bảo vệ tính toàn vẹn của hệ điều hành và dữ liệu thiết bị.
+Đề tài hướng đến mục tiêu nghiên cứu và xây dựng nền tảng Linux Embedded phục vụ cho các ứng dụng công nghiệp và IoT dựa trên Yocto Project. Hệ thống được thiết kế theo hướng tùy biến, có khả năng mở rộng và đáp ứng yêu cầu vận hành ổn định trên các thiết bị nhúng tài nguyên hạn chế.
 
-Bên cạnh đó, đề tài tập trung xây dựng cơ chế giao tiếp và giám sát dữ liệu thời gian thực thông qua các giao thức IoT như MQTT và HTTP, kết hợp với nền tảng quản lý và hiển thị dữ liệu. Cuối cùng, đề tài triển khai bài toán quản lý kho thông minh nhằm kiểm chứng khả năng ứng dụng thực tế của hệ thống trong việc giám sát môi trường kho, cảnh báo trạng thái bất thường và quản lý dữ liệu thiết bị.
+Bên cạnh đó, đề tài tập trung nghiên cứu cơ chế xây dựng và tích hợp Linux Device Driver nhằm hỗ trợ giao tiếp phần cứng trong hệ thống nhúng. Các cơ chế quản lý module, Device Tree và tích hợp driver trong Yocto cũng được nghiên cứu nhằm xây dựng nền tảng phát triển Embedded Linux hoàn chỉnh hơn.
+
+Ngoài khả năng vận hành hệ thống, đề tài còn nghiên cứu và tích hợp các cơ chế bảo mật nhằm đảm bảo tính toàn vẹn của firmware, filesystem và dữ liệu thiết bị. Đồng thời, hệ thống hỗ trợ cơ chế giao tiếp IoT thông qua các giao thức như MQTT và HTTP nhằm phục vụ việc giám sát và truyền dữ liệu theo thời gian thực.
+
+Trên cơ sở nền tảng được xây dựng, đề tài triển khai mô hình quản lý kho thông minh nhằm kiểm chứng khả năng ứng dụng thực tế của hệ thống trong việc giám sát môi trường kho, thu thập dữ liệu cảm biến, cảnh báo trạng thái bất thường và quản lý thiết bị từ xa.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{image/kientructongquan.jpg}
+    \caption{Kiến trúc tổng thể của hệ thống}
+    \label{fig:placeholder}
+\end{figure}
 
 \section{Phạm vi và giới hạn nghiên cứu}
-Đề tài tập trung nghiên cứu và xây dựng nền tảng hệ thống nhúng Linux phục vụ cho các ứng dụng công nghiệp và IoT, với phạm vi cụ thể như sau:\\
-\textbf{Phạm vi về hệ thống nhúng và bảo mật:}
+
+Đề tài tập trung nghiên cứu và xây dựng nền tảng Linux Embedded phục vụ cho các ứng dụng công nghiệp và IoT với phạm vi nghiên cứu như sau:
+
+\textbf{Phạm vi về hệ thống nhúng và Linux Embedded:}
+
 \begin{itemize}
-    \item Xây dựng và tùy biến hệ điều hành Linux nhúng bằng Yocto Project phục vụ cho các thiết bị biên (Edge Device).
-    \item Nghiên cứu và tích hợp các cơ chế bảo mật hệ thống như Secure Boot, dm-verity, fscrypt và các cơ chế bảo vệ tính toàn vẹn dữ liệu.
-    \item Triển khai các chức năng quản lý dịch vụ hệ thống, cập nhật phần mềm và cấu hình cơ bản cho thiết bị nhúng.
+    \item Xây dựng và tùy biến hệ điều hành Linux nhúng bằng Yocto Project cho các thiết bị biên (Edge Device).
+    
+    \item Nghiên cứu cơ chế build image, quản lý package và tích hợp Linux Device Driver trong môi trường Yocto.
+    
+    \item Xây dựng và tích hợp các Kernel Module phục vụ giao tiếp phần cứng.
+    
+    \item Nghiên cứu và triển khai Device Tree nhằm mô tả và quản lý phần cứng trong hệ thống nhúng.
 \end{itemize}
-\textbf{Phạm vi về truyền thông và xử lý dữ liệu IoT:}
+
+\textbf{Phạm vi về bảo mật hệ thống:}
+
 \begin{itemize}
-    \item Hiện thực cơ chế giao tiếp giữa thiết bị và nền tảng quản lý thông qua các giao thức như MQTT và HTTP.
-    \item Thu thập, xử lý và truyền dữ liệu cảm biến theo thời gian thực phục vụ giám sát hệ thống.
-    \item Xây dựng cơ chế cảnh báo và xử lý sự kiện tại thiết bị biên và nền tảng cloud.
+    \item Nghiên cứu và tích hợp các cơ chế bảo mật như Secure Boot, dm-verity và fscrypt.
+    
+    \item Triển khai các cơ chế bảo vệ tính toàn vẹn của filesystem và firmware.
+    
+    \item Xây dựng cơ chế quản lý dịch vụ và cấu hình cơ bản cho hệ thống nhúng.
 \end{itemize}
+
+\textbf{Phạm vi về truyền thông và IoT:}
+
+\begin{itemize}
+    \item Hiện thực cơ chế giao tiếp giữa thiết bị và nền tảng quản lý thông qua giao thức MQTT và HTTP.
+    
+    \item Thu thập, xử lý và truyền dữ liệu cảm biến theo thời gian thực.
+    
+    \item Xây dựng cơ chế cảnh báo và giám sát trạng thái thiết bị.
+\end{itemize}
+
 \textbf{Phạm vi về bài toán ứng dụng:}
+
 \begin{itemize}
-    \item Xây dựng bài toán quản lý kho thông minh nhằm kiểm chứng nền tảng được phát triển.
-    \item Hệ thống tập trung vào các chức năng giám sát nhiệt độ, độ ẩm, trạng thái kho và cảnh báo các điều kiện bất thường đối với hàng hóa, lương thực và thực phẩm.
-    \item Xây dựng dashboard giám sát và hệ thống backend cơ bản phục vụ việc lưu trữ, hiển thị và quản lý dữ liệu thiết bị.
+    \item Xây dựng mô hình quản lý kho thông minh nhằm kiểm chứng nền tảng được phát triển.
+    
+    \item Giám sát các thông số môi trường như nhiệt độ, độ ẩm và trạng thái thiết bị trong kho.
+    
+    \item Xây dựng dashboard giám sát và backend cơ bản phục vụ quản lý dữ liệu thiết bị.
 \end{itemize}
+
 \textbf{Giới hạn của đề tài:}
+
 \begin{itemize}
-    \item Đề tài được triển khai ở mức mô hình thử nghiệm và chưa đánh giá trên quy mô công nghiệp lớn.
-    \item Chưa tập trung vào các bài toán tối ưu logistics, quản lý chuỗi cung ứng hoặc các hệ thống ERP/WMS hoàn chỉnh.
-    \item Chưa nghiên cứu chuyên sâu các cơ chế bảo mật phần cứng nâng cao như TPM, HSM hoặc các mô hình phòng chống tấn công vật lý.
-    \item Chưa tích hợp các thuật toán AI hoặc machine learning phục vụ dự đoán và tối ưu vận hành kho.
+    \item Hệ thống được triển khai ở mức mô hình thử nghiệm và chưa đánh giá trên quy mô công nghiệp lớn.
+    
+    \item Chưa tập trung vào các bài toán tối ưu logistics, quản lý chuỗi cung ứng hoặc hệ thống ERP/WMS hoàn chỉnh.
+    
+    \item Chưa nghiên cứu chuyên sâu các cơ chế bảo mật phần cứng nâng cao như TPM hoặc HSM.
+    
+    \item Chưa tích hợp các thuật toán AI hoặc Machine Learning phục vụ dự đoán và tối ưu vận hành hệ thống.
+
 \end{itemize}
 
 \section{Bố cục luận văn}
+
 Luận văn được tổ chức thành 6 chương với nội dung chính như sau:
+
 \begin{itemize}
+
     \item \textbf{Chương 1: Phần mở đầu} \\ 
-    Đặt vấn đề, lý do chọn đề tài, phạm vi nghiên cứu và bố cục luận văn.
+    Trình bày bối cảnh nghiên cứu, lý do chọn đề tài, mục tiêu nghiên cứu, phạm vi triển khai và bố cục tổng thể của luận văn.
 
     \item \textbf{Chương 2: Tổng quan dự án} \\ 
-    Trình bày tổng quan về tự động hóa công nghiệp, hệ điều hành nhúng, Yocto Project và các công trình liên quan.
-    
-    \item \textbf{Chương 3: Cơ sở lý thuyết} \\
-    Trình bày cơ sở lý thuyết là nền tảng cho việc thiết kế và triển khai hệ thống.
+    Trình bày tổng quan về Linux Embedded, Yocto Project, Industrial IoT và các công nghệ liên quan đến hệ thống nhúng và tự động hóa công nghiệp.
+
+    \item \textbf{Chương 3: Cơ sở lý thuyết} \\ 
+    Trình bày các cơ sở lý thuyết phục vụ cho việc xây dựng hệ thống, bao gồm Yocto Project, BitBake, Linux Kernel, Linux Device Driver, Kernel Module và các cơ chế tích hợp driver trong Linux Embedded.
 
     \item \textbf{Chương 4: Thiết kế hệ thống} \\ 
-    Phân tích yêu cầu hệ thống, xây dựng kiến trúc tổng thể, thiết kế các thành phần kỹ thuật cốt lõi như Driver phần cứng, bảo mật hệ thống và công cụ hỗ trợ phát triển.
-    
+    Phân tích yêu cầu hệ thống, xây dựng kiến trúc tổng thể và thiết kế các thành phần kỹ thuật như Linux Embedded Platform, Driver phần cứng, bảo mật hệ thống và cơ chế giao tiếp IoT.
+
     \item \textbf{Chương 5: Triển khai và đánh giá} \\ 
-    Trình bày quá trình triển khai hệ điều hành bằng Yocto, cấu hình thiết bị nhúng, xây dựng cơ chế giao tiếp MQTT/HTTP, tích hợp CoreIot và triển khai các chức năng giám sát, cảnh báo và điều khiển.
+    Trình bày quá trình triển khai hệ điều hành bằng Yocto Project, xây dựng Linux Device Driver, tích hợp MQTT/HTTP, triển khai hệ thống giám sát và đánh giá kết quả hoạt động của hệ thống.
 
     \item \textbf{Chương 6: Kết luận và hướng phát triển} \\ 
-    Đánh giá hiệu năng, độ ổn định và khả năng mở rộng của hệ thống, đồng thời tổng kết kết quả nghiên cứu và đề xuất hướng phát triển trong tương lai.
+    Tổng kết các kết quả đạt được, đánh giá ưu điểm và hạn chế của hệ thống, đồng thời đề xuất các hướng phát triển trong tương lai.
+
 \end{itemize}
