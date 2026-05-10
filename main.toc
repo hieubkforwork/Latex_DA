@@ -57,7 +57,9 @@
 \contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{56}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{57}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{57}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Thiết kế luồng xử lý dữ liệu}{57}{subsection.4.2.1}%
 \contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{57}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{57}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{58}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{59}{chapter.6}%
+\contentsline {subsection}{\numberline {4.4.1}Thiết kế giao diện Dashboard CoreIot}{57}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{59}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{60}{chapter.6}%

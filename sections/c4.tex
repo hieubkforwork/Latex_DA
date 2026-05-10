@@ -1,5 +1,35 @@
 \section{Phân tích yêu cầu}
-\section{Thiết kế nền tảng}
+\section{Thiết kế nền tảng} 
+\subsection{Thiết kế luồng xử lý dữ liệu}
+
+Hệ thống được thiết kế theo mô hình kết hợp giữa xử lý cục bộ tại gateway và giám sát tập trung trên cloud nhằm đảm bảo khả năng phản hồi nhanh cũng như hỗ trợ quản lý từ xa.
+
+Các node cảm biến thực hiện thu thập dữ liệu môi trường như nhiệt độ, độ ẩm, ánh sáng, bụi mịn 2.5. Dữ liệu sau đó được gửi về gateway trung tâm để thực hiện xử lý cục bộ.
+
+Tại gateway, hệ thống tiến hành phân tích dữ liệu thông qua các luật xử lý và mô hình AI nhằm đánh giá trạng thái hoạt động của nhà kho. Dựa trên kết quả phân tích, hệ thống xác định trạng thái tương ứng như NORMAL, WARNING, CRITICAL, EMERGENCY\_SYSTEM và EMERGENCY\_FIRE kích hoạt cơ chế cảnh báo cũng như phương án xử lí khi phát hiện bất thường.
+
+Sau khi xử lý, dữ liệu telemetry và trạng thái hệ thống được gửi lên cloud thông qua giao thức MQTT để phục vụ giám sát tập trung. Đồng thời, thông tin trạng thái cũng được hiển thị trực tiếp trên local dashboard thông qua giao diện Qt5 kết nối HDMI nhằm hỗ trợ giám sát tại chỗ ngay cả khi mất kết nối Internet.
+
+Trên cloud, Rule Chain tiếp tục xử lý trạng thái cảnh báo, hiển thị alert trên dashboard và thực hiện các hành động điều khiển tương ứng. Trong trường hợp phát hiện trạng thái nguy hiểm, hệ thống sẽ gửi RPC đến các node liên quan để điều khiển actuator như quạt hút, relay hoặc còi cảnh báo nhằm phản ứng kịp thời với các sự cố phát sinh trong nhà kho.
 \section{Thiết kế khối xử lý}
 \section{Thiết kế giao diện người dùng}
+\subsection{Thiết kế giao diện Dashboard CoreIot}
+Giao diện giám sát và điều khiển (Dashboard) đóng vai trò là lớp ứng dụng trong mô hình IoT, là cầu nối trực tiếp giữa dữ liệu kỹ thuật và người sử dụng. Trong đồ án này, Dashboard được xây dựng với mục tiêu tối ưu hóa khả năng quan sát tập trung và phản hồi nhanh chóng trước các sự cố môi trường tại nhà kho.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{image/coreiotdb.png}
+    \caption{Trang chủ Dashboard CoreIot}
+    \label{fig:placeholder}
+\end{figure}
+
+Tại giao diện chính, hệ thống tích hợp Widget Bản đồ (Map) dựa trên nền tảng OpenStreetMap, cho phép quản lý đa điểm các nhà kho phân tán tại các khu vực khác nhau (như TP. Hồ Chí Minh và Bình Dương). Để nâng cao tính trực quan, trạng thái của từng nhà kho được định nghĩa qua các màu sắc đặc trưng của biểu tượng (Marker):
+\begin{itemize}
+  \item \textbf{Màu xanh dương:} Phản ánh tình trạng Gateway mất kết nối với máy chủ Cloud, giúp kỹ thuật viên phát hiện ngay lập tức các sự cố về hạ tầng mạng.
+
+  \item \textbf{Màu xanh lá:} Xác nhận hệ thống đang vận hành ổn định, mọi thông số môi trường đều nằm trong ngưỡng an toàn cho phép.
+
+  \item \textbf{Màu cam (Warning) \& Màu đỏ (Critical):} Hệ thống sẽ tự động chuyển đổi sang các màu sắc này khi dữ liệu cảm biến vượt ngưỡng cài đặt hoặc có sự cố cháy nổ, xâm nhập.
+\end{itemize}
+
+Khi người dùng truy cập vào một nhà kho cụ thể, giao diện sẽ hiển thị chi tiết các thông số kỹ thuật nội khu. Các dữ liệu về Nhiệt độ, Độ ẩm và Cường độ ánh sáng không chỉ được hiển thị dưới dạng số thực thời gian thực mà còn được trực quan hóa bằng biểu đồ đường. Việc sử dụng biểu đồ thời gian thực với chu kỳ cập nhật liên tục giúp người vận hành phân tích được xu hướng biến thiên của môi trường, từ đó đưa ra các dự báo sớm về tình trạng hư hỏng hàng hóa hoặc lãng phí điện năng.
