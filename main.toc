@@ -6,13 +6,14 @@
 \contentsline {section}{\numberline {1.4}Phạm vi và giới hạn nghiên cứu}{9}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Bố cục luận văn}{10}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Tổng quan dự án}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Tổng quan về Linux Nhúng và Yocto Project}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Tổng quan về tự động hóa công nghiệp}{12}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Tổng quan về hệ điều hành nhúng}{12}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Giới thiệu về Linux}{12}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Khái niệm Embedded Linux}{13}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Tổng quan về Yocto Project}{14}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Giới thiệu Yocto Project và hệ thống Poky}{14}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Các thành phần cốt lõi: BitBake, Metadata, Layers, Recipes}{15}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Các công trình liên quan}{15}{section.2.4}%
 \contentsline {chapter}{\numberline {3}Cơ sở lý thuyết}{16}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Kiến trúc Build System trong Yocto Project}{17}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Kiến trúc Layer trong Yocto}{17}{subsection.3.1.1}%
@@ -54,5 +55,9 @@
 \contentsline {subsection}{\numberline {3.7.1}Tổng quan về CoreIOT}{53}{subsection.3.7.1}%
 \contentsline {subsection}{\numberline {3.7.2}Giao thức MQTT trong hệ thống nhúng}{55}{subsection.3.7.2}%
 \contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{56}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{57}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{58}{chapter.6}%
+\contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{57}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{57}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{57}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{57}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{58}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{59}{chapter.6}%
