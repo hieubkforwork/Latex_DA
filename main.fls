@@ -474,16 +474,16 @@ INPUT .\sections\cover.tex
 INPUT .\sections\cover.tex
 INPUT .\sections\cover.tex
 INPUT sections\cover.tex
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT .\image\LogoBK.png
-INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmr.tfm
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmr.tfm
 INPUT C:\Users\Tuan Anh\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\t5-qtmb.tfm
@@ -870,6 +870,10 @@ INPUT .\sections\c4.tex
 INPUT .\sections\c4.tex
 INPUT .\sections\c4.tex
 INPUT sections\c4.tex
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
+INPUT .\image\LogoBK.png
 INPUT .\sections\c5.tex
 INPUT .\sections\c5.tex
 INPUT .\sections\c5.tex
