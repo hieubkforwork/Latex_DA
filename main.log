@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  10 MAY 2026 16:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  10 MAY 2026 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1695,14 +1695,14 @@ Package pdftex.def Info: image/kientructongquan.jpg  used on input line 45.
 (pdftex.def)             Requested size: 402.03465pt x 267.90112pt.
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
-Package pdftex.def Info: image/LogoBK.png  used on input line 64.
+Package pdftex.def Info: image/LogoBK.png  used on input line 57.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [10{C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc} <./image/kientructongquan.jpg>]
+ [10 <./image/kientructongquan.jpg>]
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
-Package pdftex.def Info: image/LogoBK.png  used on input line 120.
+Package pdftex.def Info: image/LogoBK.png  used on input line 82.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [11])
+ [11{C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}])
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 56.
@@ -1995,7 +1995,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 150.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [58]
-runsystem(latexminted cleantemp  --timestamp 20260510160915 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20260510163248 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
 
  
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -2020,7 +2020,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  113i,25n,110p,1182b,1286s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on main.pdf (59 pages, 3086779 bytes).
+Output written on main.pdf (59 pages, 3087520 bytes).
 PDF statistics:
  778 PDF objects out of 1000 (max. 8388607)
  183 named destinations out of 1000 (max. 500000)

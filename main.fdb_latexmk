@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1778404154.70716 "main.aux" "main.bbl" "main" 1778404160.909 0
+["bibtex main"] 1778404767.31836 "main.aux" "main.bbl" "main" 1778405579.53725 0
   "./references.bib" 1778403761 6553 9de4d1e921f22b8519fa0a187c632b94 ""
   "C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1778404159 15383 f4b516f5ddb72e007da23584d0217d97 "pdflatex"
+  "main.aux" 1778405576 15383 aa25d3d1337fa5d8b89f0360534e1b1f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778404155.13753 "f:/mvE/DATN/GD2/LATEX/Latex_DA/main.tex" "main.pdf" "main" 1778404160.91 0
+["pdflatex"] 1778405568.64872 "f:/mvE/DATN/GD2/LATEX/Latex_DA/main.tex" "main.pdf" "main" 1778405579.53946 0
   "C:/Users/Tuan" 1677085655 17177 cbe756c994dfeedd35e20f46e56e3d48 ""
   "C:/Users/Tuan Anh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1778377697 128883 a801f125df3ad8b6fd6afa55a553b80f ""
   "C:/Users/Tuan Anh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1766245986 13335000 7a3d646be3a8d09e1a303a7048011e98 ""
@@ -293,13 +293,13 @@
   "image/rulechain.png" 1778377322 190863 3988e5445c88d6bb2cf5875c979a3c4a ""
   "image/yocto_prj.png" 1778377322 3123 141635cc4a5f6925b34fef77a5c826ec ""
   "image/yoctoc1.png" 1778377322 60799 71c375243242790130a15cf75fe48877 ""
-  "main.aux" 1778404159 15383 f4b516f5ddb72e007da23584d0217d97 "pdflatex"
-  "main.bbl" 1778404155 4303 ad0f2903a196e4e2b26c917a3456530e "bibtex main"
-  "main.lof" 1778404159 1843 16c820aec570b9b1aa6736b65eea6e1b "pdflatex"
-  "main.lot" 1778404159 827 2d76fb1d18811ce851ece2fd9837d9dc "pdflatex"
-  "main.out" 1778404159 9877 a00f36753010edb4a6ab1be3b38d94d1 "pdflatex"
+  "main.aux" 1778405576 15383 aa25d3d1337fa5d8b89f0360534e1b1f "pdflatex"
+  "main.bbl" 1778404767 4303 ad0f2903a196e4e2b26c917a3456530e "bibtex main"
+  "main.lof" 1778405576 1843 16c820aec570b9b1aa6736b65eea6e1b "pdflatex"
+  "main.lot" 1778405576 827 2d76fb1d18811ce851ece2fd9837d9dc "pdflatex"
+  "main.out" 1778405576 9877 a00f36753010edb4a6ab1be3b38d94d1 "pdflatex"
   "main.tex" 1778379309 4256 bf05680f1a47a3353fd1ce30664afa2f ""
-  "main.toc" 1778404159 5346 c222adc9e3a23467257f7f13a306a305 "pdflatex"
+  "main.toc" 1778405576 5346 a329158f7506572d5c25a19535eab8d1 "pdflatex"
   "preamble.tex" 1778377322 5104 0e4f5c12633245dbf49ba4149257ea9d ""
   "sections/c2.tex" 1778401273 11675 683731c6740361de9c068501daf2b52c ""
   "sections/c3.tex" 1778404147 98004 f6eb5c96562e453c4989a5313426dd19 ""
@@ -308,7 +308,7 @@
   "sections/c7.tex" 1778377322 0 d41d8cd98f00b204e9800998ecf8427e ""
   "sections/cover.tex" 1778377322 3077 9ca209c390a114a031d0b3e73fb9a86d ""
   "sections/lco.tex" 1778381512 3003 dc48cbfb6739b2d708d8ebc45ac2bbdc ""
-  "sections/modau.tex" 1778400490 10868 e78fdbe72ec561ea98548d87bb081aed ""
+  "sections/modau.tex" 1778405565 11217 ff522621c92d13cb3396bc2f4ba39628 ""
   "sections/tthd.tex" 1778377322 491 66c12963a84fa6e27bdab2734c1617a5 ""
   (generated)
   "main.aux"

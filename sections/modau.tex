@@ -49,62 +49,17 @@ Trên cơ sở nền tảng được xây dựng, đề tài triển khai mô h�
 
 \section{Phạm vi và giới hạn nghiên cứu}
 
-Đề tài tập trung nghiên cứu và xây dựng nền tảng Linux Embedded phục vụ cho các ứng dụng công nghiệp và IoT với phạm vi nghiên cứu như sau:
+Đề tài tập trung xây dựng nền tảng Linux nhúng (Embedded Linux) dành cho các ứng dụng công nghiệp và IoT (Internet of Things) dựa trên Yocto Project. Hệ điều hành được phát triển theo hướng tùy biến cao, phù hợp với thiết bị biên (Edge Device) có tài nguyên phần cứng giới hạn. Trên cơ sở đó, nội dung nghiên cứu bao gồm cơ chế build image, quản lý gói phần mềm (package) và tích hợp Linux Device Driver trong môi trường Yocto nhằm đáp ứng yêu cầu giao tiếp, điều khiển phần cứng trên hệ thống nhúng.
 
-\textbf{Phạm vi về hệ thống nhúng và Linux Embedded:}
+Bên cạnh việc phát triển nền tảng, đề tài còn đi sâu vào các thành phần cốt lõi của Linux Kernel như Kernel Module, Device Tree và cơ chế quản lý module lúc runtime. Những kiến thức này là nền tảng cho việc phát triển và tích hợp driver trong hệ thống Linux nhúng, đồng thời nâng cao khả năng làm chủ hệ thống ở mức thấp đối với các bài toán công nghiệp.
 
-\begin{itemize}
-    \item Xây dựng và tùy biến hệ điều hành Linux nhúng bằng Yocto Project cho các thiết bị biên (Edge Device).
-    
-    \item Nghiên cứu cơ chế build image, quản lý package và tích hợp Linux Device Driver trong môi trường Yocto.
-    
-    \item Xây dựng và tích hợp các Kernel Module phục vụ giao tiếp phần cứng.
-    
-    \item Nghiên cứu và triển khai Device Tree nhằm mô tả và quản lý phần cứng trong hệ thống nhúng.
-\end{itemize}
+Về mặt bảo mật, đề tài tích hợp một số cơ chế phổ biến trong Linux Embedded như Secure Boot, dm-verity và fscrypt nhằm tăng cường bảo vệ firmware, filesystem và dữ liệu trên thiết bị. Hệ thống cũng hỗ trợ các chức năng quản lý dịch vụ và cấu hình cơ bản để đảm bảo vận hành ổn định trong thực tế.
 
-\textbf{Phạm vi về bảo mật hệ thống:}
+Về truyền thông và IoT, nền tảng triển khai cơ chế kết nối giữa thiết bị và hệ thống quản lý qua các giao thức MQTT và HTTP. Hệ thống có khả năng thu thập, xử lý và truyền dữ liệu cảm biến theo thời gian thực, đồng thời xây dựng cơ chế giám sát và cảnh báo phục vụ quản lý thiết bị trong môi trường công nghiệp.
 
-\begin{itemize}
-    \item Nghiên cứu và tích hợp các cơ chế bảo mật như Secure Boot, dm-verity và fscrypt.
-    
-    \item Triển khai các cơ chế bảo vệ tính toàn vẹn của filesystem và firmware.
-    
-    \item Xây dựng cơ chế quản lý dịch vụ và cấu hình cơ bản cho hệ thống nhúng.
-\end{itemize}
+Để kiểm chứng khả năng ứng dụng thực tế, đề tài triển khai mô hình quản lý kho thông minh dựa trên nền tảng đã xây dựng. Mô hình này tập trung giám sát các thông số môi trường như nhiệt độ, độ ẩm và trạng thái hoạt động của kho hàng, kèm theo dashboard giám sát và backend cơ bản để lưu trữ, hiển thị và quản lý dữ liệu thiết bị.
 
-\textbf{Phạm vi về truyền thông và IoT:}
-
-\begin{itemize}
-    \item Hiện thực cơ chế giao tiếp giữa thiết bị và nền tảng quản lý thông qua giao thức MQTT và HTTP.
-    
-    \item Thu thập, xử lý và truyền dữ liệu cảm biến theo thời gian thực.
-    
-    \item Xây dựng cơ chế cảnh báo và giám sát trạng thái thiết bị.
-\end{itemize}
-
-\textbf{Phạm vi về bài toán ứng dụng:}
-
-\begin{itemize}
-    \item Xây dựng mô hình quản lý kho thông minh nhằm kiểm chứng nền tảng được phát triển.
-    
-    \item Giám sát các thông số môi trường như nhiệt độ, độ ẩm và trạng thái thiết bị trong kho.
-    
-    \item Xây dựng dashboard giám sát và backend cơ bản phục vụ quản lý dữ liệu thiết bị.
-\end{itemize}
-
-\textbf{Giới hạn của đề tài:}
-
-\begin{itemize}
-    \item Hệ thống được triển khai ở mức mô hình thử nghiệm và chưa đánh giá trên quy mô công nghiệp lớn.
-    
-    \item Chưa tập trung vào các bài toán tối ưu logistics, quản lý chuỗi cung ứng hoặc hệ thống ERP/WMS hoàn chỉnh.
-    
-    \item Chưa nghiên cứu chuyên sâu các cơ chế bảo mật phần cứng nâng cao như TPM hoặc HSM.
-    
-    \item Chưa tích hợp các thuật toán AI hoặc Machine Learning phục vụ dự đoán và tối ưu vận hành hệ thống.
-
-\end{itemize}
+Tuy nhiên, do giới hạn về thời gian, tài nguyên và phạm vi nghiên cứu, đề tài mới chỉ dừng lại ở mô hình thử nghiệm, chưa được đánh giá trên quy mô công nghiệp lớn. Các bài toán chuyên sâu như tối ưu logistics, quản lý chuỗi cung ứng hay tích hợp hệ thống ERP/WMS hoàn chỉnh chưa được đề cập. Ngoài ra, đề tài chưa nghiên cứu các cơ chế bảo mật phần cứng nâng cao (TPM, HSM) hoặc giải pháp chống tấn công vật lý. Các kỹ thuật trí tuệ nhân tạo và machine learning phục vụ dự đoán, tối ưu vận hành hệ thống cũng chưa được tích hợp trong phạm vi hiện tại.
 
 \section{Bố cục luận văn}
 
