@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  10 MAY 2026 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  10 MAY 2026 20:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1499,6 +1499,9 @@ LaTeX Warning: Label `fig:placeholder' multiply defined.
 
 LaTeX Warning: Label `fig:placeholder' multiply defined.
 
+
+LaTeX Warning: Label `fig:rulechain' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1604,7 +1607,7 @@ Package hyperref Info: Link coloring ON on input line 5.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (sections/cover.tex
-<image/LogoBK.png, id=206, 1739.49875pt x 1739.49875pt>
+<image/LogoBK.png, id=214, 1739.49875pt x 1739.49875pt>
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 27.
@@ -1668,7 +1671,7 @@ Ch\uhorn \ohorn ng 1.
 [7
 
 ] (sections/modau.tex
-<image/baitoan.jpg, id=346, 1226.5825pt x 867.24pt>
+<image/baitoan.jpg, id=364, 1226.5825pt x 867.24pt>
 File: image/baitoan.jpg Graphic file (type jpg)
 <use image/baitoan.jpg>
 Package pdftex.def Info: image/baitoan.jpg  used on input line 11.
@@ -1678,7 +1681,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 19.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [8 <./image/baitoan.jpg>]
-<image/yoctoc1.png, id=353, 1662.21pt x 705.63625pt>
+<image/yoctoc1.png, id=371, 1662.21pt x 705.63625pt>
 File: image/yoctoc1.png Graphic file (type png)
 <use image/yoctoc1.png>
 Package pdftex.def Info: image/yoctoc1.png  used on input line 28.
@@ -1688,7 +1691,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 39.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [9 <./image/yoctoc1.png>]
-<image/kientructongquan.jpg, id=360, 2569.6pt x 1712.3975pt>
+<image/kientructongquan.jpg, id=378, 2569.6pt x 1712.3975pt>
 File: image/kientructongquan.jpg Graphic file (type jpg)
 <use image/kientructongquan.jpg>
 Package pdftex.def Info: image/kientructongquan.jpg  used on input line 45.
@@ -1712,7 +1715,7 @@ Ch\uhorn \ohorn ng 2.
 [13
 
 ] (sections/c2.tex
-<image/Linux.jpg, id=386, 206.7725pt x 244.915pt>
+<image/Linux.jpg, id=404, 206.7725pt x 244.915pt>
 File: image/Linux.jpg Graphic file (type jpg)
 <use image/Linux.jpg>
 Package pdftex.def Info: image/Linux.jpg  used on input line 6.
@@ -1727,7 +1730,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 49.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [15]
-<image/yocto_prj.png, id=399, 308.15125pt x 164.615pt>
+<image/yocto_prj.png, id=417, 308.15125pt x 164.615pt>
 File: image/yocto_prj.png Graphic file (type png)
 <use image/yocto_prj.png>
 Package pdftex.def Info: image/yocto_prj.png  used on input line 54.
@@ -1737,7 +1740,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 72.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [16 <./image/yocto_prj.png>]
-<image/poky.png, id=407, 735.74875pt x 317.185pt>
+<image/poky.png, id=425, 735.74875pt x 317.185pt>
 File: image/poky.png Graphic file (type png)
 <use image/poky.png>
 Package pdftex.def Info: image/poky.png  used on input line 81.
@@ -1885,7 +1888,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 745.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [43]
-<image/image5.png, id=591, 2006.49625pt x 920.43875pt>
+<image/image5.png, id=609, 2006.49625pt x 920.43875pt>
 File: image/image5.png Graphic file (type png)
 <use image/image5.png>
 Package pdftex.def Info: image/image5.png  used on input line 750.
@@ -1900,7 +1903,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 775.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [45]
-<image/image3.png, id=614, 803.0pt x 401.5pt>
+<image/image3.png, id=632, 803.0pt x 401.5pt>
 File: image/image3.png Graphic file (type png)
 <use image/image3.png>
 Package pdftex.def Info: image/image3.png  used on input line 779.
@@ -1910,7 +1913,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 795.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [46 <./image/image3.png>]
-<image/image4.png, id=623, 476.53032pt x 380.92313pt>
+<image/image4.png, id=641, 476.53032pt x 380.92313pt>
 File: image/image4.png Graphic file (type png)
 <use image/image4.png>
 Package pdftex.def Info: image/image4.png  used on input line 798.
@@ -1920,7 +1923,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 808.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [47 <./image/image4.png>]
-<image/rs485.jpg, id=630, 2007.5pt x 2007.5pt>
+<image/rs485.jpg, id=648, 2007.5pt x 2007.5pt>
 File: image/rs485.jpg Graphic file (type jpg)
 <use image/rs485.jpg>
 Package pdftex.def Info: image/rs485.jpg  used on input line 816.
@@ -1930,7 +1933,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 827.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [48 <./image/rs485.jpg>]
-<image/modbus.png, id=637, 536.0025pt x 290.08376pt>
+<image/modbus.png, id=655, 536.0025pt x 290.08376pt>
 File: image/modbus.png Graphic file (type png)
 <use image/modbus.png>
 Package pdftex.def Info: image/modbus.png  used on input line 839.
@@ -1945,7 +1948,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 876.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [50]
-<image/coreiotp.png, id=651, 1155.1155pt x 548.64975pt>
+<image/coreiotp.png, id=669, 1155.1155pt x 548.64975pt>
 File: image/coreiotp.png Graphic file (type png)
 <use image/coreiotp.png>
 Package pdftex.def Info: image/coreiotp.png  used on input line 882.
@@ -1955,7 +1958,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 907.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [51 <./image/coreiotp.png>]
-<image/rulechain.png, id=658, 1154.51324pt x 543.83176pt>
+<image/rulechain.png, id=676, 1154.51324pt x 543.83176pt>
 File: image/rulechain.png Graphic file (type png)
 <use image/rulechain.png>
 Package pdftex.def Info: image/rulechain.png  used on input line 917.
@@ -1965,7 +1968,7 @@ File: image/LogoBK.png Graphic file (type png)
 Package pdftex.def Info: image/LogoBK.png  used on input line 935.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
  [52 <./image/rulechain.png>]
-<image/mqtt1.png, id=665, 1606.0pt x 776.9025pt>
+<image/mqtt1.png, id=683, 1606.0pt x 776.9025pt>
 File: image/mqtt1.png Graphic file (type png)
 <use image/mqtt1.png>
 Package pdftex.def Info: image/mqtt1.png  used on input line 939.
@@ -1979,28 +1982,62 @@ Package pdftex.def Info: image/LogoBK.png  used on input line 91.
 Ch\uhorn \ohorn ng 4.
 [54
 
-] (sections/c4.tex)
+] (sections/c4.tex
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 24.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [55]
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 70.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [56]
+<image/api.png, id=712, 612.78937pt x 288.3272pt>
+File: image/api.png Graphic file (type png)
+<use image/api.png>
+Package pdftex.def Info: image/api.png  used on input line 91.
+(pdftex.def)             Requested size: 446.7082pt x 210.18233pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 95.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+[57]
+<image/warnblock.png, id=719, 1708.3825pt x 484.81125pt>
+File: image/warnblock.png Graphic file (type png)
+<use image/warnblock.png>
+Package pdftex.def Info: image/warnblock.png  used on input line 104.
+(pdftex.def)             Requested size: 424.37143pt x 120.42575pt.
+File: image/LogoBK.png Graphic file (type png)
+<use image/LogoBK.png>
+Package pdftex.def Info: image/LogoBK.png  used on input line 113.
+(pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
+ [58 <./image/api.png> <./image/warnblock.png>])
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 110.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [55]
+ [59]
 Ch\uhorn \ohorn ng 5.
-[56
+[60
 
 ] (sections/c5.tex)
 Ch\uhorn \ohorn ng 6.
-[57
+[61
 
-] (sections/c7.tex) (main.bbl [58
+] (sections/c7.tex) (main.bbl [62
 
 ])
 File: image/LogoBK.png Graphic file (type png)
 <use image/LogoBK.png>
 Package pdftex.def Info: image/LogoBK.png  used on input line 150.
 (pdftex.def)             Requested size: 25.60747pt x 25.58704pt.
- [59]
-runsystem(latexminted cleantemp  --timestamp 20260510163839 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
+ [63]
+runsystem(latexminted cleantemp  --timestamp 20260510200913 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
 
  
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -2014,20 +2051,20 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4EBF8EEC0D4030A1840537FF8D40FCC7;10795.
+(rerunfilecheck)             Checksum: C485B384584D1435B59A80C594873C6F;11368.
  ) 
 Here is how much of TeX's memory you used:
- 45253 strings out of 467871
- 959154 string characters out of 5416887
+ 45283 strings out of 467871
+ 959709 string characters out of 5416887
  1539914 words of memory out of 5000000
- 73174 multiletter control sequences out of 15000+600000
+ 73194 multiletter control sequences out of 15000+600000
  670538 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,25n,110p,1182b,1286s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on main.pdf (60 pages, 3092431 bytes).
+<C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><C:/Users/Tuan Anh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on main.pdf (64 pages, 3417304 bytes).
 PDF statistics:
- 808 PDF objects out of 1000 (max. 8388607)
- 188 named destinations out of 1000 (max. 500000)
- 488 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 860 PDF objects out of 1000 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
+ 514 words of extra memory for PDF output out of 10000 (max. 10000000)
 

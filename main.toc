@@ -57,7 +57,9 @@
 \contentsline {chapter}{\numberline {4}Thiết kế hệ thống}{54}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Phân tích yêu cầu}{55}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Thiết kế nền tảng}{55}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{55}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{55}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{56}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{57}{chapter.6}%
+\contentsline {subsection}{\numberline {4.2.1}Thiết kế cơ chế truyền dữ liệu giữa Gateway và CoreIoT}{55}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Thiết kế khối xử lý}{58}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Khối xử lý cảnh báo}{58}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Thiết kế giao diện người dùng}{59}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Triển khai và đánh giá}{60}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{61}{chapter.6}%

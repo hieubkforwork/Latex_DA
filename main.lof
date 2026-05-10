@@ -17,5 +17,7 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{52}{figure.caption.34}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{53}{figure.caption.35}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Định dạng dữ liệu được gửi lên CoreIot}}{58}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Kiến trúc khối xử lý cảnh báo trên gateway Raspberry Pi 4}}{58}{figure.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
