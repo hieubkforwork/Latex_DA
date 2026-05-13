@@ -21,23 +21,8 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{yocto_project_overview}
-{Yocto Project}, ``Yocto project overview,''
-  \url{https://www.yoctoproject.org/about/project-overview/}, 2026, accessed:
-  2026-05-10.
-
-\bibitem{britannica_linux}
-{Encyclopaedia Britannica}, ``Linux | definition, history, and facts,''
-  \url{https://www.britannica.com/technology/Linux}, 2026, accessed:
-  2026-05-10.
-
-\bibitem{yocto_overview_features}
-{Yocto Project}, ``Introducing the yocto project -- features,''
-  \url{https://docs.yoctoproject.org/overview-manual/yp-intro.html#features},
-  2026, yocto Project Overview and Concepts Manual, Accessed: 2026-05-10.
-
 \bibitem{yocto_new_recipe}
-------, ``Creating a new recipe,''
+{Yocto Project}, ``Creating a new recipe,''
   \url{https://docs.yoctoproject.org/dev-manual/new-recipe.html}, 2026, yocto
   Project Development Tasks Manual, Accessed: 2026-05-10.
 
@@ -68,38 +53,33 @@
   \url{https://docs.yoctoproject.org/dev/ref-manual/variables.html#term-KERNEL_MODULE_AUTOLOAD},
   2026, yocto Project Reference Manual, Accessed: 2026-05-10.
 
-\bibitem{yocto_hardening_2020}
-S.~Murray, ``Security hardening with openembedded / yocto,''
-  \url{https://wiki.yoctoproject.org/wiki/images/archive/0/0d/20200702141904!DD5_Security_Hardening_NA20.pdf},
-  2020, accessed: 2026-05-09.
-
-\bibitem{witekio_kernel_hardening}
-Witekio, ``Yocto kernel development and security hardening,''
-  \url{https://witekio.com/blog/yocto-kernel-development-security-hardening/},
-  2024, accessed: 2026-05-09.
-
-\bibitem{kasr_attack_surface}
-\BIBentryALTinterwordspacing
-Z.~Zhang \emph{et~al.}, ``Kasr: A reliable and practical approach to attack
-  surface reduction of commodity os kernels,'' \emph{arXiv preprint
-  arXiv:1802.07062}, 2018. [Online]. Available:
-  \url{https://arxiv.org/abs/1802.07062}
-\BIBentrySTDinterwordspacing
-
-\bibitem{redhat_selinux}
-{Red Hat}, ``What is selinux?''
-  \url{https://www.redhat.com/en/topics/linux/what-is-selinux}, Aug. 2019,
-  accessed: 2026-03-26.
-
-\bibitem{muhammad_selinux}
-A.~Muhammad, ``What is selinux? how does it enhance linux security?''
-  \url{https://www.hostinger.com/tutorials/what-is-selinux}, Jun. 2025,
-  accessed: 2026-03-26.
-
 \bibitem{patchwork_dmverity}
-{Yocto Project}, ``[meta-security,1/2] dm-verity: add basic non-arch/non-bsp
-  yocto specific settings,''
+------, ``[meta-security,1/2] dm-verity: add basic non-arch/non-bsp yocto
+  specific settings,''
   \url{https://patchwork.yoctoproject.org/project/yocto/patch/20230310181117.3344359-2-paul.gortmaker@windriver.com/},
   2023, patchwork discussion, Accessed: 2026-03-26.
+
+\bibitem{li2023_tcn_bilstm_dmattention}
+\BIBentryALTinterwordspacing
+W.~Li and X.~Jiang, ``Prediction of air pollutant concentrations based on
+  tcn-bilstm-dmattention with stl decomposition,'' p. 4665, 2023, accessed:
+  2026-05-10. [Online]. Available:
+  \url{https://www.nature.com/miscs/s41598-023-31569-w}
+\BIBentrySTDinterwordspacing
+
+\bibitem{wang2024_causal_stan}
+\BIBentryALTinterwordspacing
+Y.~Wang, S.~Tian, and P.~Zhang, ``Novel spatio-temporal attention causal
+  convolutional neural network for multi-site pm2.5 prediction,'' p. 1408370,
+  2024, accessed: 2026-05-10. [Online]. Available:
+  \url{https://www.frontiersin.org/journals/environmental-science/miscs/10.3389/fenvs.2024.1408370/full}
+\BIBentrySTDinterwordspacing
+
+\bibitem{stoten2025_pm25}
+\BIBentryALTinterwordspacing
+``A recent study on pm2.5 prediction using deep learning models,'' 2025,
+  accessed: 2026-05-10. [Online]. Available:
+  \url{https://www.sciencedirect.com/science/misc/pii/S0048969725022338}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

@@ -1,65 +1,44 @@
 \section{Đặt vấn đề}
 
-Trong bối cảnh chuyển đổi số và sự phát triển mạnh mẽ của cuộc cách mạng công nghiệp 4.0, các hệ thống nhúng và Internet of Things (IoT) đang ngày càng được ứng dụng rộng rãi trong nhiều lĩnh vực như sản xuất thông minh, giám sát môi trường, quản lý năng lượng và tự động hóa công nghiệp. Các hệ thống này không chỉ yêu cầu khả năng thu thập và xử lý dữ liệu theo thời gian thực mà còn đòi hỏi tính ổn định, khả năng mở rộng và mức độ bảo mật cao trong suốt quá trình vận hành.
+Trong bối cảnh Cách mạng công nghiệp 4.0, các hệ thống tự động hóa đang có xu hướng dịch chuyển từ mô hình xử lý tập trung sang mô hình xử lý phân tán tại biên, hay còn gọi là Edge Computing. Trong mô hình này, thiết bị Edge Gateway đóng vai trò trung gian giữa tầng cảm biến, thiết bị hiện trường và hệ thống giám sát trung tâm. Thiết bị không chỉ thu thập và truyền dữ liệu, mà còn có thể thực hiện các tác vụ như tiền xử lý tín hiệu, suy diễn mô hình trí tuệ nhân tạo, mã hóa dữ liệu, quản lý kết nối mạng và cập nhật phần mềm từ xa.
 
-Tuy nhiên, nhiều nền tảng nhúng hiện nay vẫn phụ thuộc vào các giải pháp đóng hoặc thiếu khả năng tùy biến sâu theo yêu cầu thực tế của từng hệ thống. Đối với các thiết bị biên (Edge Device), việc tối ưu tài nguyên phần cứng, kiểm soát thành phần phần mềm và đảm bảo khả năng vận hành ổn định là những yêu cầu đặc biệt quan trọng. Bên cạnh đó, sự gia tăng của các nguy cơ tấn công mạng, giả mạo firmware hoặc thay đổi dữ liệu trái phép cũng đặt ra yêu cầu cần có các cơ chế bảo vệ tính toàn vẹn và bảo mật cho hệ thống nhúng.
+Trong nhiều hệ thống thử nghiệm hoặc triển khai quy mô nhỏ, Edge Gateway thường được xây dựng dựa trên các bản phân phối Linux tổng quát như Raspberry Pi OS hoặc Ubuntu Server. Cách tiếp cận này có ưu điểm là dễ cài đặt và thuận tiện trong giai đoạn phát triển ban đầu, nhưng tồn tại nhiều hạn chế khi áp dụng cho môi trường nhúng công nghiệp. Thứ nhất, hệ điều hành tổng quát thường chứa nhiều gói phần mềm không cần thiết, làm tăng kích thước image, tiêu tốn tài nguyên lưu trữ và mở rộng diện tích tấn công bảo mật. Thứ hai, việc kiểm soát sâu các thành phần của hệ thống như kernel, dịch vụ khởi động, thư viện, cơ chế phân quyền và chính sách bảo mật còn hạn chế. Thứ ba, việc tích hợp đồng bộ các cơ chế bảo vệ hệ thống, cập nhật phần mềm an toàn và tối ưu hóa cho từng phần cứng cụ thể thường gặp nhiều khó khăn.
 
-Trong lĩnh vực quản lý kho và giám sát môi trường công nghiệp, việc theo dõi các thông số như nhiệt độ, độ ẩm và trạng thái vận hành đóng vai trò quan trọng nhằm đảm bảo chất lượng lưu trữ hàng hóa, lương thực và thực phẩm. Các hệ thống giám sát truyền thống thường tồn tại nhiều hạn chế như khả năng mở rộng thấp, khó tùy biến hoặc phụ thuộc vào nền tảng phần mềm riêng biệt. Do đó, việc nghiên cứu và xây dựng một nền tảng Linux Embedded có khả năng tùy biến, hỗ trợ giao tiếp IoT và tích hợp các cơ chế bảo mật là cần thiết nhằm đáp ứng nhu cầu thực tế của các hệ thống công nghiệp hiện đại.
+Yocto Project cung cấp một hệ sinh thái cho phép xây dựng bản phân phối Linux nhúng tùy biến, trong đó kỹ sư có thể kiểm soát toàn bộ quá trình tạo hệ điều hành, từ cấu hình kernel, lựa chọn gói phần mềm, xây dựng root filesystem, tạo image khởi động cho đến tích hợp các cơ chế bảo mật. Nhờ khả năng tùy biến theo lớp thông qua layer, recipe và machine configuration, Yocto phù hợp để phát triển các nền tảng Edge Gateway yêu cầu tính tối giản, ổn định, bảo mật và có khả năng mở rộng.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{image/baitoan.jpg}
-    \caption{Mô hình bài toán đặt ra}
-    \label{fig:placeholder}
-\end{figure}
+Xuất phát từ yêu cầu đó, đề tài tập trung nghiên cứu và xây dựng một nền tảng nhúng đa chức năng dựa trên Yocto Project phục vụ các ứng dụng tự động hóa công nghiệp. Nền tảng hướng đến việc tạo ra một hệ điều hành Linux nhúng tùy biến cho thiết bị Edge Gateway, có khả năng thu thập dữ liệu cảm biến, xử lý tại biên, quản lý dịch vụ hệ thống và tích hợp các cơ chế bảo mật như phân quyền người dùng, giảm thiểu thành phần không cần thiết và bảo vệ hệ thống tập tin.
 
-\section{Lý do chọn đề tài}
-
-Yocto Project là nền tảng mã nguồn mở mạnh mẽ cho phép xây dựng và tùy biến hệ điều hành Linux nhúng theo từng kiến trúc phần cứng và yêu cầu ứng dụng cụ thể. Khác với các bản phân phối Linux truyền thống, Yocto cung cấp khả năng kiểm soát chi tiết các thành phần hệ thống, tối ưu tài nguyên và chủ động trong quá trình phát triển Embedded Linux Image.\cite{yocto_project_overview}
-
-Bên cạnh khả năng tùy biến hệ thống, Yocto Project còn hỗ trợ tích hợp nhiều cơ chế bảo mật hiện đại như Secure Boot, dm-verity và fscrypt nhằm tăng cường tính toàn vẹn và độ an toàn cho hệ thống nhúng. Đây là những yếu tố đặc biệt quan trọng trong các hệ thống công nghiệp và IoT, nơi thiết bị thường hoạt động liên tục trong thời gian dài và yêu cầu độ ổn định cao.
-
-Ngoài ra, việc phát triển các Linux Device Driver và tích hợp giao tiếp phần cứng trong môi trường Yocto cũng giúp tăng khả năng làm chủ hệ thống ở mức thấp, đồng thời tạo điều kiện thuận lợi cho việc nghiên cứu kiến trúc Linux Embedded một cách toàn diện hơn.
-
-Xuất phát từ những yêu cầu thực tế trong lĩnh vực IoT và tự động hóa công nghiệp, đề tài được thực hiện nhằm nghiên cứu và xây dựng một nền tảng nhúng đa chức năng dựa trên Yocto Project, có khả năng tích hợp các cơ chế bảo mật, hỗ trợ giao tiếp thiết bị và phục vụ triển khai các ứng dụng giám sát công nghiệp. Trên cơ sở đó, đề tài triển khai bài toán giám sát kho thông minh như một mô hình ứng dụng thực tế để đánh giá tính ổn định, khả năng mở rộng và hiệu quả vận hành của hệ thống.
+Để kiểm chứng tính đúng đắn và đánh giá hiệu quả thực tế của nền tảng, đề tài lựa chọn bài toán giám sát an toàn lao động và dự báo nguy cơ cháy nổ trong nhà kho làm ứng dụng thực chứng. Đây là bài toán có tính đại diện cao vì yêu cầu thiết bị phải hoạt động ổn định trong thời gian dài, thu thập dữ liệu từ nhiều nguồn cảm biến, xử lý cảnh báo tại biên và đảm bảo an toàn dữ liệu trong quá trình vận hành. Thông qua ứng dụng này, đề tài đánh giá khả năng đáp ứng của nền tảng Yocto-based Edge Gateway đối với các yêu cầu cốt lõi của hệ thống nhúng công nghiệp, bao gồm tính tối giản, khả năng tùy biến, hiệu năng xử lý, mức độ bảo mật và khả năng triển khai thực tế.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{image/yoctoc1.png}
-    \caption{Nền tảng Yocto Project}
+    \includegraphics[width=1\linewidth]{image/kho.jpg}
+    \caption{An toàn lao động trong kho xưởng}
     \label{fig:placeholder}
 \end{figure}
+
 
 \section{Mục tiêu nghiên cứu}
 
-Đề tài hướng đến mục tiêu nghiên cứu và xây dựng nền tảng Linux Embedded phục vụ cho các ứng dụng công nghiệp và IoT dựa trên Yocto Project. Hệ thống được thiết kế theo hướng tùy biến, có khả năng mở rộng và đáp ứng yêu cầu vận hành ổn định trên các thiết bị nhúng tài nguyên hạn chế.
-
-Bên cạnh đó, đề tài tập trung nghiên cứu cơ chế xây dựng và tích hợp Linux Device Driver nhằm hỗ trợ giao tiếp phần cứng trong hệ thống nhúng. Các cơ chế quản lý module, Device Tree và tích hợp driver trong Yocto cũng được nghiên cứu nhằm xây dựng nền tảng phát triển Embedded Linux hoàn chỉnh hơn.
-
-Ngoài khả năng vận hành hệ thống, đề tài còn nghiên cứu và tích hợp các cơ chế bảo mật nhằm đảm bảo tính toàn vẹn của firmware, filesystem và dữ liệu thiết bị. Đồng thời, hệ thống hỗ trợ cơ chế giao tiếp IoT thông qua các giao thức như MQTT và HTTP nhằm phục vụ việc giám sát và truyền dữ liệu theo thời gian thực.
-
-Trên cơ sở nền tảng được xây dựng, đề tài triển khai mô hình quản lý kho thông minh nhằm kiểm chứng khả năng ứng dụng thực tế của hệ thống trong việc giám sát môi trường kho, thu thập dữ liệu cảm biến, cảnh báo trạng thái bất thường và quản lý thiết bị từ xa.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\linewidth]{image/kientructongquan.jpg}
-    \caption{Kiến trúc tổng thể của hệ thống}
-    \label{fig:placeholder}
-\end{figure}
+Đề tài hướng đến việc nghiên cứu, xây dựng và đánh giá một nền tảng Edge Gateway nhúng dựa trên Yocto Project cho Raspberry Pi 4, phục vụ các ứng dụng tự động hóa công nghiệp theo kiến trúc Device–Edge–Cloud. Nội dung nghiên cứu được triển khai theo sáu mục tiêu cụ thể sau:
+\begin{itemize}
+    \item Mục tiêu 1 - Nền tảng hệ điều hành tối giản: Xây dựng Embedded Linux Image tùy biến bằng Yocto Project và chứng minh hiệu quả tối giản hóa thông qua so sánh định lượng với Raspberry Pi OS về kích thước image, dung lượng root filesystem, số lượng package, số tiến trình hoạt động, số dịch vụ khởi động và mức sử dụng RAM/CPU trong điều kiện vận hành thực tế.
+    \item Mục tiêu 2 - Phát triển driver và giao tiếp công nghiệp: Hiện thực Linux Device Driver cho giao tiếp RS485/Modbus RTU dưới dạng Kernel Module tích hợp trong môi trường Yocto, và kiểm chứng khả năng thu thập dữ liệu ổn định từ các thiết bị cảm biến công nghiệp trong điều kiện vận hành liên tục.
+    \item Mục tiêu 3 - Bảo mật hệ thống đa lớp: Tích hợp và đánh giá hiệu quả của hệ thống bảo mật theo chiều sâu (defense in depth) gồm sáu lớp: dm-verity bảo vệ tính toàn vẹn filesystem, quản lý phân quyền sudo/user/group, cứng hóa SSH, cấu hình kernel parameters qua sysctl, giám sát truy cập bằng auditd và phòng chống brute-force bằng fail2ban. Mỗi lớp được đánh giá cả về hiệu quả bảo vệ lẫn chi phí tài nguyên phát sinh.
+    \item Mục tiêu 4 - Cập nhật hệ thống an toàn: Thiết kế và kiểm chứng cơ chế OTA theo mô hình A/B Slot, đảm bảo khả năng rollback tự động về slot ổn định khi gặp sự cố, kể cả trong tình huống mất điện giữa quá trình cập nhật.
+    \item Mục tiêu 5 - Tích hợp Cloud IoT: Xây dựng luồng dữ liệu từ thiết bị hiện trường đến nền tảng CoreIoT Cloud qua MQTT, bao gồm tiền xử lý tại biên, trực quan hóa trạng thái hệ thống trên dashboard, cấu hình cảnh báo và điều khiển thiết bị từ xa qua RPC.
+    \item Mục tiêu 6 - Ứng dụng thực chứng: Sử dụng bài toán giám sát an toàn lao động tại nhà kho — tích hợp mô hình Temporal Convolutional Network dự báo nguy cơ cháy nổ — làm case study để đánh giá đồng thời toàn bộ nền tảng trên năm tiêu chí: tính tối giản, hiệu năng xử lý tại biên, bảo mật đa lớp, độ tin cậy cập nhật và khả năng kết nối cloud.
+\end{itemize}       
 
 \section{Phạm vi và giới hạn nghiên cứu}
 
-Đề tài tập trung xây dựng nền tảng Linux nhúng (Embedded Linux) dành cho các ứng dụng công nghiệp và IoT (Internet of Things) dựa trên Yocto Project. Hệ điều hành được phát triển theo hướng tùy biến cao, phù hợp với thiết bị biên (Edge Device) có tài nguyên phần cứng giới hạn. Trên cơ sở đó, nội dung nghiên cứu bao gồm cơ chế build image, quản lý gói phần mềm (package) và tích hợp Linux Device Driver trong môi trường Yocto nhằm đáp ứng yêu cầu giao tiếp, điều khiển phần cứng trên hệ thống nhúng.
+Đề tài tập trung xây dựng và đánh giá nền tảng phần mềm cho thiết bị Edge Gateway công nghiệp dựa trên Yocto Project, triển khai trên Raspberry Pi 4 làm bo mạch mục tiêu. Hệ thống được thiết kế theo kiến trúc Device–Edge–Cloud, trong đó Edge Gateway đảm nhiệm thu thập dữ liệu, xử lý tại biên, bảo mật và cập nhật hệ thống, còn CoreIoT Cloud phục vụ giám sát, trực quan hóa dữ liệu, cảnh báo và điều khiển từ xa.
 
-Bên cạnh việc phát triển nền tảng, đề tài còn đi sâu vào các thành phần cốt lõi của Linux Kernel như Kernel Module, Device Tree và cơ chế quản lý module lúc runtime. Những kiến thức này là nền tảng cho việc phát triển và tích hợp driver trong hệ thống Linux nhúng, đồng thời nâng cao khả năng làm chủ hệ thống ở mức thấp đối với các bài toán công nghiệp.
+Phạm vi nghiên cứu bao gồm: xây dựng Embedded Linux Image tùy biến bằng Yocto Project; phát triển Linux Device Driver hỗ trợ giao tiếp RS485 và tích hợp phần mềm Modbus RTU; triển khai các cơ chế bảo mật cho hệ thống; xây dựng cơ chế OTA an toàn theo mô hình A/B Slot; tích hợp mô hình AI suy diễn tại biên; kết nối dữ liệu lên CoreIoT Cloud; và triển khai bài toán giám sát an toàn nhà kho làm ứng dụng thực chứng.
 
-Về mặt bảo mật, đề tài tích hợp một số cơ chế phổ biến trong Linux Embedded như Secure Boot, dm-verity và fscrypt nhằm tăng cường bảo vệ firmware, filesystem và dữ liệu trên thiết bị. Hệ thống cũng hỗ trợ các chức năng quản lý dịch vụ và cấu hình cơ bản để đảm bảo vận hành ổn định trong thực tế.
+Trên cơ sở nền tảng được xây dựng, đề tài triển khai mô hình quản lý kho thông minh nhằm kiểm chứng khả năng ứng dụng thực tế của hệ thống trong việc giám sát môi trường kho, thu thập dữ liệu cảm biến, cảnh báo trạng thái bất thường và quản lý thiết bị từ xa.
 
-Về truyền thông và IoT, nền tảng triển khai cơ chế kết nối giữa thiết bị và hệ thống quản lý qua các giao thức MQTT và HTTP. Hệ thống có khả năng thu thập, xử lý và truyền dữ liệu cảm biến theo thời gian thực, đồng thời xây dựng cơ chế giám sát và cảnh báo phục vụ quản lý thiết bị trong môi trường công nghiệp.
-
-Để kiểm chứng khả năng ứng dụng thực tế, đề tài triển khai mô hình quản lý kho thông minh dựa trên nền tảng đã xây dựng. Mô hình này tập trung giám sát các thông số môi trường như nhiệt độ, độ ẩm và trạng thái hoạt động của kho hàng, kèm theo dashboard giám sát và backend cơ bản để lưu trữ, hiển thị và quản lý dữ liệu thiết bị.
-
-Tuy nhiên, do giới hạn về thời gian, tài nguyên và phạm vi nghiên cứu, đề tài mới chỉ dừng lại ở mô hình thử nghiệm, chưa được đánh giá trên quy mô công nghiệp lớn. Các bài toán chuyên sâu như tối ưu logistics, quản lý chuỗi cung ứng hay tích hợp hệ thống ERP/WMS hoàn chỉnh chưa được đề cập. Ngoài ra, đề tài chưa nghiên cứu các cơ chế bảo mật phần cứng nâng cao (TPM, HSM) hoặc giải pháp chống tấn công vật lý. Các kỹ thuật trí tuệ nhân tạo và machine learning phục vụ dự đoán, tối ưu vận hành hệ thống cũng chưa được tích hợp trong phạm vi hiện tại.
+Tuy nhiên, do giới hạn về thời gian, tài nguyên và phạm vi nghiên cứu, đề tài mới chỉ dừng lại ở mô hình thử nghiệm, chưa được đánh giá trên quy mô công nghiệp lớn. Các bài toán chuyên sâu như tối ưu logistics, quản lý chuỗi cung ứng hay tích hợp hệ thống ERP/WMS hoàn chỉnh chưa được đề cập. Ngoài ra, đề tài chưa nghiên cứu các cơ chế bảo mật phần cứng nâng cao (TPM, HSM) hoặc giải pháp chống tấn công vật lý. 
 
 \section{Bố cục luận văn}
 

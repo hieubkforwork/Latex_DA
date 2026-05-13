@@ -1,29 +1,4 @@
 \section{Kiến trúc Build System trong Yocto Project}
-\subsection{Kiến trúc Layer trong Yocto}
-
-Yocto Project sử dụng kiến trúc phân lớp (Layer Architecture) nhằm tổ chức metadata và mã nguồn theo hướng module hóa, linh hoạt và dễ mở rộng. Đây là một trong những đặc điểm quan trọng giúp Yocto trở thành nền tảng xây dựng Linux Embedded có khả năng tùy biến cao và phù hợp với nhiều kiến trúc phần cứng khác nhau.\cite{yocto_overview_features}
-
-Trong các hệ thống Linux Embedded hiện đại, số lượng package, driver, thư viện và thành phần hệ thống thường rất lớn. Nếu toàn bộ metadata và source code được lưu tập trung trong một cấu trúc duy nhất, việc quản lý dependency, cập nhật phiên bản và bảo trì hệ thống sẽ trở nên phức tạp. Do đó, Yocto áp dụng mô hình phân lớp nhằm chia nhỏ hệ thống thành các thành phần độc lập, mỗi layer đảm nhiệm một nhóm chức năng riêng biệt.
-
-Kiến trúc phân lớp cho phép tách biệt rõ ràng giữa các thành phần hệ thống như BSP (Board Support Package), middleware, application và các package tùy chỉnh. Nhờ đó, người phát triển có thể dễ dàng bổ sung hoặc loại bỏ một chức năng mà không ảnh hưởng đến các thành phần còn lại của hệ thống. Điều này đặc biệt quan trọng trong phát triển hệ thống nhúng, nơi mỗi nền tảng phần cứng có thể yêu cầu các driver và cấu hình riêng biệt.
-
-Ngoài khả năng module hóa, Layer Architecture còn giúp tăng tính tái sử dụng của metadata và source code. Một layer có thể được sử dụng lại trong nhiều dự án khác nhau mà không cần chỉnh sửa đáng kể. Ví dụ, các layer hỗ trợ kiến trúc phần cứng, networking hoặc multimedia có thể được tích hợp vào nhiều hệ thống Linux Embedded khác nhau thông qua cơ chế add-layer của Yocto.
-
-Bên cạnh đó, việc phân lớp còn hỗ trợ hiệu quả cho quá trình cộng tác và phát triển nhóm. Mỗi nhóm phát triển có thể quản lý một layer riêng biệt tương ứng với chức năng của mình mà không làm ảnh hưởng trực tiếp đến hệ thống tổng thể. Điều này giúp giảm xung đột mã nguồn và nâng cao khả năng bảo trì dự án trong các hệ thống quy mô lớn.
-
-Một ưu điểm quan trọng khác của kiến trúc phân lớp là khả năng quản lý ưu tiên metadata thông qua cơ chế layer priority. Khi nhiều layer cùng chứa recipe hoặc cấu hình cho một package, BitBake sẽ xác định layer có mức ưu tiên cao hơn để sử dụng. Cơ chế này cho phép người phát triển tùy chỉnh hoặc ghi đè hành vi của package mà không cần chỉnh sửa trực tiếp source code gốc.
-
-Ngoài ra, Layer Architecture còn giúp Yocto Project duy trì tính mở rộng và khả năng nâng cấp hệ thống trong thời gian dài. Khi cần cập nhật phiên bản Linux Kernel, thêm driver mới hoặc tích hợp middleware khác, người phát triển chỉ cần bổ sung hoặc cập nhật layer tương ứng thay vì chỉnh sửa toàn bộ hệ thống build.
-
-Nhờ các ưu điểm về tính module hóa, khả năng tái sử dụng, dễ bảo trì và hỗ trợ mở rộng hệ thống, kiến trúc phân lớp đã trở thành nền tảng cốt lõi trong thiết kế của Yocto Project và đóng vai trò quan trọng trong quá trình phát triển các hệ thống Linux Embedded hiện đại.
-Mỗi layer có thể chứa:
-
-\begin{itemize}
-    \item Recipe (.bb)
-    \item Configuration
-    \item Patch
-    \item Source code
-\end{itemize}
 
 \subsection{Các thành phần chính trong Layer của Yocto Project}
 
@@ -315,69 +290,6 @@ Ngoài các chức năng chính trên, Linux Kernel còn hỗ trợ nhiều cơ 
 
 Trong lĩnh vực hệ thống nhúng và tự động hóa công nghiệp, Linux Kernel được sử dụng rộng rãi nhờ khả năng hỗ trợ đa kiến trúc phần cứng, hiệu năng cao và hệ sinh thái driver phong phú. Đây là nền tảng quan trọng cho nhiều thiết bị embedded hiện đại như gateway công nghiệp, hệ thống IoT, bộ điều khiển tự động hóa và các nền tảng Edge Computing.
 
-\subsection{User Space và Kernel Space}
-
-Trong hệ điều hành Linux, hệ thống được phân chia thành hai không gian hoạt động chính gồm User Space và Kernel Space. Kiến trúc này giúp tăng tính ổn định, bảo mật và khả năng quản lý tài nguyên của hệ điều hành. Việc tách biệt hai không gian cho phép hệ thống kiểm soát quyền truy cập phần cứng cũng như hạn chế các lỗi từ ứng dụng người dùng ảnh hưởng trực tiếp đến kernel.
-
-User Space là không gian dành cho các ứng dụng người dùng hoạt động. Các chương trình như terminal, web browser, application hoặc service thông thường đều được thực thi trong User Space. Các tiến trình trong không gian này chỉ được cấp quyền truy cập giới hạn và không thể thao tác trực tiếp với phần cứng hoặc vùng nhớ hệ thống quan trọng.
-
-Kernel Space là không gian hoạt động của Linux Kernel và các thành phần hệ thống như Device Driver, Memory Manager và Process Scheduler. Các tiến trình trong Kernel Space có quyền truy cập đầy đủ vào tài nguyên phần cứng và bộ nhớ hệ thống. Đây là khu vực có mức đặc quyền cao nhất trong hệ điều hành.
-
-Sự khác biệt giữa User Space và Kernel Space được trình bày trong Bảng \ref{tab:user_kernel_space}.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\textbf{User Space} & \textbf{Kernel Space} \\ \hline
-Ứng dụng người dùng & Driver và Kernel \\ \hline
-Quyền hạn thấp & Quyền hạn cao \\ \hline
-Không truy cập trực tiếp phần cứng & Truy cập trực tiếp phần cứng \\ \hline
-Được cách ly bởi hệ điều hành & Hoạt động trong vùng đặc quyền \\ \hline
-\end{tabular}
-\caption{So sánh User Space và Kernel Space}
-\label{tab:user_kernel_space}
-\end{table}
-
-Việc phân tách User Space và Kernel Space giúp hệ điều hành tăng cường tính bảo mật và độ ổn định. Nếu một ứng dụng trong User Space gặp lỗi hoặc bị crash, kernel vẫn có thể tiếp tục hoạt động bình thường mà không làm sập toàn bộ hệ thống. Ngược lại, lỗi xảy ra trong Kernel Space có thể ảnh hưởng trực tiếp đến toàn bộ hệ điều hành do kernel hoạt động với quyền truy cập cao nhất.
-
-Trong Linux, các ứng dụng trong User Space không thể giao tiếp trực tiếp với phần cứng. Thay vào đó, chúng phải sử dụng cơ chế System Call để yêu cầu kernel thực hiện các thao tác cần thiết. System Call đóng vai trò như giao diện trung gian giữa ứng dụng người dùng và Linux Kernel.
-
-Quá trình truy cập phần cứng trong Linux được mô tả như sau:
-
-\[
-\begin{array}{c}
-\text{Application} \\
-\downarrow \\
-\text{System Call} \\
-\downarrow \\
-\text{Kernel} \\
-\downarrow \\
-\text{Driver} \\
-\downarrow \\
-\text{Hardware}
-\end{array}
-\]
-
-Khi một ứng dụng cần truy cập thiết bị phần cứng, yêu cầu sẽ được gửi thông qua System Call. Kernel sau đó tiếp nhận yêu cầu và chuyển tiếp đến Device Driver tương ứng. Driver sẽ thực hiện giao tiếp trực tiếp với phần cứng và trả kết quả ngược lại cho kernel trước khi dữ liệu được chuyển về ứng dụng người dùng.
-
-System Call là cơ chế quan trọng giúp kernel kiểm soát toàn bộ quyền truy cập phần cứng trong hệ thống. Điều này giúp ngăn chặn các ứng dụng người dùng thao tác trực tiếp lên tài nguyên hệ thống, từ đó giảm nguy cơ gây lỗi hoặc làm mất ổn định hệ điều hành.
-
-Một số system call phổ biến trong Linux bao gồm:
-
-\begin{itemize}
-    \item \texttt{open()} : mở file hoặc thiết bị.
-    \item \texttt{read()} : đọc dữ liệu.
-    \item \texttt{write()} : ghi dữ liệu.
-    \item \texttt{ioctl()} : điều khiển thiết bị.
-    \item \texttt{close()} : đóng file hoặc thiết bị.
-\end{itemize}
-
-Trong các hệ thống Linux Embedded, cơ chế User Space và Kernel Space đóng vai trò đặc biệt quan trọng vì nhiều ứng dụng cần giao tiếp với phần cứng ngoại vi như UART, GPIO, SPI hoặc I2C. Device Driver trong Kernel Space chịu trách nhiệm cung cấp giao diện chuẩn để các ứng dụng trong User Space có thể truy cập thiết bị một cách an toàn và hiệu quả.
-
-Ngoài ra, việc tách biệt hai không gian còn giúp tăng khả năng bảo trì và mở rộng hệ thống. Các ứng dụng User Space có thể được cập nhật hoặc thay đổi mà không ảnh hưởng trực tiếp đến kernel. Đồng thời, kernel cũng có thể quản lý tài nguyên hệ thống tập trung nhằm đảm bảo hiệu năng và độ ổn định trong quá trình vận hành.
-
-Trong Linux Embedded hiện đại, kiến trúc User Space và Kernel Space là nền tảng quan trọng cho việc phát triển driver, middleware và application. Cơ chế này giúp Linux trở thành hệ điều hành có tính ổn định cao và phù hợp với các hệ thống nhúng và tự động hóa công nghiệp yêu cầu độ tin cậy lớn.
 
 \subsection{Linux Device Driver}
 
@@ -730,55 +642,59 @@ Nhờ cơ chế build tự động và quản lý metadata của Yocto Project, 
 
 
 \section{Bảo mật hệ điều hành Linux nhúng}
-\subsection{Khái niệm bảo mật trong Linux nhúng}
-Tăng cường bảo mật (security hardening) là quá trình áp dụng các biện pháp cụ thể nhằm mục tiêu nâng cao sự an toàn cho toàn hệ thống một cách toàn diện. Quá trình không chỉ dừng lại ở việc thiết lập các biện pháp nhằm giảm thiểu tấn công bề mặt (attack surface), mà còn bao gồm việc bảo vệ hệ thống ở nhiều lớp khác nhau, từ kernel, hệ điều hành, dịch vụ cho đến ứng dụng và dữ liệu.
+% Tăng cường bảo mật (security hardening) là quá trình áp dụng các biện pháp cụ thể nhằm mục tiêu nâng cao sự an toàn cho toàn hệ thống một cách toàn diện. Quá trình không chỉ dừng lại ở việc thiết lập các biện pháp nhằm giảm thiểu tấn công bề mặt (attack surface), mà còn bao gồm việc bảo vệ hệ thống ở nhiều lớp khác nhau, từ kernel, hệ điều hành, dịch vụ cho đến ứng dụng và dữ liệu.
 
-Có nhiều lý do khiến việc tăng cường bảo mật ở các hệ thống nhúng Linux trở thành ưu tiên quan trọng đối với các nhà sản xuất thiết bị, trong đó có ba yếu tố chính cần được đặc biệt quan tâm.
+% Có nhiều lý do khiến việc tăng cường bảo mật ở các hệ thống nhúng Linux trở thành ưu tiên quan trọng đối với các nhà sản xuất thiết bị, trong đó có ba yếu tố chính cần được đặc biệt quan tâm.
 
-Thứ nhất, khi số lượng các thiết bị nhúng được kết nối Internet ngày càng tăng, các thiết bị này trở thành sự lựa chọn tiềm năng, là mục tiêu cho các cuộc tấn công mạng. Việc kết nối Internet khiến thiết bị dễ dàng bị phát hiện và quét từ bên ngoài. Nếu thiết bị tồn tại lỗ hổng bảo mật, kẻ tấn công có thể khai thác để xâm nhập vào cả hệ thống.
+% Thứ nhất, khi số lượng các thiết bị nhúng được kết nối Internet ngày càng tăng, các thiết bị này trở thành sự lựa chọn tiềm năng, là mục tiêu cho các cuộc tấn công mạng. Việc kết nối Internet khiến thiết bị dễ dàng bị phát hiện và quét từ bên ngoài. Nếu thiết bị tồn tại lỗ hổng bảo mật, kẻ tấn công có thể khai thác để xâm nhập vào cả hệ thống.
 
-Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{yocto_hardening_2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
+% Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{yocto_hardening_2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
 
-Thứ ba, các thiết bị nhúng Linux có thể bị chiếm quyền điều khiển và sử dụng như một công cụ để tấn công các hệ thống khác, chẳng hạn như tham gia vào mạng botnet hoặc thực hiện tấn công DDoS. Trong trường hợp này, kẻ tấn công không nhắm vào dữ liệu của thiết bị mà khai thác khả năng kết nối và tài nguyên xử lý của nó. Do đó, ngay cả các thiết bị đơn giản cũng cần được bảo mật để tránh bị lợi dụng cho các mục đích tấn công. 
+% Thứ ba, các thiết bị nhúng Linux có thể bị chiếm quyền điều khiển và sử dụng như một công cụ để tấn công các hệ thống khác, chẳng hạn như tham gia vào mạng botnet hoặc thực hiện tấn công DDoS. Trong trường hợp này, kẻ tấn công không nhắm vào dữ liệu của thiết bị mà khai thác khả năng kết nối và tài nguyên xử lý của nó. Do đó, ngay cả các thiết bị đơn giản cũng cần được bảo mật để tránh bị lợi dụng cho các mục đích tấn công. 
 
-Chính vì những rủi ro nêu trên, việc tăng cường bảo mật trở thành một trong những ưu tiên hàng đầu đối với các nhà sản xuất thiết bị, đồng thời là yếu tố xuyên suốt trong quá trình phát triển phần mềm nhúng và các hệ thống kết nối. Đối với các hệ thống sử dụng Linux, Yocto được xem là một công cụ quan trọng, cho phép các developer xây dựng và kiểm soát hệ thống một cách linh hoạt, từ đó tích hợp các cơ chế bảo mật phù hợp ngay từ giai đoạn thiết kế.
+% Chính vì những rủi ro nêu trên, việc tăng cường bảo mật trở thành một trong những ưu tiên hàng đầu đối với các nhà sản xuất thiết bị, đồng thời là yếu tố xuyên suốt trong quá trình phát triển phần mềm nhúng và các hệ thống kết nối. Đối với các hệ thống sử dụng Linux, Yocto được xem là một công cụ quan trọng, cho phép các developer xây dựng và kiểm soát hệ thống một cách linh hoạt, từ đó tích hợp các cơ chế bảo mật phù hợp ngay từ giai đoạn thiết kế.
 
-Ngày nay, nhiều hệ thống nhúng Linux được xây dựng bằng Yocto Project đang được áp dụng rộng rãi trong các lĩnh vực trọng yếu nhưng có độ bảo mật chưa cao. Khác với các bản phân phối Linux phổ biến như Debian hay Ubuntu, Yocto không cung cấp một hệ điều hành hoàn chỉnh mà cung cấp các công nghệ tùy biến để các developer xây dựng một hệ điều hành theo nhu cầu. Điều này góp phần xây dựng một hệ điều hành có sự linh hoạt cao nhưng đồng thời đi cùng các rủi ro về bảo mật. Đối với các ứng dụng như hệ thống tự động trong công nghiệp, lĩnh vực sức khỏe hay xe tự hành thì tầm quan trọng của bảo mật lại càng trở nên cấp thiết hơn.
+% Ngày nay, nhiều hệ thống nhúng Linux được xây dựng bằng Yocto Project đang được áp dụng rộng rãi trong các lĩnh vực trọng yếu nhưng có độ bảo mật chưa cao. Khác với các bản phân phối Linux phổ biến như Debian hay Ubuntu, Yocto không cung cấp một hệ điều hành hoàn chỉnh mà cung cấp các công nghệ tùy biến để các developer xây dựng một hệ điều hành theo nhu cầu. Điều này góp phần xây dựng một hệ điều hành có sự linh hoạt cao nhưng đồng thời đi cùng các rủi ro về bảo mật. Đối với các ứng dụng như hệ thống tự động trong công nghiệp, lĩnh vực sức khỏe hay xe tự hành thì tầm quan trọng của bảo mật lại càng trở nên cấp thiết hơn.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{image/image5.png}
-    \caption{Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}
-    \label{fig:secure_yocto}
+% Để hiện thực hóa mục tiêu này, các nhà phát triển có thể áp dụng phối hợp nhiều giải pháp kỹ thuật cụ thể. Một số cơ chế bảo mật tiêu biểu có thể kể đến như: giảm thiểu bề mặt tấn công; thiết lập nghiêm ngặt phân quyền admin-user theo nguyên tắc đặc quyền tối thiểu; sử dụng SELinux để kiểm soát truy cập bắt buộc; áp dụng dm-verity nhằm đảm bảo tính toàn vẹn của hệ điều hành và dùng fscrypt để mã hóa bảo mật dữ liệu người dùng.
+% \begin{figure}[!h]
+%     \centering
+%     \includegraphics[width=1\textwidth]{image/image5.png}
+%     \caption{Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}
+%     \label{fig:secure_yocto}
 
-    \vspace{0.3em}
-    \small
-    Nguồn: Star Lab Software
-\end{figure}
+%     \vspace{0.3em}
+%     \small
+%     Nguồn: Star Lab Software
+% \end{figure}
 
-\subsection{Giảm thiểu tấn công bề mặt (Attack Surface Reduction)}
-Giảm thiểu tấn công bề mặt (attack surface reduction) là một trong những nguyên tắc quan trọng trong bảo mật hệ thống nhúng Linux. Mục tiêu của phương pháp này là hạn chế tối đa số lượng thành phần, dịch vụ, giao diện và cấu hình có thể bị khai thác bởi kẻ tấn công. Trong hệ thống nhúng, bề mặt tấn công thường bao gồm các dịch vụ mạng không cần thiết, các tính năng hệ điều hành dư thừa, các thành phần phần mềm không sử dụng và các thiết lập mặc định có thể làm giảm mức độ an toàn của hệ thống \cite{yocto_hardening_2020}.
+\subsection{Giảm thiểu tấn công bề mặt}
 
-Đối với các hệ thống xây dựng bằng Yocto, việc giảm thiểu tấn công bề mặt có ý nghĩa đặc biệt quan trọng vì Yocto cho phép tùy biến sâu đối với image hệ điều hành. Chính sự linh hoạt này giúp hệ thống chỉ bao gồm những thành phần thực sự cần thiết, nhưng đồng thời cũng đòi hỏi nhà phát triển phải kiểm soát chặt chẽ các thành phần được đưa vào image. Nếu không được cấu hình cẩn thận, hệ thống có thể vô tình chứa nhiều gói phần mềm, dịch vụ hoặc tính năng mặc định không cần thiết, từ đó làm gia tăng nguy cơ xuất hiện lỗ hổng bảo mật.
+Giảm thiểu tấn công bề mặt (Attack Surface Reduction) là phương pháp hạn chế số lượng thành phần, dịch vụ và chức năng có thể bị khai thác trong hệ thống. 
+Đối với Linux nhúng, bề mặt tấn công thường bao gồm các dịch vụ mạng không cần thiết, các package dư thừa hoặc các cấu hình mặc định thiếu an toàn.
 
-Một số nguyên tắc phổ biến trong giảm thiểu tấn công bề mặt bao gồm: loại bỏ các dịch vụ không sử dụng, giới hạn quyền truy cập mặc định, tối giản hóa image hệ điều hành, chỉ giữ lại các thành phần cần thiết cho mục đích vận hành và hạn chế các khả năng truy cập ở mức thấp của người dùng đối với hệ thống. Ngoài ra, việc tinh chỉnh cấu hình kernel cũng đóng vai trò quan trọng vì kernel là lớp điều khiển trực tiếp phần cứng và có ảnh hưởng lớn đến mức độ an toàn tổng thể của hệ thống \cite{witekio_kernel_hardening,kasr_attack_surface}.
+Yocto Project cho phép xây dựng image Linux tối giản và chỉ tích hợp các thành phần cần thiết cho hệ thống. 
+Điều này giúp giảm số lượng tiến trình đang hoạt động, hạn chế cổng mạng mở và giảm nguy cơ xuất hiện lỗ hổng bảo mật.
 
-Từ góc nhìn lý thuyết, giảm thiểu tấn công bề mặt không chỉ giúp hạn chế khả năng khai thác trực tiếp mà còn góp phần nâng cao độ ổn định, độ tin cậy và khả năng bảo trì của hệ thống nhúng trong quá trình vận hành lâu dài .
-\subsection{Bảo mật quyền truy cập hệ thống với SELinux}
+Trong đề tài này, nguyên tắc giảm thiểu bề mặt tấn công được sử dụng làm nền tảng cho việc xây dựng image Linux nhúng tối ưu và an toàn hơn cho gateway IoT.
 
-Security-Enhanced Linux (SELinux) là một kiến trúc bảo mật dành cho các hệ thống Linux, cho phép kiểm soát chặt chẽ việc truy cập tài nguyên trong hệ điều hành. SELinux được công bố cho cộng đồng mã nguồn mở vào năm 2000 và chính thức được tích hợp vào nhân Linux từ năm 2003 \cite{redhat_selinux}. Khác với cơ chế phân quyền truyền thống dựa trên mô hình kiểm soát truy cập tùy ý (Discretionary Access Control - DAC), SELinux áp dụng mô hình kiểm soát truy cập bắt buộc (Mandatory Access Control - MAC) nhằm thực thi các chính sách bảo mật một cách tập trung và nghiêm ngặt. Trong mô hình này, mọi hành động truy cập đều phải tuân theo các quy tắc được định nghĩa trước; nếu không được cho phép rõ ràng, truy cập sẽ bị từ chối theo mặc định. Điều này giúp hạn chế hiệu quả các hành vi truy cập trái phép và nâng cao mức độ an toàn tổng thể của hệ thống \cite{muhammad_selinux}.
+\subsection{Bảo mật quyền truy cập với SELinux}
 
-SELinux hoạt động bằng cách gán ngữ cảnh bảo mật (security context) cho cả chủ thể và đối tượng trong hệ thống. Chủ thể thường là các tiến trình hoặc dịch vụ hệ thống, trong khi đối tượng có thể là tệp, thư mục, socket hoặc các tài nguyên hệ thống khác. Mỗi ngữ cảnh bảo mật bao gồm các thông tin như user, role, type và mức độ nhạy cảm, từ đó xác định quyền truy cập của từng thực thể. Khi một tiến trình yêu cầu truy cập tài nguyên, cơ chế thực thi chính sách của SELinux sẽ so sánh ngữ cảnh bảo mật của chủ thể và đối tượng với các quy tắc đã được định nghĩa trong policy. Nếu hành động phù hợp với chính sách, quyền truy cập sẽ được cấp; ngược lại, hành động sẽ bị từ chối và có thể được ghi lại trong nhật ký hệ thống \cite{muhammad_selinux}.
+SELinux (Security-Enhanced Linux) là cơ chế bảo mật dành cho Linux dựa trên mô hình Mandatory Access Control (MAC). 
+Khác với mô hình phân quyền truyền thống, SELinux cho phép kiểm soát chặt chẽ quyền truy cập giữa các tiến trình và tài nguyên hệ thống thông qua các policy bảo mật.
 
-Một trong những đặc điểm quan trọng của SELinux là nguyên tắc đặc quyền tối thiểu (principle of least privilege), theo đó mỗi tiến trình chỉ được cấp các quyền cần thiết để thực hiện chức năng của mình. Cơ chế này giúp hạn chế khả năng lan rộng của các cuộc tấn công trong trường hợp một tiến trình hoặc dịch vụ bị khai thác. Ngoài ra, SELinux còn hỗ trợ cơ chế ghi nhật ký và giám sát, giúp quản trị viên dễ dàng phát hiện và phân tích các hành vi bất thường trong hệ thống.
+SELinux hoạt động bằng cách gán security context cho tiến trình và tài nguyên trong hệ thống. 
+Mọi hành động truy cập đều phải tuân theo policy đã được định nghĩa trước; nếu không được cho phép rõ ràng, truy cập sẽ bị từ chối theo mặc định.
 
-Trong các hệ thống xây dựng bằng Yocto, SELinux không được kích hoạt mặc định mà thường được tích hợp thông qua các layer bổ sung như \texttt{meta-selinux}, \texttt{meta-security} hoặc \texttt{meta-smack}. Các layer này cung cấp các thành phần cần thiết để hệ thống hỗ trợ mô hình MAC, từ đó giúp tăng cường khả năng bảo vệ cho các hệ thống Linux nhúng.
+Một trong những đặc điểm quan trọng của SELinux là nguyên tắc đặc quyền tối thiểu (least privilege), theo đó mỗi tiến trình chỉ được cấp các quyền cần thiết cho chức năng của mình. 
+Điều này giúp hạn chế khả năng lan rộng của tấn công khi một dịch vụ bị khai thác.
 
+Trong các hệ thống Yocto Linux, SELinux thường được tích hợp thông qua layer \texttt{meta-selinux} nhằm tăng cường khả năng bảo vệ cho hệ điều hành nhúng.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{image/image3.png}
     \caption{Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}
-    \label{fig:selinux} 
+    \label{fig:selinu} 
 
     \vspace{0.3em}
     \small
@@ -806,8 +722,228 @@ Khi dữ liệu được truy cập lần đầu tiên, kernel sẽ đọc block
 
 Nhờ khả năng xác minh tính toàn vẹn ở mức block device, dm-verity đặc biệt phù hợp với các hệ thống nhúng yêu cầu tính ổn định và độ tin cậy cao như thiết bị IoT, hệ thống công nghiệp hoặc các nền tảng Linux tối giản. Cơ chế này giúp phát hiện các thay đổi trái phép đối với root filesystem, đồng thời tăng cường khả năng chống lại các cuộc tấn công ngoại tuyến nhằm sửa đổi dữ liệu hệ thống.
 
+% \section{Edge AI trong hệ thống nhúng}
+% \subsection{Khái niệm Edge AI và lợi ích so với Cloud AI}
+% Trí tuệ nhân tạo (Artificial Intelligence – AI) là công nghệ cho phép máy tính mô phỏng các hành vi thông minh của con người như học tập, suy luận và nhận dạng. Trong các hệ thống truyền thống, mô hình AI thường được triển khai trên nền tảng điện toán đám mây (Cloud AI), nơi dữ liệu được gửi từ thiết bị đầu cuối lên máy chủ để xử lý.
+    
+% Edge AI là xu hướng triển khai các mô hình trí tuệ nhân tạo trực tiếp trên thiết bị biên (edge device) như camera thông minh, gateway công nghiệp hoặc hệ thống nhúng. Thay vì truyền toàn bộ dữ liệu lên đám mây, quá trình suy luận (inference) được thực hiện ngay tại thiết bị thu thập dữ liệu.
+
+% So với Cloud AI, Edge AI mang lại nhiều lợi ích:
+% \begin{itemize}
+%     \item Giảm độ trễ xử lý do không phụ thuộc vào kết nối mạng
+%     \item Tăng tính ổn định của hệ thống trong môi trường công nghiệp
+%     \item Nâng cao tính bảo mật do dữ liệu không cần truyền ra ngoài
+%     \item Phù hợp cho các ứng dụng giám sát và xử lý thời gian thực
+% \end{itemize}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{image/CloudAIvsEdgeAI-1920w.png} 
+%     \caption{Cloud AI và Edge AI}
+%     \label{fig:tenlabel}
+% \end{figure}
+% Trong đề tài này, Edge AI được triển khai như một module phân tích dữ liệu chuỗi thời gian (Time Series), đảm nhiệm chức năng dự báo sớm nồng độ bụi mịn PM2.5 dựa trên các thông số môi trường thực tế ngay tại tại hiện trường.
+% \subsection{Tổng quan mô hình TCN (Temporal Convolutional Network) và lý do lựa chọn TCN}
+
+% \subsubsection{Tổng quan về kiến trúc TCN}
+
+% Temporal Convolutional Network (TCN) là một kiến trúc mạng nơ-ron được thiết kế chuyên biệt cho bài toán xử lý dữ liệu chuỗi thời gian. Mô hình này kết hợp ưu điểm của mạng tích chập (Convolutional Neural Network -- CNN) với khả năng học các phụ thuộc dài hạn tương tự như mạng hồi tiếp (Recurrent Neural Network -- RNN).
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{image/TCN.png} 
+%     \caption{Kiến trúc Model TCN}
+%     \label{fig:tenlabel}
+% \end{figure}
+% Kiến trúc TCN được xây dựng dựa trên hai nguyên lý cốt lõi:
+
+% \begin{itemize}
+%     \item \textbf{Causal Convolution (Tích chập nhân quả):}  
+%     Đảm bảo rằng tại thời điểm $t$, mô hình chỉ sử dụng các thông tin từ các thời điểm trước đó và hiện tại, tức là từ $0$ đến $t$. Điều này giúp ngăn chặn hiện tượng ``rò rỉ'' thông tin từ tương lai vào quá trình dự báo.
+
+%     \item \textbf{Dilated Convolution (Tích chập giãn cách):}  
+%     Các phần tử trong bộ lọc được áp dụng với khoảng cách giãn $d$, giúp mở rộng trường thụ cảm (\textit{receptive field}) theo cấp số nhân mà không làm tăng đáng kể số lượng tham số của mô hình.
+% \end{itemize}
+
+% Trong đề tài này, mô hình được cấu hình với các hệ số giãn cách:
+
+% \[
+% d = \{1, 2, 4, 8\}
+% \]
+
+% Cấu hình này cho phép mô hình quan sát hiệu quả các biến động của nồng độ bụi mịn PM2.5 trong khoảng thời gian 30 phút trước đó, từ đó nâng cao khả năng dự báo cho các bước thời gian tiếp theo.
+
+% \subsubsection{Lý do lựa chọn TCN thay vì LSTM/RNN}
+
+% Sau quá trình thực nghiệm và tối ưu hóa cho hệ thống Edge AI, kiến trúc TCN được lựa chọn thay thế cho các mô hình LSTM và RNN nhờ những ưu điểm sau:
+
+% \begin{itemize}
+%     \item \textbf{Khả năng xử lý song song:}  
+%     Không giống như RNN và LSTM phải tính toán tuần tự theo từng bước thời gian, TCN sử dụng phép tích chập trên toàn bộ chuỗi dữ liệu. Điều này cho phép tận dụng khả năng tính toán song song của phần cứng, từ đó rút ngắn đáng kể thời gian huấn luyện và suy luận.
+
+%     \item \textbf{Giảm hiện tượng mất mát đạo hàm:}  
+%     Nhờ cấu trúc tích chập phân tầng kết hợp với các kết nối tắt (\textit{residual connections}), TCN có khả năng học ổn định hơn khi xử lý các phụ thuộc dài hạn so với RNN truyền thống.
+
+%     \item \textbf{Trường thụ cảm linh hoạt:}  
+%     Bằng cách điều chỉnh các tham số như \texttt{kernel\_size} và \texttt{dilations}, có thể kiểm soát chính xác độ dài của chuỗi dữ liệu quá khứ mà mô hình sử dụng để đưa ra dự báo.
+
+%     \item \textbf{Phù hợp với Edge AI:}  
+%     Kiến trúc TCN có cấu trúc gọn nhẹ, số lượng tham số thấp và dễ dàng chuyển đổi sang định dạng TensorFlow Lite Float16. Trong đề tài này, mô hình sau khi lượng tử hóa đã giảm khoảng 50\% dung lượng lưu trữ trong khi vẫn duy trì độ chính xác dự báo ở mức cao, phù hợp để triển khai trên thiết bị nhúng như Raspberry Pi 4.
+% \end{itemize}
+% \subsection{Định dạng mô hình trung gian và tối ưu hóa trên thiết bị Edge}
+
+% \subsubsection{Định dạng mô hình ONNX (Open Neural Network Exchange)}
+
+% ONNX (Open Neural Network Exchange) là một định dạng mở được thiết kế để biểu diễn các mô hình học máy, cho phép chuyển đổi linh hoạt giữa nhiều framework khác nhau như PyTorch, TensorFlow và Keras.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{image/ONNX.jpg} 
+%     \caption{ONNX}
+%     \label{fig:tenlabel}
+% \end{figure}
+% Trong đề tài này, ONNX đóng vai trò như một ``ngôn ngữ chung'' cho mô hình học sâu. Việc chuyển đổi mô hình sang định dạng ONNX giúp hệ thống có thể tận dụng các công cụ tối ưu hóa và các bộ tăng tốc phần cứng khác nhau mà không phụ thuộc vào môi trường huấn luyện ban đầu.
+
+% Một ưu điểm quan trọng của ONNX là khả năng tối ưu hóa đồ thị tính toán (\textit{graph optimization}), bao gồm việc loại bỏ các nút dư thừa, hợp nhất các phép toán liên tiếp và đơn giản hóa cấu trúc mô hình nhằm cải thiện tốc độ suy luận.
+
+% \subsubsection{Định dạng TensorFlow Lite (TFLite) và tối ưu hóa Float16}
+
+% TensorFlow Lite (TFLite) là thư viện mã nguồn mở được phát triển nhằm tối ưu hóa quá trình suy luận (\textit{inference}) trên các thiết bị di động và hệ thống nhúng có tài nguyên phần cứng hạn chế.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{image/TFLITE.png} 
+%     \caption{TFLITE}
+%     \label{fig:tenlabel}
+% \end{figure}
+% Trong hệ thống được xây dựng, kỹ thuật \textit{Float16 Quantization} được áp dụng trong quá trình chuyển đổi mô hình (thực hiện trong file \texttt{convert.py}). Cụ thể, các trọng số của mô hình được chuyển từ định dạng số thực dấu phẩy động 32-bit (Float32) sang 16-bit (Float16).
+
+% Việc lượng tử hóa Float16 mang lại các lợi ích sau:
+
+% \begin{itemize}
+%     \item \textbf{Giảm dung lượng mô hình:}  
+%     Kích thước tệp mô hình giảm khoảng 50\% so với mô hình gốc, giúp tiết kiệm bộ nhớ lưu trữ trên thiết bị nhúng.
+
+%     \item \textbf{Tăng tốc độ suy luận:}  
+%     Nhiều bộ xử lý hiện đại hỗ trợ tính toán Float16 hiệu quả, giúp giảm độ trễ (\textit{latency}) khi dự báo chỉ số PM2.5 theo thời gian thực.
+
+%     \item \textbf{Duy trì độ chính xác cao:}  
+%     So với lượng tử hóa Int8, định dạng Float16 thường giữ được độ chính xác gần như tương đương với mô hình gốc, đồng thời ít gây sai lệch kết quả dự báo.
+% \end{itemize}
 \section{Edge AI trong hệ thống nhúng}
-\section{Giao diện người dùng trên thiết bị nhúng}
+
+\subsection{Khái niệm Edge AI và lợi ích so với Cloud AI}
+
+Trí tuệ nhân tạo (Artificial Intelligence -- AI) là công nghệ cho phép máy tính mô phỏng các hành vi thông minh của con người như học tập, suy luận và nhận dạng. Trong các hệ thống truyền thống, mô hình AI thường được triển khai trên nền tảng điện toán đám mây (Cloud AI), nơi dữ liệu được gửi từ thiết bị đầu cuối lên máy chủ để xử lý.
+
+Edge AI là xu hướng triển khai các mô hình trí tuệ nhân tạo trực tiếp trên thiết bị biên (edge device) như camera thông minh, gateway công nghiệp hoặc hệ thống nhúng. Thay vì truyền toàn bộ dữ liệu lên đám mây, quá trình suy luận (inference) được thực hiện ngay tại thiết bị thu thập dữ liệu.
+
+So với Cloud AI, Edge AI mang lại nhiều lợi ích:
+\begin{itemize}
+    \item Giảm độ trễ xử lý do không phụ thuộc vào kết nối mạng.
+    \item Tăng tính ổn định của hệ thống trong môi trường công nghiệp.
+    \item Nâng cao tính bảo mật do dữ liệu không cần truyền ra ngoài.
+    \item Phù hợp cho các ứng dụng giám sát và xử lý thời gian thực.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/CloudAIvsEdgeAI-1920w.png}
+    \caption{Cloud AI và Edge AI}
+    \label{fig:cloud_edge_ai}
+\end{figure}
+
+Trong đề tài này, Edge AI được triển khai như một module phân tích dữ liệu chuỗi thời gian (Time Series), đảm nhiệm chức năng dự báo sớm nồng độ bụi mịn PM2.5 dựa trên các thông số môi trường thực tế ngay tại hiện trường.
+
+\subsection{Tổng quan mô hình TCN (Temporal Convolutional Network) và lý do lựa chọn TCN}
+
+\subsubsection{Tổng quan về kiến trúc TCN}
+
+Temporal Convolutional Network (TCN) là một kiến trúc mạng nơ-ron được thiết kế chuyên biệt cho bài toán xử lý dữ liệu chuỗi thời gian. Mô hình này kết hợp ưu điểm của mạng tích chập (Convolutional Neural Network -- CNN) với khả năng học các phụ thuộc dài hạn tương tự như mạng hồi tiếp (Recurrent Neural Network -- RNN) \cite{li2023_tcn_bilstm_dmattention,wang2024_causal_stan}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/TCN.png}
+    \caption{Kiến trúc mô hình TCN}
+    \label{fig:tcn_architecture}
+\end{figure}
+
+Kiến trúc TCN được xây dựng dựa trên hai nguyên lý cốt lõi:
+
+\begin{itemize}
+    \item \textbf{Causal Convolution (Tích chập nhân quả):}
+    Đảm bảo rằng tại thời điểm $t$, mô hình chỉ sử dụng các thông tin từ các thời điểm trước đó và hiện tại, tức là từ $0$ đến $t$. Điều này giúp ngăn chặn hiện tượng ``rò rỉ'' thông tin từ tương lai vào quá trình dự báo.
+
+    \item \textbf{Dilated Convolution (Tích chập giãn cách):}
+    Các phần tử trong bộ lọc được áp dụng với khoảng cách giãn $d$, giúp mở rộng trường thụ cảm (\textit{receptive field}) theo cấp số nhân mà không làm tăng đáng kể số lượng tham số của mô hình.
+\end{itemize}
+
+Trong đề tài này, mô hình được cấu hình với các hệ số giãn cách:
+\[
+d = \{1, 2, 4, 8\}
+\]
+
+Cấu hình này cho phép mô hình quan sát hiệu quả các biến động của nồng độ bụi mịn PM2.5 trong khoảng thời gian 30 phút trước đó, từ đó nâng cao khả năng dự báo cho các bước thời gian tiếp theo.
+
+\subsubsection{Lý do lựa chọn TCN thay vì LSTM/RNN}
+
+Sau quá trình thực nghiệm và tối ưu hóa cho hệ thống Edge AI, kiến trúc TCN được lựa chọn thay thế cho các mô hình LSTM và RNN nhờ những ưu điểm sau:
+
+\begin{itemize}
+    \item \textbf{Khả năng xử lý song song:}
+    Không giống như RNN và LSTM phải tính toán tuần tự theo từng bước thời gian, TCN sử dụng phép tích chập trên toàn bộ chuỗi dữ liệu. Điều này cho phép tận dụng khả năng tính toán song song của phần cứng, từ đó rút ngắn đáng kể thời gian huấn luyện và suy luận.
+
+    \item \textbf{Giảm hiện tượng mất mát đạo hàm:}
+    Nhờ cấu trúc tích chập phân tầng kết hợp với các kết nối tắt (\textit{residual connections}), TCN có khả năng học ổn định hơn khi xử lý các phụ thuộc dài hạn so với RNN truyền thống.
+
+    \item \textbf{Trường thụ cảm linh hoạt:}
+    Bằng cách điều chỉnh các tham số như \texttt{kernel\_size} và \texttt{dilations}, có thể kiểm soát chính xác độ dài của chuỗi dữ liệu quá khứ mà mô hình sử dụng để đưa ra dự báo.
+
+    \item \textbf{Hiệu quả trong dự báo PM2.5:}
+    Nhiều nghiên cứu gần đây cho thấy các biến thể của TCN đạt kết quả rất tốt trong bài toán dự báo chất lượng không khí và nồng độ PM2.5 \cite{li2023_tcn_bilstm_dmattention,wang2024_causal_stan,stoten2025_pm25}.
+
+    \item \textbf{Phù hợp với Edge AI:}
+    Kiến trúc TCN có cấu trúc gọn nhẹ, số lượng tham số thấp và dễ dàng chuyển đổi sang định dạng TensorFlow Lite Float16. Trong đề tài này, mô hình sau khi lượng tử hóa đã giảm khoảng 50\% dung lượng lưu trữ trong khi vẫn duy trì độ chính xác dự báo ở mức cao, phù hợp để triển khai trên thiết bị nhúng như Raspberry Pi 4.
+\end{itemize}
+
+\subsection{Định dạng mô hình trung gian và tối ưu hóa trên thiết bị Edge}
+
+\subsubsection{Định dạng mô hình ONNX (Open Neural Network Exchange)}
+
+ONNX (Open Neural Network Exchange) là một định dạng mở được thiết kế để biểu diễn các mô hình học máy, cho phép chuyển đổi linh hoạt giữa nhiều framework khác nhau như PyTorch, TensorFlow và Keras.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/ONNX.jpg}
+    \caption{Định dạng ONNX}
+    \label{fig:onnx}
+\end{figure}
+
+Trong đề tài này, ONNX đóng vai trò như một ``ngôn ngữ chung'' cho mô hình học sâu. Việc chuyển đổi mô hình sang định dạng ONNX giúp hệ thống có thể tận dụng các công cụ tối ưu hóa và các bộ tăng tốc phần cứng khác nhau mà không phụ thuộc vào môi trường huấn luyện ban đầu.
+
+Một ưu điểm quan trọng của ONNX là khả năng tối ưu hóa đồ thị tính toán (\textit{graph optimization}), bao gồm việc loại bỏ các nút dư thừa, hợp nhất các phép toán liên tiếp và đơn giản hóa cấu trúc mô hình nhằm cải thiện tốc độ suy luận.
+
+\subsubsection{Định dạng TensorFlow Lite (TFLite) và tối ưu hóa Float16}
+
+TensorFlow Lite (TFLite) là thư viện mã nguồn mở được phát triển nhằm tối ưu hóa quá trình suy luận (\textit{inference}) trên các thiết bị di động và hệ thống nhúng có tài nguyên phần cứng hạn chế.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{image/TFLITE.png}
+    \caption{Định dạng TensorFlow Lite}
+    \label{fig:tflite}
+\end{figure}
+
+Trong hệ thống được xây dựng, kỹ thuật \textit{Float16 Quantization} được áp dụng trong quá trình chuyển đổi mô hình (thực hiện trong file \texttt{convert.py}). Cụ thể, các trọng số của mô hình được chuyển từ định dạng số thực dấu phẩy động 32-bit (Float32) sang 16-bit (Float16).
+
+Việc lượng tử hóa Float16 mang lại các lợi ích sau:
+
+\begin{itemize}
+    \item \textbf{Giảm dung lượng mô hình:}
+    Kích thước tệp mô hình giảm khoảng 50\% so với mô hình gốc, giúp tiết kiệm bộ nhớ lưu trữ trên thiết bị nhúng.
+
+    \item \textbf{Tăng tốc độ suy luận:}
+    Nhiều bộ xử lý hiện đại hỗ trợ tính toán Float16 hiệu quả, giúp giảm độ trễ (\textit{latency}) khi dự báo chỉ số PM2.5 theo thời gian thực.
+
+    \item \textbf{Duy trì độ chính xác cao:}
+    So với lượng tử hóa Int8, định dạng Float16 thường giữ được độ chính xác gần như tương đương với mô hình gốc, đồng thời ít gây sai lệch kết quả dự báo.
+\end{itemize}
 
 \section{Giao tiếp phần cứng công nghiệp}
 \subsection{Chuẩn vật lý RS485}

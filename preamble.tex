@@ -54,7 +54,36 @@
 % ==================================================
 \usepackage{listings}
 \usepackage{matlab-prettifier}
-
+% preamblle for programing
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkblue}{RGB}{0,0,180}
+\definecolor{darkgreen}{RGB}{0,120,0}
+\lstdefinestyle{thesisstyle}{
+    backgroundcolor=\color{lightgray},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{darkblue}\bfseries,
+    commentstyle=\color{darkgreen}\itshape,
+    stringstyle=\color{red!70!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    framesep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b
+}
+% preamblle for cmdline
+\definecolor{terminalbg}{RGB}{12,12,12}
+\definecolor{terminalgreen}{RGB}{0,255,120}
+\lstdefinestyle{terminalstyle}{
+    backgroundcolor=\color{terminalbg},
+    basicstyle=\ttfamily\small\color{terminalgreen},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible
+}
 % ==================================================
 % COLOR
 % ==================================================
@@ -73,6 +102,8 @@
 \usepackage{tkz-tab}
 
 \usetikzlibrary{shapes.geometric,arrows}
+% File tree
+\usepackage{dirtree}
 
 % ==================================================
 % BOX

@@ -34,7 +34,9 @@
 \renewcommand{\listfigurename}{Danh sách hình}
 \listoffigures
 \newpage
-
+% % Nếu có danh sách bảng thì thêm ở đây:
+% \chapter*{Danh mục từ viết tắt} % Dùng dấu * để không hiện số chương (như Chương 1, 2)
+% \addcontentsline{toc}{chapter}{Danh mục từ viết tắt} % Để nó hiện vào Mục lục
 % ===== MỞ ĐẦU =====
 \chapter{Phần mở đầu}
 \begin{enumerate}[
@@ -45,29 +47,28 @@
   \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
 
   \item \textbf{Đặt vấn đề}
-  \item \textbf{Lý do chọn đề tài}
   \item \textbf{Mục tiêu nghiên cứu}
   \item \textbf{Phạm vi và giới hạn nghiên cứu}
   \item \textbf{Bố cục luận văn}
 \end{enumerate}
 \newpage
 \input{sections/modau}
-% ===== CHƯƠNG =====
-\chapter{Tổng quan dự án}
-\begin{enumerate}[
-    leftmargin=2.5em,
-    labelsep=0.8em,
-    itemsep=0.6em
-]
-  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+% % ===== CHƯƠNG =====
+% \chapter{Tổng quan dự án}
+% \begin{enumerate}[
+%     leftmargin=2.5em,
+%     labelsep=0.8em,
+%     itemsep=0.6em
+% ]
+%   \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
 
-  \item \textbf{Tổng quan về tự động hóa công nghiệp}
-  \item \textbf{Tổng quan về hệ điều hành nhúng}
-  \item \textbf{Tổng quan về Yocto Project}
-  \item \textbf{Các công trình liên quan}
-\end{enumerate}
-\newpage
-\input{sections/c2}
+%   \item \textbf{Tổng quan về tự động hóa công nghiệp}
+%   \item \textbf{Tổng quan về hệ điều hành nhúng}
+%   \item \textbf{Tổng quan về Yocto Project}
+%   % \item \textbf{Các công trình liên quan}
+% \end{enumerate}
+% \newpage
+% \input{sections/c2}
   
 \chapter{Cơ sở lý thuyết}
 \begin{enumerate}[
@@ -98,16 +99,14 @@
     itemsep=0.6em
 ]
   \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
-
   \item \textbf{Phân tích yêu cầu}
   \item \textbf{Thiết kế nền tảng}
   \item \textbf{Thiết kế khối xử lý}
-  \item \textbf{Thiết kế giao diện người dùng}
 \end{enumerate}
 \newpage
 \input{sections/c4}
 
-\chapter{Triển khai và đánh giá}
+\chapter{Hiện thực hệ thống}
 \textcolor{chaptercolor}{\textit{Chương này trình bày quá trình cài đặt, tích hợp và kết quả kiểm thử từng thành phần kỹ thuật của nền tảng.}}
 
 \begin{enumerate}[
@@ -116,14 +115,37 @@
     itemsep=0.6em
 ]
   \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
-  \item \textbf{Môi trường phát triển}
-  \item \textbf{Hiện thực Device Driver}
   \item \textbf{Hiện thực Bảo mật Hệ thống}
-  \item \textbf{Hiện thực Configuration Tool}
+  \item \textbf{Hiện thực Device Driver}
+  \item \textbf{Hiện thực Khối xử lý AI}
+  \item \textbf{Hiện thực hệ thống cập nhập từ xa OTA}
+  \item \textbf{Hiện thực Tool Build Yocto}
 \end{enumerate}
 
 \newpage
 \input{sections/c5}
+
+\chapter{Kết quả và đánh giá}
+\textcolor{chaptercolor}{\textit{Chương này trình bày kết quả và đánh giá của nền tảng.}}
+
+\begin{enumerate}[
+    leftmargin=2.5em,
+    labelsep=0.8em,
+    itemsep=0.6em
+]
+  \renewcommand{\labelenumi}{\textcolor{chaptercolor}{\bfseries \thechapter.\arabic{enumi}}}
+  \item \textbf{Tổng quan kết quả hiện thực}
+  \item \textbf{Bảo mật hệ thống}
+  \item \textbf{Device Driver}
+  \item \textbf{Khối xử lý AI}
+  \item \textbf{Công cụ Secure-Yocto Builder}
+  \item \textbf{Hệ thống OTA}
+  \item \textbf{Dashboard giám sát}
+\end{enumerate}
+
+\newpage
+\input{sections/c6}
+
 
 \chapter{Kết luận và hướng phát triển }
 

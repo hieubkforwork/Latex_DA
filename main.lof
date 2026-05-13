@@ -1,24 +1,64 @@
 \babel@toc {vietnamese}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Mô hình bài toán đặt ra}}{8}{figure.caption.4}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Nền tảng Yocto Project}}{9}{figure.caption.5}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Kiến trúc tổng thể của hệ thống}}{10}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces An toàn lao động trong kho xưởng}}{12}{figure.caption.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Linux}}{14}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Yocto Project}}{16}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Tổng thể hệ sinh thái Yocto Project }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{37}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{38}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Cloud AI và Edge AI}}{40}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Kiến trúc mô hình TCN}}{40}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Định dạng ONNX}}{42}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Định dạng TensorFlow Lite}}{43}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces RS485 TTL }}{43}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Modbus RTU }}{45}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Tổng quan về CoreIOT}}{47}{figure.caption.34}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{48}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{48}{figure.caption.36}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}}{44}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}}{46}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Bảo mật chống tấn công offline với dm-verity trong Yocto}}{47}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces RS485 TTL }}{48}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Modbus RTU }}{49}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Tổng quan về CoreIOT}}{51}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}}{52}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Giao thức MQTT trong hệ thống nhúng}}{53}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mô tả bài toán}}{52}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ kiến trúc hệ thống}}{58}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Định dạng dữ liệu được gửi lên CoreIot}}{63}{figure.caption.59}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Cơ chế bảo mật hệ thống}}{64}{figure.caption.60}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Kiến trúc khối xử lý cảnh báo trên gateway Raspberry Pi 4}}{65}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sơ đồ khối Module AI}}{67}{figure.caption.62}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces mô hình TCN}}{68}{figure.caption.66}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sơ đồ khối OTA}}{71}{figure.caption.72}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sơ đồ khối Tool}}{73}{figure.caption.75}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Định dạng dữ liệu được gửi lên CoreIot}}{58}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Kiến trúc khối xử lý cảnh báo trên gateway Raspberry Pi 4}}{59}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Trang chủ Dashboard CoreIot}}{60}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Giảm thiểu bề mặt tấn công trong Yocto Project}}{76}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Cấu trúc thư mục chính của layer meta-selinux}}{77}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Selinux}}{79}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Cấu trúc cây băm của rootfs}}{80}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Giá trị băm gốc (root hash)}}{80}{figure.caption.86}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả xác thực metadata của dm-verity}}{80}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Mô hình TCN}}{95}{figure.caption.105}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}}{96}{figure.caption.110}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Thông tin phiên bản hệ điều hành và nhân Linux}}{107}{figure.caption.118}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Thông tin bộ xử lý và các lỗ hổng bảo mật}}{108}{figure.caption.119}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}}{108}{figure.caption.120}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces SELinux hoạt động ở chế độ enforcing với policy targeted}}{110}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}}{110}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Tính khả dụng của Driver}}{111}{figure.caption.123}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}}{112}{figure.caption.124}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Tính khả dụng của Driver}}{112}{figure.caption.125}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Thu thập dữ liệu từ Driver}}{113}{figure.caption.126}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Lưu trữ dữ liệu từ Driver}}{113}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces cấu trúc file sau khi train mô hình}}{114}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Kết quả train mô hình}}{116}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Đồ thị train mô hình}}{116}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Kết quả test}}{119}{figure.caption.133}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Kết quả Inference}}{120}{figure.caption.135}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt {local.conf}.}}{121}{figure.caption.138}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Kết quả kiểm tra và thêm gói phần mềm thủ công.}}{121}{figure.caption.140}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Bảng điều khiển các tính năng bảo mật nâng cao.}}{122}{figure.caption.142}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Giao diện bật/tắt Driver RS-485 và I\textsuperscript {2}C Soft Driver.}}{122}{figure.caption.144}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Tổng kết cấu hình và thanh tiến độ hoàn thành bản build.}}{122}{figure.caption.146}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE.}}{123}{figure.caption.148}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Giao diện UI người dùng}}{124}{figure.caption.152}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Kết quả OTA}}{125}{figure.caption.153}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Trang chủ Dashboard CoreIot}}{126}{figure.caption.154}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Trang thiết bị Dashboard CoreIot}}{127}{figure.caption.155}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Giao diện HDMI Dashboard tổng thể}}{129}{figure.caption.156}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Màn hình hiển thị dữ liệu các cảm biến}}{129}{figure.caption.157}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Giao diện tab Notifications}}{130}{figure.caption.158}%
 \addvspace {10\p@ }

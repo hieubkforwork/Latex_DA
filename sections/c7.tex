@@ -1,0 +1,20 @@
+
+\section{Kết luận}
+
+Trong phạm vi đề tài, hệ thống Linux Embedded dựa trên Yocto Project đã được xây dựng và triển khai thành công trên nền tảng Raspberry Pi 4. Hệ thống đáp ứng mục tiêu xây dựng một nền tảng nhúng có khả năng tùy biến cao, tích hợp driver phần cứng và các thành phần IoT phục vụ bài toán giám sát công nghiệp.
+
+Driver RS485 Modbus RTU được hiện thực dưới dạng kernel module và đã hoạt động ổn định trong quá trình thử nghiệm. Cơ chế polling dữ liệu kết hợp Serdev và UART giúp hệ thống thu thập dữ liệu cảm biến theo thời gian thực. Dữ liệu sau khi xử lý được đồng bộ giữa Kernel Space và User Space thông qua character device.
+
+Ở tầng ứng dụng, hệ thống đã tích hợp cơ chế truyền dữ liệu IoT thông qua MQTT, phục vụ việc giám sát từ xa. Giao diện hiển thị được xây dựng để theo dõi trực quan trạng thái hệ thống và dữ liệu cảm biến. Bên cạnh đó, hệ thống có tích hợp một mô-đun phân tích dữ liệu đơn giản (AI-based), nhằm hỗ trợ đánh giá trạng thái và đưa ra cảnh báo dựa trên dữ liệu thu thập được.
+
+Kết quả thực nghiệm cho thấy hệ thống hoạt động ổn định trên Raspberry Pi 4, đảm bảo luồng dữ liệu từ cảm biến → xử lý → truyền IoT → hiển thị được vận hành liên tục trong môi trường Linux Embedded.
+
+\section{Hướng phát triển}
+
+Trong tương lai, hệ thống có thể tiếp tục được mở rộng theo hướng tối ưu hiệu năng driver và giảm độ trễ trong giao tiếp RS485, đặc biệt trong môi trường nhiều thiết bị.
+
+Về bảo mật, các cơ chế hiện tại có thể được hoàn thiện thêm để đảm bảo an toàn toàn diện hơn, bao gồm xác thực firmware, bảo vệ filesystem và tăng cường kiểm soát truy cập hệ thống.
+
+Đối với phần phân tích dữ liệu, mô-đun AI hiện tại có thể được mở rộng theo hướng sử dụng các mô hình học máy chuyên sâu hơn nhằm nâng cao độ chính xác trong dự đoán và phát hiện bất thường so với phương pháp ngưỡng đang sử dụng.
+
+Cuối cùng, hệ thống IoT có thể được phát triển theo hướng kiến trúc phân tán hoặc tích hợp cloud-native để đáp ứng các bài toán giám sát có quy mô lớn trong thực tế công nghiệp.
