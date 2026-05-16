@@ -23,42 +23,47 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces mô hình TCN}}{68}{figure.caption.66}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Sơ đồ khối OTA}}{71}{figure.caption.72}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Sơ đồ khối Tool}}{73}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Kiến trúc tổng quan driver trong hệ thống Yocto Linux}}{75}{figure.caption.79}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Máy trạng thái cho driver RS458}}{76}{figure.caption.81}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Activity Diagram của driver RS485}}{78}{figure.caption.83}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Máy trạng thái cho driver I2C}}{80}{figure.caption.85}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Activity Diagram của driver I2C}}{82}{figure.caption.87}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Giảm thiểu bề mặt tấn công trong Yocto Project}}{76}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Cấu trúc thư mục chính của layer meta-selinux}}{77}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Selinux}}{79}{figure.caption.82}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Cấu trúc cây băm của rootfs}}{80}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Giá trị băm gốc (root hash)}}{80}{figure.caption.86}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả xác thực metadata của dm-verity}}{80}{figure.caption.87}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Mô hình TCN}}{95}{figure.caption.105}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}}{96}{figure.caption.110}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Giảm thiểu bề mặt tấn công trong Yocto Project}}{85}{figure.caption.88}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Cấu trúc thư mục chính của layer meta-selinux}}{86}{figure.caption.89}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Selinux}}{88}{figure.caption.91}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Cấu trúc cây băm của rootfs}}{89}{figure.caption.94}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Giá trị băm gốc (root hash)}}{89}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả xác thực metadata của dm-verity}}{89}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Mô hình TCN}}{104}{figure.caption.114}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}}{105}{figure.caption.119}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Thông tin phiên bản hệ điều hành và nhân Linux}}{107}{figure.caption.118}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Thông tin bộ xử lý và các lỗ hổng bảo mật}}{108}{figure.caption.119}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}}{108}{figure.caption.120}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces SELinux hoạt động ở chế độ enforcing với policy targeted}}{110}{figure.caption.121}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}}{110}{figure.caption.122}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Tính khả dụng của Driver}}{111}{figure.caption.123}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}}{112}{figure.caption.124}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Tính khả dụng của Driver}}{112}{figure.caption.125}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Thu thập dữ liệu từ Driver}}{113}{figure.caption.126}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Lưu trữ dữ liệu từ Driver}}{113}{figure.caption.127}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces cấu trúc file sau khi train mô hình}}{114}{figure.caption.128}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Kết quả train mô hình}}{116}{figure.caption.130}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Đồ thị train mô hình}}{116}{figure.caption.131}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Kết quả test}}{119}{figure.caption.133}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Kết quả Inference}}{120}{figure.caption.135}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt {local.conf}.}}{121}{figure.caption.138}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Kết quả kiểm tra và thêm gói phần mềm thủ công.}}{121}{figure.caption.140}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Bảng điều khiển các tính năng bảo mật nâng cao.}}{122}{figure.caption.142}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Giao diện bật/tắt Driver RS-485 và I\textsuperscript {2}C Soft Driver.}}{122}{figure.caption.144}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Tổng kết cấu hình và thanh tiến độ hoàn thành bản build.}}{122}{figure.caption.146}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE.}}{123}{figure.caption.148}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Giao diện UI người dùng}}{124}{figure.caption.152}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Kết quả OTA}}{125}{figure.caption.153}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Trang chủ Dashboard CoreIot}}{126}{figure.caption.154}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Trang thiết bị Dashboard CoreIot}}{127}{figure.caption.155}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Giao diện HDMI Dashboard tổng thể}}{129}{figure.caption.156}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Màn hình hiển thị dữ liệu các cảm biến}}{129}{figure.caption.157}%
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Giao diện tab Notifications}}{130}{figure.caption.158}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Thông tin phiên bản hệ điều hành và nhân Linux}}{116}{figure.caption.127}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Thông tin bộ xử lý và các lỗ hổng bảo mật}}{117}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}}{117}{figure.caption.129}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces SELinux hoạt động ở chế độ enforcing với policy targeted}}{119}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}}{119}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Tính khả dụng của Driver}}{120}{figure.caption.132}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}}{121}{figure.caption.133}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Tính khả dụng của Driver}}{121}{figure.caption.134}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Thu thập dữ liệu từ Driver}}{122}{figure.caption.135}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Lưu trữ dữ liệu từ Driver}}{122}{figure.caption.136}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces cấu trúc file sau khi train mô hình}}{123}{figure.caption.137}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Kết quả train mô hình}}{125}{figure.caption.139}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Đồ thị train mô hình}}{125}{figure.caption.140}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Kết quả test}}{128}{figure.caption.142}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Kết quả Inference}}{129}{figure.caption.144}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt {local.conf}.}}{130}{figure.caption.147}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Kết quả kiểm tra và thêm gói phần mềm thủ công.}}{130}{figure.caption.149}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Bảng điều khiển các tính năng bảo mật nâng cao.}}{131}{figure.caption.151}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Giao diện bật/tắt Driver RS-485 và I\textsuperscript {2}C Soft Driver.}}{131}{figure.caption.153}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Tổng kết cấu hình và thanh tiến độ hoàn thành bản build.}}{131}{figure.caption.155}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE.}}{132}{figure.caption.157}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Giao diện UI người dùng}}{133}{figure.caption.161}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Kết quả OTA}}{134}{figure.caption.162}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Trang chủ Dashboard CoreIot}}{135}{figure.caption.163}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Trang thiết bị Dashboard CoreIot}}{136}{figure.caption.164}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Giao diện HDMI Dashboard tổng thể}}{138}{figure.caption.165}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Màn hình hiển thị dữ liệu các cảm biến}}{138}{figure.caption.166}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Giao diện tab Notifications}}{139}{figure.caption.167}%
 \addvspace {10\p@ }

@@ -93,96 +93,103 @@
 \contentsline {subsubsection}{Lớp Giao diện Người dùng (Client User Interface)}{73}{subsubsection*.76}%
 \contentsline {subsubsection}{Lớp Cửa ngõ API (API Gateway Layer)}{73}{subsubsection*.77}%
 \contentsline {subsubsection}{Lớp Hệ thống Đích và Dịch vụ Ngoại vi (Target System \& External Services)}{74}{subsubsection*.78}%
-\contentsline {chapter}{\numberline {4}Hiện thực hệ thống}{75}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Hiện thực bảo mật hệ thống}{76}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Hiện thực giảm thiểu bề mặt tấn công}{76}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Hiện thực Selinux}{77}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Hiện thực dm-verity}{79}{subsection.4.1.3}%
-\contentsline {subsubsection}{Giai đoạn tiền xử lý và tách phân vùng dữ liệu}{79}{subsubsection*.83}%
-\contentsline {subsubsection}{Khởi tạo cấu trúc cây băm (Hash Tree) và xác thực metadata}{79}{subsubsection*.84}%
-\contentsline {subsubsection}{Triển khai và cấu hình giai đoạn khởi động sớm}{80}{subsubsection*.88}%
-\contentsline {subsubsection}{Cơ chế kiểm chứng thực thi tại thiết bị đích}{81}{subsubsection*.89}%
-\contentsline {section}{\numberline {4.2}Hiện thực Device Driver}{83}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Tổng quan kiến trúc Driver}{83}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Hiện thực driver I2C}{83}{subsection.4.2.2}%
-\contentsline {subsubsection}{Kiến trúc driver}{83}{subsubsection*.90}%
-\contentsline {subsubsection}{Nguyên lý giao thức I2C}{84}{subsubsection*.91}%
-\contentsline {subsubsection}{Các chức năng chính của driver}{84}{subsubsection*.92}%
-\contentsline {subsubsection}{Thiết kế cơ chế IOCTL}{85}{subsubsection*.93}%
-\contentsline {subsubsection}{Giao tiếp giữa user space và kernel space}{85}{subsubsection*.94}%
-\contentsline {subsubsection}{Hiện thực giao thức I2C bằng GPIO Bit-banging}{85}{subsubsection*.95}%
-\contentsline {subsubsection}{Tối ưu timing cho giao tiếp I2C}{86}{subsubsection*.96}%
-\contentsline {subsubsection}{Tích hợp driver vào hệ thống Yocto}{87}{subsubsection*.97}%
-\contentsline {subsection}{\numberline {4.2.3}Hiện thực Driver RS485 Modbus RTU}{88}{subsection.4.2.3}%
-\contentsline {subsubsection}{Kiến trúc Driver}{88}{subsubsection*.98}%
-\contentsline {subsubsection}{Nguyên lý giao thức}{89}{subsubsection*.99}%
-\contentsline {subsubsection}{Các chức năng chính của Driver}{90}{subsubsection*.100}%
-\contentsline {subsubsection}{Thiết kế cơ chế hoạt động}{91}{subsubsection*.101}%
-\contentsline {subsubsection}{Tích hợp Driver vào hệ thống Yocto}{91}{subsubsection*.102}%
-\contentsline {section}{\numberline {4.3}Hiện thực Khối xử lý AI}{93}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Thiết lập môi trường và Công cụ hỗ trợ}{93}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Hiện thực Tiền xử lý và Cấu trúc hóa Dữ liệu}{93}{subsection.4.3.2}%
-\contentsline {subsubsection}{Làm mượt và Chuẩn hóa dữ liệu}{93}{subsubsection*.103}%
-\contentsline {subsubsection}{Cấu trúc cửa sổ trượt (Sliding Window)}{94}{subsubsection*.104}%
-\contentsline {subsection}{\numberline {4.3.3}Hiện thực Kiến trúc Mạng TCN}{94}{subsection.4.3.3}%
-\contentsline {subsubsection}{Phân tích chi tiết từ hiện thực}{95}{subsubsection*.106}%
-\contentsline {subsection}{\numberline {4.3.4}Hiện thực Quy trình Huấn luyện và Giám sát}{95}{subsection.4.3.4}%
-\contentsline {subsubsection}{Hiện thực cấu hình tham số huấn luyện}{95}{subsubsection*.107}%
-\contentsline {subsubsection}{Hiện thực cơ chế Giám sát và Dừng sớm (Early Stopping)}{96}{subsubsection*.108}%
-\contentsline {subsubsection}{Nhật ký thực thi quá trình huấn luyện}{96}{subsubsection*.109}%
-\contentsline {section}{\numberline {4.4}Hiện thực hệ thống cập nhập từ xa OTA}{97}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Tích hợp các Layer và Cấu hình môi trường Yocto}{97}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Hiện thực và Tùy chỉnh Recipe SWUpdate}{98}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Xây dựng Kịch bản Mô tả Hệ thống }{99}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Hiện thực Kịch bản Hậu cập nhật và Giao tiếp Bootloader}{100}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Quy trình Đóng gói và Triển khai Vận hành Thực tế}{101}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Hiện thực Tool Build Yocto}{101}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Kiến trúc phân lớp và Luồng dữ liệu}{101}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Hiện thực Lớp Backend (Flask API)}{102}{subsection.4.5.2}%
-\contentsline {subsubsection}{Kỹ thuật điều khiển cấu hình bằng Biểu thức chính quy (Regex)}{102}{subsubsection*.112}%
-\contentsline {subsubsection}{Quản lý quy trình thực thi BitBake}{103}{subsubsection*.113}%
-\contentsline {subsection}{\numberline {4.5.3}Hiện thực Giao diện người dùng (Frontend TUI)}{103}{subsection.4.5.3}%
-\contentsline {subsubsection}{Quản lý trạng thái (State Management)}{103}{subsubsection*.114}%
-\contentsline {subsubsection}{Xử lý sự kiện (Event Handling)}{104}{subsubsection*.115}%
-\contentsline {subsection}{\numberline {4.5.4}Tích hợp các module phân tích thông minh}{104}{subsection.4.5.4}%
-\contentsline {subsubsection}{Module AI Debugger (Gemini Analytics)}{104}{subsubsection*.116}%
-\contentsline {subsubsection}{Module Quét lỗ hổng bảo mật (CVE Scan Integration)}{105}{subsubsection*.117}%
-\contentsline {chapter}{\numberline {5}Kết quả và đánh giá}{106}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Tổng quan kết quả hiện thực}{107}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Bảo mật hệ thống}{109}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Selinux}{109}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}dm-verity}{110}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Device Driver}{111}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Driver I2C}{111}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Driver RS485 Modbus RTU}{112}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Khối xử lý AI}{114}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Các tệp tin sản phẩm sau hiện thực (Artifacts)}{114}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Đặc tính kỹ thuật và Tài nguyên hệ thống}{114}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Phân tích quá trình huấn luyện và hội tụ}{115}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Đánh giá sơ bộ các chỉ số sai số (Metrics)}{117}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Kiểm định khả năng Inference trên phần cứng Raspberry Pi 4}{118}{subsection.5.4.5}%
-\contentsline {subsubsection}{Đánh giá độ nhạy dự đoán qua thực nghiệm tác động môi trường}{118}{subsubsection*.132}%
-\contentsline {subsubsection}{Đánh giá hiệu năng thời gian thực (Inference Time)}{119}{subsubsection*.134}%
-\contentsline {subsubsection}{Tổng kết khả năng thực thi}{120}{subsubsection*.136}%
-\contentsline {section}{\numberline {5.5}Công cụ Secure-Yocto Builder}{120}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Kết quả hiện thực công cụ Secure-Yocto Builder}{120}{subsection.5.5.1}%
-\contentsline {subsubsection}{Giao diện cấu hình thiết bị mục tiêu (Target Device)}{121}{subsubsection*.137}%
-\contentsline {subsubsection}{Quản lý lớp (Layer Setup) và Recipe bổ sung}{121}{subsubsection*.139}%
-\contentsline {subsubsection}{Cấu hình bảo mật hệ thống (Security Hardening)}{121}{subsubsection*.141}%
-\contentsline {subsubsection}{Quản lý Driver ngoại vi (Peripheral Drivers)}{122}{subsubsection*.143}%
-\contentsline {subsubsection}{Hệ thống Build và Giám sát tiến độ}{122}{subsubsection*.145}%
-\contentsline {subsubsection}{Tính năng thông minh: AI Debug và CVE Scan}{122}{subsubsection*.147}%
-\contentsline {subsection}{\numberline {5.5.2}Đánh giá và nhận xét}{123}{subsection.5.5.2}%
-\contentsline {subsubsection}{Về tính năng và vận hành}{123}{subsubsection*.149}%
-\contentsline {subsubsection}{Về trải nghiệm người dùng (UX)}{123}{subsubsection*.150}%
-\contentsline {subsubsection}{Hạn chế còn tồn tại}{124}{subsubsection*.151}%
-\contentsline {section}{\numberline {5.6}Hệ thống OTA}{124}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Giao diện quản trị Web (Web UI)}{124}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Quá trình thực thi và phân tích Log hệ thống}{125}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Đánh giá hiệu năng và độ tin cậy}{126}{subsection.5.6.3}%
-\contentsline {section}{\numberline {5.7}Dashboard giám sát}{126}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Thiết kế giao diện Dashboard CoreIot}{126}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Thiết kế giao diện HDMI Dashboard}{128}{subsection.5.7.2}%
-\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{131}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kết luận}{132}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Hướng phát triển}{132}{section.6.2}%
+\contentsline {section}{\numberline {3.4}Kiến trúc tổng quan Driver trong hệ thống Yocto Linux}{74}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Driver RS485}{76}{subsection.3.4.1}%
+\contentsline {subsubsection}{Mô hình FSM của driver RS485}{76}{subsubsection*.80}%
+\contentsline {subsubsection}{Activity Diagram của driver RS485}{77}{subsubsection*.82}%
+\contentsline {subsection}{\numberline {3.4.2}Driver I2C}{79}{subsection.3.4.2}%
+\contentsline {subsubsection}{Mô hình FSM của driver I2C}{79}{subsubsection*.84}%
+\contentsline {subsubsection}{Activity Diagram của driver I2C}{81}{subsubsection*.86}%
+\contentsline {chapter}{\numberline {4}Hiện thực hệ thống}{84}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Hiện thực bảo mật hệ thống}{85}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Hiện thực giảm thiểu bề mặt tấn công}{85}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Hiện thực Selinux}{86}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Hiện thực dm-verity}{88}{subsection.4.1.3}%
+\contentsline {subsubsection}{Giai đoạn tiền xử lý và tách phân vùng dữ liệu}{88}{subsubsection*.92}%
+\contentsline {subsubsection}{Khởi tạo cấu trúc cây băm (Hash Tree) và xác thực metadata}{88}{subsubsection*.93}%
+\contentsline {subsubsection}{Triển khai và cấu hình giai đoạn khởi động sớm}{89}{subsubsection*.97}%
+\contentsline {subsubsection}{Cơ chế kiểm chứng thực thi tại thiết bị đích}{90}{subsubsection*.98}%
+\contentsline {section}{\numberline {4.2}Hiện thực Device Driver}{92}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tổng quan kiến trúc Driver}{92}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Hiện thực driver I2C}{92}{subsection.4.2.2}%
+\contentsline {subsubsection}{Kiến trúc driver}{92}{subsubsection*.99}%
+\contentsline {subsubsection}{Nguyên lý giao thức I2C}{93}{subsubsection*.100}%
+\contentsline {subsubsection}{Các chức năng chính của driver}{93}{subsubsection*.101}%
+\contentsline {subsubsection}{Thiết kế cơ chế IOCTL}{94}{subsubsection*.102}%
+\contentsline {subsubsection}{Giao tiếp giữa user space và kernel space}{94}{subsubsection*.103}%
+\contentsline {subsubsection}{Hiện thực giao thức I2C bằng GPIO Bit-banging}{94}{subsubsection*.104}%
+\contentsline {subsubsection}{Tối ưu timing cho giao tiếp I2C}{95}{subsubsection*.105}%
+\contentsline {subsubsection}{Tích hợp driver vào hệ thống Yocto}{96}{subsubsection*.106}%
+\contentsline {subsection}{\numberline {4.2.3}Hiện thực Driver RS485 Modbus RTU}{97}{subsection.4.2.3}%
+\contentsline {subsubsection}{Kiến trúc Driver}{97}{subsubsection*.107}%
+\contentsline {subsubsection}{Nguyên lý giao thức}{98}{subsubsection*.108}%
+\contentsline {subsubsection}{Các chức năng chính của Driver}{99}{subsubsection*.109}%
+\contentsline {subsubsection}{Thiết kế cơ chế hoạt động}{100}{subsubsection*.110}%
+\contentsline {subsubsection}{Tích hợp Driver vào hệ thống Yocto}{100}{subsubsection*.111}%
+\contentsline {section}{\numberline {4.3}Hiện thực Khối xử lý AI}{102}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Thiết lập môi trường và Công cụ hỗ trợ}{102}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Hiện thực Tiền xử lý và Cấu trúc hóa Dữ liệu}{102}{subsection.4.3.2}%
+\contentsline {subsubsection}{Làm mượt và Chuẩn hóa dữ liệu}{102}{subsubsection*.112}%
+\contentsline {subsubsection}{Cấu trúc cửa sổ trượt (Sliding Window)}{103}{subsubsection*.113}%
+\contentsline {subsection}{\numberline {4.3.3}Hiện thực Kiến trúc Mạng TCN}{103}{subsection.4.3.3}%
+\contentsline {subsubsection}{Phân tích chi tiết từ hiện thực}{104}{subsubsection*.115}%
+\contentsline {subsection}{\numberline {4.3.4}Hiện thực Quy trình Huấn luyện và Giám sát}{104}{subsection.4.3.4}%
+\contentsline {subsubsection}{Hiện thực cấu hình tham số huấn luyện}{104}{subsubsection*.116}%
+\contentsline {subsubsection}{Hiện thực cơ chế Giám sát và Dừng sớm (Early Stopping)}{105}{subsubsection*.117}%
+\contentsline {subsubsection}{Nhật ký thực thi quá trình huấn luyện}{105}{subsubsection*.118}%
+\contentsline {section}{\numberline {4.4}Hiện thực hệ thống cập nhập từ xa OTA}{106}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Tích hợp các Layer và Cấu hình môi trường Yocto}{106}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Hiện thực và Tùy chỉnh Recipe SWUpdate}{107}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Xây dựng Kịch bản Mô tả Hệ thống }{108}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Hiện thực Kịch bản Hậu cập nhật và Giao tiếp Bootloader}{109}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Quy trình Đóng gói và Triển khai Vận hành Thực tế}{110}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Hiện thực Tool Build Yocto}{110}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Kiến trúc phân lớp và Luồng dữ liệu}{110}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Hiện thực Lớp Backend (Flask API)}{111}{subsection.4.5.2}%
+\contentsline {subsubsection}{Kỹ thuật điều khiển cấu hình bằng Biểu thức chính quy (Regex)}{111}{subsubsection*.121}%
+\contentsline {subsubsection}{Quản lý quy trình thực thi BitBake}{112}{subsubsection*.122}%
+\contentsline {subsection}{\numberline {4.5.3}Hiện thực Giao diện người dùng (Frontend TUI)}{112}{subsection.4.5.3}%
+\contentsline {subsubsection}{Quản lý trạng thái (State Management)}{112}{subsubsection*.123}%
+\contentsline {subsubsection}{Xử lý sự kiện (Event Handling)}{113}{subsubsection*.124}%
+\contentsline {subsection}{\numberline {4.5.4}Tích hợp các module phân tích thông minh}{113}{subsection.4.5.4}%
+\contentsline {subsubsection}{Module AI Debugger (Gemini Analytics)}{113}{subsubsection*.125}%
+\contentsline {subsubsection}{Module Quét lỗ hổng bảo mật (CVE Scan Integration)}{114}{subsubsection*.126}%
+\contentsline {chapter}{\numberline {5}Kết quả và đánh giá}{115}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tổng quan kết quả hiện thực}{116}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Bảo mật hệ thống}{118}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Selinux}{118}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}dm-verity}{119}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Device Driver}{120}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Driver I2C}{120}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Driver RS485 Modbus RTU}{121}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Khối xử lý AI}{123}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Các tệp tin sản phẩm sau hiện thực (Artifacts)}{123}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Đặc tính kỹ thuật và Tài nguyên hệ thống}{123}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Phân tích quá trình huấn luyện và hội tụ}{124}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Đánh giá sơ bộ các chỉ số sai số (Metrics)}{126}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Kiểm định khả năng Inference trên phần cứng Raspberry Pi 4}{127}{subsection.5.4.5}%
+\contentsline {subsubsection}{Đánh giá độ nhạy dự đoán qua thực nghiệm tác động môi trường}{127}{subsubsection*.141}%
+\contentsline {subsubsection}{Đánh giá hiệu năng thời gian thực (Inference Time)}{128}{subsubsection*.143}%
+\contentsline {subsubsection}{Tổng kết khả năng thực thi}{129}{subsubsection*.145}%
+\contentsline {section}{\numberline {5.5}Công cụ Secure-Yocto Builder}{129}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Kết quả hiện thực công cụ Secure-Yocto Builder}{129}{subsection.5.5.1}%
+\contentsline {subsubsection}{Giao diện cấu hình thiết bị mục tiêu (Target Device)}{130}{subsubsection*.146}%
+\contentsline {subsubsection}{Quản lý lớp (Layer Setup) và Recipe bổ sung}{130}{subsubsection*.148}%
+\contentsline {subsubsection}{Cấu hình bảo mật hệ thống (Security Hardening)}{130}{subsubsection*.150}%
+\contentsline {subsubsection}{Quản lý Driver ngoại vi (Peripheral Drivers)}{131}{subsubsection*.152}%
+\contentsline {subsubsection}{Hệ thống Build và Giám sát tiến độ}{131}{subsubsection*.154}%
+\contentsline {subsubsection}{Tính năng thông minh: AI Debug và CVE Scan}{131}{subsubsection*.156}%
+\contentsline {subsection}{\numberline {5.5.2}Đánh giá và nhận xét}{132}{subsection.5.5.2}%
+\contentsline {subsubsection}{Về tính năng và vận hành}{132}{subsubsection*.158}%
+\contentsline {subsubsection}{Về trải nghiệm người dùng (UX)}{132}{subsubsection*.159}%
+\contentsline {subsubsection}{Hạn chế còn tồn tại}{133}{subsubsection*.160}%
+\contentsline {section}{\numberline {5.6}Hệ thống OTA}{133}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Giao diện quản trị Web (Web UI)}{133}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Quá trình thực thi và phân tích Log hệ thống}{134}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Đánh giá hiệu năng và độ tin cậy}{135}{subsection.5.6.3}%
+\contentsline {section}{\numberline {5.7}Dashboard giám sát}{135}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Thiết kế giao diện Dashboard CoreIot}{135}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Thiết kế giao diện HDMI Dashboard}{137}{subsection.5.7.2}%
+\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{140}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kết luận}{141}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Hướng phát triển}{141}{section.6.2}%

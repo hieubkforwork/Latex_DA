@@ -180,187 +180,204 @@
 \@writefile{toc}{\contentsline {subsubsection}{Lớp Giao diện Người dùng (Client User Interface)}{73}{subsubsection*.76}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Lớp Cửa ngõ API (API Gateway Layer)}{73}{subsubsection*.77}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Lớp Hệ thống Đích và Dịch vụ Ngoại vi (Target System \& External Services)}{74}{subsubsection*.78}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Hiện thực hệ thống}{75}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Kiến trúc tổng quan Driver trong hệ thống Yocto Linux}{74}{section.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Kiến trúc tổng quan driver trong hệ thống Yocto Linux}}{75}{figure.caption.79}\protected@file@percent }
+\newlabel{fig:yocto_driver_architecture}{{3.10}{75}{Kiến trúc tổng quan driver trong hệ thống Yocto Linux}{figure.caption.79}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Driver RS485}{76}{subsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Mô hình FSM của driver RS485}{76}{subsubsection*.80}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Máy trạng thái cho driver RS458}}{76}{figure.caption.81}\protected@file@percent }
+\newlabel{fig:rs485_fsm}{{3.11}{76}{Máy trạng thái cho driver RS458}{figure.caption.81}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Activity Diagram của driver RS485}{77}{subsubsection*.82}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Activity Diagram của driver RS485}}{78}{figure.caption.83}\protected@file@percent }
+\newlabel{fig:rs485_activity}{{3.12}{78}{Activity Diagram của driver RS485}{figure.caption.83}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Driver I2C}{79}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Mô hình FSM của driver I2C}{79}{subsubsection*.84}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Máy trạng thái cho driver I2C}}{80}{figure.caption.85}\protected@file@percent }
+\newlabel{fig:i2c_fsm}{{3.13}{80}{Máy trạng thái cho driver I2C}{figure.caption.85}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Activity Diagram của driver I2C}{81}{subsubsection*.86}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Activity Diagram của driver I2C}}{82}{figure.caption.87}\protected@file@percent }
+\newlabel{fig:i2c_activity_diagram}{{3.14}{82}{Activity Diagram của driver I2C}{figure.caption.87}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Hiện thực hệ thống}{84}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Hiện thực bảo mật hệ thống}{76}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Hiện thực giảm thiểu bề mặt tấn công}{76}{subsection.4.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Giảm thiểu bề mặt tấn công trong Yocto Project}}{76}{figure.caption.79}\protected@file@percent }
-\newlabel{fig:gtbm}{{4.1}{76}{Giảm thiểu bề mặt tấn công trong Yocto Project}{figure.caption.79}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Hiện thực Selinux}{77}{subsection.4.1.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Cấu trúc thư mục chính của layer meta-selinux}}{77}{figure.caption.80}\protected@file@percent }
-\newlabel{fig:meta-selinux-structure}{{4.2}{77}{Cấu trúc thư mục chính của layer meta-selinux}{figure.caption.80}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces So sánh các policy phổ biến của SELinux}}{78}{table.caption.81}\protected@file@percent }
-\newlabel{tab:selinux-policy-comparison}{{4.1}{78}{So sánh các policy phổ biến của SELinux}{table.caption.81}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Selinux}}{79}{figure.caption.82}\protected@file@percent }
-\newlabel{fig:selinux}{{4.3}{79}{Selinux}{figure.caption.82}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Hiện thực dm-verity}{79}{subsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Giai đoạn tiền xử lý và tách phân vùng dữ liệu}{79}{subsubsection*.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Khởi tạo cấu trúc cây băm (Hash Tree) và xác thực metadata}{79}{subsubsection*.84}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Cấu trúc cây băm của rootfs}}{80}{figure.caption.85}\protected@file@percent }
-\newlabel{fig:roothash}{{4.4}{80}{Cấu trúc cây băm của rootfs}{figure.caption.85}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Giá trị băm gốc (root hash)}}{80}{figure.caption.86}\protected@file@percent }
-\newlabel{fig:rootkey}{{4.5}{80}{Giá trị băm gốc (root hash)}{figure.caption.86}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả xác thực metadata của dm-verity}}{80}{figure.caption.87}\protected@file@percent }
-\newlabel{fig:verityok}{{4.6}{80}{Kết quả xác thực metadata của dm-verity}{figure.caption.87}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Triển khai và cấu hình giai đoạn khởi động sớm}{80}{subsubsection*.88}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Cơ chế kiểm chứng thực thi tại thiết bị đích}{81}{subsubsection*.89}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Hiện thực Device Driver}{83}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Tổng quan kiến trúc Driver}{83}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Hiện thực driver I2C}{83}{subsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Kiến trúc driver}{83}{subsubsection*.90}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Nguyên lý giao thức I2C}{84}{subsubsection*.91}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Các chức năng chính của driver}{84}{subsubsection*.92}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Thiết kế cơ chế IOCTL}{85}{subsubsection*.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Giao tiếp giữa user space và kernel space}{85}{subsubsection*.94}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Hiện thực giao thức I2C bằng GPIO Bit-banging}{85}{subsubsection*.95}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Tối ưu timing cho giao tiếp I2C}{86}{subsubsection*.96}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Tích hợp driver vào hệ thống Yocto}{87}{subsubsection*.97}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Hiện thực Driver RS485 Modbus RTU}{88}{subsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Kiến trúc Driver}{88}{subsubsection*.98}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Nguyên lý giao thức}{89}{subsubsection*.99}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Các chức năng chính của Driver}{90}{subsubsection*.100}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Thiết kế cơ chế hoạt động}{91}{subsubsection*.101}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Tích hợp Driver vào hệ thống Yocto}{91}{subsubsection*.102}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hiện thực Khối xử lý AI}{93}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Thiết lập môi trường và Công cụ hỗ trợ}{93}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Hiện thực Tiền xử lý và Cấu trúc hóa Dữ liệu}{93}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Làm mượt và Chuẩn hóa dữ liệu}{93}{subsubsection*.103}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Cấu trúc cửa sổ trượt (Sliding Window)}{94}{subsubsection*.104}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Hiện thực Kiến trúc Mạng TCN}{94}{subsection.4.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Mô hình TCN}}{95}{figure.caption.105}\protected@file@percent }
-\newlabel{fig:tcn-model}{{4.7}{95}{Mô hình TCN}{figure.caption.105}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Phân tích chi tiết từ hiện thực}{95}{subsubsection*.106}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Hiện thực Quy trình Huấn luyện và Giám sát}{95}{subsection.4.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Hiện thực cấu hình tham số huấn luyện}{95}{subsubsection*.107}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Hiện thực cơ chế Giám sát và Dừng sớm (Early Stopping)}{96}{subsubsection*.108}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Nhật ký thực thi quá trình huấn luyện}{96}{subsubsection*.109}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}}{96}{figure.caption.110}\protected@file@percent }
-\newlabel{fig:training-log}{{4.8}{96}{Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}{figure.caption.110}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Hiện thực hệ thống cập nhập từ xa OTA}{97}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Tích hợp các Layer và Cấu hình môi trường Yocto}{97}{subsection.4.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Hiện thực và Tùy chỉnh Recipe SWUpdate}{98}{subsection.4.4.2}\protected@file@percent }
-\newlabel{fig:meta-ota}{{\caption@xref {fig:meta-ota}{ on input line 836}}{99}{Hiện thực và Tùy chỉnh Recipe SWUpdate}{figure.caption.111}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Xây dựng Kịch bản Mô tả Hệ thống }{99}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Hiện thực Kịch bản Hậu cập nhật và Giao tiếp Bootloader}{100}{subsection.4.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Quy trình Đóng gói và Triển khai Vận hành Thực tế}{101}{subsection.4.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Hiện thực Tool Build Yocto}{101}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Kiến trúc phân lớp và Luồng dữ liệu}{101}{subsection.4.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Hiện thực Lớp Backend (Flask API)}{102}{subsection.4.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Kỹ thuật điều khiển cấu hình bằng Biểu thức chính quy (Regex)}{102}{subsubsection*.112}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Quản lý quy trình thực thi BitBake}{103}{subsubsection*.113}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Hiện thực Giao diện người dùng (Frontend TUI)}{103}{subsection.4.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Quản lý trạng thái (State Management)}{103}{subsubsection*.114}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Xử lý sự kiện (Event Handling)}{104}{subsubsection*.115}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Tích hợp các module phân tích thông minh}{104}{subsection.4.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Module AI Debugger (Gemini Analytics)}{104}{subsubsection*.116}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Module Quét lỗ hổng bảo mật (CVE Scan Integration)}{105}{subsubsection*.117}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Kết quả và đánh giá}{106}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Hiện thực bảo mật hệ thống}{85}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Hiện thực giảm thiểu bề mặt tấn công}{85}{subsection.4.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Giảm thiểu bề mặt tấn công trong Yocto Project}}{85}{figure.caption.88}\protected@file@percent }
+\newlabel{fig:gtbm}{{4.1}{85}{Giảm thiểu bề mặt tấn công trong Yocto Project}{figure.caption.88}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Hiện thực Selinux}{86}{subsection.4.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Cấu trúc thư mục chính của layer meta-selinux}}{86}{figure.caption.89}\protected@file@percent }
+\newlabel{fig:meta-selinux-structure}{{4.2}{86}{Cấu trúc thư mục chính của layer meta-selinux}{figure.caption.89}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces So sánh các policy phổ biến của SELinux}}{87}{table.caption.90}\protected@file@percent }
+\newlabel{tab:selinux-policy-comparison}{{4.1}{87}{So sánh các policy phổ biến của SELinux}{table.caption.90}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Selinux}}{88}{figure.caption.91}\protected@file@percent }
+\newlabel{fig:selinux}{{4.3}{88}{Selinux}{figure.caption.91}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Hiện thực dm-verity}{88}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Giai đoạn tiền xử lý và tách phân vùng dữ liệu}{88}{subsubsection*.92}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Khởi tạo cấu trúc cây băm (Hash Tree) và xác thực metadata}{88}{subsubsection*.93}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Cấu trúc cây băm của rootfs}}{89}{figure.caption.94}\protected@file@percent }
+\newlabel{fig:roothash}{{4.4}{89}{Cấu trúc cây băm của rootfs}{figure.caption.94}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Giá trị băm gốc (root hash)}}{89}{figure.caption.95}\protected@file@percent }
+\newlabel{fig:rootkey}{{4.5}{89}{Giá trị băm gốc (root hash)}{figure.caption.95}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả xác thực metadata của dm-verity}}{89}{figure.caption.96}\protected@file@percent }
+\newlabel{fig:verityok}{{4.6}{89}{Kết quả xác thực metadata của dm-verity}{figure.caption.96}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Triển khai và cấu hình giai đoạn khởi động sớm}{89}{subsubsection*.97}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Cơ chế kiểm chứng thực thi tại thiết bị đích}{90}{subsubsection*.98}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Hiện thực Device Driver}{92}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Tổng quan kiến trúc Driver}{92}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Hiện thực driver I2C}{92}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Kiến trúc driver}{92}{subsubsection*.99}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Nguyên lý giao thức I2C}{93}{subsubsection*.100}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Các chức năng chính của driver}{93}{subsubsection*.101}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Thiết kế cơ chế IOCTL}{94}{subsubsection*.102}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Giao tiếp giữa user space và kernel space}{94}{subsubsection*.103}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Hiện thực giao thức I2C bằng GPIO Bit-banging}{94}{subsubsection*.104}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Tối ưu timing cho giao tiếp I2C}{95}{subsubsection*.105}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Tích hợp driver vào hệ thống Yocto}{96}{subsubsection*.106}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Hiện thực Driver RS485 Modbus RTU}{97}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Kiến trúc Driver}{97}{subsubsection*.107}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Nguyên lý giao thức}{98}{subsubsection*.108}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Các chức năng chính của Driver}{99}{subsubsection*.109}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Thiết kế cơ chế hoạt động}{100}{subsubsection*.110}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Tích hợp Driver vào hệ thống Yocto}{100}{subsubsection*.111}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hiện thực Khối xử lý AI}{102}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Thiết lập môi trường và Công cụ hỗ trợ}{102}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Hiện thực Tiền xử lý và Cấu trúc hóa Dữ liệu}{102}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Làm mượt và Chuẩn hóa dữ liệu}{102}{subsubsection*.112}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Cấu trúc cửa sổ trượt (Sliding Window)}{103}{subsubsection*.113}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Hiện thực Kiến trúc Mạng TCN}{103}{subsection.4.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Mô hình TCN}}{104}{figure.caption.114}\protected@file@percent }
+\newlabel{fig:tcn-model}{{4.7}{104}{Mô hình TCN}{figure.caption.114}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Phân tích chi tiết từ hiện thực}{104}{subsubsection*.115}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Hiện thực Quy trình Huấn luyện và Giám sát}{104}{subsection.4.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Hiện thực cấu hình tham số huấn luyện}{104}{subsubsection*.116}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Hiện thực cơ chế Giám sát và Dừng sớm (Early Stopping)}{105}{subsubsection*.117}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Nhật ký thực thi quá trình huấn luyện}{105}{subsubsection*.118}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}}{105}{figure.caption.119}\protected@file@percent }
+\newlabel{fig:training-log}{{4.8}{105}{Nhật ký quá trình huấn luyện mô hình TCN trên môi trường máy trạm}{figure.caption.119}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Hiện thực hệ thống cập nhập từ xa OTA}{106}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Tích hợp các Layer và Cấu hình môi trường Yocto}{106}{subsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Hiện thực và Tùy chỉnh Recipe SWUpdate}{107}{subsection.4.4.2}\protected@file@percent }
+\newlabel{fig:meta-ota}{{\caption@xref {fig:meta-ota}{ on input line 836}}{108}{Hiện thực và Tùy chỉnh Recipe SWUpdate}{figure.caption.120}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Xây dựng Kịch bản Mô tả Hệ thống }{108}{subsection.4.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Hiện thực Kịch bản Hậu cập nhật và Giao tiếp Bootloader}{109}{subsection.4.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Quy trình Đóng gói và Triển khai Vận hành Thực tế}{110}{subsection.4.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Hiện thực Tool Build Yocto}{110}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Kiến trúc phân lớp và Luồng dữ liệu}{110}{subsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Hiện thực Lớp Backend (Flask API)}{111}{subsection.4.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Kỹ thuật điều khiển cấu hình bằng Biểu thức chính quy (Regex)}{111}{subsubsection*.121}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Quản lý quy trình thực thi BitBake}{112}{subsubsection*.122}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Hiện thực Giao diện người dùng (Frontend TUI)}{112}{subsection.4.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Quản lý trạng thái (State Management)}{112}{subsubsection*.123}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Xử lý sự kiện (Event Handling)}{113}{subsubsection*.124}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Tích hợp các module phân tích thông minh}{113}{subsection.4.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Module AI Debugger (Gemini Analytics)}{113}{subsubsection*.125}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Module Quét lỗ hổng bảo mật (CVE Scan Integration)}{114}{subsubsection*.126}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Kết quả và đánh giá}{115}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Tổng quan kết quả hiện thực}{107}{section.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Thông tin phiên bản hệ điều hành và nhân Linux}}{107}{figure.caption.118}\protected@file@percent }
-\newlabel{fig:sys1}{{5.1}{107}{Thông tin phiên bản hệ điều hành và nhân Linux}{figure.caption.118}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Thông tin bộ xử lý và các lỗ hổng bảo mật}}{108}{figure.caption.119}\protected@file@percent }
-\newlabel{fig:sys2}{{5.2}{108}{Thông tin bộ xử lý và các lỗ hổng bảo mật}{figure.caption.119}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}}{108}{figure.caption.120}\protected@file@percent }
-\newlabel{fig:sys3}{{5.3}{108}{Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}{figure.caption.120}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Bảo mật hệ thống}{109}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Selinux}{109}{subsection.5.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces SELinux hoạt động ở chế độ enforcing với policy targeted}}{110}{figure.caption.121}\protected@file@percent }
-\newlabel{fig:selinux-enforcing}{{5.4}{110}{SELinux hoạt động ở chế độ enforcing với policy targeted}{figure.caption.121}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}dm-verity}{110}{subsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}}{110}{figure.caption.122}\protected@file@percent }
-\newlabel{fig:dmverity-boot}{{5.5}{110}{Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}{figure.caption.122}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Device Driver}{111}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Driver I2C}{111}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Tính khả dụng của Driver}}{111}{figure.caption.123}\protected@file@percent }
-\newlabel{fig:warning_block}{{5.6}{111}{Tính khả dụng của Driver}{figure.caption.123}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}}{112}{figure.caption.124}\protected@file@percent }
-\newlabel{fig:oled_result}{{5.7}{112}{Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}{figure.caption.124}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Driver RS485 Modbus RTU}{112}{subsection.5.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Tính khả dụng của Driver}}{112}{figure.caption.125}\protected@file@percent }
-\newlabel{fig:warning_block}{{5.8}{112}{Tính khả dụng của Driver}{figure.caption.125}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Thu thập dữ liệu từ Driver}}{113}{figure.caption.126}\protected@file@percent }
-\newlabel{fig:warning_block}{{5.9}{113}{Thu thập dữ liệu từ Driver}{figure.caption.126}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Lưu trữ dữ liệu từ Driver}}{113}{figure.caption.127}\protected@file@percent }
-\newlabel{fig:warning_block}{{5.10}{113}{Lưu trữ dữ liệu từ Driver}{figure.caption.127}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Khối xử lý AI}{114}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Các tệp tin sản phẩm sau hiện thực (Artifacts)}{114}{subsection.5.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces cấu trúc file sau khi train mô hình}}{114}{figure.caption.128}\protected@file@percent }
-\newlabel{fig:meta-ota}{{5.11}{114}{cấu trúc file sau khi train mô hình}{figure.caption.128}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Đặc tính kỹ thuật và Tài nguyên hệ thống}{114}{subsection.5.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Thông số kỹ thuật của mô hình TCN sau huấn luyện}}{115}{table.caption.129}\protected@file@percent }
-\newlabel{tab:tcn-technical-specs}{{5.1}{115}{Thông số kỹ thuật của mô hình TCN sau huấn luyện}{table.caption.129}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Phân tích quá trình huấn luyện và hội tụ}{115}{subsection.5.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Kết quả train mô hình}}{116}{figure.caption.130}\protected@file@percent }
-\newlabel{fig:Train-AI}{{5.12}{116}{Kết quả train mô hình}{figure.caption.130}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Đồ thị train mô hình}}{116}{figure.caption.131}\protected@file@percent }
-\newlabel{fig:training-loss-curve}{{5.13}{116}{Đồ thị train mô hình}{figure.caption.131}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Đánh giá sơ bộ các chỉ số sai số (Metrics)}{117}{subsection.5.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Kiểm định khả năng Inference trên phần cứng Raspberry Pi 4}{118}{subsection.5.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Đánh giá độ nhạy dự đoán qua thực nghiệm tác động môi trường}{118}{subsubsection*.132}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Kết quả test}}{119}{figure.caption.133}\protected@file@percent }
-\newlabel{fig:ketqua-test}{{5.14}{119}{Kết quả test}{figure.caption.133}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Đánh giá hiệu năng thời gian thực (Inference Time)}{119}{subsubsection*.134}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Kết quả Inference}}{120}{figure.caption.135}\protected@file@percent }
-\newlabel{fig:ketqua-test}{{5.15}{120}{Kết quả Inference}{figure.caption.135}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Tổng kết khả năng thực thi}{120}{subsubsection*.136}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Công cụ Secure-Yocto Builder}{120}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Kết quả hiện thực công cụ Secure-Yocto Builder}{120}{subsection.5.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Giao diện cấu hình thiết bị mục tiêu (Target Device)}{121}{subsubsection*.137}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt  {local.conf}.}}{121}{figure.caption.138}\protected@file@percent }
-\newlabel{fig:target-device-ui}{{5.16}{121}{Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt {local.conf}}{figure.caption.138}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Quản lý lớp (Layer Setup) và Recipe bổ sung}{121}{subsubsection*.139}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces Kết quả kiểm tra và thêm gói phần mềm thủ công.}}{121}{figure.caption.140}\protected@file@percent }
-\newlabel{fig:package-management}{{5.17}{121}{Kết quả kiểm tra và thêm gói phần mềm thủ công}{figure.caption.140}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Cấu hình bảo mật hệ thống (Security Hardening)}{121}{subsubsection*.141}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces Bảng điều khiển các tính năng bảo mật nâng cao.}}{122}{figure.caption.142}\protected@file@percent }
-\newlabel{fig:security-hardening-ui}{{5.18}{122}{Bảng điều khiển các tính năng bảo mật nâng cao}{figure.caption.142}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Quản lý Driver ngoại vi (Peripheral Drivers)}{122}{subsubsection*.143}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces Giao diện bật/tắt Driver RS-485 và I\textsuperscript  {2}C Soft Driver.}}{122}{figure.caption.144}\protected@file@percent }
-\newlabel{fig:driver-management-ui}{{5.19}{122}{Giao diện bật/tắt Driver RS-485 và I\textsuperscript {2}C Soft Driver}{figure.caption.144}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Hệ thống Build và Giám sát tiến độ}{122}{subsubsection*.145}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Tổng kết cấu hình và thanh tiến độ hoàn thành bản build.}}{122}{figure.caption.146}\protected@file@percent }
-\newlabel{fig:build-progress-ui}{{5.20}{122}{Tổng kết cấu hình và thanh tiến độ hoàn thành bản build}{figure.caption.146}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Tính năng thông minh: AI Debug và CVE Scan}{122}{subsubsection*.147}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE.}}{123}{figure.caption.148}\protected@file@percent }
-\newlabel{fig:ai-debug-cve-scan}{{5.21}{123}{Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE}{figure.caption.148}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Đánh giá và nhận xét}{123}{subsection.5.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Về tính năng và vận hành}{123}{subsubsection*.149}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Về trải nghiệm người dùng (UX)}{123}{subsubsection*.150}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Hạn chế còn tồn tại}{124}{subsubsection*.151}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Hệ thống OTA}{124}{section.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Giao diện quản trị Web (Web UI)}{124}{subsection.5.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces Giao diện UI người dùng}}{124}{figure.caption.152}\protected@file@percent }
-\newlabel{fig:build-progress-ui}{{5.22}{124}{Giao diện UI người dùng}{figure.caption.152}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Quá trình thực thi và phân tích Log hệ thống}{125}{subsection.5.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Kết quả OTA}}{125}{figure.caption.153}\protected@file@percent }
-\newlabel{fig:OTA-prges}{{5.23}{125}{Kết quả OTA}{figure.caption.153}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Đánh giá hiệu năng và độ tin cậy}{126}{subsection.5.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Dashboard giám sát}{126}{section.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Thiết kế giao diện Dashboard CoreIot}{126}{subsection.5.7.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Trang chủ Dashboard CoreIot}}{126}{figure.caption.154}\protected@file@percent }
-\newlabel{fig:placeholder}{{5.24}{126}{Trang chủ Dashboard CoreIot}{figure.caption.154}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Trang thiết bị Dashboard CoreIot}}{127}{figure.caption.155}\protected@file@percent }
-\newlabel{fig:placeholder}{{5.25}{127}{Trang thiết bị Dashboard CoreIot}{figure.caption.155}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Thiết kế giao diện HDMI Dashboard}{128}{subsection.5.7.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Giao diện HDMI Dashboard tổng thể}}{129}{figure.caption.156}\protected@file@percent }
-\newlabel{fig:HDMI_dashboard}{{5.26}{129}{Giao diện HDMI Dashboard tổng thể}{figure.caption.156}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Màn hình hiển thị dữ liệu các cảm biến}}{129}{figure.caption.157}\protected@file@percent }
-\newlabel{fig:sensors_view}{{5.27}{129}{Màn hình hiển thị dữ liệu các cảm biến}{figure.caption.157}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Giao diện tab Notifications}}{130}{figure.caption.158}\protected@file@percent }
-\newlabel{fig:notifications_view}{{5.28}{130}{Giao diện tab Notifications}{figure.caption.158}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{131}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Tổng quan kết quả hiện thực}{116}{section.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Thông tin phiên bản hệ điều hành và nhân Linux}}{116}{figure.caption.127}\protected@file@percent }
+\newlabel{fig:sys1}{{5.1}{116}{Thông tin phiên bản hệ điều hành và nhân Linux}{figure.caption.127}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Thông tin bộ xử lý và các lỗ hổng bảo mật}}{117}{figure.caption.128}\protected@file@percent }
+\newlabel{fig:sys2}{{5.2}{117}{Thông tin bộ xử lý và các lỗ hổng bảo mật}{figure.caption.128}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}}{117}{figure.caption.129}\protected@file@percent }
+\newlabel{fig:sys3}{{5.3}{117}{Dung lượng bộ nhớ và thông tin board Raspberry Pi 4}{figure.caption.129}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Bảo mật hệ thống}{118}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Selinux}{118}{subsection.5.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces SELinux hoạt động ở chế độ enforcing với policy targeted}}{119}{figure.caption.130}\protected@file@percent }
+\newlabel{fig:selinux-enforcing}{{5.4}{119}{SELinux hoạt động ở chế độ enforcing với policy targeted}{figure.caption.130}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}dm-verity}{119}{subsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}}{119}{figure.caption.131}\protected@file@percent }
+\newlabel{fig:dmverity-boot}{{5.5}{119}{Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}{figure.caption.131}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Device Driver}{120}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Driver I2C}{120}{subsection.5.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Tính khả dụng của Driver}}{120}{figure.caption.132}\protected@file@percent }
+\newlabel{fig:warning_block}{{5.6}{120}{Tính khả dụng của Driver}{figure.caption.132}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}}{121}{figure.caption.133}\protected@file@percent }
+\newlabel{fig:oled_result}{{5.7}{121}{Kết quả hiển thị dữ liệu cảm biến trên màn hình OLED SSD1306}{figure.caption.133}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Driver RS485 Modbus RTU}{121}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Tính khả dụng của Driver}}{121}{figure.caption.134}\protected@file@percent }
+\newlabel{fig:warning_block}{{5.8}{121}{Tính khả dụng của Driver}{figure.caption.134}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Thu thập dữ liệu từ Driver}}{122}{figure.caption.135}\protected@file@percent }
+\newlabel{fig:warning_block}{{5.9}{122}{Thu thập dữ liệu từ Driver}{figure.caption.135}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Lưu trữ dữ liệu từ Driver}}{122}{figure.caption.136}\protected@file@percent }
+\newlabel{fig:warning_block}{{5.10}{122}{Lưu trữ dữ liệu từ Driver}{figure.caption.136}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Khối xử lý AI}{123}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Các tệp tin sản phẩm sau hiện thực (Artifacts)}{123}{subsection.5.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces cấu trúc file sau khi train mô hình}}{123}{figure.caption.137}\protected@file@percent }
+\newlabel{fig:meta-ota}{{5.11}{123}{cấu trúc file sau khi train mô hình}{figure.caption.137}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Đặc tính kỹ thuật và Tài nguyên hệ thống}{123}{subsection.5.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Thông số kỹ thuật của mô hình TCN sau huấn luyện}}{124}{table.caption.138}\protected@file@percent }
+\newlabel{tab:tcn-technical-specs}{{5.1}{124}{Thông số kỹ thuật của mô hình TCN sau huấn luyện}{table.caption.138}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Phân tích quá trình huấn luyện và hội tụ}{124}{subsection.5.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Kết quả train mô hình}}{125}{figure.caption.139}\protected@file@percent }
+\newlabel{fig:Train-AI}{{5.12}{125}{Kết quả train mô hình}{figure.caption.139}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Đồ thị train mô hình}}{125}{figure.caption.140}\protected@file@percent }
+\newlabel{fig:training-loss-curve}{{5.13}{125}{Đồ thị train mô hình}{figure.caption.140}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Đánh giá sơ bộ các chỉ số sai số (Metrics)}{126}{subsection.5.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Kiểm định khả năng Inference trên phần cứng Raspberry Pi 4}{127}{subsection.5.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Đánh giá độ nhạy dự đoán qua thực nghiệm tác động môi trường}{127}{subsubsection*.141}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Kết quả test}}{128}{figure.caption.142}\protected@file@percent }
+\newlabel{fig:ketqua-test}{{5.14}{128}{Kết quả test}{figure.caption.142}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Đánh giá hiệu năng thời gian thực (Inference Time)}{128}{subsubsection*.143}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Kết quả Inference}}{129}{figure.caption.144}\protected@file@percent }
+\newlabel{fig:ketqua-test}{{5.15}{129}{Kết quả Inference}{figure.caption.144}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Tổng kết khả năng thực thi}{129}{subsubsection*.145}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Công cụ Secure-Yocto Builder}{129}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Kết quả hiện thực công cụ Secure-Yocto Builder}{129}{subsection.5.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Giao diện cấu hình thiết bị mục tiêu (Target Device)}{130}{subsubsection*.146}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt  {local.conf}.}}{130}{figure.caption.147}\protected@file@percent }
+\newlabel{fig:target-device-ui}{{5.16}{130}{Giao diện lựa chọn Target Device và phản hồi cập nhật \texttt {local.conf}}{figure.caption.147}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Quản lý lớp (Layer Setup) và Recipe bổ sung}{130}{subsubsection*.148}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces Kết quả kiểm tra và thêm gói phần mềm thủ công.}}{130}{figure.caption.149}\protected@file@percent }
+\newlabel{fig:package-management}{{5.17}{130}{Kết quả kiểm tra và thêm gói phần mềm thủ công}{figure.caption.149}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Cấu hình bảo mật hệ thống (Security Hardening)}{130}{subsubsection*.150}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces Bảng điều khiển các tính năng bảo mật nâng cao.}}{131}{figure.caption.151}\protected@file@percent }
+\newlabel{fig:security-hardening-ui}{{5.18}{131}{Bảng điều khiển các tính năng bảo mật nâng cao}{figure.caption.151}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Quản lý Driver ngoại vi (Peripheral Drivers)}{131}{subsubsection*.152}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces Giao diện bật/tắt Driver RS-485 và I\textsuperscript  {2}C Soft Driver.}}{131}{figure.caption.153}\protected@file@percent }
+\newlabel{fig:driver-management-ui}{{5.19}{131}{Giao diện bật/tắt Driver RS-485 và I\textsuperscript {2}C Soft Driver}{figure.caption.153}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Hệ thống Build và Giám sát tiến độ}{131}{subsubsection*.154}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Tổng kết cấu hình và thanh tiến độ hoàn thành bản build.}}{131}{figure.caption.155}\protected@file@percent }
+\newlabel{fig:build-progress-ui}{{5.20}{131}{Tổng kết cấu hình và thanh tiến độ hoàn thành bản build}{figure.caption.155}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Tính năng thông minh: AI Debug và CVE Scan}{131}{subsubsection*.156}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE.}}{132}{figure.caption.157}\protected@file@percent }
+\newlabel{fig:ai-debug-cve-scan}{{5.21}{132}{Kết quả phân tích lỗi của AI và bảng danh sách lỗ hổng CVE}{figure.caption.157}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Đánh giá và nhận xét}{132}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Về tính năng và vận hành}{132}{subsubsection*.158}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Về trải nghiệm người dùng (UX)}{132}{subsubsection*.159}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Hạn chế còn tồn tại}{133}{subsubsection*.160}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Hệ thống OTA}{133}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Giao diện quản trị Web (Web UI)}{133}{subsection.5.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces Giao diện UI người dùng}}{133}{figure.caption.161}\protected@file@percent }
+\newlabel{fig:build-progress-ui}{{5.22}{133}{Giao diện UI người dùng}{figure.caption.161}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Quá trình thực thi và phân tích Log hệ thống}{134}{subsection.5.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Kết quả OTA}}{134}{figure.caption.162}\protected@file@percent }
+\newlabel{fig:OTA-prges}{{5.23}{134}{Kết quả OTA}{figure.caption.162}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Đánh giá hiệu năng và độ tin cậy}{135}{subsection.5.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Dashboard giám sát}{135}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Thiết kế giao diện Dashboard CoreIot}{135}{subsection.5.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Trang chủ Dashboard CoreIot}}{135}{figure.caption.163}\protected@file@percent }
+\newlabel{fig:placeholder}{{5.24}{135}{Trang chủ Dashboard CoreIot}{figure.caption.163}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Trang thiết bị Dashboard CoreIot}}{136}{figure.caption.164}\protected@file@percent }
+\newlabel{fig:placeholder}{{5.25}{136}{Trang thiết bị Dashboard CoreIot}{figure.caption.164}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Thiết kế giao diện HDMI Dashboard}{137}{subsection.5.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Giao diện HDMI Dashboard tổng thể}}{138}{figure.caption.165}\protected@file@percent }
+\newlabel{fig:HDMI_dashboard}{{5.26}{138}{Giao diện HDMI Dashboard tổng thể}{figure.caption.165}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Màn hình hiển thị dữ liệu các cảm biến}}{138}{figure.caption.166}\protected@file@percent }
+\newlabel{fig:sensors_view}{{5.27}{138}{Màn hình hiển thị dữ liệu các cảm biến}{figure.caption.166}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Giao diện tab Notifications}}{139}{figure.caption.167}\protected@file@percent }
+\newlabel{fig:notifications_view}{{5.28}{139}{Giao diện tab Notifications}{figure.caption.167}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Kết luận và hướng phát triển }{140}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \bibstyle{IEEEtran}
 \bibdata{references}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Kết luận}{132}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Hướng phát triển}{132}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Kết luận}{141}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Hướng phát triển}{141}{section.6.2}\protected@file@percent }
 \bibcite{yocto_new_recipe}{1}
 \bibcite{yocto_tasks_reference}{2}
 \bibcite{kernel_org_overview}{3}
@@ -373,7 +390,7 @@
 \bibcite{wang2024_causal_stan}{10}
 \bibcite{stoten2025_pm25}{11}
 \xdef \mintedoldcachechecksum{\detokenize{\minted@cachechecksum }}
-\newlabel{LastPage}{{6.2}{134}{Hướng phát triển}{page.134}{}}
-\gdef\lastpage@lastpage{134}
-\gdef\lastpage@lastpageHy{134}
-\gdef \@abspage@last{135}
+\newlabel{LastPage}{{6.2}{143}{Hướng phát triển}{page.143}{}}
+\gdef\lastpage@lastpage{143}
+\gdef\lastpage@lastpageHy{143}
+\gdef \@abspage@last{144}
