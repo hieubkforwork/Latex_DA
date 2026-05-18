@@ -44,8 +44,6 @@ Trong quá trình hiện thực, nhóm đã bổ sung layer \texttt{meta-selinux
 
 Policy \texttt{targeted} là chế độ phổ biến của SELinux, trong đó chỉ các tiến trình và dịch vụ quan trọng được áp dụng chính sách kiểm soát truy cập nghiêm ngặt, giúp giảm ảnh hưởng đến hoạt động thông thường của hệ thống đồng thời vẫn đảm bảo mức độ bảo mật cao. Khi hệ thống hoạt động, SELinux tự động kiểm tra quyền truy cập giữa các tiến trình và tài nguyên thông qua security context. Nếu một tiến trình cố gắng thực hiện hành động không được policy cho phép, hệ thống sẽ ghi nhận và từ chối thao tác đó.
 
-Hình~\ref{fig:selinux-enforcing} cho thấy các bản ghi audit được tạo ra khi SELinux phát hiện hành vi truy cập không hợp lệ. Các thông báo \texttt{avc: denied} chứng minh rằng cơ chế MAC của SELinux đang hoạt động và thực hiện chặn truy cập trái phép đến các thiết bị hoặc tài nguyên hệ thống. Điều này giúp hạn chế nguy cơ leo thang đặc quyền, sửa đổi trái phép dữ liệu hệ thống và tăng cường khả năng bảo vệ firmware trong môi trường nhúng công nghiệp.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{image/selinux1.png}
@@ -53,15 +51,109 @@ Hình~\ref{fig:selinux-enforcing} cho thấy các bản ghi audit được tạo
     \label{fig:selinux-enforcing}
 \end{figure}
 
+Hình~\ref{fig:selinux-enforcing} cho thấy các bản ghi audit được tạo ra khi SELinux phát hiện hành vi truy cập không hợp lệ. Các thông báo \texttt{avc: denied} chứng minh rằng cơ chế MAC của SELinux đang hoạt động và thực hiện chặn truy cập trái phép đến các thiết bị hoặc tài nguyên hệ thống. Điều này giúp hạn chế nguy cơ leo thang đặc quyền, sửa đổi trái phép dữ liệu hệ thống và tăng cường khả năng bảo vệ firmware trong môi trường nhúng công nghiệp.
+
 \subsection{dm-verity}
 Kết quả thực nghiệm cho thấy hệ thống đã khởi động thành công với root filesystem được bảo vệ bởi cơ chế \texttt{dm-verity}. Root filesystem được mount ở chế độ chỉ đọc thông qua thiết bị \texttt{/dev/mapper/vroot}, đảm bảo mọi block dữ liệu đều được kiểm tra tính toàn vẹn trước khi sử dụng. Sau khi boot hoàn tất, hệ thống vẫn hoạt động ổn định, hỗ trợ kết nối mạng và thực thi các thao tác quản trị cơ bản. Việc tích hợp \texttt{dm-verity} giúp phát hiện và ngăn chặn các hành vi chỉnh sửa trái phép firmware, từ đó nâng cao độ tin cậy và mức độ bảo mật cho hệ thống nhúng trong môi trường công nghiệp và IoT.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{image/dmverity1.jpg}
+    \includegraphics[width=0.8\linewidth]{image/dmverity1.jpg}
     \caption{Hệ thống khởi động thành công với root filesystem được bảo vệ bởi dm-verity}
     \label{fig:dmverity-boot}
 \end{figure}
+
+\subsection{SSH Hardening}
+Tiến hành kiểm thử sử dụng Command Prompt (CMD) trên Windows để kết nối SSH tới gateway Yocto thông qua địa chỉ IP \texttt{192.168.2.37} tại port mặc định 22. Mục tiêu của quá trình này nhằm kiểm thử cơ chế bảo mật SSH trên hệ thống, bao gồm khả năng xác thực người dùng, giới hạn truy cập đối với tài khoản không hợp lệ, cũng như đánh giá hiệu quả của các cơ chế hardening đã được cấu hình trên OpenSSH server. Các kịch bản kiểm thử bao gồm:\\
+
+\textbf{TH1: Đăng nhập SSH với mật khẩu}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{image/ssh1.png}
+    \caption{Đăng nhập SSH với mật khẩu}
+    \label{fig:ssh-login}
+\end{figure}
+
+Trong trường hợp kiểm thử này, máy host Windows thực hiện kết nối SSH tới gateway Yocto tại địa chỉ IP 192.168.2.37 bằng tài khoản \texttt{gatewayadmin}.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{|c|X|}
+\hline
+\textbf{TH} & \textbf{Kết quả thực tế} \\ \hline
+Đúng mật khẩu & Đăng nhập thành công vào hệ thống Yocto Gateway \\ \hline
+Sai mật khẩu & Hiển thị \texttt{Permission denied, please try again.} \\ \hline
+\end{tabularx}
+\caption{Kết quả kiểm thử xác thực SSH}
+\end{table}
+
+Kết quả kiểm thử cho thấy khi sử dụng mật khẩu đúng, người dùng có thể đăng nhập thành công vào hệ thống Yocto Gateway thông qua SSH. Ngược lại, khi nhập sai mật khẩu, hệ thống từ chối truy cập và hiển thị thông báo lỗi \texttt{Permission denied, please try again.}, chứng tỏ cơ chế xác thực đã được cấu hình chính xác và hoạt động hiệu quả trong việc ngăn chặn truy cập trái phép.
+
+\textbf{TH2: Giới hạn nhập sai mật khẩu}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{image/ssh2.png}
+    \caption{Giới hạn nhập sai mật khẩu trong SSH}
+\end{figure}
+
+Trong trường hợp kiểm thử này, máy host Windows thực hiện kết nối SSH tới gateway Yocto tại địa chỉ IP \texttt{192.168.2.37} bằng tài khoản \texttt{gatewayadmin}, tuy nhiên người dùng nhập sai mật khẩu liên tiếp 3 lần.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{|c|X|}
+\hline
+\textbf{TH} & \textbf{Kết quả thực tế} \\ \hline
+Sai mật khẩu 3 lần & SSH hiển thị \texttt{Connection closed by 192.168.2.37 port 22} tự động đóng kết nối \\ \hline
+\end{tabularx}
+\caption{Kết quả kiểm thử SSH với mật khẩu sai}
+\end{table}
+
+Kết quả kiểm thử cho thấy hệ thống từ chối xác thực khi người dùng nhập sai mật khẩu. Sau 3 lần xác thực thất bại liên tiếp, SSH server tự động đóng kết nối với client theo cấu hình \texttt{MaxAuthTries}. Điều này giúp hạn chế các cuộc tấn công brute-force và tăng cường khả năng bảo vệ truy cập từ xa cho hệ thống gateway.
+
+\textbf{TH3: Đăng nhập SSH bằng tài khoản không được phép}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{image/ssh3.png}
+    \caption{Đăng nhập SSH bằng tài khoản không được phép}
+\end{figure}
+
+Trong trường hợp kiểm thử này, máy host Windows thực hiện kết nối SSH tới gateway Yocto tại địa chỉ IP \texttt{192.168.2.37} bằng tài khoản \texttt{notgatewayadmin}, là tài khoản không nằm trong danh sách được phép truy cập SSH.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{|c|X|}
+\hline
+\textbf{TH} & \textbf{Kết quả thực tế} \\ \hline
+Tài khoản không hợp lệ & SSH từ chối xác thực tài khoản \\ \hline
+\end{tabularx}
+\caption{Kết quả kiểm thử SSH với tài khoản không hợp lệ}
+\end{table}
+
+Kết quả kiểm thử cho thấy hệ thống không cho phép tài khoản ngoài danh sách \texttt{AllowUsers} truy cập SSH. Điều này xác nhận cơ chế giới hạn người dùng truy cập từ xa đã hoạt động đúng chức năng, góp phần ngăn chặn truy cập trái phép vào hệ thống gateway.
+
+\textbf{TH4: Đăng nhập SSH bằng tài khoản root}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{image/ssh4.png}
+    \caption{Đăng nhập SSH bằng tài khoản root}
+\end{figure}
+
+Trong trường hợp kiểm thử này, máy host Windows thực hiện kết nối SSH tới gateway Yocto bằng tài khoản \texttt{root}. Hệ thống không cho phép đăng nhập trực tiếp với đặc quyền quản trị mà xử lý tài khoản \texttt{root} như một tài khoản người dùng thông thường và yêu cầu xác thực bằng mật khẩu.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{|c|X|}
+\hline
+\textbf{TH} & \textbf{Kết quả thực tế} \\ \hline
+Đăng nhập bằng tài khoản root & Hệ thống yêu cầu xác thực mật khẩu như user thông thường \\ \hline
+\end{tabularx}
+\caption{Kết quả kiểm thử SSH với tài khoản root}
+\end{table}
+
+Kết quả kiểm thử cho thấy cơ chế bảo mật SSH đã hạn chế đặc quyền truy cập trực tiếp của tài khoản \texttt{root}. Việc yêu cầu xác thực mật khẩu giúp tăng cường khả năng bảo vệ hệ thống trước các hành vi truy cập trái phép từ xa.
 
 \section{Device Driver}
 \subsection{Driver I2C}

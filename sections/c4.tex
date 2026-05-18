@@ -738,4 +738,116 @@ Lớp này đóng vai trò là bề mặt tương tác (\textit{Frontend}) của
     \item \textbf{Khối Cloud/API:} Điểm kết nối với nền tảng điện toán đám mây để sử dụng dịch vụ AI phân tích thông minh và truy xuất dữ liệu bảo mật từ các cơ sở dữ liệu quốc gia.
 \end{itemize}
 
+\section{Kiến trúc tổng quan Driver trong hệ thống Yocto Linux}
+
+Trong hệ thống Linux nhúng sử dụng Yocto Project, driver đóng vai trò là lớp trung gian giữa tầng ứng dụng và phần cứng ngoại vi. Driver chịu trách nhiệm quản lý giao tiếp phần cứng, cung cấp interface chuẩn cho user space và thực hiện điều khiển thiết bị ở mức thấp thông qua Linux kernel.
+
+Trong đề tài, nhóm không sử dụng các driver giao tiếp mặc định của hệ thống mà tự xây dựng các custom driver cho giao thức I2C và RS485 nhằm tăng tính tùy biến và phù hợp với yêu cầu của hệ thống tự động hóa công nghiệp.
+
+Kiến trúc tổng quan của hệ thống driver được mô tả theo mô hình phân lớp như Hình~\ref{fig:yocto_driver_architecture}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/yocto_driver_architecture.png}
+    \caption{Kiến trúc tổng quan driver trong hệ thống Yocto Linux}
+    \label{fig:yocto_driver_architecture} 
+
+\end{figure}
+\newpage
+
+Trong kiến trúc này, tầng \textbf{User Space} bao gồm các ứng dụng điều khiển, dashboard giám sát và các chương trình xử lý dữ liệu cảm biến. Các ứng dụng này giao tiếp với driver thông qua các system call chuẩn của Linux như \texttt{open()}, \texttt{read()}, \texttt{write()} và \texttt{ioctl()}.
+
+Tầng \textbf{Kernel Space} bao gồm các custom character device driver do nhóm phát triển. Các driver này chịu trách nhiệm xử lý logic giao tiếp, điều khiển GPIO, quản lý timing truyền dữ liệu và tạo các tín hiệu giao tiếp phần cứng.
+
+Driver I2C được hiện thực theo cơ chế software bit-banging nhằm điều khiển trực tiếp hai đường tín hiệu SDA và SCL thông qua GPIO. Driver RS485 được xây dựng để quản lý truyền nhận UART và điều khiển chiều truyền dữ liệu của module RS485 phục vụ giao tiếp Modbus RTU.
+
+Các driver được đóng gói thành kernel module và tích hợp vào hệ thống Yocto thông qua custom layer và BitBake recipe. Sau khi build image, các module driver sẽ được nạp vào Linux kernel và tạo device file trong thư mục \texttt{/dev} để user space có thể truy cập.
+
+Ở tầng thấp nhất, driver giao tiếp trực tiếp với phần cứng ngoại vi như cảm biến, màn hình OLED, relay và các thiết bị công nghiệp sử dụng chuẩn RS485.
+
+Kiến trúc này giúp hệ thống có tính mô-đun cao, dễ mở rộng và phù hợp với các ứng dụng Linux nhúng yêu cầu khả năng tùy biến giao tiếp phần cứng.
+
+\subsection{Driver RS485}
+\subsubsection{Mô hình FSM của driver RS485}
+
+Để quản lý quá trình truyền nhận dữ liệu và xử lý lỗi trong môi trường Linux Kernel, driver được thiết kế theo mô hình máy trạng thái (Finite State Machine – FSM). Mô hình này giúp tổ chức luồng hoạt động của driver một cách rõ ràng, đồng thời hỗ trợ việc kiểm soát các trạng thái truyền nhận và xử lý lỗi trong quá trình giao tiếp RS485 Modbus RTU.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{image/rs485fsm.png}
+    \caption{Máy trạng thái cho driver RS458}
+    \label{fig:rs485_fsm} 
+
+\end{figure}
+
+FSM của driver RS485 bao gồm các trạng thái chính như mô tả ở Hình \ref{fig:rs485_fsm}. Sau khi hệ thống khởi động, driver bắt đầu tại trạng thái \texttt{UNLOADED}. Khi kernel module được tự động nạp thông qua cơ chế \texttt{autoload}, driver chuyển sang trạng thái \texttt{INIT} để thực hiện khởi tạo UART, GPIO điều khiển DE/RE và các tài nguyên nội bộ của kernel module.
+
+Nếu quá trình khởi tạo thành công, driver chuyển sang trạng thái \texttt{READY (IDLE)} và chờ yêu cầu truyền nhận dữ liệu từ User Space hoặc kernel thread polling. Trong trường hợp khởi tạo thất bại, driver sẽ chuyển sang trạng thái \texttt{ERROR}, đồng thời thực hiện cơ chế retry hoặc chờ unload module khỏi hệ thống.
+
+Khi có yêu cầu đọc hoặc ghi dữ liệu, driver chuyển sang trạng thái \texttt{PREPARE TRANSMIT} để xây dựng khung Modbus RTU và tính toán CRC16 cho gói tin. Sau đó dữ liệu được gửi qua UART trong trạng thái \texttt{TRANSMITTING}. Khi quá trình truyền hoàn tất, driver chuyển sang trạng thái \texttt{WAIT COMPLETE} để chờ phản hồi từ thiết bị slave.
+
+Sau khi nhận được dữ liệu phản hồi, driver thực hiện kiểm tra CRC trong trạng thái \texttt{CRC CHECK}. Nếu CRC hợp lệ, driver tiếp tục chuyển sang trạng thái \texttt{RECEIVING} để giải mã dữ liệu thanh ghi Modbus, sau đó chuyển sang trạng thái \texttt{RX DONE} nhằm cập nhật cache dữ liệu và cung cấp dữ liệu cho User Space. Ngược lại, nếu CRC không hợp lệ hoặc xảy ra timeout trong quá trình truyền nhận, driver sẽ chuyển sang trạng thái \texttt{ERROR} để xử lý lỗi truyền thông.
+
+Cuối cùng, khi kernel module bị gỡ khỏi hệ thống thông qua lệnh \texttt{rmmod}, driver chuyển sang trạng thái \texttt{UNLOADING} để giải phóng tài nguyên và kết thúc vòng đời hoạt động của module trong Linux Kernel.
+
+\subsubsection{Activity Diagram của driver RS485}
+
+Trong khi FSM tập trung mô tả các trạng thái nội bộ của driver, quá trình tương tác thực tế giữa User Space, Kernel Space và phần cứng UART được thể hiện thông qua Activity Diagram. Sơ đồ này mô tả tuần tự các bước xử lý khi ứng dụng thực hiện các thao tác đọc, ghi và cấu hình thiết bị thông qua system call trong Linux.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/rs485act.png}
+    \caption{Activity Diagram của driver RS485}
+    \label{fig:rs485_activity}
+\end{figure}
+
+Hình \ref{fig:rs485_activity} mô tả luồng hoạt động tổng quát của driver RS485 trong môi trường Linux Embedded, bao gồm sự tương tác giữa User Space, Kernel Space và phần cứng UART/RS485. Quá trình hoạt động bắt đầu khi ứng dụng ở User Space thực hiện lời gọi hệ thống \texttt{open()} để truy cập device file \texttt{/dev/sensorhub}. Khi đó, driver trong Kernel Space sẽ kiểm tra và khởi tạo file handle trước khi chuyển sang trạng thái chờ các yêu cầu xử lý như \texttt{read()}, \texttt{write()} hoặc \texttt{ioctl()}.
+
+Đối với cơ chế cấu hình thiết bị, ứng dụng có thể sử dụng \texttt{ioctl()} để thay đổi các tham số truyền thông như baudrate, parity hoặc chế độ hoạt động UART. Driver sau đó cập nhật lại cấu hình và đồng bộ các tham số này xuống phần cứng UART thông qua Serdev Framework.
+
+Trong quá trình truyền dữ liệu, ứng dụng sử dụng lời gọi \texttt{write()} để gửi dữ liệu xuống driver. Driver sẽ kiểm tra dữ liệu đầu vào, kích hoạt chân DE nhằm chuyển transceiver RS485 sang chế độ truyền, sau đó gửi dữ liệu qua UART. Khi quá trình truyền hoàn tất, driver chờ tín hiệu xác nhận TX hoàn thành bằng cơ chế polling hoặc interrupt. Nếu truyền thành công, driver vô hiệu hóa tín hiệu DE để quay về chế độ nhận và trả kết quả cho User Space. Ngược lại, nếu xảy ra lỗi truyền thông hoặc timeout, driver sẽ thực hiện cơ chế xử lý lỗi như ghi log và reset trạng thái hoạt động.
+
+Đối với cơ chế nhận dữ liệu, ứng dụng sử dụng lời gọi \texttt{read()} để yêu cầu đọc dữ liệu từ thiết bị. Driver sẽ chờ dữ liệu đến từ bus RS485 thông qua UART RX line. Sau khi nhận dữ liệu, driver thực hiện kiểm tra CRC nhằm xác minh tính toàn vẹn của khung Modbus RTU. Nếu CRC hợp lệ, dữ liệu sẽ được lưu vào RX buffer và sao chép sang User Space thông qua cơ chế \texttt{copy\_to\_user()}. Trong trường hợp CRC không hợp lệ hoặc xảy ra lỗi nhận dữ liệu, driver sẽ chuyển sang nhánh xử lý lỗi nhằm đảm bảo tính ổn định của hệ thống.
+
+Sau khi hoàn tất quá trình truyền nhận, ứng dụng gọi \texttt{close()} để giải phóng file handle. Driver khi đó sẽ giải phóng tài nguyên liên quan và đưa hệ thống trở về trạng thái chờ (\texttt{IDLE}) để tiếp tục phục vụ các yêu cầu truyền nhận tiếp theo.
+
+\subsection{Driver I2C}
+\subsubsection{Mô hình FSM của driver I2C}
+Để quản lý quá trình truyền nhận dữ liệu trên bus I2C, driver được thiết kế theo mô hình máy trạng thái hữu hạn (Finite State Machine – FSM). Mô hình này giúp driver kiểm soát rõ ràng các trạng thái hoạt động trong quá trình khởi tạo, cấu hình, truyền dữ liệu và xử lý lỗi khi giao tiếp với thiết bị slave thông qua giao thức I2C.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{image/i2cfsm.png}
+    \caption{Máy trạng thái cho driver I2C}
+    \label{fig:i2c_fsm}
+\end{figure}
+
+Quá trình hoạt động của driver bắt đầu tại trạng thái \texttt{UNLOADED}. Khi kernel module được nạp vào hệ thống thông qua cơ chế autoload hoặc lệnh \texttt{insmod}, driver chuyển sang trạng thái \texttt{INIT} để khởi tạo GPIO, cấu hình SDA/SCL và đăng ký character device với Linux Kernel. Nếu quá trình khởi tạo thành công, driver chuyển sang trạng thái \texttt{IDLE} để chờ các yêu cầu từ User Space. Ngược lại, nếu xảy ra lỗi khởi tạo, driver sẽ chuyển sang trạng thái \texttt{ERROR} để thực hiện cơ chế retry hoặc chờ unload module.
+
+Trong trạng thái \texttt{IDLE}, driver có thể tiếp nhận các yêu cầu cấu hình thông qua lời gọi hệ thống \texttt{ioctl()}. Khi đó, driver chuyển sang trạng thái \texttt{CONFIGURING} nhằm cập nhật các tham số như địa chỉ slave, tốc độ truyền hoặc chế độ hoạt động I2C trước khi quay trở lại trạng thái chờ.
+
+Khi ứng dụng thực hiện thao tác ghi dữ liệu thông qua \texttt{write()}, driver chuyển sang nhánh \texttt{MASTER WRITE}. Tại đây, driver lần lượt thực hiện các trạng thái bao gồm tạo tín hiệu \texttt{START}, gửi địa chỉ slave ở chế độ ghi, kiểm tra tín hiệu ACK và truyền dữ liệu lên bus I2C. Quá trình truyền tiếp tục cho đến khi byte cuối cùng được gửi thành công, sau đó driver tạo tín hiệu \texttt{STOP} và chuyển sang trạng thái \texttt{WRITE DONE}. Trong trường hợp không nhận được ACK từ slave device, driver sẽ thực hiện cơ chế xử lý lỗi hoặc retry truyền dữ liệu.
+
+Tương tự, khi ứng dụng thực hiện thao tác đọc dữ liệu bằng \texttt{read()}, driver chuyển sang nhánh \texttt{MASTER READ}. Driver sẽ tạo tín hiệu \texttt{START}, gửi địa chỉ slave và nhận dữ liệu từ thiết bị ngoại vi thông qua bus I2C. Sau khi toàn bộ dữ liệu được nhận hoàn tất, driver tạo tín hiệu \texttt{STOP} và cập nhật dữ liệu vào buffer nội bộ trước khi trả dữ liệu về User Space.
+
+Cuối cùng, khi kernel module bị gỡ khỏi hệ thống thông qua lệnh \texttt{rmmod}, driver chuyển sang trạng thái \texttt{UNLOADING} để giải phóng GPIO, tài nguyên kernel và character device trước khi kết thúc vòng đời hoạt động của module trong Linux Kernel.
+\subsubsection{Activity Diagram của driver I2C}
+
+Driver I2C được hiện thực theo mô hình Character Device trong Linux Kernel, cho phép ứng dụng ở User Space giao tiếp với thiết bị ngoại vi thông qua device file \texttt{/dev/my\_I2C\_soft}. Quá trình hoạt động của driver bao gồm các thao tác cấu hình bus, truyền dữ liệu và nhận dữ liệu thông qua cơ chế điều khiển trực tiếp các chân GPIO SDA/SCL theo chuẩn I2C software bit-banging.
+
+Hoạt động của driver được mô tả thông qua Activity Diagram trong Hình \ref{fig:i2c_activity_diagram}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\linewidth]{image/i2cact.png}
+\caption{Activity Diagram của driver I2C}
+\label{fig:i2c_activity_diagram}
+\end{figure}
+
+Trong giai đoạn khởi tạo, ứng dụng User Space thực hiện lời gọi \texttt{open()} để mở device file của driver. Linux Kernel sau đó kiểm tra file handle và khởi tạo các tài nguyên cần thiết phục vụ giao tiếp I2C. Các thông số như địa chỉ slave, chân SDA/SCL và tốc độ truyền có thể được cấu hình thông qua cơ chế \texttt{ioctl()}.
+
+Đối với quá trình truyền dữ liệu (\texttt{write()}), driver tạo điều kiện START-condition và gửi địa chỉ slave theo chế độ ghi. Sau khi nhận tín hiệu ACK từ thiết bị ngoại vi, dữ liệu sẽ được truyền tuần tự từng byte thông qua chân SDA kết hợp tín hiệu clock trên chân SCL. Nếu xảy ra lỗi ACK hoặc mất kết nối thiết bị, driver sẽ trả về lỗi \texttt{-EIO} để thông báo cho User Space. Khi hoàn tất quá trình truyền, driver tạo STOP-condition và trả về số byte đã ghi thành công.
+
+Trong quá trình nhận dữ liệu (\texttt{read()}), driver tiếp tục tạo START-condition và gửi địa chỉ slave theo chế độ đọc. Dữ liệu từ thiết bị ngoại vi được đọc tuần tự từng byte thông qua chân SDA, đồng thời driver gửi ACK hoặc NACK tương ứng để điều khiển quá trình nhận dữ liệu. Sau khi nhận byte cuối cùng, STOP-condition được tạo ra nhằm giải phóng bus I2C trước khi dữ liệu được trả về cho User Space.
+
+Activity Diagram cho thấy driver được tổ chức theo hướng tách biệt giữa User Space, Kernel Space và Hardware Layer. Cách tiếp cận này giúp quá trình xử lý dữ liệu trở nên rõ ràng, đồng thời hỗ trợ việc mở rộng và bảo trì driver trong các hệ thống Linux Embedded sử dụng Yocto Project.
 

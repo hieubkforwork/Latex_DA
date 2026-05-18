@@ -1,4 +1,10 @@
 \section{Kiến trúc Build System trong Yocto Project}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{image/yocto_prj.png}
+    \caption{Yocto Project}
+    \label{fig:yocto}
+\end{figure}
 
 \subsection{Các thành phần chính trong Layer của Yocto Project}
 
@@ -6,95 +12,74 @@ Trong Yocto Project, kiến trúc layer được xây dựng dựa trên cơ ch�
 
 \subsubsection{Recipe (.bb)}
 
-Recipe là thành phần cốt lõi trong Yocto Project, được sử dụng để mô tả toàn bộ quy trình xây dựng một package hoặc một thành phần phần mềm trong hệ thống nhúng. Các recipe thường có phần mở rộng \texttt{.bb} và được xử lý bởi BitBake Build Engine. Có thể xem recipe như một tập hợp metadata dùng để hướng dẫn hệ thống build thực hiện các công việc như tải mã nguồn, giải nén, biên dịch, cài đặt và đóng gói phần mềm.
+Recipe là thành phần cốt lõi trong Yocto Project, được sử dụng để mô tả toàn bộ quy trình xây dựng một package hoặc một thành phần phần mềm trong hệ thống nhúng. Các recipe thường có phần mở rộng \texttt{.bb} và được xử lý bởi BitBake Build Engine. Có thể xem recipe như một tập hợp metadata dùng để hướng dẫn hệ thống build thực hiện các công việc như tải mã nguồn, giải nén, biên dịch, cài đặt và đóng gói phần mềm. 
 
 Trong mỗi recipe, nhiều biến hệ thống được sử dụng để mô tả thông tin liên quan đến package. Các biến này bao gồm tên package, phiên bản, giấy phép sử dụng, dependency, vị trí source code và các task cần thực hiện trong quá trình build. Thông qua recipe, BitBake có thể tự động phân tích dependency giữa các package và xây dựng quy trình biên dịch phù hợp.
 
-Ngoài vai trò quản lý build process, recipe còn hỗ trợ tính module hóa và tái sử dụng trong Yocto Project. Thay vì cấu hình thủ công từng bước biên dịch, người phát triển chỉ cần mô tả metadata trong recipe để hệ thống tự động thực hiện toàn bộ pipeline build. Điều này giúp giảm đáng kể độ phức tạp trong quá trình phát triển hệ thống Linux nhúng quy mô lớn.
-
-Recipe cũng hỗ trợ kế thừa thông qua cơ chế class inheritance. Nhờ đó, nhiều package có thể sử dụng chung một tập chức năng build mà không cần lặp lại mã cấu hình. Đây là một trong những đặc điểm quan trọng giúp Yocto Project trở thành nền tảng build có tính mở rộng và bảo trì cao.
-
 \subsubsection{Configuration}
 
-Configuration là thành phần chịu trách nhiệm quản lý và thiết lập môi trường build trong Yocto Project. Các file cấu hình thường được lưu trong thư mục \texttt{conf/} và chứa các biến hệ thống phục vụ quá trình xây dựng Linux Embedded. Đây là thành phần quan trọng giúp xác định cách thức hoạt động của toàn bộ hệ thống build.
-
-Thông qua configuration, người phát triển có thể thiết lập kiến trúc phần cứng mục tiêu, compiler, toolchain, package manager, loại filesystem và nhiều tham số hệ thống khác. Ngoài ra, configuration còn cho phép quản lý danh sách layer được sử dụng trong môi trường build cũng như thứ tự ưu tiên giữa các layer.
-
-Một trong những vai trò quan trọng của configuration là hỗ trợ khả năng tùy biến hệ thống Linux nhúng. Tùy thuộc vào yêu cầu phần cứng và ứng dụng, người phát triển có thể thay đổi các thông số cấu hình để tạo ra các image Linux tối ưu về kích thước, hiệu năng hoặc mức tiêu thụ tài nguyên.
-
-Các file configuration trong Yocto thường được tổ chức theo nhiều cấp độ khác nhau như cấu hình toàn cục, cấu hình machine, cấu hình distro hoặc cấu hình riêng cho từng layer. Nhờ kiến trúc này, Yocto Project có khả năng quản lý các hệ thống build phức tạp với số lượng package và dependency rất lớn.
-
-Ngoài chức năng quản lý môi trường build, configuration còn đóng vai trò quan trọng trong việc đảm bảo tính tái lập của hệ thống. Khi các thông số build được định nghĩa rõ ràng trong configuration, hệ thống có thể được build lại với kết quả tương đồng trên nhiều môi trường phát triển khác nhau.
+Configuration là thành phần chịu trách nhiệm quản lý và thiết lập môi trường build trong Yocto Project. Các file cấu hình thường được lưu trong thư mục \texttt{conf/} và chứa các biến hệ thống phục vụ quá trình xây dựng Linux Embedded. Đây là thành phần quan trọng giúp xác định cách thức hoạt động của toàn bộ hệ thống build. Thông qua configuration, người phát triển có thể thiết lập kiến trúc phần cứng mục tiêu, compiler, toolchain, package manager, loại filesystem và nhiều tham số hệ thống khác. Ngoài ra, configuration còn cho phép quản lý danh sách layer được sử dụng trong môi trường build cũng như thứ tự ưu tiên giữa các layer.
 
 \subsubsection{Patch}
 
-Patch là thành phần được sử dụng để sửa đổi hoặc cập nhật mã nguồn trong quá trình build mà không cần thay đổi trực tiếp source code gốc. Trong Yocto Project, patch đóng vai trò quan trọng trong việc tùy biến phần mềm, sửa lỗi hệ thống và bổ sung chức năng mới cho các package.
-
-Patch thường được lưu dưới dạng file \texttt{.patch} hoặc \texttt{.diff}. Các file này chứa thông tin thay đổi giữa phiên bản mã nguồn gốc và phiên bản đã được chỉnh sửa. Trong quá trình build, BitBake sẽ tự động áp dụng patch trước khi thực hiện biên dịch mã nguồn.
-
-Việc sử dụng patch mang lại nhiều lợi ích trong phát triển hệ thống nhúng. Trước hết, patch giúp duy trì tính nguyên vẹn của source code gốc, từ đó tạo thuận lợi cho việc cập nhật phiên bản mới hoặc đồng bộ với repository chính thức. Bên cạnh đó, patch còn hỗ trợ quản lý thay đổi một cách rõ ràng và có hệ thống, giúp quá trình bảo trì phần mềm trở nên dễ dàng hơn.
-
-Trong các hệ thống Linux Embedded, patch thường được sử dụng để tối ưu kernel, sửa lỗi driver, tùy biến bootloader hoặc bổ sung hỗ trợ cho phần cứng mới. Đây là kỹ thuật phổ biến trong phát triển phần mềm nhúng vì nhiều thành phần hệ thống thường cần được tùy chỉnh để phù hợp với nền tảng phần cứng cụ thể.
-
-Ngoài ra, patch còn đóng vai trò quan trọng trong việc quản lý vòng đời phần mềm. Thay vì chỉnh sửa trực tiếp source code, toàn bộ thay đổi được lưu trữ dưới dạng patch giúp dễ dàng theo dõi lịch sử chỉnh sửa, rollback hoặc áp dụng lại trên các phiên bản hệ thống khác nhau.
+Patch là thành phần được sử dụng để sửa đổi hoặc cập nhật mã nguồn trong quá trình build mà không cần thay đổi trực tiếp source code gốc. Trong Yocto Project, patch đóng vai trò quan trọng trong việc tùy biến phần mềm, sửa lỗi hệ thống và bổ sung chức năng mới cho các package. Patch thường được lưu dưới dạng file \texttt{.patch} hoặc \texttt{.diff}. Các file này chứa thông tin thay đổi giữa phiên bản mã nguồn gốc và phiên bản đã được chỉnh sửa. Trong quá trình build, BitBake sẽ tự động áp dụng patch trước khi thực hiện biên dịch mã nguồn.
 
 \subsubsection{Source Code}
 
-Source Code là thành phần chứa mã nguồn của chương trình hoặc hệ thống phần mềm được sử dụng trong quá trình build. Đây là thành phần cốt lõi quyết định chức năng và hành vi của package trong hệ thống Linux Embedded.
-
-Trong Yocto Project, source code có thể được lấy từ nhiều nguồn khác nhau như local file, Git repository, tarball package hoặc remote server. Hệ thống BitBake sẽ tự động tải và quản lý source code dựa trên thông tin được khai báo trong recipe.
-
-Source code trong hệ thống nhúng thường bao gồm nhiều loại thành phần như application, library, kernel module, bootloader hoặc device driver. Tùy thuộc vào chức năng của package, source code có thể được viết bằng các ngôn ngữ như C, C++, Python hoặc Shell Script.
-
-Một trong những đặc điểm quan trọng của source code trong Linux Embedded là khả năng tương tác trực tiếp với phần cứng hệ thống. Điều này đòi hỏi mã nguồn phải được tối ưu về hiệu năng, khả năng quản lý tài nguyên và độ ổn định trong quá trình vận hành.
-
-Ngoài chức năng thực thi logic hệ thống, source code còn đóng vai trò quan trọng trong việc đảm bảo tính mở rộng và khả năng bảo trì phần mềm. Việc tổ chức mã nguồn theo kiến trúc module giúp hệ thống dễ dàng nâng cấp, tái sử dụng và tích hợp thêm các chức năng mới trong tương lai.
-
-Trong các dự án Linux Embedded quy mô lớn, source code thường được quản lý thông qua hệ thống version control như Git nhằm hỗ trợ cộng tác nhóm, theo dõi lịch sử thay đổi và quản lý phiên bản phần mềm một cách hiệu quả.
-
+Source Code là thành phần chứa mã nguồn của chương trình hoặc hệ thống phần mềm được sử dụng trong quá trình build. Đây là thành phần cốt lõi quyết định chức năng và hành vi của package trong hệ thống Linux Embedded. Trong Yocto Project, source code có thể được lấy từ nhiều nguồn khác nhau như local file, Git repository, tarball package hoặc remote server. Hệ thống BitBake sẽ tự động tải và quản lý source code dựa trên thông tin được khai báo trong recipe. Source code trong hệ thống nhúng thường bao gồm nhiều loại thành phần như application, library, kernel module, bootloader hoặc device driver. Tùy thuộc vào chức năng của package, source code có thể được viết bằng các ngôn ngữ như C, C++, Python hoặc Shell Script.
 
 \subsection{Recipe trong Yocto}
 
-Trong Yocto Project, Recipe là thành phần trung tâm của hệ thống build và đóng vai trò mô tả toàn bộ quy trình xây dựng một package phần mềm. Recipe thường có phần mở rộng \texttt{.bb} (BitBake Recipe) và được BitBake sử dụng để thực hiện các tác vụ như tải mã nguồn, cấu hình môi trường build, biên dịch, cài đặt và đóng gói package.\cite{yocto_new_recipe}
+Trong Yocto Project, Recipe là thành phần trung tâm của hệ thống build và đóng vai trò mô tả toàn bộ quy trình xây dựng một package phần mềm. Recipe thường có phần mở rộng \texttt{.bb} (BitBake Recipe) và được BitBake sử dụng để thực hiện các tác vụ như tải mã nguồn, cấu hình môi trường build, biên dịch, cài đặt và đóng gói package.\cite{yocto_new_recipe} 
 
-Có thể xem recipe như một tập hợp metadata dùng để hướng dẫn BitBake cách xây dựng một thành phần phần mềm cụ thể trong hệ thống Linux Embedded. Thông qua recipe, Yocto Project có khả năng tự động hóa toàn bộ quy trình build và quản lý dependency giữa các package trong hệ thống.
-
-Một recipe thường chứa nhiều biến và task nhằm mô tả thông tin liên quan đến package. Các biến này được sử dụng để khai báo metadata như tên package, phiên bản, license, vị trí source code và phương thức build. Trong khi đó, các task chịu trách nhiệm thực thi từng giai đoạn trong pipeline build của BitBake.
+Có thể xem recipe như một tập hợp metadata dùng để hướng dẫn BitBake cách xây dựng một thành phần phần mềm cụ thể trong hệ thống Linux Embedded. Thông qua recipe, Yocto Project có khả năng tự động hóa toàn bộ quy trình build và quản lý dependency giữa các package trong hệ thống. Một recipe thường chứa nhiều biến và task nhằm mô tả thông tin liên quan đến package. Các biến này được sử dụng để khai báo metadata như tên package, phiên bản, license, vị trí source code và phương thức build. Trong khi đó, các task chịu trách nhiệm thực thi từng giai đoạn trong pipeline build của BitBake. 
 
 Một số biến quan trọng trong recipe được trình bày trong Bảng \ref{tab:recipe_variables}.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|l|}
+
+
+\begin{tabular}{|c|p{9cm}|}
 \hline
 \textbf{Biến} & \textbf{Ý nghĩa} \\ \hline
-SUMMARY & Mô tả package \\ \hline
-LICENSE & Khai báo license \\ \hline
-SRC\_URI & Đường dẫn source code \\ \hline
-S & Thư mục source \\ \hline
-inherit & Kế thừa class \\ \hline
+
+\texttt{SUMMARY} &
+Mô tả ngắn gọn chức năng hoặc mục đích của package. \\ \hline
+
+\texttt{DESCRIPTION} &
+Mô tả chi tiết hơn về package và chức năng của phần mềm. \\ \hline
+
+\texttt{LICENSE} &
+Khai báo license của package nhằm phục vụ quản lý bản quyền phần mềm. \\ \hline
+
+\texttt{SRC\_URI} &
+Khai báo đường dẫn source code hoặc patch được sử dụng trong quá trình build. \\ \hline
+
+\texttt{S} &
+Xác định thư mục chứa source code sau khi giải nén. \\ \hline
+
+\texttt{DEPENDS} &
+Khai báo các package phụ thuộc cần thiết trước khi build package hiện tại. \\ \hline
+
+\texttt{RDEPENDS} &
+Khai báo dependency cần thiết khi package chạy trên hệ thống đích. \\ \hline
+
+\texttt{inherit} &
+Kế thừa các class của Yocto nhằm bổ sung chức năng build cho recipe. \\ \hline
+
+\texttt{do\_compile} &
+Task dùng để biên dịch source code thành binary executable hoặc kernel module. \\ \hline
+
+\texttt{do\_install} &
+Task dùng để cài đặt các file output vào root filesystem tạm thời. \\ \hline
+
 \end{tabular}
 \caption{Các biến cơ bản trong Recipe}
 \label{tab:recipe_variables}
 \end{table}
 
-Biến \texttt{SUMMARY} được sử dụng để mô tả ngắn gọn chức năng của package. Thông tin này giúp người phát triển dễ dàng nhận biết vai trò của package trong hệ thống build.
-
-Biến \texttt{LICENSE} dùng để khai báo giấy phép sử dụng phần mềm. Việc quản lý license là yêu cầu quan trọng trong các hệ thống Linux Embedded nhằm đảm bảo tuân thủ các điều kiện sử dụng phần mềm mã nguồn mở.
-
-Biến \texttt{SRC\_URI} được sử dụng để xác định vị trí source code hoặc các file cần thiết cho quá trình build. Source code có thể được lấy từ nhiều nguồn khác nhau như local file, Git repository, tarball package hoặc remote server.
-
-Biến \texttt{S} xác định thư mục chứa source code sau khi quá trình giải nén hoàn tất. Biến này giúp BitBake xác định chính xác vị trí thực hiện các task biên dịch và cài đặt.
-
-Biến \texttt{inherit} cho phép recipe kế thừa các class build có sẵn trong Yocto Project. Cơ chế kế thừa giúp tái sử dụng các chức năng build phổ biến và giảm sự trùng lặp trong metadata.
-
 Trong quá trình build, BitBake sẽ phân tích dependency giữa các recipe để xác định thứ tự thực thi phù hợp. Nhờ đó, hệ thống có thể tự động build toàn bộ Linux Embedded Image với số lượng package lớn mà vẫn đảm bảo tính nhất quán.
-
-Một đặc điểm quan trọng của recipe là khả năng tái sử dụng và mở rộng thông qua cơ chế append và class inheritance. Người phát triển có thể bổ sung hoặc ghi đè metadata của recipe mà không cần chỉnh sửa trực tiếp file gốc. Điều này giúp quá trình bảo trì hệ thống trở nên dễ dàng hơn, đặc biệt trong các dự án Linux Embedded quy mô lớn.
-
-Ngoài ra, recipe còn đóng vai trò quan trọng trong việc đảm bảo tính tái lập của hệ thống build. Khi toàn bộ metadata và quy trình build được định nghĩa rõ ràng trong recipe, hệ thống có thể được build lại trên nhiều môi trường phát triển khác nhau với kết quả tương đồng.
-
-Nhờ khả năng tự động hóa, quản lý dependency và hỗ trợ tùy biến mạnh mẽ, recipe đã trở thành thành phần cốt lõi trong kiến trúc của Yocto Project và là nền tảng quan trọng trong quá trình phát triển các hệ thống Linux Embedded hiện đại.
 
 \subsection{BitBake Build Engine}
 
@@ -103,8 +88,6 @@ BitBake là build engine trung tâm của Yocto Project, chịu trách nhiệm p
 Trong Yocto Project, mỗi recipe sẽ được BitBake phân tích để xác định các task cần thực hiện cũng như mối quan hệ phụ thuộc giữa các package. Dựa trên dependency graph, BitBake sẽ tự động xác định thứ tự thực thi phù hợp nhằm đảm bảo quá trình build diễn ra chính xác và nhất quán.
 
 Một trong những ưu điểm quan trọng của BitBake là khả năng tự động hóa toàn bộ quá trình build. Thay vì thực hiện thủ công từng bước như tải source code, cấu hình compiler hoặc cài đặt package, BitBake cho phép toàn bộ pipeline build được mô tả thông qua metadata trong recipe. Điều này giúp giảm đáng kể độ phức tạp trong quá trình phát triển hệ thống Linux Embedded.
-
-Trong quá trình build, BitBake sử dụng tập hợp các task để xử lý từng giai đoạn khác nhau. Mỗi task đại diện cho một bước cụ thể trong pipeline build và được thực thi theo trình tự xác định.\cite{yocto_tasks_reference}
 
 Các task chính của BitBake được trình bày trong Bảng \ref{tab:bitbake_tasks}.
 
@@ -124,232 +107,99 @@ do\_package & Đóng gói package \\ \hline
 \label{tab:bitbake_tasks}
 \end{table}
 
-\subsubsection{Task do\_fetch}
+\noindent \textbf{Task do\_fetch}
 
-Task \texttt{do\_fetch} là giai đoạn đầu tiên trong pipeline build của BitBake. Nhiệm vụ chính của task này là tải source code hoặc các tài nguyên cần thiết phục vụ quá trình build package.
+Task \texttt{do\_fetch} là giai đoạn đầu tiên trong pipeline build của BitBake, chịu trách nhiệm tải source code và các tài nguyên cần thiết cho quá trình build. Dữ liệu có thể được lấy từ Git repository, HTTP server, FTP server, local file hoặc tarball package thông qua biến \texttt{SRC\_URI}.
 
-Source code có thể được lấy từ nhiều nguồn khác nhau như Git repository, HTTP server, FTP server, local file hoặc tarball package. BitBake sử dụng thông tin trong biến \texttt{SRC\_URI} để xác định vị trí dữ liệu cần tải.
+\noindent \textbf{Task do\_unpack}
 
-Trong quá trình fetch, BitBake cũng thực hiện kiểm tra checksum nhằm đảm bảo tính toàn vẹn của source code. Điều này giúp hạn chế lỗi build do source code bị thay đổi hoặc hư hỏng trong quá trình tải xuống.
+Sau khi tải source code, BitBake thực hiện task \texttt{do\_unpack} để giải nén và chuẩn bị mã nguồn cho các bước xử lý tiếp theo. Các file như \texttt{.tar.gz}, \texttt{.zip} hoặc source package sẽ được giải nén vào thư mục làm việc của BitBake, đồng thời source code từ Git repository sẽ được checkout vào workspace tương ứng.
 
-Task \texttt{do\_fetch} đóng vai trò quan trọng trong việc đảm bảo khả năng tái lập của hệ thống build. Khi source code được quản lý thông qua metadata, cùng một recipe có thể được sử dụng để build lại package trên nhiều môi trường khác nhau với kết quả tương đồng.
+\noindent \textbf{Task do\_patch}
 
-\subsubsection{Task do\_unpack}
+Task \texttt{do\_patch} được sử dụng để áp dụng patch lên source code sau khi giải nén hoàn tất. Cơ chế này cho phép sửa lỗi phần mềm, tùy biến kernel hoặc driver, bổ sung tính năng mới và tối ưu hệ thống cho phần cứng mục tiêu mà không cần thay đổi trực tiếp source code gốc.
 
-Sau khi source code được tải về, BitBake thực hiện task \texttt{do\_unpack} nhằm giải nén và chuẩn bị mã nguồn cho các bước xử lý tiếp theo.
+\noindent \textbf{Task do\_compile}
 
-Trong giai đoạn này, các file nén như \texttt{.tar.gz}, \texttt{.zip} hoặc package source sẽ được giải nén vào thư mục làm việc của BitBake. Đối với source code được tải từ Git repository, task này sẽ thực hiện checkout source code vào workspace tương ứng.
+Task \texttt{do\_compile} chịu trách nhiệm biên dịch source code thành binary executable cho hệ thống đích. Trong Linux Embedded, quá trình này sử dụng cross-compiler để tạo binary phù hợp với các kiến trúc như ARM, x86 hoặc RISC-V. BitBake sẽ tự động cấu hình compiler, sysroot và môi trường build dựa trên metadata của hệ thống. Task này hỗ trợ build application, library, kernel module và Linux Kernel.
 
-Task \texttt{do\_unpack} giúp chuẩn hóa cấu trúc source code trước khi chuyển sang các bước patch hoặc biên dịch. Điều này đảm bảo các task phía sau luôn làm việc trên một môi trường source code thống nhất.
+\noindent \textbf{Task do\_install}
 
-Ngoài chức năng giải nén, task này còn hỗ trợ quản lý workspace build một cách tự động, giúp người phát triển không cần thao tác thủ công với source code trong quá trình build hệ thống.
+Sau khi biên dịch hoàn tất, BitBake thực hiện task \texttt{do\_install} để cài đặt các file output vào thư mục staging hoặc root filesystem tạm thời. Trong giai đoạn này, các binary, library và configuration file sẽ được sắp xếp theo đúng cấu trúc filesystem của Linux nhằm phục vụ quá trình tạo image hệ thống.
 
-\subsubsection{Task do\_patch}
+\noindent\textbf{Task do\_package}
 
-Task \texttt{do\_patch} được sử dụng để áp dụng các patch lên source code sau khi quá trình giải nén hoàn tất. Đây là bước quan trọng trong việc tùy biến package hoặc sửa lỗi hệ thống mà không cần thay đổi trực tiếp mã nguồn gốc.
-
-Patch thường được sử dụng trong các trường hợp:
-
-\begin{itemize}
-    \item Sửa lỗi phần mềm.
-    \item Tùy biến kernel hoặc driver.
-    \item Bổ sung tính năng mới.
-    \item Tối ưu hệ thống cho phần cứng cụ thể.
-\end{itemize}
-
-Trong quá trình thực thi task \texttt{do\_patch}, BitBake sẽ tự động tìm và áp dụng các file patch được khai báo trong recipe. Nếu patch không thể áp dụng thành công, quá trình build sẽ dừng lại để tránh tạo ra package không nhất quán.
-
-Việc sử dụng task patch giúp duy trì tính nguyên vẹn của source code gốc, đồng thời hỗ trợ quản lý thay đổi phần mềm một cách có hệ thống và dễ bảo trì hơn.
-
-\subsubsection{Task do\_compile}
-
-Task \texttt{do\_compile} chịu trách nhiệm biên dịch source code thành mã máy hoặc binary executable có thể sử dụng trên hệ thống đích.
-
-Trong hệ thống Linux Embedded, quá trình compile thường sử dụng cross-compiler nhằm tạo binary phù hợp với kiến trúc phần cứng mục tiêu như ARM, x86 hoặc RISC-V. BitBake sẽ tự động thiết lập compiler, sysroot và môi trường build dựa trên metadata của hệ thống.
-
-Task \texttt{do\_compile} có thể thực hiện nhiều loại build khác nhau như:
-
-\begin{itemize}
-    \item Build application.
-    \item Build library.
-    \item Build kernel module.
-    \item Build Linux Kernel.
-\end{itemize}
-
-Trong quá trình compile, BitBake cũng quản lý dependency giữa các package nhằm đảm bảo các thư viện hoặc thành phần cần thiết đã được build trước đó.
-
-Đây là một trong những task quan trọng nhất trong pipeline build vì nó quyết định trực tiếp đến khả năng hoạt động của package trên hệ thống đích.
-
-\subsubsection{Task do\_install}
-
-Sau khi quá trình biên dịch hoàn tất, BitBake thực hiện task \texttt{do\_install} để cài đặt các file output vào thư mục staging hoặc root filesystem tạm thời.
-
-Trong giai đoạn này, các binary executable, library, configuration file và resource file sẽ được sắp xếp theo đúng cấu trúc filesystem chuẩn của Linux. Điều này giúp package có thể được tích hợp vào root filesystem của Embedded Linux Image.
-
-Task \texttt{do\_install} đóng vai trò quan trọng trong việc chuẩn hóa cấu trúc package trước khi đóng gói. Nếu quá trình install không đúng cấu trúc, package có thể không hoạt động chính xác trên hệ thống runtime.
-
-Ngoài ra, task này còn hỗ trợ việc tách package thành nhiều thành phần khác nhau như runtime package, development package hoặc debug package nhằm tối ưu quá trình quản lý phần mềm trong Linux Embedded.
-
-\subsubsection{Task do\_package}
-
-Task \texttt{do\_package} là giai đoạn cuối trong pipeline build của BitBake, chịu trách nhiệm đóng gói các file đã được cài đặt thành package có thể triển khai trên hệ thống đích.
-
-BitBake hỗ trợ nhiều định dạng package khác nhau như:
-
-\begin{itemize}
-    \item RPM
-    \item DEB
-    \item IPK
-\end{itemize}
-
-Trong quá trình đóng gói, BitBake sẽ tự động phân tích dependency runtime giữa các package nhằm đảm bảo hệ thống có thể cài đặt và vận hành chính xác.
-
-Task \texttt{do\_package} giúp chuẩn hóa quá trình quản lý phần mềm trong Linux Embedded, đồng thời hỗ trợ cập nhật và bảo trì hệ thống một cách linh hoạt hơn.
-
-Ngoài ra, các package được tạo ra từ task này còn có thể được tái sử dụng trong nhiều image khác nhau mà không cần build lại source code, góp phần tối ưu thời gian build và nâng cao hiệu quả phát triển hệ thống nhúng.
+Task \texttt{do\_package} là giai đoạn cuối trong pipeline build của BitBake, chịu trách nhiệm đóng gói các file đã cài đặt thành package triển khai trên hệ thống đích. BitBake hỗ trợ nhiều định dạng package như \texttt{RPM}, \texttt{DEB} và \texttt{IPK}.
 
 \subsection{Cross-compilation trong Yocto}
 
 Trong các hệ thống Linux Embedded, kiến trúc phần cứng của thiết bị đích thường khác với kiến trúc của máy tính dùng để phát triển phần mềm. Do đó, quá trình biên dịch mã nguồn không thể thực hiện trực tiếp bằng compiler thông thường trên hệ thống host. Để giải quyết vấn đề này, Yocto Project sử dụng cơ chế Cross-compilation nhằm hỗ trợ biên dịch phần mềm cho nhiều nền tảng phần cứng khác nhau.
 
-Cross-compilation là quá trình biên dịch mã nguồn trên một hệ thống máy tính nhưng chương trình được tạo ra sẽ chạy trên một hệ thống khác có kiến trúc phần cứng khác biệt. Trong Linux Embedded, quá trình này thường diễn ra khi source code được build trên máy tính x86 nhưng binary output được thiết kế để chạy trên thiết bị ARM, RISC-V hoặc các nền tảng nhúng chuyên dụng khác.
+Cross-compilation là quá trình biên dịch mã nguồn trên một hệ thống máy tính nhưng chương trình được tạo ra sẽ chạy trên một hệ thống khác có kiến trúc phần cứng khác biệt. Trong Linux Embedded, quá trình này thường diễn ra khi source code được build trên máy tính x86 nhưng binary output được thiết kế để chạy trên thiết bị ARM, RISC-V hoặc các nền tảng nhúng chuyên dụng khác. Cơ chế này đóng vai trò rất quan trọng trong phát triển hệ thống nhúng vì phần lớn thiết bị embedded có tài nguyên hạn chế, không đủ khả năng thực hiện quá trình biên dịch trực tiếp trên thiết bị. Việc build trên máy host giúp tận dụng hiệu năng xử lý cao của máy tính phát triển, từ đó giảm đáng kể thời gian build và tối ưu quy trình phát triển phần mềm.
 
-Cơ chế cross-compilation đóng vai trò rất quan trọng trong phát triển hệ thống nhúng vì phần lớn thiết bị embedded có tài nguyên hạn chế, không đủ khả năng thực hiện quá trình biên dịch trực tiếp trên thiết bị. Việc build trên máy host giúp tận dụng hiệu năng xử lý cao của máy tính phát triển, từ đó giảm đáng kể thời gian build và tối ưu quy trình phát triển phần mềm.
-
-Trong mô hình cross-compilation, hệ thống thường bao gồm ba thành phần chính: Build Machine, Host Machine và Target Machine. Mỗi thành phần đảm nhiệm một vai trò khác nhau trong quá trình xây dựng phần mềm.
-
-Các thành phần trong mô hình cross-compilation được trình bày trong Bảng \ref{tab:cross_compile_model}.
-
+Trong mô hình cross-compilation, hệ thống thường bao gồm ba thành phần chính: Build Machine, Host Machine và Target Machine. Mỗi thành phần đảm nhiệm một vai trò khác nhau trong quá trình xây dựng phần mềm. Các thành phần trong mô hình cross-compilation được trình bày trong Bảng \ref{tab:cross_compile_model}.
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|l|}
+
+
+\begin{tabular}{|c|p{9cm}|}
 \hline
 \textbf{Thành phần} & \textbf{Vai trò} \\ \hline
-Build Machine & Máy thực hiện build \\ \hline
-Host Machine & Máy chạy toolchain \\ \hline
-Target Machine & Thiết bị nhúng đích \\ \hline
+
+Build Machine &
+Hệ thống thực hiện quá trình build package hoặc Embedded Linux Image bằng BitBake và Yocto Project. \\ \hline
+
+Host Machine &
+Môi trường chứa toolchain và compiler phục vụ quá trình cross-compilation cho hệ thống đích. \\ \hline
+
+Target Machine &
+Thiết bị nhúng đích chạy binary sau khi biên dịch như board ARM, gateway IoT hoặc hệ thống Embedded Linux. \\ \hline
+
 \end{tabular}
 \caption{Mô hình Cross-compilation}
 \label{tab:cross_compile_model}
 \end{table}
 
-Build Machine là hệ thống thực hiện toàn bộ quá trình build package hoặc image Linux Embedded. Đây thường là máy tính cá nhân hoặc server phát triển có hiệu năng xử lý cao và chạy hệ điều hành Linux. Build Machine chịu trách nhiệm thực thi BitBake, quản lý metadata và điều phối toàn bộ pipeline build trong Yocto Project.
-
-Host Machine là hệ thống chứa và thực thi toolchain dùng cho quá trình cross-compilation. Trong nhiều trường hợp, Build Machine và Host Machine có thể là cùng một thiết bị vật lý. Tuy nhiên, về mặt kiến trúc logic, Host Machine đại diện cho môi trường chạy compiler và các công cụ build cần thiết để tạo binary cho hệ thống đích.
-
-Target Machine là thiết bị nhúng đích nơi chương trình sau khi biên dịch sẽ được triển khai và thực thi. Đây có thể là board ARM, gateway công nghiệp, hệ thống IoT hoặc các nền tảng embedded chuyên dụng khác. Kiến trúc phần cứng của Target Machine thường khác với kiến trúc của Build Machine, do đó cần sử dụng cross-compiler phù hợp để tạo binary tương thích.
-
-Trong Yocto Project, cross-compilation được quản lý tự động thông qua hệ thống metadata và toolchain. BitBake sẽ tự động lựa chọn compiler, linker và thư viện phù hợp với kiến trúc của target device dựa trên cấu hình machine và distro. Điều này giúp giảm đáng kể độ phức tạp trong quá trình phát triển Linux Embedded.
-
-Một thành phần quan trọng trong cross-compilation là cross-toolchain. Toolchain là tập hợp các công cụ phục vụ quá trình build như compiler, assembler, linker và debugger. Trong hệ thống embedded, toolchain thường được thiết kế riêng cho từng kiến trúc phần cứng nhằm đảm bảo binary output có thể hoạt động chính xác trên thiết bị đích.
-
-Ngoài compiler, Yocto còn sử dụng sysroot để hỗ trợ cross-compilation. Sysroot là môi trường filesystem chứa các header file, library và dependency cần thiết cho quá trình build. Việc sử dụng sysroot giúp compiler truy cập đúng thư viện và tránh xung đột giữa môi trường host và target.
-
-Một ưu điểm quan trọng của cross-compilation trong Yocto là khả năng tự động hóa và tái lập hệ thống build. Khi toàn bộ toolchain và dependency được quản lý thông qua metadata, hệ thống có thể được build lại trên nhiều môi trường khác nhau mà vẫn đảm bảo tính nhất quán của binary output.
-
-Ngoài ra, cơ chế cross-compilation còn giúp tối ưu hiệu năng phát triển phần mềm nhúng. Thay vì biên dịch trực tiếp trên thiết bị embedded có tài nguyên hạn chế, quá trình build được thực hiện trên máy tính hiệu năng cao, từ đó rút ngắn thời gian build và tăng hiệu quả phát triển hệ thống.
-
-Nhờ khả năng hỗ trợ đa kiến trúc phần cứng, tự động quản lý toolchain và tối ưu quy trình build, cross-compilation đã trở thành thành phần cốt lõi trong Yocto Project và đóng vai trò quan trọng trong quá trình phát triển các hệ thống Linux Embedded hiện đại.
-
 \section{Linux Device Driver}
 \subsection{Tổng quan Linux Kernel}
+Linux Kernel là thành phần lõi của hệ điều hành Linux, đóng vai trò trung gian giữa phần cứng và các ứng dụng người dùng. Kernel chịu trách nhiệm quản lý tài nguyên hệ thống, điều phối hoạt động của phần cứng và cung cấp các dịch vụ cơ bản cho chương trình ứng dụng thông qua cơ chế system call.\cite{kernel_org_overview} Hoạt động ở mức đặc quyền cao nhất, kernel có quyền truy cập trực tiếp đến CPU, bộ nhớ, thiết bị ngoại vi và hệ thống lưu trữ, từ đó kiểm soát toàn bộ hoạt động của hệ thống và đảm bảo các tiến trình vận hành ổn định, an toàn và hiệu quả.
 
-Linux Kernel là thành phần lõi của hệ điều hành Linux, đóng vai trò trung gian giữa phần cứng và các ứng dụng người dùng. Kernel chịu trách nhiệm quản lý tài nguyên hệ thống, điều phối hoạt động của phần cứng và cung cấp các dịch vụ cơ bản cho chương trình ứng dụng thông qua cơ chế system call.\cite{kernel_org_overview}
+Linux sử dụng kiến trúc Monolithic Kernel, trong đó các thành phần như driver, memory manager, scheduler và file system được tích hợp trực tiếp trong kernel space, giúp đạt hiệu năng cao nhờ khả năng giao tiếp trực tiếp giữa các thành phần mà không qua nhiều lớp trung gian. Kernel hỗ trợ nhiều loại driver như Character Device Driver, Block Device Driver và Network Device Driver. Nhờ cơ chế module hóa, các driver có thể được nạp hoặc gỡ khỏi kernel trong thời gian chạy mà không cần biên dịch lại toàn bộ hệ điều hành, giúp tăng tính linh hoạt và khả năng mở rộng, đặc biệt trong các hệ thống Linux Embedded.
 
-Trong kiến trúc hệ điều hành Linux, kernel hoạt động ở mức đặc quyền cao nhất của hệ thống và có quyền truy cập trực tiếp đến tài nguyên phần cứng như CPU, bộ nhớ, thiết bị ngoại vi và hệ thống lưu trữ. Nhờ đó, kernel có thể kiểm soát toàn bộ hoạt động của hệ thống và đảm bảo các tiến trình hoạt động ổn định, an toàn và hiệu quả.
-
-Linux sử dụng kiến trúc Monolithic Kernel, trong đó nhiều thành phần như driver, memory manager, scheduler và file system được tích hợp trực tiếp trong không gian kernel space. Kiến trúc này giúp Linux đạt hiệu năng cao do các thành phần hệ thống có thể giao tiếp trực tiếp với nhau mà không cần thông qua nhiều lớp trung gian.
-
-Một trong những vai trò quan trọng nhất của Linux Kernel là quản lý tiến trình (Process Management). Kernel chịu trách nhiệm tạo, lập lịch và hủy tiến trình trong hệ thống. Thông qua bộ lập lịch (Scheduler), kernel quyết định tiến trình nào sẽ được cấp phát CPU tại từng thời điểm nhằm tối ưu hiệu năng xử lý và đảm bảo tính công bằng giữa các tiến trình.
-
-Trong môi trường đa nhiệm, nhiều tiến trình có thể hoạt động đồng thời trên hệ thống. Kernel sử dụng cơ chế context switching để chuyển đổi CPU giữa các tiến trình khác nhau một cách nhanh chóng. Điều này giúp hệ điều hành có khả năng thực thi nhiều tác vụ đồng thời mà vẫn đảm bảo tính ổn định và hiệu quả sử dụng tài nguyên.
-
-Ngoài quản lý tiến trình, Linux Kernel còn chịu trách nhiệm quản lý bộ nhớ (Memory Management). Chức năng này bao gồm cấp phát, thu hồi và bảo vệ vùng nhớ cho các tiến trình trong hệ thống. Kernel sử dụng cơ chế Virtual Memory nhằm tạo không gian địa chỉ độc lập cho từng tiến trình, giúp hạn chế xung đột dữ liệu và tăng tính bảo mật của hệ thống.
-
-Linux Kernel cũng hỗ trợ cơ chế phân trang (Paging) và swapping để tối ưu việc sử dụng RAM. Khi bộ nhớ vật lý không đủ, kernel có thể tạm thời chuyển dữ liệu ít sử dụng sang bộ nhớ lưu trữ thứ cấp nhằm giải phóng RAM cho các tiến trình đang hoạt động. Điều này giúp hệ thống duy trì khả năng hoạt động ổn định ngay cả khi tài nguyên bộ nhớ hạn chế.
-
-Một chức năng quan trọng khác của Linux Kernel là quản lý thiết bị (Device Management). Kernel sử dụng hệ thống Device Driver để giao tiếp với phần cứng như UART, SPI, I2C, Ethernet, GPIO hoặc thiết bị lưu trữ. Device Driver đóng vai trò trung gian giữa phần cứng và hệ điều hành, cho phép ứng dụng người dùng truy cập thiết bị thông qua giao diện chuẩn của Linux.
-
-Linux Kernel hỗ trợ nhiều loại driver khác nhau như Character Device Driver, Block Device Driver và Network Device Driver. Nhờ cơ chế module hóa, các driver có thể được nạp hoặc gỡ khỏi kernel trong thời gian chạy mà không cần biên dịch lại toàn bộ hệ điều hành. Điều này giúp tăng tính linh hoạt và khả năng mở rộng của hệ thống Linux Embedded.
-
-Bên cạnh đó, Linux Kernel còn chịu trách nhiệm quản lý hệ thống tập tin (File System Management). Kernel cung cấp giao diện thống nhất để truy cập dữ liệu lưu trữ trên nhiều loại thiết bị khác nhau như HDD, SSD, eMMC hoặc thẻ nhớ SD.
-
-Linux hỗ trợ nhiều định dạng filesystem như:
-
-\begin{itemize}
-    \item EXT4
-    \item FAT32
-    \item NTFS
-    \item SquashFS
-    \item JFFS2
-\end{itemize}
-
-Kernel quản lý việc đọc, ghi và tổ chức dữ liệu trên thiết bị lưu trữ nhằm đảm bảo tính toàn vẹn và hiệu quả truy xuất dữ liệu. Trong các hệ thống Linux Embedded, việc lựa chọn filesystem phù hợp đóng vai trò quan trọng trong việc tối ưu tốc độ boot, độ bền bộ nhớ flash và hiệu năng hệ thống.
-
-Ngoài các chức năng chính trên, Linux Kernel còn hỗ trợ nhiều cơ chế khác như quản lý mạng, bảo mật hệ thống, đồng bộ tiến trình và giao tiếp liên tiến trình (IPC). Các thành phần này phối hợp với nhau nhằm tạo nên nền tảng hệ điều hành ổn định và có khả năng mở rộng cao.
-
-Trong lĩnh vực hệ thống nhúng và tự động hóa công nghiệp, Linux Kernel được sử dụng rộng rãi nhờ khả năng hỗ trợ đa kiến trúc phần cứng, hiệu năng cao và hệ sinh thái driver phong phú. Đây là nền tảng quan trọng cho nhiều thiết bị embedded hiện đại như gateway công nghiệp, hệ thống IoT, bộ điều khiển tự động hóa và các nền tảng Edge Computing.
-
-
+Ngoài ra, Linux Kernel còn đảm nhận việc quản lý hệ thống tập tin, cung cấp giao diện thống nhất để truy cập dữ liệu trên nhiều loại thiết bị lưu trữ như HDD, SSD, eMMC hay thẻ nhớ SD. Linux hỗ trợ nhiều định dạng filesystem khác nhau như \texttt{EXT4}, \texttt{FAT32}, \texttt{NTFS}, \texttt{SquashFS} và \texttt{JFFS2}, phù hợp cho cả hệ thống máy tính thông thường lẫn Linux Embedded. Kernel kiểm soát việc đọc, ghi và tổ chức dữ liệu trên thiết bị lưu trữ nhằm đảm bảo tính toàn vẹn và hiệu quả truy xuất; trong các hệ thống nhúng, việc lựa chọn filesystem phù hợp đóng vai trò quan trọng trong việc tối ưu tốc độ boot, độ bền bộ nhớ flash và hiệu năng tổng thể của hệ thống.
 \subsection{Linux Device Driver}
 
-Trong hệ điều hành Linux, Device Driver là thành phần phần mềm đóng vai trò trung gian giữa Linux Kernel và phần cứng hệ thống. Driver cho phép kernel giao tiếp và điều khiển các thiết bị ngoại vi thông qua giao diện chuẩn của hệ điều hành. Có thể xem Device Driver như một lớp trừu tượng giúp ứng dụng người dùng truy cập phần cứng mà không cần thao tác trực tiếp lên thanh ghi hoặc tín hiệu vật lý của thiết bị.\cite{linux_device_drivers}
+Trong hệ điều hành Linux, Device Driver là thành phần phần mềm đóng vai trò trung gian giữa Linux Kernel và phần cứng hệ thống, cho phép kernel giao tiếp và điều khiển các thiết bị ngoại vi thông qua giao diện chuẩn của hệ điều hành.\cite{linux_device_drivers} Có thể xem Device Driver như một lớp trừu tượng giúp ứng dụng người dùng truy cập phần cứng mà không cần thao tác trực tiếp lên thanh ghi hoặc tín hiệu vật lý của thiết bị. Trong Linux, mỗi thiết bị phần cứng thường được biểu diễn dưới dạng file thiết bị trong thư mục \texttt{/dev}; khi ứng dụng thực hiện thao tác đọc hoặc ghi, yêu cầu sẽ được chuyển đến driver tương ứng trong kernel space để xử lý, qua đó chuẩn hóa phương thức giao tiếp với phần cứng và tăng tính độc lập giữa application và hardware platform.
 
-Trong Linux, mỗi thiết bị phần cứng thường được biểu diễn dưới dạng file thiết bị trong thư mục \texttt{/dev}. Khi ứng dụng người dùng thực hiện thao tác đọc hoặc ghi dữ liệu lên file thiết bị, yêu cầu sẽ được chuyển đến driver tương ứng trong kernel space để xử lý. Cơ chế này giúp chuẩn hóa phương thức giao tiếp với phần cứng và tăng tính độc lập giữa application và hardware platform.
-
-Linux Device Driver chịu trách nhiệm thực hiện nhiều chức năng quan trọng như:
-
-\begin{itemize}
-    \item Khởi tạo thiết bị phần cứng.
-    \item Cấu hình thanh ghi điều khiển.
-    \item Truyền và nhận dữ liệu.
-    \item Quản lý interrupt.
-    \item Đồng bộ truy cập thiết bị.
-    \item Cung cấp giao diện cho user space.
-\end{itemize}
-
-Thông qua driver, Linux Kernel có thể quản lý nhiều loại thiết bị phần cứng khác nhau mà không cần ứng dụng người dùng hiểu chi tiết cấu trúc bên trong của thiết bị. Điều này giúp tăng tính linh hoạt và khả năng mở rộng của hệ điều hành.
-
-Trong Linux, Device Driver thường được chia thành ba nhóm chính gồm Character Device Driver, Block Device Driver và Network Device Driver. Mỗi loại driver được thiết kế để phục vụ một kiểu giao tiếp phần cứng khác nhau.
-
-Các loại Linux Device Driver phổ biến được trình bày trong Bảng \ref{tab:linux_driver_types}.
+Linux Device Driver chịu trách nhiệm khởi tạo thiết bị phần cứng, cấu hình thanh ghi điều khiển, truyền và nhận dữ liệu, quản lý interrupt, đồng bộ truy cập thiết bị và cung cấp giao diện giao tiếp giữa kernel space với user space. Thông qua driver, Linux Kernel có thể quản lý nhiều loại thiết bị phần cứng khác nhau mà không cần ứng dụng người dùng hiểu chi tiết cấu trúc bên trong của thiết bị, từ đó tăng tính linh hoạt và khả năng mở rộng của hệ điều hành. Trong Linux, Device Driver thường được chia thành ba nhóm chính gồm Character Device Driver, Block Device Driver và Network Device Driver, mỗi loại được thiết kế để phục vụ một kiểu giao tiếp phần cứng khác nhau, như được trình bày trong Bảng~\ref{tab:linux_driver_types}.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|c|}
+
+\begin{tabular}{|c|c|p{7cm}|}
 \hline
-\textbf{Loại Driver} & \textbf{Ví dụ} \\ \hline
-Character Device & UART \\ \hline
-Block Device & SSD \\ \hline
-Network Device & Ethernet \\ \hline
+\textbf{Loại Driver} & \textbf{Ví dụ} & \textbf{Đặc điểm} \\ \hline
+
+Character Device &
+UART &
+Truyền dữ liệu theo từng byte, hỗ trợ các system call như \texttt{open()}, \texttt{read()}, \texttt{write()} và \texttt{ioctl()}. \\ \hline
+
+Block Device &
+SSD &
+Truy cập dữ liệu theo block cố định và hỗ trợ truy cập ngẫu nhiên trên thiết bị lưu trữ. \\ \hline
+
+Network Device &
+Ethernet &
+Phục vụ giao tiếp mạng và truyền nhận packet thông qua network stack của Linux Kernel. \\ \hline
+
 \end{tabular}
 \caption{Các loại Linux Device Driver}
 \label{tab:linux_driver_types}
 \end{table}
 
-Character Device Driver là loại driver cho phép truyền dữ liệu theo từng byte hoặc từng ký tự liên tiếp. Các thiết bị như UART, GPIO, I2C hoặc SPI thường sử dụng mô hình character device. Trong Linux, Character Device Driver thường hỗ trợ các system call như \texttt{open()}, \texttt{read()}, \texttt{write()} và \texttt{ioctl()} nhằm cho phép ứng dụng user space giao tiếp với phần cứng.
-
-Đặc điểm của Character Device là dữ liệu được xử lý tuần tự và không hỗ trợ truy cập ngẫu nhiên theo block. Đây là loại driver phổ biến trong các hệ thống Linux Embedded do nhiều peripheral hoạt động theo cơ chế truyền dữ liệu nối tiếp.
-
-Block Device Driver là loại driver được sử dụng cho các thiết bị lưu trữ như HDD, SSD hoặc thẻ nhớ SD. Khác với Character Device, Block Device hỗ trợ truy cập dữ liệu theo block cố định và cho phép truy cập ngẫu nhiên đến vị trí dữ liệu trên thiết bị lưu trữ.
-
-Linux Kernel sử dụng Block Device Driver kết hợp với filesystem nhằm quản lý dữ liệu trên thiết bị lưu trữ một cách hiệu quả. Các block device thường được tối ưu cho tốc độ truy xuất dữ liệu và khả năng quản lý bộ nhớ đệm (buffer cache).
-
-Network Device Driver là loại driver phục vụ giao tiếp mạng trong Linux. Các thiết bị như Ethernet Controller hoặc Wireless Adapter sử dụng loại driver này để truyền và nhận packet dữ liệu thông qua network stack của kernel.
-
-Network Driver có nhiệm vụ xử lý packet, quản lý buffer truyền nhận dữ liệu và phối hợp với giao thức mạng trong Linux Kernel như TCP/IP hoặc UDP. Đây là thành phần quan trọng trong các hệ thống nhúng có chức năng kết nối mạng hoặc truyền thông công nghiệp.
-
-Trong Linux Embedded, Device Driver thường được phát triển dưới dạng Kernel Module nhằm tăng tính linh hoạt cho hệ thống. Kernel Module có thể được nạp hoặc gỡ khỏi kernel trong thời gian chạy mà không cần biên dịch lại toàn bộ Linux Kernel. Điều này giúp quá trình phát triển và bảo trì driver trở nên thuận tiện hơn.
-
-Ngoài ra, Linux còn hỗ trợ cơ chế Device Tree nhằm mô tả phần cứng và liên kết driver với thiết bị tương ứng trong hệ thống nhúng. Khi kernel khởi động, Device Tree sẽ cung cấp thông tin phần cứng để kernel tự động khởi tạo và nạp driver phù hợp.
-
 \subsection{Device Tree}
 
 Trong các hệ thống Linux Embedded hiện đại, Device Tree là cơ chế được sử dụng để mô tả cấu trúc phần cứng của hệ thống một cách độc lập với Linux Kernel. Device Tree cho phép kernel nhận biết và cấu hình các thiết bị phần cứng mà không cần chỉnh sửa trực tiếp mã nguồn kernel. Đây là thành phần quan trọng trong các nền tảng nhúng sử dụng kiến trúc ARM, RISC-V và nhiều hệ thống SoC hiện đại khác. \cite{kernel_device_tree}
-
-Trước khi Device Tree được sử dụng rộng rãi, thông tin phần cứng thường được hard-code trực tiếp trong Linux Kernel. Cách tiếp cận này làm tăng độ phức tạp của kernel và gây khó khăn trong việc hỗ trợ nhiều nền tảng phần cứng khác nhau. Khi mỗi board phần cứng yêu cầu chỉnh sửa mã nguồn kernel riêng biệt, quá trình bảo trì và nâng cấp hệ thống trở nên phức tạp và khó mở rộng.
-
-Để giải quyết vấn đề này, Linux giới thiệu cơ chế Device Tree nhằm tách biệt thông tin phần cứng ra khỏi kernel source code. Nhờ đó, cùng một Linux Kernel có thể hoạt động trên nhiều nền tảng phần cứng khác nhau chỉ bằng cách thay đổi Device Tree tương ứng. 
 
 Device Tree mô tả phần cứng dưới dạng cấu trúc cây (Tree Structure). Mỗi node trong cây đại diện cho một thành phần phần cứng như CPU, bộ nhớ, UART, SPI, I2C, GPIO hoặc các thiết bị ngoại vi khác. Các node này chứa thông tin cấu hình cần thiết để kernel và driver có thể giao tiếp với phần cứng.
 
@@ -357,33 +207,48 @@ Thông thường, Device Tree được viết dưới dạng file \texttt{.dts} 
 
 Quá trình hoạt động của Device Tree được mô tả như sau:
 
-\[
-\begin{array}{c}
-\text{Bootloader} \\
-\downarrow \\
-\text{Device Tree Blob (.dtb)} \\
-\downarrow \\
-\text{Linux Kernel} \\
-\downarrow \\
-\text{Device Driver} \\
-\downarrow \\
-\text{Hardware}
-\end{array}
-\]
+\begin{flushleft}
+\small
+Bootloader $\rightarrow$ Device Tree Blob (.dtb) $\rightarrow$ Linux Kernel
+
+$\rightarrow$ Device Driver $\rightarrow$ Hardware
+\end{flushleft}
 
 Trong quá trình khởi động hệ thống, bootloader sẽ nạp Linux Kernel cùng với file Device Tree Blob vào bộ nhớ. Kernel sau đó phân tích Device Tree để xác định cấu hình phần cứng của hệ thống và tự động khởi tạo các driver tương ứng.
 
 Một Device Tree thường bao gồm các thông tin như:
+\begin{table}[H]
+\centering
 
-\begin{itemize}
-    \item Kiến trúc CPU.
-    \item Dung lượng bộ nhớ RAM.
-    \item Địa chỉ thanh ghi phần cứng.
-    \item Cấu hình GPIO.
-    \item Thông số UART, SPI, I2C.
-    \item Interrupt Request (IRQ).
-    \item Clock và Power Management.
-\end{itemize}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Thành phần} & \textbf{Mô tả} \\ \hline
+
+CPU Architecture &
+Kiến trúc bộ xử lý của hệ thống \\ \hline
+
+RAM &
+Dung lượng bộ nhớ RAM \\ \hline
+
+Register Address &
+Địa chỉ thanh ghi phần cứng \\ \hline
+
+GPIO Configuration &
+Cấu hình chân GPIO \\ \hline
+
+UART/SPI/I2C &
+Thông số các giao tiếp ngoại vi \\ \hline
+
+IRQ &
+Thông tin Interrupt Request \\ \hline
+
+Clock \& Power &
+Quản lý xung nhịp và nguồn \\ \hline
+
+\end{tabular}
+\caption{Các thông tin trong Device Tree}
+\label{tab:device_tree_info}
+\end{table}
 
 Ví dụ cấu hình UART trong Device Tree:
 
@@ -396,10 +261,6 @@ uart0 {
 
 Trong ví dụ trên, node \texttt{uart0} đại diện cho bộ điều khiển UART của hệ thống. Thuộc tính \texttt{status = "okay"} cho biết thiết bị được kích hoạt, trong khi \texttt{current-speed} xác định tốc độ baudrate sử dụng cho giao tiếp UART.
 
-Một ưu điểm quan trọng của Device Tree là khả năng tách biệt phần cứng và phần mềm. Linux Kernel và driver không cần phụ thuộc trực tiếp vào cấu trúc phần cứng cụ thể của từng board. Điều này giúp tăng khả năng tái sử dụng kernel và giảm khối lượng mã nguồn cần bảo trì.
-
-Ngoài ra, Device Tree còn hỗ trợ khả năng mở rộng hệ thống nhúng. Khi cần bổ sung thiết bị phần cứng mới, người phát triển chỉ cần cập nhật Device Tree mà không cần chỉnh sửa sâu vào Linux Kernel. Điều này giúp rút ngắn thời gian phát triển và tăng tính linh hoạt trong quá trình tích hợp phần cứng.
-
 Trong Linux Embedded, Device Tree thường được sử dụng kết hợp với Device Driver thông qua cơ chế compatible string. Mỗi node phần cứng sẽ khai báo thuộc tính \texttt{compatible} để kernel xác định driver phù hợp cho thiết bị.
 
 Ví dụ:
@@ -410,8 +271,6 @@ compatible = "vendor,uart-device";
 
 Khi kernel khởi động, hệ thống driver model của Linux sẽ tìm driver có compatible string tương ứng và tự động bind driver với thiết bị phần cứng.
 
-Device Tree đặc biệt quan trọng trong các hệ thống SoC hiện đại vì số lượng peripheral và cấu hình phần cứng thường rất lớn. Việc mô tả phần cứng bằng Device Tree giúp Linux Kernel duy trì kiến trúc gọn gàng, tăng khả năng hỗ trợ đa nền tảng và đơn giản hóa quá trình phát triển hệ thống nhúng.
-
 Trong Yocto Project, Device Tree thường được build cùng với Linux Kernel và được tích hợp trực tiếp vào Embedded Linux Image. Nhờ đó, hệ thống Linux nhúng có thể khởi động và nhận diện phần cứng một cách tự động trên nền tảng target device.
 
 \subsection{Kernel Module}
@@ -420,56 +279,30 @@ Trong Linux Kernel, Kernel Module là thành phần phần mềm có thể đư�
 
 Kernel Module thường được sử dụng để triển khai các thành phần như Device Driver, File System, Network Protocol hoặc các chức năng mở rộng của kernel. Thay vì tích hợp toàn bộ chức năng trực tiếp vào Linux Kernel, các module có thể được quản lý độc lập và chỉ nạp vào hệ thống khi cần thiết. Điều này giúp giảm kích thước kernel và tối ưu tài nguyên hệ thống.
 
-Trong Linux, kernel module sau khi biên dịch thường có phần mở rộng \texttt{.ko} (Kernel Object). File module chứa mã máy có thể được Linux Kernel nạp động vào kernel space trong quá trình runtime.
+Trong Linux, kernel module sau khi biên dịch thường có phần mở rộng \texttt{.ko} (Kernel Object). File module chứa mã máy có thể được Linux Kernel nạp động vào kernel space trong quá trình runtime. Linux cung cấp nhiều công cụ để quản lý kernel module trong hệ thống như \texttt{insmod}, \texttt{rmmod}, \texttt{modprobe} và \texttt{lsmod}.
 
-Một ưu điểm quan trọng của Kernel Module là khả năng phát triển và kiểm thử driver mà không cần build lại toàn bộ Linux Kernel. Điều này giúp rút ngắn đáng kể thời gian phát triển hệ thống nhúng, đặc biệt đối với các dự án cần thường xuyên cập nhật hoặc tùy chỉnh driver phần cứng.
+\begin{itemize}
+    \item \texttt{insmod}: Nạp kernel module vào Linux Kernel.
+    
+    \item \texttt{rmmod}: Gỡ kernel module khỏi hệ thống.
+    
+    \item \texttt{modprobe}: Nạp module và tự động xử lý dependency liên quan.
+    
+    \item \texttt{lsmod}: Hiển thị danh sách các kernel module đang hoạt động.
+\end{itemize}
 
-Ngoài ra, cơ chế module hóa còn giúp tăng khả năng bảo trì và mở rộng hệ thống. Các chức năng mới có thể được bổ sung thông qua việc nạp module tương ứng mà không ảnh hưởng đến các thành phần khác của kernel.
-
-Linux cung cấp nhiều công cụ để quản lý kernel module trong hệ thống. Các lệnh phổ biến được trình bày như sau:
-
-\begin{verbatim}
-insmod
-rmmod
-modprobe
-lsmod
-\end{verbatim}
-
-Lệnh \texttt{insmod} được sử dụng để nạp kernel module vào Linux Kernel. Khi module được nạp thành công, kernel sẽ thực thi các hàm khởi tạo và đăng ký chức năng của module với hệ thống.
-
-Lệnh \texttt{rmmod} được sử dụng để gỡ module khỏi kernel. Khi module bị gỡ bỏ, kernel sẽ giải phóng tài nguyên liên quan và thực thi các hàm cleanup của module.
-
-Lệnh \texttt{modprobe} là phiên bản nâng cao của \texttt{insmod}. Công cụ này hỗ trợ tự động kiểm tra và nạp các dependency cần thiết trước khi module chính được load vào hệ thống.
-
-Lệnh \texttt{lsmod} được sử dụng để hiển thị danh sách các kernel module đang hoạt động trong hệ thống Linux. Thông tin hiển thị thường bao gồm tên module, dung lượng bộ nhớ sử dụng và số lượng tiến trình đang sử dụng module đó.
-
-Trong Linux Kernel, mỗi module thường bao gồm hai thành phần chính là hàm khởi tạo và hàm giải phóng tài nguyên. Cấu trúc cơ bản của kernel module được mô tả như sau:
-
-\begin{verbatim}
-module_init()
-module_exit()
-\end{verbatim}
-
-Trong đó:
+Và trong kernel, mỗi module thường bao gồm hai thành phần chính là hàm khởi tạo và hàm giải phóng tài nguyên. Cấu trúc cơ bản của kernel module được mô tả như sau:
 
 \begin{itemize}
     \item \texttt{module\_init()} được gọi khi nạp module.
     \item \texttt{module\_exit()} được gọi khi gỡ module.
 \end{itemize}
 
-Hàm \texttt{module\_init()} được sử dụng để thực hiện các thao tác khởi tạo khi module được load vào kernel. Các công việc phổ biến trong hàm này bao gồm đăng ký device driver, cấp phát bộ nhớ, khởi tạo hardware hoặc thiết lập interrupt handler.
+Hàm \texttt{module\_init()} được sử dụng để thực hiện các thao tác khởi tạo khi module được load vào kernel. Các công việc phổ biến trong hàm này bao gồm đăng ký device driver, cấp phát bộ nhớ, khởi tạo hardware hoặc thiết lập interrupt handler. Ngược lại, hàm \texttt{module\_exit()} chịu trách nhiệm giải phóng tài nguyên khi module bị gỡ khỏi hệ thống. Điều này bao gồm giải phóng bộ nhớ, unregister driver hoặc đóng các kết nối phần cứng liên quan.
 
-Ngược lại, hàm \texttt{module\_exit()} chịu trách nhiệm giải phóng tài nguyên khi module bị gỡ khỏi hệ thống. Điều này bao gồm giải phóng bộ nhớ, unregister driver hoặc đóng các kết nối phần cứng liên quan.
+Một kernel module thông thường còn bao gồm nhiều thành phần metadata khác nhằm cung cấp thông tin cho Linux Kernel như tên tác giả module, license sử dụng, phiên bản module và mô tả chức năng của module.
 
-Một kernel module thông thường còn bao gồm nhiều thành phần metadata khác nhằm cung cấp thông tin cho Linux Kernel như:
-
-\begin{itemize}
-    \item Tên tác giả module.
-    \item License sử dụng.
-    \item Phiên bản module.
-    \item Mô tả chức năng module.
-\end{itemize}
-
+\newpage
 Ví dụ:
 
 \begin{verbatim}
@@ -479,12 +312,6 @@ MODULE_DESCRIPTION("Linux Kernel Module");
 \end{verbatim}
 
 Các metadata này giúp kernel quản lý module và kiểm tra tính tương thích giữa module với phiên bản Linux Kernel đang sử dụng.
-
-Trong Linux Embedded, kernel module thường được sử dụng để triển khai Device Driver cho các peripheral như UART, GPIO, SPI, I2C hoặc Ethernet. Việc phát triển driver dưới dạng module giúp hệ thống linh hoạt hơn trong quá trình debug và nâng cấp phần mềm.
-
-Ngoài ra, Linux Kernel còn hỗ trợ cơ chế tự động nạp module thông qua \texttt{udev} hoặc \texttt{modprobe}. Khi hệ thống phát hiện phần cứng tương ứng, kernel sẽ tự động load driver cần thiết mà không yêu cầu thao tác thủ công từ người dùng.
-
-Trong các hệ thống nhúng và tự động hóa công nghiệp, Kernel Module đóng vai trò quan trọng trong việc xây dựng kiến trúc phần mềm linh hoạt, dễ bảo trì và có khả năng mở rộng cao. Đây là nền tảng quan trọng cho việc phát triển driver và các chức năng hệ thống trong Linux Embedded hiện đại.
 
 \subsection{Cơ chế tự động nạp module}
 
@@ -502,60 +329,14 @@ Biến \texttt{KERNEL\_MODULE\_AUTOLOAD} được sử dụng để chỉ địn
 
 Cơ chế hoạt động của quá trình tự động nạp module có thể được mô tả như sau:
 
-\[
-\begin{array}{c}
-\text{Bootloader} \\
-\downarrow \\
-\text{Linux Kernel Boot} \\
-\downarrow \\
-\text{Root Filesystem Initialization} \\
-\downarrow \\
-\text{Load Kernel Module} \\
-\downarrow \\
-\text{Driver Ready}
-\end{array}
-\]
+\begin{flushleft}
+\small
+Bootloader $\rightarrow$ Linux Kernel Boot $\rightarrow$ Root Filesystem Initialization $\rightarrow$ Load Kernel Module $\rightarrow$ Driver Ready
+\end{flushleft}
 
 Trong quá trình khởi động hệ thống, Linux Kernel trước tiên sẽ khởi tạo các thành phần cơ bản như memory manager, scheduler và filesystem. Sau khi root filesystem được mount hoàn tất, hệ thống init sẽ thực hiện quá trình load các kernel module được cấu hình tự động.
 
 Các module thường được nạp thông qua công cụ \texttt{modprobe}. Công cụ này không chỉ load module chính mà còn tự động kiểm tra và nạp các dependency cần thiết trước khi module hoạt động. Điều này giúp đảm bảo driver được khởi tạo đầy đủ và ổn định trong hệ thống.
-
-Trong Linux Embedded, cơ chế tự động nạp module đặc biệt quan trọng đối với các driver phần cứng như:
-
-\begin{itemize}
-    \item UART Driver.
-    \item SPI Driver.
-    \item I2C Driver.
-    \item Ethernet Driver.
-    \item GPIO Driver.
-    \item USB Driver.
-\end{itemize}
-
-Nếu các driver này không được load đúng thời điểm trong quá trình boot, hệ thống có thể không nhận diện được peripheral hoặc không thể giao tiếp với phần cứng.
-
-Một ưu điểm quan trọng của cơ chế tự động nạp module là tăng tính tự động hóa và giảm thao tác cấu hình thủ công sau khi triển khai hệ thống. Điều này đặc biệt cần thiết trong các hệ thống nhúng công nghiệp hoặc thiết bị IoT, nơi hệ thống cần khởi động và hoạt động ổn định mà không có sự can thiệp của người dùng.
-
-Ngoài ra, việc quản lý module thông qua metadata của Yocto giúp đảm bảo tính tái lập của hệ thống build. Khi recipe được sử dụng lại trên nhiều môi trường hoặc nhiều thiết bị khác nhau, cấu hình auto-load module vẫn được giữ nguyên và hoạt động đồng nhất.
-
-Trong Linux Kernel, các module được tự động load thường được lưu tại thư mục:
-
-\begin{verbatim}
-/lib/modules/<kernel-version>/
-\end{verbatim}
-
-Hệ thống sẽ sử dụng các file cấu hình module để xác định module cần nạp trong quá trình boot. Yocto tự động tạo các cấu hình này dựa trên biến \texttt{KERNEL\_MODULE\_AUTOLOAD} trong recipe của package.
-
-Ngoài phương pháp cấu hình trong Yocto, Linux còn hỗ trợ nhiều cơ chế tự động nạp module khác như:
-
-\begin{itemize}
-    \item Udev.
-    \item Systemd Module Loader.
-    \item Init Script.
-\end{itemize}
-
-Tuy nhiên, trong các hệ thống Linux Embedded sử dụng Yocto Project, việc quản lý auto-load module thông qua recipe được xem là phương pháp tối ưu vì toàn bộ cấu hình được tích hợp trực tiếp vào pipeline build của hệ thống.
-
-Cơ chế tự động nạp module giúp đảm bảo driver phần cứng luôn sẵn sàng sau khi hệ thống khởi động. Điều này góp phần tăng độ ổn định, giảm thời gian cấu hình và nâng cao khả năng triển khai thực tế của hệ thống Linux Embedded.
 
 \subsection{Xây dựng và tích hợp Driver trong Yocto}
 
@@ -563,65 +344,33 @@ Trong Yocto Project, quá trình xây dựng hệ thống Linux Embedded đượ
 
 Quy trình build tổng quát trong Yocto được mô tả như sau:
 
-\[
-\begin{array}{c}
-\text{Source Code} \\
-\downarrow \\
-\text{Recipe (.bb)} \\
-\downarrow \\
-\text{BitBake} \\
-\downarrow \\
-\text{Cross Compilation} \\
-\downarrow \\
-\text{Kernel Module (.ko)} \\
-\downarrow \\
-\text{Root Filesystem} \\
-\downarrow \\
-\text{Embedded Linux Image}
-\end{array}
-\]
+\begin{flushleft}
+\small
+Source Code $\rightarrow$ Recipe (.bb) $\rightarrow$ BitBake $\rightarrow$ Cross Compilation $\rightarrow$ Kernel Module (.ko) $\rightarrow$ Root Filesystem $\rightarrow$ Embedded Linux Image
+\end{flushleft}
 
 Trong quy trình này, source code và metadata của driver được định nghĩa thông qua recipe BitBake. BitBake sau đó phân tích dependency và thực hiện pipeline build bao gồm các giai đoạn fetch, configure, compile, install và package nhằm tạo ra kernel module tương ứng.
 
 Pipeline build của Yocto có thể được mô tả như sau:
 
-\[
-\begin{array}{c}
-\text{Fetch} \\
-\downarrow \\
-\text{Configure} \\
-\downarrow \\
-\text{Compile} \\
-\downarrow \\
-\text{Install} \\
-\downarrow \\
-\text{Package} \\
-\downarrow \\
-\text{RootFS} \\
-\downarrow \\
-\text{Image}
-\end{array}
-\]
+\begin{flushleft}
+\small
+Fetch $\rightarrow$ Configure $\rightarrow$ Compile $\rightarrow$ Install $\rightarrow$ Package $\rightarrow$ RootFS $\rightarrow$ Image
+\end{flushleft}
 
-Trong đó, BitBake sẽ tự động tải source code, cấu hình môi trường cross-compilation, biên dịch kernel module và tích hợp package vào root filesystem của Embedded Linux Image.
-
-Để BitBake có thể nhận diện recipe và metadata của driver, layer tùy chỉnh cần được tích hợp vào môi trường build bằng lệnh:
+Trong đó, BitBake sẽ tự động tải source code, cấu hình môi trường cross-compilation, biên dịch kernel module và tích hợp package vào root filesystem của Embedded Linux Image. Để BitBake có thể nhận diện recipe và metadata của driver, layer tùy chỉnh cần được tích hợp vào môi trường build bằng lệnh:
 
 \begin{verbatim}
 bitbake-layers add-layer ../meta-my-driver
 \end{verbatim}
 
-Sau khi layer được thêm vào hệ thống, các recipe trong layer sẽ được BitBake phân tích và đưa vào dependency graph của quá trình build.
-
-Driver được tích hợp vào Embedded Linux Image thông qua biến:
+Sau khi layer được thêm vào hệ thống, các recipe trong layer sẽ được BitBake phân tích và đưa vào dependency graph của quá trình build. Driver được tích hợp vào Embedded Linux Image thông qua biến:
 
 \begin{verbatim}
 IMAGE_INSTALL:append = " my-driver"
 \end{verbatim}
 
-Biến này cho phép package của driver được tự động đưa vào root filesystem trong quá trình build image. Nhờ đó, hệ thống Linux Embedded sau khi boot sẽ có đầy đủ module và các thành phần cần thiết phục vụ quá trình runtime.
-
-Sau khi hệ thống khởi động, kernel module có thể được kiểm tra thông qua các lệnh quản lý module của Linux. Một số lệnh phổ biến được trình bày trong Bảng \ref{tab:runtime_verify_commands}.
+Biến này cho phép package của driver được tự động đưa vào root filesystem trong quá trình build image. Nhờ đó, hệ thống Linux Embedded sau khi boot sẽ có đầy đủ module và các thành phần cần thiết phục vụ quá trình runtime. Sau khi hệ thống khởi động, kernel module có thể được kiểm tra thông qua các lệnh quản lý module của Linux. Một số lệnh phổ biến được trình bày trong Bảng \ref{tab:runtime_verify_commands}.
 
 \begin{table}[H]
 \centering
@@ -638,194 +387,6 @@ modinfo & Xem thông tin module \\ \hline
 
 Lệnh \texttt{lsmod} cho phép kiểm tra danh sách kernel module đang hoạt động trong hệ thống. Lệnh \texttt{dmesg} được sử dụng để xem thông điệp kernel log nhằm xác nhận trạng thái hoạt động của driver. Trong khi đó, \texttt{modinfo} cung cấp thông tin metadata của kernel module như phiên bản, license và vị trí file module trong filesystem.
 
-Nhờ cơ chế build tự động và quản lý metadata của Yocto Project, quá trình xây dựng và tích hợp driver vào hệ thống Linux Embedded được thực hiện một cách đồng bộ, linh hoạt và có khả năng tái sử dụng cao. Điều này giúp giảm độ phức tạp trong phát triển hệ thống nhúng và tăng hiệu quả triển khai trong các ứng dụng tự động hóa công nghiệp.
-
-
-\section{Bảo mật hệ điều hành Linux nhúng}
-% Tăng cường bảo mật (security hardening) là quá trình áp dụng các biện pháp cụ thể nhằm mục tiêu nâng cao sự an toàn cho toàn hệ thống một cách toàn diện. Quá trình không chỉ dừng lại ở việc thiết lập các biện pháp nhằm giảm thiểu tấn công bề mặt (attack surface), mà còn bao gồm việc bảo vệ hệ thống ở nhiều lớp khác nhau, từ kernel, hệ điều hành, dịch vụ cho đến ứng dụng và dữ liệu.
-
-% Có nhiều lý do khiến việc tăng cường bảo mật ở các hệ thống nhúng Linux trở thành ưu tiên quan trọng đối với các nhà sản xuất thiết bị, trong đó có ba yếu tố chính cần được đặc biệt quan tâm.
-
-% Thứ nhất, khi số lượng các thiết bị nhúng được kết nối Internet ngày càng tăng, các thiết bị này trở thành sự lựa chọn tiềm năng, là mục tiêu cho các cuộc tấn công mạng. Việc kết nối Internet khiến thiết bị dễ dàng bị phát hiện và quét từ bên ngoài. Nếu thiết bị tồn tại lỗ hổng bảo mật, kẻ tấn công có thể khai thác để xâm nhập vào cả hệ thống.
-
-% Thứ hai, nếu không có biện pháp bảo mật, các thiết bị nhúng rất dễ để lộ thông tin. Như Scott Murray của Konsulko Group đã giải thích tại Yocto Project Virtual DevDay năm 2020, việc quét tất cả các thiết bị IPv4 bằng công cụ tìm kiếm như shodan.io để xác định thiết bị nào đang hoạt động là điều rất dễ dàng \cite{yocto_hardening_2020}. Bên cạnh đó, việc cấu hình không đúng, chẳng hạn như mở cổng không cần thiết hoặc sử dụng các cơ chế tự động như UPnP, có thể khiến các dịch vụ trên thiết bị vô tình bị công khai ra bên ngoài. Những yếu tố này làm cho thiết bị không chỉ là mục tiêu tấn công, mà còn dễ dàng bị tìm thấy và khai thác, từ đó làm gia tăng đáng kể nguy cơ mất an toàn cho hệ thống.
-
-% Thứ ba, các thiết bị nhúng Linux có thể bị chiếm quyền điều khiển và sử dụng như một công cụ để tấn công các hệ thống khác, chẳng hạn như tham gia vào mạng botnet hoặc thực hiện tấn công DDoS. Trong trường hợp này, kẻ tấn công không nhắm vào dữ liệu của thiết bị mà khai thác khả năng kết nối và tài nguyên xử lý của nó. Do đó, ngay cả các thiết bị đơn giản cũng cần được bảo mật để tránh bị lợi dụng cho các mục đích tấn công. 
-
-% Chính vì những rủi ro nêu trên, việc tăng cường bảo mật trở thành một trong những ưu tiên hàng đầu đối với các nhà sản xuất thiết bị, đồng thời là yếu tố xuyên suốt trong quá trình phát triển phần mềm nhúng và các hệ thống kết nối. Đối với các hệ thống sử dụng Linux, Yocto được xem là một công cụ quan trọng, cho phép các developer xây dựng và kiểm soát hệ thống một cách linh hoạt, từ đó tích hợp các cơ chế bảo mật phù hợp ngay từ giai đoạn thiết kế.
-
-% Ngày nay, nhiều hệ thống nhúng Linux được xây dựng bằng Yocto Project đang được áp dụng rộng rãi trong các lĩnh vực trọng yếu nhưng có độ bảo mật chưa cao. Khác với các bản phân phối Linux phổ biến như Debian hay Ubuntu, Yocto không cung cấp một hệ điều hành hoàn chỉnh mà cung cấp các công nghệ tùy biến để các developer xây dựng một hệ điều hành theo nhu cầu. Điều này góp phần xây dựng một hệ điều hành có sự linh hoạt cao nhưng đồng thời đi cùng các rủi ro về bảo mật. Đối với các ứng dụng như hệ thống tự động trong công nghiệp, lĩnh vực sức khỏe hay xe tự hành thì tầm quan trọng của bảo mật lại càng trở nên cấp thiết hơn.
-
-% Để hiện thực hóa mục tiêu này, các nhà phát triển có thể áp dụng phối hợp nhiều giải pháp kỹ thuật cụ thể. Một số cơ chế bảo mật tiêu biểu có thể kể đến như: giảm thiểu bề mặt tấn công; thiết lập nghiêm ngặt phân quyền admin-user theo nguyên tắc đặc quyền tối thiểu; sử dụng SELinux để kiểm soát truy cập bắt buộc; áp dụng dm-verity nhằm đảm bảo tính toàn vẹn của hệ điều hành và dùng fscrypt để mã hóa bảo mật dữ liệu người dùng.
-% \begin{figure}[!h]
-%     \centering
-%     \includegraphics[width=1\textwidth]{image/image5.png}
-%     \caption{Tăng cường bảo mật cho hệ thống nhúng Yocto là một bài toán đa khía cạnh}
-%     \label{fig:secure_yocto}
-
-%     \vspace{0.3em}
-%     \small
-%     Nguồn: Star Lab Software
-% \end{figure}
-
-\subsection{Giảm thiểu tấn công bề mặt}
-
-Giảm thiểu tấn công bề mặt (Attack Surface Reduction) là phương pháp hạn chế số lượng thành phần, dịch vụ và chức năng có thể bị khai thác trong hệ thống. 
-Đối với Linux nhúng, bề mặt tấn công thường bao gồm các dịch vụ mạng không cần thiết, các package dư thừa hoặc các cấu hình mặc định thiếu an toàn.
-
-Yocto Project cho phép xây dựng image Linux tối giản và chỉ tích hợp các thành phần cần thiết cho hệ thống. 
-Điều này giúp giảm số lượng tiến trình đang hoạt động, hạn chế cổng mạng mở và giảm nguy cơ xuất hiện lỗ hổng bảo mật.
-
-Trong đề tài này, nguyên tắc giảm thiểu bề mặt tấn công được sử dụng làm nền tảng cho việc xây dựng image Linux nhúng tối ưu và an toàn hơn cho gateway IoT.
-
-\subsection{Bảo mật quyền truy cập với SELinux}
-
-SELinux (Security-Enhanced Linux) là cơ chế bảo mật dành cho Linux dựa trên mô hình Mandatory Access Control (MAC). 
-Khác với mô hình phân quyền truyền thống, SELinux cho phép kiểm soát chặt chẽ quyền truy cập giữa các tiến trình và tài nguyên hệ thống thông qua các policy bảo mật.
-
-SELinux hoạt động bằng cách gán security context cho tiến trình và tài nguyên trong hệ thống. 
-Mọi hành động truy cập đều phải tuân theo policy đã được định nghĩa trước; nếu không được cho phép rõ ràng, truy cập sẽ bị từ chối theo mặc định.
-
-Một trong những đặc điểm quan trọng của SELinux là nguyên tắc đặc quyền tối thiểu (least privilege), theo đó mỗi tiến trình chỉ được cấp các quyền cần thiết cho chức năng của mình. 
-Điều này giúp hạn chế khả năng lan rộng của tấn công khi một dịch vụ bị khai thác.
-
-Trong các hệ thống Yocto Linux, SELinux thường được tích hợp thông qua layer \texttt{meta-selinux} nhằm tăng cường khả năng bảo vệ cho hệ điều hành nhúng.
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{image/image3.png}
-    \caption{Bảo mật quyền truy cập hệ thống với SELinux trong Yocto}
-    \label{fig:selinu} 
-
-    \vspace{0.3em}
-    \small
-    Nguồn: https://www.geeksforgeeks.org/linux-unix/what-is-selinux/
-\end{figure}
-
-\subsection{Bảo mật chống tấn công offline với dm-verity}
-
-Hầu hết các cơ chế bảo mật trong Linux tập trung vào việc bảo vệ hệ thống trong quá trình vận hành. Tuy nhiên, vẫn tồn tại các hình thức tấn công xảy ra khi hệ thống không hoạt động, chẳng hạn như việc tháo thiết bị lưu trữ để thay đổi dữ liệu trực tiếp rồi lắp lại vào hệ thống. Để phát hiện và hạn chế các cuộc tấn công dạng này, Linux cung cấp nhiều cơ chế kiểm tra tính toàn vẹn của hệ thống tập tin, trong đó dm-verity là một giải pháp được sử dụng phổ biến trong các hệ thống nhúng nhờ khả năng bảo vệ dữ liệu mạnh, chống lại các tấn công offline và không yêu cầu sử dụng khóa bí mật \cite{patchwork_dmverity}.
-
-dm-verity (device-mapper verity) là một cơ chế xác minh tính toàn vẹn dữ liệu ở mức block device trong Linux kernel. Cơ chế này hoạt động dựa trên hệ thống device-mapper và thường được sử dụng để bảo vệ root filesystem ở chế độ chỉ đọc (read-only root filesystem). Khi được kích hoạt, mọi khối dữ liệu được đọc từ thiết bị lưu trữ đều sẽ được xác minh trước khi chuyển cho hệ điều hành sử dụng. Nếu phát hiện dữ liệu bị thay đổi hoặc không khớp với giá trị băm đã lưu trước đó, dm-verity sẽ báo lỗi hoặc từ chối mount filesystem nhằm ngăn chặn việc sử dụng dữ liệu không tin cậy.
-
-Để thực hiện việc xác minh dữ liệu một cách hiệu quả, dm-verity sử dụng cấu trúc cây băm Merkle (Merkle tree). Trong cấu trúc này, mỗi khối dữ liệu sẽ được tính toán giá trị hash riêng biệt. Sau đó, các hash này tiếp tục được ghép cặp và băm lại để tạo thành các lớp hash cấp cao hơn. Quá trình này được lặp lại cho đến khi thu được một giá trị hash duy nhất ở đỉnh cây, gọi là root hash. Root hash đại diện cho toàn bộ dữ liệu của filesystem và đóng vai trò là giá trị tin cậy để xác minh tính toàn vẹn của toàn hệ thống.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{image/image4.png}
-    \caption{Bảo mật chống tấn công offline với dm-verity trong Yocto}
-    \label{fig:dmverity} 
-\end{figure}
-
-Một ưu điểm quan trọng của Merkle tree là hệ thống không cần xác minh toàn bộ filesystem cùng một lúc. Thay vào đó, dm-verity chỉ cần kiểm tra các hash liên quan đến block dữ liệu đang được truy cập. Điều này giúp giảm đáng kể chi phí tính toán và thời gian khởi động hệ thống so với phương pháp sử dụng một hash duy nhất cho toàn bộ filesystem. Ngoài ra, nếu một block dữ liệu bị thay đổi, chỉ nhánh hash liên quan mới bị ảnh hưởng, trong khi các phần còn lại của hệ thống vẫn có thể được xác minh độc lập.
-
-Khi dữ liệu được truy cập lần đầu tiên, kernel sẽ đọc block dữ liệu từ thiết bị lưu trữ và tiến hành xác minh thông qua cây băm. Hệ thống sẽ lần lượt truy xuất các hash từ các cấp thấp hơn cho đến root hash đã được tin cậy trước đó. Nếu toàn bộ quá trình xác minh thành công, dữ liệu sẽ được chấp nhận; ngược lại, hệ thống sẽ phát hiện dữ liệu đã bị thay đổi hoặc hỏng. Trong các lần truy cập tiếp theo, dữ liệu và các hash liên quan có thể đã được lưu trong bộ nhớ đệm (cache), cho phép hệ điều hành tái sử dụng các kết quả xác minh trước đó mà không cần đọc lại toàn bộ cây băm. Điều này giúp cải thiện đáng kể hiệu năng truy cập dữ liệu trong quá trình vận hành.
-
-Nhờ khả năng xác minh tính toàn vẹn ở mức block device, dm-verity đặc biệt phù hợp với các hệ thống nhúng yêu cầu tính ổn định và độ tin cậy cao như thiết bị IoT, hệ thống công nghiệp hoặc các nền tảng Linux tối giản. Cơ chế này giúp phát hiện các thay đổi trái phép đối với root filesystem, đồng thời tăng cường khả năng chống lại các cuộc tấn công ngoại tuyến nhằm sửa đổi dữ liệu hệ thống.
-
-% \section{Edge AI trong hệ thống nhúng}
-% \subsection{Khái niệm Edge AI và lợi ích so với Cloud AI}
-% Trí tuệ nhân tạo (Artificial Intelligence – AI) là công nghệ cho phép máy tính mô phỏng các hành vi thông minh của con người như học tập, suy luận và nhận dạng. Trong các hệ thống truyền thống, mô hình AI thường được triển khai trên nền tảng điện toán đám mây (Cloud AI), nơi dữ liệu được gửi từ thiết bị đầu cuối lên máy chủ để xử lý.
-    
-% Edge AI là xu hướng triển khai các mô hình trí tuệ nhân tạo trực tiếp trên thiết bị biên (edge device) như camera thông minh, gateway công nghiệp hoặc hệ thống nhúng. Thay vì truyền toàn bộ dữ liệu lên đám mây, quá trình suy luận (inference) được thực hiện ngay tại thiết bị thu thập dữ liệu.
-
-% So với Cloud AI, Edge AI mang lại nhiều lợi ích:
-% \begin{itemize}
-%     \item Giảm độ trễ xử lý do không phụ thuộc vào kết nối mạng
-%     \item Tăng tính ổn định của hệ thống trong môi trường công nghiệp
-%     \item Nâng cao tính bảo mật do dữ liệu không cần truyền ra ngoài
-%     \item Phù hợp cho các ứng dụng giám sát và xử lý thời gian thực
-% \end{itemize}
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{image/CloudAIvsEdgeAI-1920w.png} 
-%     \caption{Cloud AI và Edge AI}
-%     \label{fig:tenlabel}
-% \end{figure}
-% Trong đề tài này, Edge AI được triển khai như một module phân tích dữ liệu chuỗi thời gian (Time Series), đảm nhiệm chức năng dự báo sớm nồng độ bụi mịn PM2.5 dựa trên các thông số môi trường thực tế ngay tại tại hiện trường.
-% \subsection{Tổng quan mô hình TCN (Temporal Convolutional Network) và lý do lựa chọn TCN}
-
-% \subsubsection{Tổng quan về kiến trúc TCN}
-
-% Temporal Convolutional Network (TCN) là một kiến trúc mạng nơ-ron được thiết kế chuyên biệt cho bài toán xử lý dữ liệu chuỗi thời gian. Mô hình này kết hợp ưu điểm của mạng tích chập (Convolutional Neural Network -- CNN) với khả năng học các phụ thuộc dài hạn tương tự như mạng hồi tiếp (Recurrent Neural Network -- RNN).
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{image/TCN.png} 
-%     \caption{Kiến trúc Model TCN}
-%     \label{fig:tenlabel}
-% \end{figure}
-% Kiến trúc TCN được xây dựng dựa trên hai nguyên lý cốt lõi:
-
-% \begin{itemize}
-%     \item \textbf{Causal Convolution (Tích chập nhân quả):}  
-%     Đảm bảo rằng tại thời điểm $t$, mô hình chỉ sử dụng các thông tin từ các thời điểm trước đó và hiện tại, tức là từ $0$ đến $t$. Điều này giúp ngăn chặn hiện tượng ``rò rỉ'' thông tin từ tương lai vào quá trình dự báo.
-
-%     \item \textbf{Dilated Convolution (Tích chập giãn cách):}  
-%     Các phần tử trong bộ lọc được áp dụng với khoảng cách giãn $d$, giúp mở rộng trường thụ cảm (\textit{receptive field}) theo cấp số nhân mà không làm tăng đáng kể số lượng tham số của mô hình.
-% \end{itemize}
-
-% Trong đề tài này, mô hình được cấu hình với các hệ số giãn cách:
-
-% \[
-% d = \{1, 2, 4, 8\}
-% \]
-
-% Cấu hình này cho phép mô hình quan sát hiệu quả các biến động của nồng độ bụi mịn PM2.5 trong khoảng thời gian 30 phút trước đó, từ đó nâng cao khả năng dự báo cho các bước thời gian tiếp theo.
-
-% \subsubsection{Lý do lựa chọn TCN thay vì LSTM/RNN}
-
-% Sau quá trình thực nghiệm và tối ưu hóa cho hệ thống Edge AI, kiến trúc TCN được lựa chọn thay thế cho các mô hình LSTM và RNN nhờ những ưu điểm sau:
-
-% \begin{itemize}
-%     \item \textbf{Khả năng xử lý song song:}  
-%     Không giống như RNN và LSTM phải tính toán tuần tự theo từng bước thời gian, TCN sử dụng phép tích chập trên toàn bộ chuỗi dữ liệu. Điều này cho phép tận dụng khả năng tính toán song song của phần cứng, từ đó rút ngắn đáng kể thời gian huấn luyện và suy luận.
-
-%     \item \textbf{Giảm hiện tượng mất mát đạo hàm:}  
-%     Nhờ cấu trúc tích chập phân tầng kết hợp với các kết nối tắt (\textit{residual connections}), TCN có khả năng học ổn định hơn khi xử lý các phụ thuộc dài hạn so với RNN truyền thống.
-
-%     \item \textbf{Trường thụ cảm linh hoạt:}  
-%     Bằng cách điều chỉnh các tham số như \texttt{kernel\_size} và \texttt{dilations}, có thể kiểm soát chính xác độ dài của chuỗi dữ liệu quá khứ mà mô hình sử dụng để đưa ra dự báo.
-
-%     \item \textbf{Phù hợp với Edge AI:}  
-%     Kiến trúc TCN có cấu trúc gọn nhẹ, số lượng tham số thấp và dễ dàng chuyển đổi sang định dạng TensorFlow Lite Float16. Trong đề tài này, mô hình sau khi lượng tử hóa đã giảm khoảng 50\% dung lượng lưu trữ trong khi vẫn duy trì độ chính xác dự báo ở mức cao, phù hợp để triển khai trên thiết bị nhúng như Raspberry Pi 4.
-% \end{itemize}
-% \subsection{Định dạng mô hình trung gian và tối ưu hóa trên thiết bị Edge}
-
-% \subsubsection{Định dạng mô hình ONNX (Open Neural Network Exchange)}
-
-% ONNX (Open Neural Network Exchange) là một định dạng mở được thiết kế để biểu diễn các mô hình học máy, cho phép chuyển đổi linh hoạt giữa nhiều framework khác nhau như PyTorch, TensorFlow và Keras.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{image/ONNX.jpg} 
-%     \caption{ONNX}
-%     \label{fig:tenlabel}
-% \end{figure}
-% Trong đề tài này, ONNX đóng vai trò như một ``ngôn ngữ chung'' cho mô hình học sâu. Việc chuyển đổi mô hình sang định dạng ONNX giúp hệ thống có thể tận dụng các công cụ tối ưu hóa và các bộ tăng tốc phần cứng khác nhau mà không phụ thuộc vào môi trường huấn luyện ban đầu.
-
-% Một ưu điểm quan trọng của ONNX là khả năng tối ưu hóa đồ thị tính toán (\textit{graph optimization}), bao gồm việc loại bỏ các nút dư thừa, hợp nhất các phép toán liên tiếp và đơn giản hóa cấu trúc mô hình nhằm cải thiện tốc độ suy luận.
-
-% \subsubsection{Định dạng TensorFlow Lite (TFLite) và tối ưu hóa Float16}
-
-% TensorFlow Lite (TFLite) là thư viện mã nguồn mở được phát triển nhằm tối ưu hóa quá trình suy luận (\textit{inference}) trên các thiết bị di động và hệ thống nhúng có tài nguyên phần cứng hạn chế.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{image/TFLITE.png} 
-%     \caption{TFLITE}
-%     \label{fig:tenlabel}
-% \end{figure}
-% Trong hệ thống được xây dựng, kỹ thuật \textit{Float16 Quantization} được áp dụng trong quá trình chuyển đổi mô hình (thực hiện trong file \texttt{convert.py}). Cụ thể, các trọng số của mô hình được chuyển từ định dạng số thực dấu phẩy động 32-bit (Float32) sang 16-bit (Float16).
-
-% Việc lượng tử hóa Float16 mang lại các lợi ích sau:
-
-% \begin{itemize}
-%     \item \textbf{Giảm dung lượng mô hình:}  
-%     Kích thước tệp mô hình giảm khoảng 50\% so với mô hình gốc, giúp tiết kiệm bộ nhớ lưu trữ trên thiết bị nhúng.
-
-%     \item \textbf{Tăng tốc độ suy luận:}  
-%     Nhiều bộ xử lý hiện đại hỗ trợ tính toán Float16 hiệu quả, giúp giảm độ trễ (\textit{latency}) khi dự báo chỉ số PM2.5 theo thời gian thực.
-
-%     \item \textbf{Duy trì độ chính xác cao:}  
-%     So với lượng tử hóa Int8, định dạng Float16 thường giữ được độ chính xác gần như tương đương với mô hình gốc, đồng thời ít gây sai lệch kết quả dự báo.
-% \end{itemize}
 \section{Edge AI trong hệ thống nhúng}
 
 \subsection{Khái niệm Edge AI và lợi ích so với Cloud AI}
@@ -859,7 +420,7 @@ Temporal Convolutional Network (TCN) là một kiến trúc mạng nơ-ron đư�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{image/TCN.png}
+    \includegraphics[width=0.5\textwidth]{image/TCN.png}
     \caption{Kiến trúc mô hình TCN}
     \label{fig:tcn_architecture}
 \end{figure}
@@ -883,24 +444,9 @@ Cấu hình này cho phép mô hình quan sát hiệu quả các biến động 
 
 \subsubsection{Lý do lựa chọn TCN thay vì LSTM/RNN}
 
-Sau quá trình thực nghiệm và tối ưu hóa cho hệ thống Edge AI, kiến trúc TCN được lựa chọn thay thế cho các mô hình LSTM và RNN nhờ những ưu điểm sau:
+Sau quá trình thực nghiệm và tối ưu hóa cho hệ thống Edge AI, trong luận văn nhóm đã lựa chọn kiến trúc TCN thay thế cho các mô hình LSTM và RNN nhờ nhiều ưu điểm về hiệu năng và khả năng triển khai trên thiết bị nhúng. Khác với RNN và LSTM phải xử lý dữ liệu tuần tự theo từng bước thời gian, TCN sử dụng phép tích chập trên toàn bộ chuỗi dữ liệu, cho phép tận dụng khả năng tính toán song song của phần cứng nhằm giảm đáng kể thời gian huấn luyện và suy luận. Ngoài ra, cấu trúc tích chập phân tầng kết hợp với residual connection giúp TCN giảm hiện tượng mất mát đạo hàm và học ổn định hơn khi xử lý các phụ thuộc dài hạn trong chuỗi thời gian.
 
-\begin{itemize}
-    \item \textbf{Khả năng xử lý song song:}
-    Không giống như RNN và LSTM phải tính toán tuần tự theo từng bước thời gian, TCN sử dụng phép tích chập trên toàn bộ chuỗi dữ liệu. Điều này cho phép tận dụng khả năng tính toán song song của phần cứng, từ đó rút ngắn đáng kể thời gian huấn luyện và suy luận.
-
-    \item \textbf{Giảm hiện tượng mất mát đạo hàm:}
-    Nhờ cấu trúc tích chập phân tầng kết hợp với các kết nối tắt (\textit{residual connections}), TCN có khả năng học ổn định hơn khi xử lý các phụ thuộc dài hạn so với RNN truyền thống.
-
-    \item \textbf{Trường thụ cảm linh hoạt:}
-    Bằng cách điều chỉnh các tham số như \texttt{kernel\_size} và \texttt{dilations}, có thể kiểm soát chính xác độ dài của chuỗi dữ liệu quá khứ mà mô hình sử dụng để đưa ra dự báo.
-
-    \item \textbf{Hiệu quả trong dự báo PM2.5:}
-    Nhiều nghiên cứu gần đây cho thấy các biến thể của TCN đạt kết quả rất tốt trong bài toán dự báo chất lượng không khí và nồng độ PM2.5 \cite{li2023_tcn_bilstm_dmattention,wang2024_causal_stan,stoten2025_pm25}.
-
-    \item \textbf{Phù hợp với Edge AI:}
-    Kiến trúc TCN có cấu trúc gọn nhẹ, số lượng tham số thấp và dễ dàng chuyển đổi sang định dạng TensorFlow Lite Float16. Trong đề tài này, mô hình sau khi lượng tử hóa đã giảm khoảng 50\% dung lượng lưu trữ trong khi vẫn duy trì độ chính xác dự báo ở mức cao, phù hợp để triển khai trên thiết bị nhúng như Raspberry Pi 4.
-\end{itemize}
+Bên cạnh đó, TCN cho phép điều chỉnh linh hoạt trường thụ cảm thông qua các tham số như \texttt{kernel\_size} và \texttt{dilations}, giúp kiểm soát hiệu quả độ dài chuỗi dữ liệu được sử dụng để dự báo. Nhiều nghiên cứu gần đây cũng cho thấy TCN đạt hiệu quả cao trong các bài toán dự báo chất lượng không khí và nồng độ PM2.5 \cite{li2023_tcn_bilstm_dmattention,wang2024_causal_stan,stoten2025_pm25}. Ngoài hiệu quả dự báo, kiến trúc TCN còn có cấu trúc gọn nhẹ, số lượng tham số thấp và dễ dàng chuyển đổi sang định dạng TensorFlow Lite Float16. Trong đề tài này, mô hình sau khi lượng tử hóa đã giảm khoảng 50\% dung lượng lưu trữ nhưng vẫn duy trì độ chính xác dự báo ở mức cao, phù hợp để triển khai trên các thiết bị Edge AI như Raspberry Pi 4.
 
 \subsection{Định dạng mô hình trung gian và tối ưu hóa trên thiết bị Edge}
 
@@ -949,7 +495,7 @@ Việc lượng tử hóa Float16 mang lại các lợi ích sau:
 \subsection{Chuẩn vật lý RS485}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{image/rs485.jpg}
+    \includegraphics[width=0.2\linewidth]{image/rs485.jpg}
     \caption{RS485 TTL }
     \label{fig:placeholder}
 \end{figure}
@@ -958,32 +504,14 @@ Chuẩn RS485 (Recommended Standard 485) là một chuẩn truyền thông ở t
 
 Về mặt nguyên lý hoạt động, RS485 sử dụng phương pháp truyền tín hiệu vi sai (differential signaling) thông qua hai dây tín hiệu A và tín hiệu B. Dữ liệu được biểu diễn bằng sự chênh lệch điện áp giữa hai dây này thay vì so với mass (hoặc GND) như các chuẩn truyền đơn cực. Cách truyền vi sai giúp RS485 có khả năng chống nhiễu điện từ cao, đặc biệt phù hợp với môi trường công nghiệp nơi tồn tại nhiều nguồn nhiễu như động cơ, biến tần và thiết bị công suất lớn.
 
-
-Chuẩn RS485 hỗ trợ cấu trúc mạng đa điểm (multi-drop), cho phép nhiều thiết bị cùng kết nối trên một bus truyền thông duy nhất. Về lý thuyết, một mạng RS485 có thể kết nối tối đa 32 thiết bị tiêu chuẩn (1 unit load), và con số này có thể tăng lên khi sử dụng các bộ thu phát (transceiver) hiện đại với tải nhỏ hơn. Khoảng cách truyền tối đa của RS485 có thể đạt tới 1200 m trong điều kiện tốc độ thấp, trong khi tốc độ truyền dữ liệu có thể lên tới hàng Mbps khi khoảng cách ngắn, cho thấy sự linh hoạt trong thiết kế hệ thống.
-
-
-RS485 không quy định giao thức truyền thông ở tầng trên mà chỉ định nghĩa các đặc tính điện và tín hiệu ở tầng vật lý. Do đó, RS485 thường được kết hợp với các giao thức truyền thông công nghiệp như Modbus RTU hoặc giao thức tùy biến để hình thành hệ thống truyền thông hoàn chỉnh. Trong thực tế, Modbus RTU trên nền RS485 là một trong những sự kết hợp phổ biến nhất trong các hệ thống giám sát và điều khiển công nghiệp.
-
-
-Về cấu hình truyền thông, RS485 có thể hoạt động ở chế độ bán song công (half-duplex) hoặc song công toàn phần (full-duplex), tuy nhiên bán song công là chế độ được sử dụng phổ biến nhất nhằm giảm số lượng dây dẫn và chi phí triển khai. Để đảm bảo tín hiệu ổn định, mạng RS485 yêu cầu sử dụng điện trở kết thúc (termination resistor) ở hai đầu bus truyền nhằm giảm phản xạ tín hiệu, đồng thời có thể cần điện trở bias để xác định trạng thái đường truyền khi không có thiết bị phát.
-
-
 Nhờ các đặc tính nổi bật như khả năng truyền xa, chống nhiễu tốt, hỗ trợ nhiều thiết bị và chi phí triển khai thấp, chuẩn RS485 vẫn giữ vai trò quan trọng trong các hệ thống công nghiệp hiện đại. Mặc dù đã xuất hiện nhiều chuẩn truyền thông mới, RS485 vẫn là lựa chọn ưu tiên trong các ứng dụng yêu cầu độ tin cậy cao, cấu trúc đơn giản và khả năng hoạt động ổn định trong môi trường khắc nghiệt.
+
+Trong hệ thống IoT và Linux Embedded, RS485 thường được kết hợp với các giao thức truyền thông công nghiệp như Modbus RTU nhằm hỗ trợ trao đổi dữ liệu giữa gateway và các cảm biến hoặc thiết bị điều khiển.
 \subsection{Giao thức Modbus RTU và cấu trúc khung tin}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{image/modbus.png}
-    \caption{Modbus RTU }
-    \label{fig:placeholder}
-\end{figure}
 \subsubsection{Giao thức Modbus RTU}
 
 
 Modbus RTU (Remote Terminal Unit) là một giao thức truyền thông công nghiệp phổ biến, được phát triển bởi Modicon vào năm 1979. Đây là giao thức dạng master–slave (hiện nay còn gọi là client–server), được thiết kế nhằm cho phép các thiết bị điều khiển và giám sát trong công nghiệp trao đổi dữ liệu với nhau một cách đơn giản, tin cậy và hiệu quả. Nhờ tính mở, dễ triển khai và khả năng tương thích cao, Modbus RTU hiện vẫn được sử dụng rộng rãi trong các hệ thống SCADA, PLC, cảm biến và thiết bị đo lường công nghiệp.
-
-
-Modbus RTU thường được triển khai trên các chuẩn truyền thông vật lý nối tiếp như RS232 và đặc biệt phổ biến trên RS485 mà nhóm đang thực hiện trong dự án, do RS485 hỗ trợ truyền xa, chống nhiễu tốt và cho phép nhiều thiết bị cùng kết nối trên một đường bus. Giao thức Modbus RTU không phụ thuộc vào phần cứng cụ thể mà chỉ quy định cách thức tổ chức dữ liệu và trao đổi thông tin giữa các thiết bị.
-
 
 Trong mô hình hoạt động của Modbus RTU, thiết bị master đóng vai trò khởi tạo và điều khiển toàn bộ quá trình truyền thông, trong khi các thiết bị slave chỉ phản hồi khi nhận được yêu cầu hợp lệ từ master. Mỗi thiết bị slave được gán một địa chỉ duy nhất trên bus, giúp master xác định đúng thiết bị cần giao tiếp. Cơ chế này giúp tránh xung đột dữ liệu và đảm bảo tính tuần tự trong quá trình truyền thông.
 
@@ -1000,12 +528,6 @@ Một khung tin Modbus RTU tiêu chuẩn bao gồm các thành phần chính: đ
 Trường địa chỉ thiết bị có độ dài 1 byte, dùng để xác định slave mà master muốn giao tiếp. Địa chỉ hợp lệ nằm trong khoảng từ 1 đến 247, trong khi địa chỉ 0 được sử dụng cho chế độ broadcast, cho phép master gửi lệnh đến tất cả các slave mà không yêu cầu phản hồi.
 
 
-Mã hàm (Function Code), cũng có độ dài 1 byte, dùng để chỉ định loại thao tác mà master yêu cầu thực hiện. Các mã hàm phổ biến bao gồm đọc thanh ghi (Read Holding Registers), ghi thanh ghi (Write Single Register), đọc coil hoặc input status. Dựa vào mã hàm, thiết bị slave sẽ biết cách xử lý yêu cầu và chuẩn bị dữ liệu phản hồi phù hợp.
-
-
-Phần dữ liệu có độ dài thay đổi tùy thuộc vào mã hàm được sử dụng. Trường này có thể chứa địa chỉ thanh ghi, số lượng thanh ghi cần đọc/ghi hoặc dữ liệu cụ thể cần truyền. Cấu trúc linh hoạt của vùng dữ liệu cho phép Modbus RTU thích ứng với nhiều loại thiết bị và nhu cầu truyền thông khác nhau trong công nghiệp.
-
-
 Mỗi khung tin Modbus RTU kết thúc bằng trường CRC (Cyclic Redundancy Check) dài 2 byte. CRC được sử dụng để kiểm tra lỗi trong quá trình truyền dữ liệu, giúp phát hiện các lỗi do nhiễu hoặc sai lệch tín hiệu trên đường truyền. Slave hoặc master sẽ tự động tính toán CRC của khung tin nhận được và so sánh với giá trị CRC đi kèm để xác định tính toàn vẹn của dữ liệu.
 
 
@@ -1013,7 +535,8 @@ Mặc dù đã xuất hiện nhiều giao thức truyền thông công nghiệp 
 
 \section{Kết nối Cloud và IoT}
 \subsection{Tổng quan về CoreIOT}
-\begin{figure}[!h]
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{image/coreiotp.png}
     \caption{Tổng quan về CoreIOT}
@@ -1041,20 +564,6 @@ nền tảng để xử lý và lưu trữ tập trung. Thông qua đó, CoreIoT
 dõi trạng thái thiết bị, phân tích dữ liệu và hiển thị thông tin trực quan trên
 dashboard, hỗ trợ người dùng giám sát hệ thống một cách hiệu quả.
 
-Một điểm nổi bật của CoreIoT là giao diện người dùng được thiết kế theo
-hướng trực quan, thân thiện Các chức năng quản lý
-thiết bị, cấu hình dashboard và theo dõi dữ liệu được đơn giản hóa, giúp sinh
-viên và người mới tiếp cận IoT có thể nhanh chóng làm quen và khai thác nền
-tảng. Điều này góp phần giảm rào cản kỹ thuật trong quá trình học tập và thực
-hành, đồng thời nâng cao hiệu quả đào tạo.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{image/rulechain.png}
-    \caption{Xây dựng quy tắc xử lý dữ liệu và sự kiện trong CoreIoT}
-    \label{fig:rulechain}
-\end{figure}
-
 Bên cạnh chức năng giám sát, CoreIoT còn hỗ trợ xây dựng các quy tắc xử lý
 dữ liệu và sự kiện thông qua cơ chế xử lý logic ở tầng nền tảng. Các quy tắc này
 cho phép hệ thống phản ứng tự động trước các điều kiện cụ thể, chẳng hạn như
@@ -1068,17 +577,14 @@ cận các khái niệm quan trọng như quản lý thiết bị, truyền thô
 việc triển khai các đề tài học tập, đồ án và nghiên cứu ứng dụng, đồng thời có
 khả năng mở rộng để đáp ứng các bài toán IoT phức tạp hơn trong tương lai.
 
-\newpage
+
 \subsection{Giao thức MQTT trong hệ thống nhúng}
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{image/mqtt1.png}
+    \includegraphics[width=0.6\textwidth]{image/mqtt1.png}
     \caption{Giao thức MQTT trong hệ thống nhúng}
     \label{fig:mqtt}
 
-    \vspace{0.3em}
-    \small
-    Nguồn: https://www.manubes.com/what-is-mqtt/
 \end{figure}
 
 MQTT (Message Queuing Telemetry Transport) là một giao thức truyền tin

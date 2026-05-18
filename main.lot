@@ -1,16 +1,26 @@
 \babel@toc {vietnamese}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Các biến cơ bản trong Recipe}}{19}{table.caption.9}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Các task chính của BitBake}}{20}{table.caption.10}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Mô hình Cross-compilation}}{23}{table.caption.17}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Các loại Linux Device Driver}}{27}{table.caption.18}%
-\contentsline {table}{\numberline {2.5}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{36}{table.caption.19}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Các biến cơ bản trong Recipe}}{21}{table.caption.6}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Các task chính của BitBake}}{22}{table.caption.7}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Mô hình Cross-compilation}}{23}{table.caption.8}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Các loại Linux Device Driver}}{25}{table.caption.9}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Các thông tin trong Device Tree}}{26}{table.caption.10}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Các lệnh kiểm tra Kernel Module}}{29}{table.caption.11}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Cơ chế xác định trạng thái hệ thống}}{62}{table.caption.57}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Cấu trúc payload dữ liệu gửi lên CoreIoT}}{62}{table.caption.58}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Yêu cầu chức năng của hệ thống}}{40}{table.caption.20}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Yêu cầu phi chức năng của hệ thống}}{40}{table.caption.21}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces So sánh các nền tảng phần cứng hỗ trợ Yocto Project}}{42}{table.caption.22}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces So sánh các package manager trên Linux}}{46}{table.caption.26}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces So sánh các policy trong SELinux}}{49}{table.caption.30}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Cơ chế xác định trạng thái hệ thống}}{76}{table.caption.45}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Cấu trúc payload dữ liệu gửi lên CoreIoT}}{77}{table.caption.46}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces So sánh các policy phổ biến của SELinux}}{78}{table.caption.81}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces So sánh các policy phổ biến của SELinux}}{82}{table.caption.49}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Thông số kỹ thuật của mô hình TCN sau huấn luyện}}{115}{table.caption.129}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Kết quả kiểm thử xác thực SSH}}{115}{table.caption.63}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Kết quả kiểm thử SSH với mật khẩu sai}}{116}{table.caption.65}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Kết quả kiểm thử SSH với tài khoản không hợp lệ}}{116}{table.caption.67}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Kết quả kiểm thử SSH với tài khoản root}}{117}{table.caption.69}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Thông số kỹ thuật của mô hình TCN sau huấn luyện}}{121}{table.caption.76}%
 \addvspace {10\p@ }
